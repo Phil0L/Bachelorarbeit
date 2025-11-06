@@ -8,7 +8,8 @@
 **/**.toc
 **/**.gitignore
 **/Code/**
-LaTeX/bachelorarbeit.synctex.gz
-LaTeX/bachelorarbeit.log
-LaTeX/bachelorarbeit.fdb_latexmk
+**/**.aux
+**/**.synctex.gz
+**/**.log
+**/**.fdb_latexmk
 .gitignore
