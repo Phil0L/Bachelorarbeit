@@ -1,0 +1,74 @@
+:root {
+  --primary-fg: #080826;
+  --primary-bg: #c6c6cf;
+
+  --secondary-fg: #FFFFFF;
+  --secondary-bg: #5F5F6B;
+  --secondary-bg-light: #7E7E8F;
+
+  --accent-fg: #424242;
+  --accent-bg: #628CBD;
+  --accent-bg-sheer: #628CBD50;
+
+  --warn: #B71C1C;
+  --warn-sheer: #B71C1C2A;
+}
+
+html, body { height: 100%; }
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: var(--primary-fg);
+}
+
+h1 {
+  color: var(--primary-fg);
+}
+
+mat-card-header {
+  color: var(--accent-fg);
+}
+
+.action-buttons {
+  padding: 15px 20px;
+  padding-top: 0;
+  margin-left: auto;
+}
+
+.action-buttons .confirm-btn {
+  width: 80px;
+}
+
+.action-buttons .cancel-btn {
+  width: 80px;
+  margin-right: 10px;
+}
+
+.confirm-btn:hover, .cancel-btn:hover {
+  opacity: 0.8;
+}
+
+/* Text field styling */
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  border-color: var(--secondary-bg) !important;
+  border-width: 1.5px !important;
+}
+
+/* Text field styling on hover and focus */
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline__trailing {
+  border-color: var(--secondary-bg-light) !important;
+}
+
+/* Label styling on hover and focus */
+.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-floating-label {
+  color: var(--accent-fg) !important;
+}

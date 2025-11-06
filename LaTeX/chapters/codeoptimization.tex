@@ -1,0 +1,187 @@
+\chapter{Umstrukturierung und Innovation}
+
+Als erstes gilt es herauszufinden welcher Teil des Code, der zuständig für das prompting ist, wie verbessert werden kann.
+Das Projekt von TBA benutzt zur Erstellung von BPMN Diagrammen die OpenAI API und verwendet hier die bereitgestellte 
+Technologie der Assistants.
+
+\section{Generelle Umstrukturierungen}
+
+Während der Code gut für seinen (bisherigen) speziellen Anwendungsfall ist, können hier einige Verbesserungen gemacht werden.
+
+\subsection{Objektorientierter Ansatz}
+
+Das Zeil ist es, den Code einfach erweiterbar und wartbar zu machen.
+Hierfür ist es wichtig, den code möglichst schnell an Änderungen der OpenAI Api anpassen zu können.
+Um das zu erreichen wird ein Objektorientierter Ansatz gewählt.
+Die objektorientierte Programmierung bietet für den Aufbau des Prompting-Codes viele Vorteile und macht die Entwicklung 
+langfristig übersichtlicher und wartbarer. 
+Wir erstellen eine abstrakte Klasse `ai.ts' welche die gesamte Logik des Prompting beinhält und eine Klasse `openai.ts' 
+welche von der AI Klasse erbt.
+Die OpenAi Klasse muss nun nur noch Methoden implementieren, welche konkret auf die aktuelle version der API angepasst sind.
+Durch die Verwendung von abstrakten Methoden wie generateContent(), createTitle() oder processResponse() wird sichergestellt, 
+dass jede konkrete Implementierung dieselbe Schnittstelle einhält, 
+aber ihre eigenen internen Abläufe definieren kann. 
+Dies erleichtert den Austausch und die Erweiterung von Modellen, ohne den restlichen Code verändern zu müssen. 
+Darüber hinaus werden wiederkehrende Prozesse, etwa das Speichern von Verläufen, das Verarbeiten von Antworten 
+oder die Konvertierung zwischen Formaten, zentral in der Basisklasse gekapselt. 
+Falls sich die API ändert, kann dies nun einfach in der Erbenden Klasse angepasst werden, ohne die dahinterliegenden Logik verändern zu müssen.
+
+So sieht nun in abgespeckter Variante die Klasse für die OpenAI API aus.
+Es gibt eine Methode \mintinline{typescript}{mapPromptInput();} um den Prompt in das richtige Format der API zu bringen,
+\mintinline{typescript}{generateContent();} um den eigentlichen API aufruf durchzuführen und \mintinline{typescript}{preocessResponse();}
+um die Antwort der API auszulesen.
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+export class ChatGPT extends Ai {
+  openai = new OpenAI({
+    apiKey: OPENAI_API_KEY,
+  });
+  assist = await openai.beta.assistants.retrieve("asst_...");
+
+  protected mapPromptInput(input) {
+    return {
+      input: input.prompt,
+      model: this.model,
+    };
+  }
+
+  protected async generateContent(input) {
+    return await openai.beta.threads.runs.createAndPoll(
+      thread_id, 
+      { assistant_id: assist.id },
+      { role: "user", content: input }
+    );
+  }
+
+  protected processResponse(response) {
+    return response.output_text.toString();
+  }
+}
+\end{minted}
+
+\subsection{Von Assistants zu Responses}
+
+Die Änderungen welche im vorherigen Kapitel beschrieben wurden, zeigen gleich ihren Effekt, da OpenAI ankündigt ihre 
+Assistants API einstellen zu wollen.
+Sie emfehlen einen Umzug zu ihrer neuen Responses API.
+Dies ist nun recht einfach umzusetzten, da wir nur die elementaren Methoden der API ändern müssen. 
+So sieht nun die neue Methode \mintinline{typescript}{generateContent();} aus:
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+protected async generateContent(input) {
+  return this.openai.responses.create(input);
+}
+\end{minted}
+
+Einer der zentralen Unterschiede zwischen der Assistants- und der Responses-API besteht darin, 
+dass die System-Instructions bei der Verwendung der Responses-API manuell übergeben werden müssen. 
+Dadurch ist es notwendig, die entsprechenden Anweisungen bei jeder Anfrage erneut mitzusenden. 
+Dieser Umstand bringt jedoch nicht nur zusätzlichen Aufwand mit sich, sondern eröffnet auch neue Möglichkeiten: 
+Die Instructions können flexibel und situationsabhängig angepasst werden, wodurch sich das Verhalten des Modells 
+dynamisch steuern lässt.
+Im folgenden Abschnitt wird gezeigt, wie dieser Ansatz weiter verbessert und effizienter gestaltet werden kann.
+
+\subsection{Verbesserung der instructions}
+
+Da die Instructions nun manuell mit jeder Anfrage übergeben werden, bietet sich die Möglichkeit, deren Aufbau 
+gezielt zu optimieren. 
+Ziel dieser Optimierung ist es, die Anzahl der benötigten Input-Tokens zu reduzieren, ohne dabei Qualität einzubüßen. 
+Im besten Fall wird die Ausgabequalität sogar verbessert.
+Der Assistant erhält als Grundlage zwei PDF-Dateien, die BPMN-Diagramme im Detail beschreiben, sowie zwei Textdateien: 
+eine mit der Definition des verwendeten JSON-Formats und eine mit allgemeinen Regeln zum Aufbau der Diagramme. 
+Die beiden PDF-Dokumente umfassen zusammen mehr als 10 MB und über 100 Seiten Text. 
+Da ChatGPT bereits ein solides Grundverständnis von BPMN-Diagrammen besitzt, werden diese umfangreichen Dateien aus 
+den Instructions entfernt. Mehrere Tests zeigen, dass sich diese Reduktion nicht negativ auf die Ergebnisqualität auswirkt. 
+Dadurch lassen sich eine große Zahl an Tokens sowie Rechenzeit und Kosten einsparen.
+
+Die beiden verbliebenen Textdokumente werden anschließend zusammengeführt, überarbeitet und in ein einheitliches, 
+strukturiertes Format gebracht. 
+Alle Regeln sind in einer geordneten Liste zusammengefasst und durch sogenanntes structured prompting klarer und 
+maschinenlesbarer gestaltet. 
+Ergänzend werden den Instructions zwei illustrative Beispiele hinzugefügt:
+Zum einen ein minimales Beispiel, das den grundsätzlichen Aufbau des JSON-Formats verdeutlicht und die 
+obligatorischen Elemente zeigt. 
+Zum anderen ein umfangreicheres, praxisnahes Beispiel, das ein vollständiges BPMN-Diagramm mit allen relevanten Komponenten 
+abbildet. 
+Diese Kombination sorgt dafür, dass der Assistant sowohl einfache als auch komplexe Diagramme präzise interpretieren 
+und reproduzieren kann.
+
+
+\section{Formatauswahl}
+
+Bisher wird die KI angewiesen, das Diagramm in einem eigens definierten JSON-Format zu erzeugen. 
+Dieses Format wurde jedoch speziell für diesen Anwendungsfall entworfen und existiert in dieser Form nicht offiziell.
+Entsprechend konnte das Modell während des Trainings kein Vorwissen darüber erwerben, sondern muss das Format 
+ausschließlich auf Grundlage der bereitgestellten Instructions erlernen. 
+Dadurch besteht die Möglichkeit, dass Fehler auftreten, etwa dann, wenn die Anweisungen unvollständig sind oder dem Modell 
+bestimmte Kontextinformationen fehlen.
+
+Um dieses Problem zu vermeiden, wird künftig die Option ergänzt, dass die KI ihre Ausgabe auch direkt im offiziellen 
+Standardformat erzeugen kann. 
+Das weltweit am häufigsten verwendete Austauschformat für BPMN-Diagramme ist XML, 
+zu dem umfangreiche Dokumentation und etablierte Werkzeuge existieren. 
+Dennoch bietet das eigens entwickelte JSON-Format einen entscheidenden Vorteil: 
+Es besitzt eine deutlich höhere Informationsdichte und lässt sich dadurch kompakter und effizienter verarbeiten. 
+Beide Formate haben somit ihre jeweiligen Stärken und Einsatzgebiete.
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|p{2cm}|p{5.5cm}|p{5.5cm}|}
+    \hline
+    \textbf{Kriterium} & \textbf{JSON-Format} & \textbf{XML-Format} \\ \hline
+    \textbf{Vorteile} &
+    hohe Informationsdichte, geringer Tokenverbrauch, schnelle Generierung. &
+    Standardisiert, gut dokumentiert, weit verbreitet, einfachere Instructions \\ \hline
+    \textbf{Nachteile} &
+    Kein Standard, Lernaufwand, komplizierter Konvertierungsalgorythmus. &
+    hoher Tokenverbrauch, umfangreiche Syntax, unübersichtlicher, mehr Kosten, längere Generierung. \\ \hline
+  \end{tabular}
+  \caption{Vergleich der Vor- und Nachteile der unterstützten Ausgabeformate}
+\end{table}
+
+Für die Weiterentwicklung ist ein flexibles System das Ziel, das eine dynamische Auswahl des Ausgabeformats besitzt. 
+Dadurch kann der Nutzer selbst entscheiden, welches Format im jeweiligen Anwendungsfall die besseren Ergebnisse liefert. 
+Da sich die Formatwahl ähnlich wie die Wahl des verwendeten Modells direkt auf die Qualität der Ergebnisse auswirkt, 
+wird die Auswahlmöglichkeit direkt in die Modellkonfiguration integriert. 
+So kann beispielsweise zwischen Varianten wie `gpt-4.1-mini (xml)' und `gpt-4.1-mini (json)' gewählt werden. 
+Wird kein Format angegeben, erfolgt die Ausgabe standardmäßig im XML-Format.
+
+Eine Anfrage sieht damit z.B. folgendermaßen aus:
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{json}
+  // POST /threads
+  { 
+    "inputString": "Bitte generiere mir ein BPMN Diagram, 
+        welches den Ablauf in einem Restaurant zeigt", 
+    "model": "gpt-5 (xml)",
+  }
+\end{minted}
+
+Bei einer Anfrage kann dann die jeweilige AI über eine Map 
+
+\mintinline{typescript}{const availableGPTs: Map<string, Ai>} 
+
+zugeordnet werden, welche die Anfrage bearbeitet.
+
+
+\section{Dateien}
+
+\subsection{\dots}
+
+\section{Chain of Thought}
+
+\subsection{\dots}
+
+\section{Weitere Anbieter}
+
+\subsection{Grok}
+
+\subsection{Gemini}
+
+\subsection{Claude}
+
+\section{Streaming}
+
+
+

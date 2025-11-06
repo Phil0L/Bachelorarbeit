@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{export}\PYG{+w}{ }\PYG{k+kd}{class}\PYG{+w}{ }\PYG{n+nx}{ChatGPT}\PYG{+w}{ }\PYG{k}{extends}\PYG{+w}{ }\PYG{n+nx}{Ai}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n+nx}{openai}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o+ow}{new}\PYG{+w}{ }\PYG{n+nx}{OpenAI}\PYG{p}{(\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{apiKey}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{OPENAI\PYGZus{}API\PYGZus{}KEY}\PYG{p}{,}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{});}
+\PYG{+w}{  }\PYG{n+nx}{assist}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{await}\PYG{+w}{ }\PYG{n+nx}{openai}\PYG{p}{.}\PYG{n+nx}{beta}\PYG{p}{.}\PYG{n+nx}{assistants}\PYG{p}{.}\PYG{n+nx}{retrieve}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}asst\PYGZus{}...\PYGZdq{}}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{k}{protected}\PYG{+w}{ }\PYG{n+nx}{mapPromptInput}\PYG{p}{(}\PYG{n+nx}{input}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n+nx}{input}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{input.prompt}\PYG{p}{,}
+\PYG{+w}{      }\PYG{n+nx}{model}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{this.model}\PYG{p}{,}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{};}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{k}{protected}\PYG{+w}{ }\PYG{k}{async}\PYG{+w}{ }\PYG{n+nx}{generateContent}\PYG{p}{(}\PYG{n+nx}{input}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{k}{await}\PYG{+w}{ }\PYG{n+nx}{openai}\PYG{p}{.}\PYG{n+nx}{beta}\PYG{p}{.}\PYG{n+nx}{threads}\PYG{p}{.}\PYG{n+nx}{runs}\PYG{p}{.}\PYG{n+nx}{createAndPoll}\PYG{p}{(}
+\PYG{+w}{      }\PYG{n+nx}{thread\PYGZus{}id}\PYG{p}{,}
+\PYG{+w}{      }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{assistant\PYGZus{}id}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{assist.id}\PYG{+w}{ }\PYG{p}{\PYGZcb{},}
+\PYG{+w}{      }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{role}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}user\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{content}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{input}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{);}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{k}{protected}\PYG{+w}{ }\PYG{n+nx}{processResponse}\PYG{p}{(}\PYG{n+nx}{response}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n+nx}{response}\PYG{p}{.}\PYG{n+nx}{output\PYGZus{}text}\PYG{p}{.}\PYG{n+nx}{toString}\PYG{p}{();}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

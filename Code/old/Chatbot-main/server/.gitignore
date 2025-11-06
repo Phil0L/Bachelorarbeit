@@ -1,0 +1,18 @@
+.vscode/
+
+#API Keys
+.env
+
+node_modules/
+
+data/json/
+data/xml/
+
+# Since users create their own database, the database.json file is not included
+data/database.json
+
+# BPMN 2.0 Specification, file too large
+# --> https://www.omg.org/spec/BPMN/2.0/About-BPMN
+data/assistant/knowledge/BPMN_v2.pdf 
+
+*.tsbuildinfo

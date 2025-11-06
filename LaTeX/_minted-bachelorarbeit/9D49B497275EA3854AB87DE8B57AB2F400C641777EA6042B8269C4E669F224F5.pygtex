@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{protected}\PYG{+w}{ }\PYG{k}{async}\PYG{+w}{ }\PYG{n+nx}{generateContent}\PYG{p}{(}\PYG{n+nx}{input}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+nx}{openai}\PYG{p}{.}\PYG{n+nx}{responses}\PYG{p}{.}\PYG{n+nx}{create}\PYG{p}{(}\PYG{n+nx}{input}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
