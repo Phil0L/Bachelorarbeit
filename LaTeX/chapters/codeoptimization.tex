@@ -167,11 +167,73 @@ zugeordnet werden, welche die Anfrage bearbeitet.
 
 \section{Dateien}
 
-\subsection{\dots}
+Um die Qualität des Promptings weiter zu verbessern, soll eine Funktionalität implementiert werden, 
+die es ermöglicht, auch Dateien direkt an die KI zu übermitteln. 
+Dabei steht im Vordergrund, dass das Verfahren sowohl im Frontend als auch im Backend möglichst 
+unkompliziert umgesetzt werden kann. 
+Es soll keine aufwendigen oder zeitraubenden Konvertierungen erfordern und eine breite Auswahl an 
+Dateitypen unterstützen, um die Nutzung so flexibel wie möglich zu gestalten.
+Nach einer Analyse der OpenAI-Dokumentation unter
+\url{https://platform.openai.com/docs/guides/images-vision?api-mode=responses&format=base64-encoded#analyze-images}
+zeigt sich, dass die einfachste und zugleich effizienteste Methode zur Dateiübertragung die 
+Verwendung einer Base64 Data URL ist. 
+Diese Variante bietet eine einfache Möglichkeit, Binärdaten wie Bilder oder Dokumente direkt 
+in Textform zu kodieren und zu übermitteln, ohne zusätzliche Infrastruktur oder spezielle 
+Upload-Mechanismen zu benötigen.
+
+Eine Base64 Data URL ist im eine Textdarstellung einer Datei, die direkt in eine URL eingebettet wird. 
+Dabei werden die ursprünglichen Binärdaten in ein spezielles Textformat namens Base64 umgewandelt. 
+Diese kodierten Daten beginnen typischerweise mit einer Kennzeichnung wie data:image/png;base64,\dots 
+und enthalten danach die eigentlichen kodierten Inhalte. 
+Der große Vorteil liegt darin, dass der Browser oder die API diesen Text automatisch wieder in die 
+ursprüngliche Datei zurückwandeln kann. Auf diese Weise lassen sich Dateien direkt in 
+JSON API-Anfragen integrieren, ohne dass zusätzliche Dateipfade, Server oder externe Speicherorte 
+erforderlich sind. 
+Dieses Verfahren ist daher besonders gut geeignet, um eine einfache, schnelle und universell 
+kompatible Dateiübertragung zu ermöglichen.
+Dadurch, dass die Datei nun einfach als String übergeben werden kann, können wir die Datei dem Body 
+der Anfrage hinzufügen.
+
+Eine Anfrage sieht damit z.B. folgendermaßen aus:
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{json}
+  // POST /threads
+  { 
+    "inputString": "Bitte generiere mir ein BPMN Diagram, 
+        welches den Ablauf in einem Restaurant zeigt", 
+    "model": "gpt-5 (xml)",
+    "file": "data:image/png;base64,A35ekZ...",
+  }
+\end{minted}
+
+Der string wird auf Validität geprüft
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+  private checkBase64DataUrl(dataUrl: string): boolean {
+    regex = /^data:([\w.+-]+\/[\w.+-]+)?;base64,[\w+\/]+=*$/;
+    return regex.test(dataUrl);
+  }
+\end{minted}
+
+und dann im richtigen Format an die OpenAI API gesendet:
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+  const imageInstructions = {
+    role: "user",
+    content: [
+      {
+          type: "input_file",
+          file_url: input.getFileDataUrl() as string,
+      } as ResponseInputFile,
+    ],
+  } as ResponseInputItem
+\end{minted}
 
 \section{Chain of Thought}
 
-\subsection{\dots}
+\subsection{Implementierung eines neuen Modus}
+
+\subsection{Unterhaltungen}
 
 \section{Weitere Anbieter}
 
