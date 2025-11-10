@@ -150,12 +150,12 @@ Wird kein Format angegeben, erfolgt die Ausgabe standardmäßig im XML-Format.
 Eine Anfrage sieht damit z.B. folgendermaßen aus:
 
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{json}
-  // POST /threads
-  { 
-    "inputString": "Bitte generiere mir ein BPMN Diagram, 
-        welches den Ablauf in einem Restaurant zeigt", 
-    "model": "gpt-5 (xml)",
-  }
+// POST /threads
+{ 
+  "inputString": "Bitte generiere mir ein BPMN Diagram, 
+      welches den Ablauf in einem Restaurant zeigt", 
+  "model": "gpt-5 (xml)",
+}
 \end{minted}
 
 Bei einer Anfrage kann dann die jeweilige AI über eine Map 
@@ -163,6 +163,8 @@ Bei einer Anfrage kann dann die jeweilige AI über eine Map
 \mintinline{typescript}{const availableGPTs: Map<string, Ai>} 
 
 zugeordnet werden, welche die Anfrage bearbeitet.
+
+// TODO: update neuerungen noch machen
 
 
 \section{Dateien}
@@ -197,43 +199,151 @@ der Anfrage hinzufügen.
 Eine Anfrage sieht damit z.B. folgendermaßen aus:
 
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{json}
-  // POST /threads
-  { 
-    "inputString": "Bitte generiere mir ein BPMN Diagram, 
-        welches den Ablauf in einem Restaurant zeigt", 
-    "model": "gpt-5 (xml)",
-    "file": "data:image/png;base64,A35ekZ...",
-  }
+// POST /threads
+{ 
+  "inputString": "Bitte generiere mir ein BPMN Diagram, 
+      welches den Ablauf in einem Restaurant zeigt", 
+  "model": "gpt-5 (xml)",
+  "file": "data:image/png;base64,A35ekZ...",
+}
 \end{minted}
 
 Der string wird auf Validität geprüft
 
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
-  private checkBase64DataUrl(dataUrl: string): boolean {
-    regex = /^data:([\w.+-]+\/[\w.+-]+)?;base64,[\w+\/]+=*$/;
-    return regex.test(dataUrl);
-  }
+private checkBase64DataUrl(dataUrl: string): boolean {
+  regex = /^data:([\w.+-]+\/[\w.+-]+)?;base64,[\w+\/]+=*$/;
+  return regex.test(dataUrl);
+}
 \end{minted}
 
 und dann im richtigen Format an die OpenAI API gesendet:
 
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
-  const imageInstructions = {
-    role: "user",
-    content: [
-      {
-          type: "input_file",
-          file_url: input.getFileDataUrl() as string,
-      } as ResponseInputFile,
-    ],
-  } as ResponseInputItem
+const imageInstructions = {
+  role: "user",
+  content: [
+    {
+        type: "input_file",
+        file_url: input.getFileDataUrl() as string,
+    } as ResponseInputFile,
+  ],
+} as ResponseInputItem
 \end{minted}
 
 \section{Chain of Thought}
 
+Um nun die Erzeugung von BPMN Diagrammen weiter zu verbessern, wird eine Technik implementiert die 
+`Chain of Thought' heisst. 
+Dadurch ermöglicht es dem Nutzer sich mit dem ChatBot zu unterhalten.
+Der Nutzer kann unter anderem um Rat fragen, Diagramme beschreiben lassen, sich Ideen anhören und vieles
+mehr.
+Der BPMN Bot soll zu einem vollständigem Chatbot werden, welcher nicht nur Diagramme erstellen kann 
+sondern auch vieles mehr.
+Der Chatbot soll zudem auch Fragen stellen können, falls etwas unklar ist.
+Dafür benötigt der Chatbot völligen Zugriff auf die Bisherige Unterhaltung sowie den aktuellen 
+Stand des Diagramms. 
+
 \subsection{Implementierung eines neuen Modus}
 
-\subsection{Unterhaltungen}
+Um die erstellung eines Diagramm nicht komplizierter für den Nutzer zu machen ist das Ziel, dass 
+die direkte Erstellung eines Diagramms weiterhin möglich ist.
+Dafür wird nun ein weiterer Parameter der Anfrage hinzugefügt.
+Über den $mode$ Parameter kann nun ausgewählt werden inwiefern die KI antwortet.
+Der bisherige Modus, welcher ausschließlich Diagramme erstellt, wird vorerst $quick$ genannt.
+Den Chain of Thought modus wird $detail$ genannt.
+Eine Anfrage welche nun eine Unterhaltung ermöglich sieht beispielsweise so aus:
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{json}
+// POST /threads
+{ 
+  "inputString": "Bitte schlag drei Prozessbeschreibungen 
+    vor, aus denen dann eine ausgewählt wird um ein Diagramm
+    zu erstellen.", 
+  "model": "gpt-5 (xml)",
+  "mode": "detail",
+}
+\end{minted}
+
+\subsection{Konversationskontext}
+
+Da es nun darum geht ein Chat zu implementieren, bei dem die KI möglichst gut auf Nachrichten reagieren
+kann, ist es wichtig, dass die KI zugriff auf vorherige Nachrichten sowie auf das Diagramm hat.
+Wäre das nicht der Fall, könnte die KI keine Fragen über das Diagramm beantworten und auch keine 
+richtige Unterhaltung führen, da immer nur die aktuelle Nachricht bereitgestellt wird.
+Bei LLM Anbietern wie OpenAI ist es notwendig, dass die Nachrichten historie in der Anfrage 
+mitgeschickt wird.
+
+Hierfür müssen alle Nachrichten eines Theads aus der Datenbank geladen werden.
+Die Nachrichten werden dann auf wesentliche gefiltert und auf ein kompaktes Foramt gebracht.
+Die OpenAI Klasse muss dann nur noch die Nachrichten auf das gefoderte Format bringen und in der
+Anfrage mitschicken.
+Da die Anfagen an die KI immer komplexer werden, wird nun eine Klasse $PromptInput$ angelegt.
+Diese Klasse beinhaltet alle Informationen welche der KI mitgesendet werden sollen.
+Bei einer erstellung diese Objekt können alle Rohdaten wie Instructions, Dateien oder der Chatverlauf
+übergebe werden, welche die Klasse dann automatisch formatiert.
+Ein entscheidender Schritt hierbei ist es die Teile der Nachrichten zu entfernen, in denen die KI mit einem
+Diagramm geantwortet hat.
+Das ist wichtig, da die Diagramme viele Tokens beinhalten und eigentlich nur das aktuellste Diagram 
+wichtig ist. Hier bei kann es aber auch sein, dass das Diagramm noch vom Nutzer bearbeitet wurde.
+Um dies zu berücksichtigen sind die Diagramme nuicht Teil der Nachrichten, welche mitgesendet werden.
+Die KI Schnittstellenimplementierung, kann dann ein Objekt von PromptInput 
+entgegennehmen und dieses recht einfach durch fertige Helfermethoden auf das gewünschte Format bringen.
+Die Klasse hat diese Attribute:
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+export class PromptInput {
+  instructions: string[];
+  history: {role: "user" | "assistant", content: string}[];
+  prompt: string;
+  file?: ;
+}
+\end{minted}
+
+Es ist so nun möglich die Nachrichten aus der Datenbank abzurufen und diese werden in der PromptInput
+Klasse auf das oben angegebene Format gebracht\ldots
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+const instructions = [formatInstructions, modeInstructions];
+const chatsFromDB = getAllChatsFromDB(threadID);
+new PromptInput(instructions, prompt, chatsFromDB, file);
+\end{minted}
+
+\ldots und dann auf das benötigte Format für die KI gebracht zu werden:
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+protected mapPromptInput(input: PromptInput) {   
+  [...]
+  const historyInstructions = input.history.map((item) => {
+    return {role: item.role, content: item.content};
+  });
+  return {
+    input: [systemInstructions, historyInstructions, 
+            userInstructions, fileInstructions],
+    model: this.model,
+  };
+}
+\end{minted}
+
+Weitergehend soll nun auch die aktuellste version des Diagramms mitgeschickt werden, damit die KI dieses
+Bestensmöglichst sowohl bearbeiten als auch Fragen darüber beantworten kann.
+Da das aktuelle Diagramm nicht Teil der Nachrichten ist, wird dieses in die system instructions gesetzt.
+Wir nennen es die Update instructions und erhalten diese durch das Laden der aktuellen version aus 
+der Datenbank.
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+protected updateInstructions(threadID: string, format: format){
+  const diagram = getLatestDiagramFromDB(threadID);
+  return [`The The following diagram has already been created:
+    ${format == "xml" ? diagram?.xml : diagram?.json}`]
+}
+\end{minted}
+
+Damit hat die KI nun alle Informationen die sie benötigt um eine Konversation zu führen
+
+\subsection{Konversationen}
+
+
 
 \section{Weitere Anbieter}
 
