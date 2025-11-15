@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.6)  10 NOV 2025 22:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.6)  15 NOV 2025 19:44
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1018,40 +1018,44 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip98
 )
-Package hyperref Info: Option `colorlinks' set `false' on input line 105.
+Package hyperref Info: Option `colorlinks' set `false' on input line 106.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > bachelorarbeit.aex <nul: /p x=^%~$PATH:i>> bachelorarbeit.aex)...executed.
 
 runsystem(del bachelorarbeit.aex)...executed.
 
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 110.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 111.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 11.39996pt on input line 110.
- (./bachelorarbeit.aux)
+(Font)              scaled to size 11.39996pt on input line 111.
+ (./bachelorarbeit.aux
+
+LaTeX Warning: Label `fig:diagram1' multiply defined.
+
+)
 \openout1 = `bachelorarbeit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
  (d:/TexLive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count483
@@ -1096,14 +1100,14 @@ Package biblatex Info: Data encoding 'utf8' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'bachelorarbeit.bbl' found.
  (./bachelorarbeit.bbl)
-Package biblatex Info: Reference section=0 on input line 110.
-Package biblatex Info: Reference segment=0 on input line 110.
+Package biblatex Info: Reference section=0 on input line 111.
+Package biblatex Info: Reference segment=0 on input line 111.
 \c@lstlisting=\count489
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package newfloat Info: `float' package detected.
-Package hyperref Info: Link coloring OFF on input line 110.
+Package hyperref Info: Link coloring OFF on input line 111.
  (./bachelorarbeit.out) (./bachelorarbeit.out)
 \@outlinefile=\write6
 \openout6 = `bachelorarbeit.out'.
@@ -1115,7 +1119,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 110.
+(scrbook)           before \begin{document} on input line 111.
  (d:/TexLive/2023/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
  (d:/TexLive/2023/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
@@ -1125,67 +1129,67 @@ File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
 <images/logo_uulm_sw.png, id=4, 285.9483pt x 81.1833pt>
 File: images/logo_uulm_sw.png Graphic file (type png)
 <use images/logo_uulm_sw.png>
-Package pdftex.def Info: images/logo_uulm_sw.png  used on input line 118.
+Package pdftex.def Info: images/logo_uulm_sw.png  used on input line 119.
 (pdftex.def)             Requested size: 180.39706pt x 51.21504pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--119
+Underfull \hbox (badness 10000) in paragraph at lines 118--120
 
  []
 
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 120.
+(Font)              scaled to size 9.49997pt on input line 121.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 9.49997pt on input line 125.
+(Font)              scaled to size 9.49997pt on input line 126.
 
-Overfull \hbox (16.56062pt too wide) in paragraph at lines 125--125
+Overfull \hbox (16.56062pt too wide) in paragraph at lines 126--126
 \T1/phv/b/n/10 Ingenieurwissenschaften,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--125
+Underfull \hbox (badness 10000) in paragraph at lines 126--126
 \T1/phv/m/n/10 Datenbanken und
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--126
+Underfull \hbox (badness 10000) in paragraph at lines 123--127
 
  []
 
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 19.70294pt on input line 127.
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 127.
+(Font)              scaled to size 19.70294pt on input line 128.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 128.
 (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 127.
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 128.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 127.
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 128.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 127.
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 128.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 127.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 128.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 127.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 128.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 127.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 128.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 127.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 128.
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--129
+Underfull \hbox (badness 10000) in paragraph at lines 128--130
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--138
+Underfull \hbox (badness 10000) in paragraph at lines 131--139
 
  []
 
@@ -1194,19 +1198,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 130--138
 
 {d:/TexLive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{d:/TexLive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc} <./images/logo_uulm_sw.png>]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 144.
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 147.
+(Font)              scaled to size 10.40245pt on input line 145.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 148.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 147.
+(Font)              scaled to size 10.40245pt on input line 148.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 150.
+(Font)              scaled to size 7.59998pt on input line 151.
  (./chapters/acknowledgement.tex [2
 
 ]
@@ -1232,7 +1236,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 \openout7 = `bachelorarbeit.toc'.
 
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 11.39996pt on input line 162.
+(Font)              scaled to size 11.39996pt on input line 163.
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
@@ -1282,9 +1286,13 @@ File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 \openout5 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/7596E8BD78EE4FE83B3B37B1D88A3D1000C641777EA6042B8269C4E669F224F5.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 29--33
+
+ []
+
 \openout4 = `bachelorarbeit.pyg'.
 
- (./_minted-bachelorarbeit/vs.pygstyle) (./_minted-bachelorarbeit/18270F4089062F56201519B5ACAFB3F900C641777EA6042B8269C4E669F224F5.pygtex
+(./_minted-bachelorarbeit/vs.pygstyle) (./_minted-bachelorarbeit/18270F4089062F56201519B5ACAFB3F900C641777EA6042B8269C4E669F224F5.pygtex
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 2.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -1292,13 +1300,18 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 \openout5 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/326C14F56E25FFD5D4F30CEEF2D8D47F00C641777EA6042B8269C4E669F224F5.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 66--71
+
+ []
+
+
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [4]
 \openout4 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/9D49B497275EA3854AB87DE8B57AB2F400C641777EA6042B8269C4E669F224F5.pygtex)
-Overfull \hbox (5.66519pt too wide) in paragraph at lines 76--83
+Overfull \hbox (5.66519pt too wide) in paragraph at lines 80--87
 \T1/phv/m/n/12 chen-den An-wei-sun-gen bei je-der An-fra-ge er-neut mit-zu-sen-den. Die-ser Um-stand bringt
  []
 
@@ -1306,32 +1319,32 @@ Overfull \hbox (5.66519pt too wide) in paragraph at lines 76--83
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [5]
-Underfull \hbox (badness 1147) in paragraph at lines 134--134
+Underfull \hbox (badness 1147) in paragraph at lines 138--138
 \T1/phv/m/n/12 ger To-ken-ver-brauch, schnel-le
  []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 135--135
+Underfull \hbox (badness 1661) in paragraph at lines 139--139
 []|\T1/phv/m/n/12 Standardisiert, gut do-ku-men-
  []
 
 
-Underfull \hbox (badness 1424) in paragraph at lines 137--137
+Underfull \hbox (badness 1424) in paragraph at lines 141--141
 []|\T1/phv/m/n/12 Kein Stan-dard, Lern-auf-wand,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--138
+Underfull \hbox (badness 10000) in paragraph at lines 142--142
 []|\T1/phv/m/n/12 hoher To-ken-ver-brauch, um-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--138
+Underfull \hbox (badness 10000) in paragraph at lines 142--142
 \T1/phv/m/n/12 fang-rei-che Syn-tax, un-über-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--138
+Underfull \hbox (badness 10000) in paragraph at lines 142--142
 \T1/phv/m/n/12 sicht-li-cher, mehr Kos-ten,
  []
 
@@ -1339,13 +1352,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 138--138
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [6]
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
+
+ []
+
 \openout4 = `bachelorarbeit.pyg'.
 
- (./_minted-bachelorarbeit/340096A1F7ED178C25A5EE8B3F85EC6F01D3707017B41C60CC59CD5A809FF8D0.pygtex)
+(./_minted-bachelorarbeit/340096A1F7ED178C25A5EE8B3F85EC6F01D3707017B41C60CC59CD5A809FF8D0.pygtex)
 \openout5 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/5CD8203FF80F08E213B04FF4B9D9B60200C641777EA6042B8269C4E669F224F5.pygtex)
-Overfull \hbox (96.57817pt too wide) in paragraph at lines 172--185
+Overfull \hbox (96.57817pt too wide) in paragraph at lines 178--191
 \T1/pcr/m/n/12 com / docs / guides / images-[]vision ? api-[]mode = responses & format = base64-[]encoded #
  []
 
@@ -1353,42 +1370,83 @@ Overfull \hbox (96.57817pt too wide) in paragraph at lines 172--185
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [7]
+Underfull \hbox (badness 10000) in paragraph at lines 205--206
+
+ []
+
 \openout4 = `bachelorarbeit.pyg'.
 
- (./_minted-bachelorarbeit/2AA6B3AEA8EBCC6F30725D7F81585E9F01D3707017B41C60CC59CD5A809FF8D0.pygtex
+(./_minted-bachelorarbeit/2AA6B3AEA8EBCC6F30725D7F81585E9F01D3707017B41C60CC59CD5A809FF8D0.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
+
+ []
+
+
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [8])
+ [8]
 \openout4 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/290B00BD2C639B2083653BD56F4A0D5D00C641777EA6042B8269C4E669F224F5.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 230--231
+
+ []
+
 \openout4 = `bachelorarbeit.pyg'.
 
- (./_minted-bachelorarbeit/5184F2F13B13B30E42D99375A101812800C641777EA6042B8269C4E669F224F5.pygtex)
+(./_minted-bachelorarbeit/5184F2F13B13B30E42D99375A101812800C641777EA6042B8269C4E669F224F5.pygtex)
+Overfull \hbox (1.07977pt too wide) in paragraph at lines 248--255
+\T1/phv/m/n/12 Die-ses Ver-fah-ren er-mög-licht es dem Mo-dell, kom-ple-xe-re Denk-pro-zes-se in-tern nach-
+ []
+
+
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [9]
-\openout4 = `bachelorarbeit.pyg'.
-
- (./_minted-bachelorarbeit/3FBEE05C79C5E05AA0B5FED9C1C8EE1A01D3707017B41C60CC59CD5A809FF8D0.pygtex)
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [10]
+Underfull \hbox (badness 10000) in paragraph at lines 293--295
+
+ []
+
 \openout4 = `bachelorarbeit.pyg'.
 
- (./_minted-bachelorarbeit/B2457DF2480519E2515464962E2252BD00C641777EA6042B8269C4E669F224F5.pygtex)
-\openout4 = `bachelorarbeit.pyg'.
-
- (./_minted-bachelorarbeit/09E42A39347E02952A790AC3ECF8A5B300C641777EA6042B8269C4E669F224F5.pygtex)
-\openout4 = `bachelorarbeit.pyg'.
-
- (./_minted-bachelorarbeit/D1443EF89DE5DEDD1C7D53F1DC9B25C400C641777EA6042B8269C4E669F224F5.pygtex
+(./_minted-bachelorarbeit/3FBEE05C79C5E05AA0B5FED9C1C8EE1A01D3707017B41C60CC59CD5A809FF8D0.pygtex)
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [11])
+ [11]
+Underfull \hbox (badness 10000) in paragraph at lines 338--339
+
+ []
+
 \openout4 = `bachelorarbeit.pyg'.
 
- (./_minted-bachelorarbeit/269885349246CCDF6DEBC9A24354B2E500C641777EA6042B8269C4E669F224F5.pygtex
+(./_minted-bachelorarbeit/B2457DF2480519E2515464962E2252BD00C641777EA6042B8269C4E669F224F5.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 351--355
+
+ []
+
+\openout4 = `bachelorarbeit.pyg'.
+
+(./_minted-bachelorarbeit/09E42A39347E02952A790AC3ECF8A5B300C641777EA6042B8269C4E669F224F5.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 364--368
+
+ []
+
+\openout4 = `bachelorarbeit.pyg'.
+
+(./_minted-bachelorarbeit/D1443EF89DE5DEDD1C7D53F1DC9B25C400C641777EA6042B8269C4E669F224F5.pygtex)
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [12]
+Underfull \hbox (badness 10000) in paragraph at lines 397--399
+
+ []
+
+\openout4 = `bachelorarbeit.pyg'.
+
+(./_minted-bachelorarbeit/269885349246CCDF6DEBC9A24354B2E500C641777EA6042B8269C4E669F224F5.pygtex
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family pcr in TS1 encoding.
 (textcomp)             Default family used instead on input line 4.
@@ -1403,28 +1461,65 @@ File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family pcr in TS1 encoding.
 (textcomp)             Default family used instead on input line 5.
-)) (./chapters/analysis.tex
+)
+Underfull \hbox (badness 10000) in paragraph at lines 414--417
+
+ []
+
+
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [12{d:/TexLive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+ [13{d:/TexLive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+\openout4 = `bachelorarbeit.pyg'.
+
+ (./_minted-bachelorarbeit/DCA980DB17448F0FE2D9C20DE658CFC488DD8CBCA5DC732330A7A33BAA956AD8.pygtex)
+LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
+(Font)              scaled to size 11.39996pt on input line 485.
+
+Overfull \hbox (13.13812pt too wide) in paragraph at lines 444--486
+[] 
+ []
+
+
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [13]
+ [14]
+<images/diagrams/diagram_1.pdf, id=176, 760.34062pt x 557.08125pt>
+File: images/diagrams/diagram_1.pdf Graphic file (type pdf)
+<use images/diagrams/diagram_1.pdf>
+Package pdftex.def Info: images/diagrams/diagram_1.pdf  used on input line 494.
+(pdftex.def)             Requested size: 416.12161pt x 304.89107pt.
+
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [15]
+<images/diagrams/diagram_2.pdf, id=192, 760.34062pt x 557.08125pt>
+File: images/diagrams/diagram_2.pdf Graphic file (type pdf)
+<use images/diagrams/diagram_2.pdf>
+Package pdftex.def Info: images/diagrams/diagram_2.pdf  used on input line 507.
+(pdftex.def)             Requested size: 416.12161pt x 304.89107pt.
+) (./chapters/analysis.tex
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [16 <./images/diagrams/diagram_1.pdf>]
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [17 <./images/diagrams/diagram_2.pdf>]
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [18]
 chapter 4.
-) (./chapters/relatedwork.tex [14
+) (./chapters/relatedwork.tex [19
 
 ]
 chapter 5.
-) (./chapters/conclusion.tex [15
+) (./chapters/conclusion.tex [20
 
 ]
 chapter 6.
-) (./chapters/notes.tex [16
+) (./chapters/notes.tex [21
 
-]
-LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 11.39996pt on input line 6.
- [17
+] [22
 
 ]
 Overfull \hbox (13.95427pt too wide) in paragraph at lines 36--37
@@ -1434,7 +1529,7 @@ Overfull \hbox (13.95427pt too wide) in paragraph at lines 36--37
 ) (./chapters/vorlage.tex
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [18]
+ [23]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 8.54997pt on input line 3.
 
@@ -1442,10 +1537,10 @@ Overfull \hbox (6.25032pt too wide) in paragraph at lines 18--19
 []\T1/phv/m/n/12 Allerdings soll-te man sich über-le-gen, ob man wirk-lich bis zur Stu-fe [][]\T1/pcr/m/n/12 subsubsection
  []
 
-[19
+[24
 
 ]
-<images/Suffix_tree_ABAB_BABA.pdf, id=211, 252.945pt x 298.716pt>
+<images/Suffix_tree_ABAB_BABA.pdf, id=263, 252.945pt x 298.716pt>
 File: images/Suffix_tree_ABAB_BABA.pdf Graphic file (type pdf)
 <use images/Suffix_tree_ABAB_BABA.pdf>
 Package pdftex.def Info: images/Suffix_tree_ABAB_BABA.pdf  used on input line 32.
@@ -1453,10 +1548,10 @@ Package pdftex.def Info: images/Suffix_tree_ABAB_BABA.pdf  used on input line 32
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [20]
+ [25]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [21 <./images/Suffix_tree_ABAB_BABA.pdf>]
+ [26 <./images/Suffix_tree_ABAB_BABA.pdf>]
 Overfull \hbox (23.0782pt too wide) in paragraph at lines 86--86
 []  \T1/pcr/m/n/12 Dieser Text steht in einer verbatim-Umgebung und wird daher[] 
  []
@@ -1476,7 +1571,7 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [22]
+ [27]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 104.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
@@ -1495,10 +1590,10 @@ Overfull \hbox (9.95029pt too wide) in paragraph at lines 111--112
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [23]) (./chapters/sources.tex
+ [28]) (./chapters/sources.tex
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [24]
+ [29]
 chapter A.
 \openout4 = `bachelorarbeit.pyg'.
 
@@ -1509,22 +1604,25 @@ Package textcomp Info: Symbol \textasciigrave not provided by
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family pcr in TS1 encoding.
 (textcomp)             Default family used instead on input line 3.
-)) [25
+)) [30
 
 ]
 chapter without number
 
-Overfull \hbox (4.15958pt too wide) in paragraph at lines 191--191
+Overfull \hbox (4.15958pt too wide) in paragraph at lines 192--192
 []\T1/phv/m/n/12 Frank Mit-tel-bach, Mi-chel Goos-sens und Jo-han-nes Braams. \T1/phv/m/sl/12 Der Latex-Begleiter\T1/phv/m/n/12 .
  []
 
-[26
+[31
 
 
 
-] [27
+] [32
 
 ] (./bachelorarbeit.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `bachelorarbeit.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 runsystem(del bachelorarbeit.pyg)...executed.
@@ -1534,18 +1632,18 @@ Package logreq Info: Writing requests to 'bachelorarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30484 strings out of 476038
- 569901 string characters out of 5794174
+ 30540 strings out of 476038
+ 571609 string characters out of 5794174
  1867779 words of memory out of 5000000
- 50277 multiletter control sequences out of 15000+600000
+ 50309 multiletter control sequences out of 15000+600000
  598453 words of font info for 160 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  108i,10n,106p,11015b,2367s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/TexLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on bachelorarbeit.pdf (33 pages, 217664 bytes).
+Output written on bachelorarbeit.pdf (38 pages, 248232 bytes).
 PDF statistics:
- 468 PDF objects out of 1000 (max. 8388607)
- 400 compressed objects within 4 object streams
- 104 named destinations out of 1000 (max. 500000)
- 283 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 527 PDF objects out of 1000 (max. 8388607)
+ 447 compressed objects within 5 object streams
+ 122 named destinations out of 1000 (max. 500000)
+ 293 words of extra memory for PDF output out of 10000 (max. 10000000)
 
