@@ -29,8 +29,9 @@ Falls sich die API ändert, kann dies nun einfach in der Erbenden Klasse angepas
 So sieht nun in abgespeckter Variante die Klasse für die OpenAI API aus.
 Es gibt eine Methode \mintinline{typescript}{mapPromptInput();} um den Prompt in das richtige Format der API zu bringen,
 \mintinline{typescript}{generateContent();} um den eigentlichen API aufruf durchzuführen und \mintinline{typescript}{preocessResponse();}
-um die Antwort der API auszulesen.
+um die Antwort der API auszulesen.\\
 
+\begin{samepage}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 export class ChatGPT extends Ai {
   openai = new OpenAI({
@@ -58,6 +59,7 @@ export class ChatGPT extends Ai {
   }
 }
 \end{minted}
+\end{samepage}
 
 \subsection{Von Assistants zu Responses}
 
@@ -65,13 +67,15 @@ Die Änderungen welche im vorherigen Kapitel beschrieben wurden, zeigen gleich i
 Assistants API einstellen zu wollen.
 Sie emfehlen einen Umzug zu ihrer neuen Responses API.
 Dies ist nun recht einfach umzusetzten, da wir nur die elementaren Methoden der API ändern müssen. 
-So sieht nun die neue Methode \mintinline{typescript}{generateContent();} aus:
+So sieht nun die neue Methode \mintinline{typescript}{generateContent();} aus:\\
 
+\begin{samepage}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 protected async generateContent(input) {
   return this.openai.responses.create(input);
 }
 \end{minted}
+\end{samepage}
 
 Einer der zentralen Unterschiede zwischen der Assistants- und der Responses-API besteht darin, 
 dass die System-Instructions bei der Verwendung der Responses-API manuell übergeben werden müssen. 
@@ -147,8 +151,9 @@ wird die Auswahlmöglichkeit direkt in die Modellkonfiguration integriert.
 So kann beispielsweise zwischen Varianten wie `gpt-4.1-mini (xml)' und `gpt-4.1-mini (json)' gewählt werden. 
 Wird kein Format angegeben, erfolgt die Ausgabe standardmäßig im XML-Format.
 
-Eine Anfrage sieht damit z.B. folgendermaßen aus:
+Eine Anfrage sieht damit z.B. folgendermaßen aus:\\
 
+\begin{samepage}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{json}
 // POST /threads
 { 
@@ -157,6 +162,7 @@ Eine Anfrage sieht damit z.B. folgendermaßen aus:
   "model": "gpt-5 (xml)",
 }
 \end{minted}
+\end{samepage}
 
 Bei einer Anfrage kann dann die jeweilige AI über eine Map 
 
@@ -196,8 +202,9 @@ kompatible Dateiübertragung zu ermöglichen.
 Dadurch, dass die Datei nun einfach als String übergeben werden kann, können wir die Datei dem Body 
 der Anfrage hinzufügen.
 
-Eine Anfrage sieht damit z.B. folgendermaßen aus:
+Eine Anfrage sieht damit z.B. folgendermaßen aus:\\
 
+\begin{samepage}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{json}
 // POST /threads
 { 
@@ -207,18 +214,22 @@ Eine Anfrage sieht damit z.B. folgendermaßen aus:
   "file": "data:image/png;base64,A35ekZ...",
 }
 \end{minted}
+\end{samepage}
 
-Der string wird auf Validität geprüft
+Der string wird auf Validität geprüft\\
 
+\begin{samepage}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 private checkBase64DataUrl(dataUrl: string): boolean {
   regex = /^data:([\w.+-]+\/[\w.+-]+)?;base64,[\w+\/]+=*$/;
   return regex.test(dataUrl);
 }
 \end{minted}
+\end{samepage}
 
-und dann im richtigen Format an die OpenAI API gesendet:
+und dann im richtigen Format an die OpenAI API gesendet:\\
 
+\begin{samepage}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 const imageInstructions = {
   role: "user",
@@ -230,30 +241,59 @@ const imageInstructions = {
   ],
 } as ResponseInputItem
 \end{minted}
+\end{samepage}
 
 \section{Chain of Thought}
 
-Um nun die Erzeugung von BPMN Diagrammen weiter zu verbessern, wird eine Technik implementiert die 
-`Chain of Thought' heisst. 
-Dadurch ermöglicht es dem Nutzer sich mit dem ChatBot zu unterhalten.
-Der Nutzer kann unter anderem um Rat fragen, Diagramme beschreiben lassen, sich Ideen anhören und vieles
-mehr.
-Der BPMN Bot soll zu einem vollständigem Chatbot werden, welcher nicht nur Diagramme erstellen kann 
-sondern auch vieles mehr.
-Der Chatbot soll zudem auch Fragen stellen können, falls etwas unklar ist.
-Dafür benötigt der Chatbot völligen Zugriff auf die Bisherige Unterhaltung sowie den aktuellen 
-Stand des Diagramms. 
+Um die Erzeugung und Interaktion rund um BPMN-Diagramme weiter zu verbessern, wird eine 
+Technik implementiert, die als `Chain of Thought' bezeichnet wird. 
+Dieses Verfahren ermöglicht es dem Modell, komplexere Denkprozesse intern nachzuvollziehen und 
+schrittweise zu argumentieren, bevor eine Antwort erzeugt wird. 
+Dadurch kann der Dialog natürlich und strukturiert verlaufen, da der Chatbot in der Lage ist, 
+Zusammenhänge besser zu verstehen und über mehrere Gesprächsschritte hinweg Ergebnisse 
+zu liefern.
+
+Diese Erweiterung erlaubt es dem Nutzer, auf vielfältige Weise mit dem Chatbot zu interagieren: 
+Es können Fragen gestellt, Ideen entwickelt, bestehende Diagramme erläutert oder 
+Verbesserungsvorschläge erfragt werden. 
+Der BPMN-Bot soll damit nicht nur ein Werkzeug für Diagrammerstellung bleiben, sondern sich zu einem 
+vollwertigen, kontextbewussten Assistenten weiterentwickeln, der beim gesamten Modellierungsprozess 
+unterstützt.
+
+Darüber hinaus ist vorgesehen, dass der Chatbot selbstständig Rückfragen stellt, wenn bestimmte 
+Angaben unvollständig, mehrdeutig oder widersprüchlich sind. 
+So kann ein interaktiver Dialog entstehen, in dem beide Seiten aktiv zum Verständnis und zur Qualität 
+der Diagrammerstellung beitragen. 
+Um dies zu ermöglichen, benötigt der Chatbot Zugriff auf den bisherigen Gesprächsverlauf sowie auf 
+den aktuellen Zustand des jeweiligen Diagramms. 
+Nur durch diese Kontextkenntnis kann die KI präzise, nachvollziehbare und qualitativ hochwertige 
+Antworten generieren.
 
 \subsection{Implementierung eines neuen Modus}
 
-Um die erstellung eines Diagramm nicht komplizierter für den Nutzer zu machen ist das Ziel, dass 
-die direkte Erstellung eines Diagramms weiterhin möglich ist.
-Dafür wird nun ein weiterer Parameter der Anfrage hinzugefügt.
-Über den $mode$ Parameter kann nun ausgewählt werden inwiefern die KI antwortet.
-Der bisherige Modus, welcher ausschließlich Diagramme erstellt, wird vorerst $quick$ genannt.
-Den Chain of Thought modus wird $detail$ genannt.
-Eine Anfrage welche nun eine Unterhaltung ermöglich sieht beispielsweise so aus:
+Um die Erstellung von Diagrammen für den Nutzer nicht unnötig zu verkomplizieren,
+bleibt die direkte Generierung eines BPMN-Diagramms weiterhin bestehen. 
+Gleichzeitig soll jedoch mehr Flexibilität bei der Art der Interaktion geboten werden. 
+Zu diesem Zweck wird der Anfrage ein zusätzlicher Parameter hinzugefügt, 
+der das Antwortverhalten der KI steuert.
 
+Über den Parameter \texttt{mode} kann festgelegt werden, in welchem Modus die
+KI reagieren soll. 
+Der bisherige Modus, bei dem ausschließlich das Diagramm
+erzeugt wird, trägt nun die Bezeichnung \texttt{quick}. 
+In diesem Modus erfolgt die Ausgabe direkt und ohne weiteren Dialog.
+
+Der neu eingeführte Modus \texttt{detail} aktiviert den sogenannten
+`Chain of Thought'-Ansatz. In diesem Modus verhält sich die KI dialogorientiert.
+Sie kann Rückfragen stellen, Überlegungen anstellen oder alternative Vorschläge
+anbieten, bevor das endgültige Diagramm erstellt wird. Dadurch entsteht eine
+interaktive Konversation, die vor allem bei komplexeren Prozessen oder
+unvollständigen Eingaben von Vorteil ist.
+
+Eine Anfrage, die eine solche erweiterte Unterhaltung ermöglicht, könnte
+beispielsweise folgendermaßen aussehen:\\
+
+\begin{samepage}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{json}
 // POST /threads
 { 
@@ -264,6 +304,7 @@ Eine Anfrage welche nun eine Unterhaltung ermöglich sieht beispielsweise so aus
   "mode": "detail",
 }
 \end{minted}
+\end{samepage}
 
 \subsection{Konversationskontext}
 
@@ -287,10 +328,16 @@ Diagramm geantwortet hat.
 Das ist wichtig, da die Diagramme viele Tokens beinhalten und eigentlich nur das aktuellste Diagram 
 wichtig ist. Hier bei kann es aber auch sein, dass das Diagramm noch vom Nutzer bearbeitet wurde.
 Um dies zu berücksichtigen sind die Diagramme nuicht Teil der Nachrichten, welche mitgesendet werden.
-Die KI Schnittstellenimplementierung, kann dann ein Objekt von PromptInput 
-entgegennehmen und dieses recht einfach durch fertige Helfermethoden auf das gewünschte Format bringen.
-Die Klasse hat diese Attribute:
+Die Implementierung der KI-Schnittstelle kann anschließend ein Objekt der Klasse \texttt{PromptInput} 
+entgegennehmen. 
+Dieses Objekt dient als zentrale Datenstruktur, über die alle für die Anfrage relevanten Informationen 
+an das Modell übergeben werden. 
+Mithilfe vordefinierter Hilfsmethoden lässt sich der Inhalt komfortabel in das gewünschte 
+Eingabeformat konvertieren, sodass keine manuelle Aufbereitung mehr erforderlich ist.
 
+Die Klasse \texttt{PromptInput} verfügt über folgende Attribute:\\
+
+\begin{samepage}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 export class PromptInput {
   instructions: string[];
@@ -299,18 +346,27 @@ export class PromptInput {
   file?: ;
 }
 \end{minted}
+\end{samepage}
 
-Es ist so nun möglich die Nachrichten aus der Datenbank abzurufen und diese werden in der PromptInput
-Klasse auf das oben angegebene Format gebracht\ldots
+Damit ist es möglich, bestehende Nachrichtenverläufe aus der Datenbank abzurufen und automatisch in 
+das benötigte Format zu überführen. 
+Die Klasse übernimmt hierbei die vollständige Strukturierung der Daten, sodass diese
+für die Kommunikation mit der KI genutzt werden können:\\
 
+\begin{samepage}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 const instructions = [formatInstructions, modeInstructions];
 const chatsFromDB = getAllChatsFromDB(threadID);
 new PromptInput(instructions, prompt, chatsFromDB, file);
 \end{minted}
+\end{samepage}
 
-\ldots und dann auf das benötigte Format für die KI gebracht zu werden:
+Das so erzeugte \texttt{PromptInput}-Objekt kann anschließend durch interne Methoden in das finale 
+Format umgewandelt werden, das von der KI-Schnittstelle erwartet wird. 
+Dadurch entsteht ein einheitlicher, wiederverwendbarer Datenfluss zwischen Anwendung, Datenbank und 
+Modell, der die Wartung sowie zukünftige Erweiterungen vereinfacht.\\
 
+\begin{samepage}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 protected mapPromptInput(input: PromptInput) {   
   [...]
@@ -324,13 +380,24 @@ protected mapPromptInput(input: PromptInput) {
   };
 }
 \end{minted}
+\end{samepage}
 
-Weitergehend soll nun auch die aktuellste version des Diagramms mitgeschickt werden, damit die KI dieses
-Bestensmöglichst sowohl bearbeiten als auch Fragen darüber beantworten kann.
-Da das aktuelle Diagramm nicht Teil der Nachrichten ist, wird dieses in die system instructions gesetzt.
-Wir nennen es die Update instructions und erhalten diese durch das Laden der aktuellen version aus 
-der Datenbank.
+Darüber hinaus soll künftig auch die jeweils aktuellste Version des Diagramms an die Anfrage angehängt 
+werden. 
+Auf diese Weise erhält die KI den vollständigen Kontext und kann das bestehende Diagramm nicht nur 
+bearbeiten, sondern auch inhaltliche Fragen dazu beantworten.
 
+Da das aktuelle Diagramm nicht Bestandteil des eigentlichen Nachrichtenverlaufs ist, wird es in den 
+sogenannten `System Instructions' hinterlegt. 
+Diesen Instruction Block wird nun als `Update Instructions' bezeichnet und enthält stets die zuletzt 
+gespeicherte Version des Diagramms. 
+Die entsprechenden Daten werden automatisch aus der Datenbank geladen und vor dem Absenden der Anfrage 
+in die System Instructions eingefügt.
+
+Durch dieses Verfahren ist sichergestellt, dass die KI bei jeder Interaktion auf dem neuesten Stand 
+bleibt und Änderungen im Diagramm jederzeit konsistent nachvollziehen kann.\\
+
+\begin{samepage}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 protected updateInstructions(threadID: string, format: format){
   const diagram = getLatestDiagramFromDB(threadID);
@@ -338,10 +405,108 @@ protected updateInstructions(threadID: string, format: format){
     ${format == "xml" ? diagram?.xml : diagram?.json}`]
 }
 \end{minted}
+\end{samepage}
 
-Damit hat die KI nun alle Informationen die sie benötigt um eine Konversation zu führen
+Damit hat die KI nun alle Informationen die sie benötigt um eine Konversation führen zu können.
 
 \subsection{Konversationen}
+
+Für eine vollständige Konversation benötigt die KI nun aber noch Anweisungen.
+Dafür werden der KI noch die sogenannten $modeInstructions$ bereitgestellt.
+Diese sehen zunächst so aus:\\
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{text}
+[Output Language depends on prompt language]
+
+Alternative to creating a bpmn diagram you may ask any 
+questions you feel like need answering to create the best bpmn 
+diagram.
+If you do not have any questions any more, please write a 
+quick summary of the agreed diagram before creating the bpmn 
+xml.
+If the initial prompt is really basic provide the user with a 
+creative scenario summary.
+
+Once the user has agreed on a summary, Do no longer answer in 
+plain text but only in bpmn xml.
+If you want to provide questions, summary or any other type of 
+text, that is not a diagram. Do not use JSON or XML. 
+Only plain Text!
+\end{minted}
+
+Diese Instructions werden nur mitgesendet, falls der $detail$ modus genutzt wird.
+
+Es ist nun eine Konversation möglich.
+
+Wenn man den Bot nun fragt: ``Bitte schlag mir ein Diagramm vor'' antwortet dieser mit:
+
+\setlist{nolistsep}
+\noindent\fbox{
+  \parbox{\textwidth}{
+    Gerne, ich schlage Ihnen ein klassisches und leicht verständliches Szenario vor: 
+    einen \textbf{Online-Bestellprozess}. 
+    Dieses Diagramm würde die Interaktion zwischen einem Kunden und einem Online-Shop 
+    darstellen und eignet sich gut, um grundlegende BPMN-Konzepte zu zeigen. 
+    \textbf{Zusammenfassung des vorgeschlagenen Diagramms:} 
+    \begin{itemize}[noitemsep]
+      \item \textbf{Beteiligte (Pools):}
+        \begin{enumerate}[noitemsep]
+          \item Kunde
+          \item Online-Shop
+        \end{enumerate}
+      \item \textbf{Ablauf beim Kunden:}
+        \begin{enumerate}[noitemsep]
+          \item Der Prozess beginnt damit, dass der Kunde ein Produkt auswählt.
+          \item Er gibt eine Bestellung auf, was eine Nachricht an den Online-Shop sendet.
+          \item Danach wartet er auf die Bestellbestätigung.
+          \item Anschließend wartet er auf die Versandbestätigung.
+          \item Der Prozess endet, wenn der Kunde die Ware erhalten hat.
+        \end{enumerate}
+      \item \textbf{Ablauf im Online-Shop:}
+      \begin{enumerate}[noitemsep]
+        \item Der Prozess startet, sobald die Bestellung des Kunden eingeht.
+        \item Die Bestellung wird geprüft.
+        \item Eine Entscheidung (Gateway): Ist der Artikel verfügbar?
+          \begin{itemize}[noitemsep]
+            \item \textbf{Ja:} Die Bestellung wird bestätigt (Nachricht an den Kunden), 
+              die Ware wird verpackt und versendet. 
+              Eine Versandbestätigung wird an den Kunden gesendet.
+            \item \textbf{Nein:} Die Bestellung wird abgelehnt (Nachricht an den Kunden) 
+              und der Prozess endet. 
+          \end{itemize}
+        \item Nach dem Versand der Ware ist der Prozess für den Shop abgeschlossen.
+      \end{enumerate}
+    \end{itemize}
+    Dieses Szenario zeigt die Zusammenarbeit zwischen zwei Teilnehmern, den Austausch von 
+    Nachrichten und eine einfache Geschäftsentscheidung. 
+    Sind Sie mit diesem Vorschlag einverstanden? 
+    Falls ja, erstelle ich das entsprechende BPMN 2.0 XML für Sie.
+  }
+}
+
+Man kann darauf antworten mit ``Ja, bitte generier mir das Diagramm genau so wie beschrieben''.
+Der Bot versteht, dass er nun nicht antworten, sondern ein Diagramm erstellen soll.
+Daher sendet er nun kein Klartext sondern direkt ein BPMN XML.
+Dieses sieht folgendermaßen aus:
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{images/diagrams/diagram_1}
+  \caption{\label{fig:diagram1}Beschreibung/Beschriftung des Bilds}
+\end{figure}
+
+
+Es fällt auf, dass der Bot das Gateway `Ist der Artikel verfügbar?' vergessen hat.
+Dies ist allerdings kein Problem da das Diagramm nun weiter durch Prompts verbessern kann.
+``Bitte bearbeite das Diagramm indem du das vergessene Gateway `Ist der Artikel verfügbar?' hinzufügst.''
+Der Bot erkennt nun wieder, dass keine Textantwort gewünscht ist und beginnt mit der  
+Übersendung des neuen Diagramms.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{images/diagrams/diagram_2}
+  \caption{\label{fig:diagram1}Beschreibung/Beschriftung des Bilds}
+\end{figure}
 
 
 
