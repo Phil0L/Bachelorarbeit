@@ -508,17 +508,285 @@ Der Bot erkennt nun wieder, dass keine Textantwort gewünscht ist und beginnt mi
   \caption{\label{fig:diagram1}Beschreibung/Beschriftung des Bilds}
 \end{figure}
 
+Das Verhalten des ChatBots entspricht damit exakt den Anforderungen: 
+Die Erstellung und Bearbeitung von Diagrammen kann vollständig interaktiv erfolgen, 
+und der Nutzer erhält abhängig vom Kontext entweder Klartext oder direkt ein BPMN-Diagramm. 
+Im gezeigten Beispiel war die Einordnung der Antwort relativ unkompliziert, 
+da jeweils eindeutig erkennbar war, ob die KI ausschließlich Text oder ausschließlich ein 
+Diagramm liefern sollte.
 
+Für die weitere Entwicklung soll der Funktionsumfang jedoch erweitert werden, sodass der ChatBot 
+künftig auch Antworten erzeugen kann, die Klartext und Diagramm gleichzeitig enthalten. 
+Dadurch wird es möglich, dass der Bot zunächst eine Beschreibung, Analyse oder Erklärung liefert 
+und anschließend unmittelbar ein dazugehöriges BPMN-Diagramm generiert. 
+Ein solcher Anwendungsfall lässt sich beispielsweise mit einer Anfrage wie
+„Zeig mir, was du so kannst, indem du eine Prozessbeschreibung erstellst und diese direkt in ein 
+Diagramm umsetzt.“
+simulieren.
+
+In diesem Szenario entsteht eine neue Herausforderung: 
+Die Antwort der KI besteht nicht mehr aus einer einzigen, klar abgrenzbaren Kategorie, 
+sondern aus zwei unterschiedlichen Inhaltstypen, die voneinander getrennt verarbeitet werden 
+müssen. 
+Der Klartextteil soll wie gewohnt im Chat ausgegeben werden, während der Diagrammteil in das 
+entsprechende Ausgabeformat überführt und anschließend angezeigt wird. 
+
+Zu diesem Zweck wird ein zusätzlicher Erkennungsschritt eingeführt, der die Antwort der KI 
+analysiert und die jeweiligen Segmente eindeutig identifiziert. 
+Der ChatBot muss erkennen, welche Abschnitte in natürlicher Sprache formuliert sind und welche 
+Bestandteile tatsächlich ein Diagramm darstellen, das weiterverarbeitet oder visualisiert werden 
+soll. 
+Dieses Verhalten ermöglicht eine deutlich flexiblere Interaktion und eröffnet neue 
+Einsatzmöglichkeiten, besonders dann, wenn Nutzer sowohl inhaltliche Erläuterungen als auch die 
+direkte Umsetzung in einem BPMN-Diagramm erwarten.
+
+% evtl wieder entfernen:
+Mit dieser Erweiterung entwickelt sich der BPMN-Bot zunehmend zu einem umfassenden 
+Assistenzsystem, das nicht nur Modellierungsartefakte erzeugt, sondern auch begleitend erklärt, 
+begründet und interaktiv mit dem Nutzer zusammenarbeitet.
+
+Für dieses Kategorisierung wird eine Beispiel-Antwort betrachtet:
+
+\noindent\fbox{
+  \parbox{\textwidth}{
+    Gerne, hier ist ein Vorschlag für einen einfachen, aber vollständigen Prozess: \\
+    **Prozess:** Urlaubsantrag **Beteiligte:** Mitarbeiter, Vorgesetzter \\
+    **Ablauf:** 1. Ein Mitarbeiter füllt einen Urlaubsantrag aus und reicht ihn ein. \\
+    2. Der Vorgesetzte erhält den Antrag und prüft ihn. \\
+    3. Der Vorgesetzte entscheidet, ob der Antrag genehmigt oder abgelehnt wird. \\
+    * **Bei Genehmigung:** Der Mitarbeiter wird über die Genehmigung informiert. \\
+    * **Bei Ablehnung:** Der Mitarbeiter wird über die Ablehnung informiert. \\
+    4. Der Prozess ist in beiden Fällen abgeschlossen. \\
+    \colorbox{black!0}{\strut\textasciigrave\textasciigrave\textasciigrave xml}%
+    \colorbox{black!0}{\strut<?xml version=1.0 encoding=UTF-8?><bpmn:definitions}\\
+    \colorbox{black!0}{\parbox{\linewidth-5pt}{\strut[\ldots]}}\\
+    \colorbox{black!0}{\strut</bpmn:definitions>}%
+    \colorbox{black!0}{\strut\textasciigrave\textasciigrave\textasciigrave}\\
+    In diesem Beispiel gibt es ein \\ 
+    \colorbox{black!0}{\strut<bpmn:startEvent name=``Urlaubsantrag ausgefüllt''>}
+    , ein \\
+    \colorbox{black!0}{\strut\textasciigrave}%
+    \colorbox{black!0}{\strut<bpmn:exclusiveGateway name=``Antrag genehmigt?''>}%
+    \colorbox{black!0}{\strut\textasciigrave}
+    und weitere tasks welche den Ablauf eines Urlaubsantrags zeigen.
+  }
+}
+
+Der Algorithmus soll nun zunächst alle Diagramme finden.
+Dies wird hier durch den Aufruf eines Regex ermöglicht.
+
+\begin{samepage}
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs, breaklines, breakanywhere]{typescript}
+/(?:``?`?\s*(?:xml)?\s*)?(<[^<>]*\/[^<>]*>\s*|<[^\/<>]*>[^`]*<\/[^<>]*>)+\s*(?:``?`?|(?=[^<>`\s]))\n?/g
+\end{minted}
+\end{samepage}
+
+Über dieses werden automatisch alle validen XML Teile (In TBA label grün markiert) erkannt.
+Durch die Benutzung einer Non-capturing group werden Wrapper des XML 
+(In TBA label blau-grün markiert) wie zum Beispiel das 
+`\textasciigrave\textasciigrave\textasciigrave xml', automatisch entfernt.
+Alle matches werden danach auf ihre Länge geprüft um herauszufinden ob diese ein 
+vollständiges Diagramm repräsentieren oder nur eine Referenz bzw. Erklärung als 
+Teil des Klartextes sind. (In TBA label grün-gelb markiert)
+
+\noindent\fbox{
+  \parbox{\textwidth}{
+    Gerne, hier ist ein Vorschlag für einen einfachen, aber vollständigen Prozess: \\
+    **Prozess:** Urlaubsantrag **Beteiligte:** Mitarbeiter, Vorgesetzter \\
+    **Ablauf:** 1. Ein Mitarbeiter füllt einen Urlaubsantrag aus und reicht ihn ein. \\
+    2. Der Vorgesetzte erhält den Antrag und prüft ihn. \\
+    3. Der Vorgesetzte entscheidet, ob der Antrag genehmigt oder abgelehnt wird. \\
+    * **Bei Genehmigung:** Der Mitarbeiter wird über die Genehmigung informiert. \\
+    * **Bei Ablehnung:** Der Mitarbeiter wird über die Ablehnung informiert. \\
+    4. Der Prozess ist in beiden Fällen abgeschlossen. \\
+    \colorbox{green!70!blue!90}{\strut\textasciigrave\textasciigrave\textasciigrave xml}%
+    \colorbox{green!90!black}{\parbox{\linewidth-46pt}{\strut<?xml version=1.0 encoding=UTF-8?><bpmn:definitions}}\\
+    \colorbox{green!90!black}{\parbox{\linewidth-5pt}{\strut[\ldots]}}\\
+    \colorbox{green!90!black}{\strut</bpmn:definitions>}%
+    \colorbox{green!70!blue!90}{\strut\textasciigrave\textasciigrave\textasciigrave}
+    In diesem Beispiel gibt es ein \\ 
+    \colorbox{green!20!yellow}{\strut<bpmn:startEvent name=``Urlaubsantrag ausgefüllt''>}
+    , ein \\
+    \colorbox{green!70!blue!90}{\strut\textasciigrave}%
+    \colorbox{green!20!yellow}{\strut<bpmn:exclusiveGateway name=``Antrag genehmigt?''>}%
+    \colorbox{green!70!blue!90}{\strut\textasciigrave}
+    und weitere tasks welche den Ablauf eines Urlaubsantrags zeigen.
+  }
+}
+
+Somit kann die gesamte Nachricht kategorisiert werden.
+Rein-Grüne Teile sind Diagramme,
+Nicht markierte Teile und gelb-grüne Teile sind Teil der Klartextnachricht.
 
 \section{Weitere Anbieter}
 
+Es ist sinnvoll, dass der Chatbot neben ChatGPT auch andere Chatbot-Anbieter 
+nutzen kann, um Flexibilität, Ausfallsicherheit und Vielfalt in den 
+Antwortmöglichkeiten zu gewährleisten. 
+Unterschiedliche Anbieter bieten verschiedene Stärken, wie etwa spezialisierte Natural 
+Language Processing-Modelle, schnellere Antwortzeiten oder kosteneffizientere Lösungen. 
+Durch die Integration mehrerer Anbieter kann der Bot je nach Bedarf die beste Leistung auswählen, 
+alternative Perspektiven liefern und Ausfälle eines einzelnen Dienstes abfedern. 
+Dies erhöht die Zuverlässigkeit und Qualität der generierten BPMN-Diagramme.
+
+Durch die Objektorientierte Konfiguration der KI Schnittstelle ist es nun sehr einfach weitere 
+Anbieter hinzuzufügen.
+Im weiteren wird gezeigt wie weitere Anbieter nun hinzugefügt werden.
+
+% TBA in den folgenden blöcken muss noch einiges getan werden. Kann man so nicht lassen.
+
 \subsection{Grok}
+
+% TBA umschreiben
+Die Einbindung von Grok ergänzt ChatGPT, weil Grok schneller auf aktuelle Daten zugreift, oft 
+direkter formuliert und technische Zusammenhänge sehr präzise erkennt. 
+Dadurch kann der Bot bei bestimmten Aufgaben – etwa beim Interpretieren knapper Anweisungen 
+oder beim Erzeugen alternativer BPMN-Varianten – Ergebnisse liefern, die ChatGPT allein nicht 
+immer erreicht. 
+Grok erhöht damit die Vielfalt, Genauigkeit und Zuverlässigkeit des Systems.
+
+Grok kann einfach über die XAI SDK hinzugefügt werden.
+Die Dokumentation findet man hier: \url{https://ai-sdk.dev/providers/ai-sdk-providers/xai}
+
+Die zu versendende Nachricht an die Grok API muss nun nur noch vom PromptInput Objekt auf das 
+API Format gebracht werden.\\
+
+\begin{samepage}
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+protected mapPromptInput(input: PromptInput) {
+  const historyInst = input.history.map((item) => {
+    return {role: item.role, content: item.content} ;
+  })
+  const fileInst = input.file ? {
+    role: "user",
+    content: [{
+      type: "image",
+      image: input.getFileDataUrl() ,
+    }],
+  } : [];
+  const userInst = {role: "user", content: input.prompt}
+  return {
+    model: this.xai(this.model),
+    system: input.instructions.join("\n"),
+    messages: [historyInst, userInst, fileInst],
+  };
+}
+\end{minted}
+\end{samepage}
+
 
 \subsection{Gemini}
 
+Die Einbindung von Gemini ergänzt ChatGPT, weil Gemini bei komplexen Analyseaufgaben, 
+strukturiertem Denken und dem Umgang mit großen Informationsmengen besonders stark ist. 
+Dadurch kann der Bot bei der Modellierung und Optimierung von BPMN-Prozessen zusätzliche 
+Präzision und alternative Lösungswege bieten. Gemini erhöht so die fachliche Tiefe, Robustheit 
+und Variantenvielfalt der Ergebnisse.\\
+
+\begin{samepage}
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+protected mapPromptInput(input: PromptInput) {
+  const systemInst = input.instructions.map((instruction) => {
+    return {
+      role: "model", 
+      parts: [{text: instruction, thought: false}]
+    };
+  });
+  const historyInst = input.history.map((item) => {
+    return {
+      role: item.role == "user" ? "user" : "model",
+      parts: [{
+        text: item.content, 
+        thought: item.role == "assistant"
+      }],
+    };
+  });
+  const imageInst = input.file ? {
+    role: "user",
+    parts: [{
+      type: "input_file",
+      inlineData: {
+        data: input.getFileBase64Data(),
+        mimeType: input.getFileMimeType(),
+      },
+    }],
+    } : [];
+  const userInst = {
+    role: "user", 
+    parts: [{text: input.prompt}]
+  };
+  return {
+    model: this.model,
+    contents: [systemInst, historyInst, userInst, imageInst],
+  };
+}
+\end{minted}
+\end{samepage}
+
+Die Gemini API erwartet bei Jedem Text Teil der Anfrage noch das Feld `thought', welches angibt
+ob dieser Teil bereit von einer KI gedacht wurde.\\
+
 \subsection{Claude}
 
+\begin{samepage}
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+protected mapPromptInput(input: PromptInput) {
+  const systemInst = input.instructions.map((instruction) => {
+    return {type: "text", text: instruction};
+  });
+  const historyInst = input.history.map((item) => {
+    return {role: item.role, content: item.content};
+  });
+  const imageInst = input.file ? {
+    role: "user",
+    content: [{
+      type: "file",
+      source: {
+        type: 'base64',
+        data: input.getFileBase64Data(),
+        media_type: input.getFileMimeType(),
+      },
+    }],
+  } : [];
+  const userInst = {role: "user", content: input.prompt};
+  return {
+      model: this.model,
+      max_tokens: 15000,
+      system: systemInst,
+      messages: [historyInst, userInst, imageInst],
+  };
+}
+\end{minted}
+\end{samepage}
+
 \section{Streaming}
+
+Bisher ergab es nur begrenzt Sinn, die Antworten der KI zu streamen, da ein Diagramm erst dann 
+nutzbar ist, wenn es vollständig erzeugt wurde. 
+Einzelne, unvollständige Fragmente eines BPMN-Diagramms bieten keinen Mehrwert und können vom 
+Client nicht sinnvoll verarbeitet oder angezeigt werden. 
+Mit der Einführung gemischter Antworten, die sowohl Klartext als auch Diagramme enthalten können, 
+ändert sich dies jedoch.
+
+Sobald ein Teil der Antwort aus natürlicher Sprache besteht, entsteht ein klarer Vorteil beim 
+Streaming. 
+Textinhalte können bereits angezeigt werden, während der restliche Output noch generiert wird. 
+Dadurch erhält der Nutzer deutlich schneller Rückmeldung, was insbesondere bei komplexeren oder 
+längeren Antworten zu einem spürbar verbesserten Nutzungserlebnis führt.
+
+Technisch bedeutet dies, dass die Ausgabe der KI zunächst an den BPMNGen-Server gestreamt werden 
+muss, der die eingehenden Daten analysiert und korrekt kategorisiert. 
+Anschließend wird der Klartext Teil der Antwort weiter an den Client gestreamt. 
+Entscheidend ist dabei, dass ausschließlich der textuelle Anteil der Antwort übertragen wird. 
+Diagrammfragmente oder Codeblöcke würden beim Client zu Fehlern führen, da diese erst nach 
+vollständiger Generierung sinnvoll weiterverarbeitet oder angezeigt werden können.
+
+Durch diese Trennung entsteht ein effizientes zweistufiges Streaming-Verfahren: 
+Der BPMNGen-Server verarbeitet die gesamte Antwort, extrahiert den Klartext in Echtzeit und 
+leitet ihn unmittelbar weiter, während das Diagramm erst nach seiner vollständigen Fertigstellung 
+bereitgestellt wird. 
+
+
 
 \section{Schema-Constraining}
 
