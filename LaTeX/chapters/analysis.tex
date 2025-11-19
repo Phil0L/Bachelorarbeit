@@ -4,4 +4,208 @@
 
 \section{Geschwindigkeit}
 
+Um die Geschwindigkeit verscheidener Prozessabschnitte und modellen zu testen, bietet es sich
+an, die Antwort der KI als Stream zu betrachten, da dieser in Echtzeit ausgewertet werden kann.
+So kann zum Beispiel auch untersucht werden bei welche modellen die Textgenerierung und bei
+welchen die Diagrammgenereirung schneller ist.
+Um sich aber nur auf gestreamte Daten zu begrenzen, muss zunächst festgestellt werden, ob
+sich die Generierungszeiten eines LLM Anbieters unterscheiden, wenn man stream bzw. nicht 
+streamt.
+
+Dafür werden nun in Abbildung \ref{fig:timing-streaming} einige Modelle getestet, ob sich die Zeiten jeweils stark unterscheiden.
+Hierfür wird folgender Prompt verwendet:
+
+\noindent\fbox{
+  \parbox{\textwidth}{
+    Erstelle eine Prozessbeschreibung eines Beliebigen Prozesses mit 95 bis 105 Wörtern welche 
+    5 tasks, 1 gateway und 2 message flows beinhaltet.
+    Setzte diese dann direkt in ein Diagramm um. Das Diagramm soll nur genau die 5 tasks, 1 
+    gateway und 2 message flows beinhalten, mehr nicht.
+  }
+}
+
+\begin{figure}[ht]
+\centering
+\pgfplotstableread{ % data 
+Model	           Gestreamt   NichtGestreamt
+Gemini-2.5-Pro	    44.852	    45.322
+Gemini-2.5-Flash	38.364	    39.091
+Grok-3	            52.668	    55.567
+Grok-3-Fast	        53.252	    59.121
+ChatGPT-4.1	        46.938	    47.810
+ChatGPT-5-Mini	   207.647	   216.427
+Claude-Sonnet-4.5	52.913	    53.079 
+}\datastreamnostream
+\pgfplotstablesort[sort key=Gestreamt, sort cmp=float <]{\sorteddatastreamnostream}{\datastreamnostream}
+\begin{tikzpicture}
+\begin{axis}[
+    xbar,   % Stacked horizontal bars
+    width=.8\textwidth,
+    xmin=0,         % Start x axis at 0
+    ytick=data,     % Use as many tick labels as y coordinates
+    bar width=4mm,
+    y=11mm,
+    enlarge y limits=0.1,
+    legend style={
+        legend columns=2,
+        at={(0.5,0)},   % Mitte Unten der Achse
+        anchor=north,
+        yshift=-3em,
+        draw=none
+    },
+    area legend,
+    xlabel={Zeit [Sekunden]},
+    yticklabels from table={\sorteddatastreamnostream}{Model},  % Get the labels from the Model column of the \datatable
+    tick label style={font=\footnotesize}
+]
+\addplot [fill=green!60,
+    point meta=x,
+    nodes near coords,
+    nodes near coords align={anchor=west},
+    every node near coord/.append style={
+        black,
+        fill=white,
+        fill opacity=0.75,
+        text opacity=1,
+    }
+] table [x=Gestreamt, meta=Model,y expr=\coordindex] {\sorteddatastreamnostream};   % "First" column against the data index
+\addplot [fill=red!60,
+    point meta=x,
+    nodes near coords,
+    nodes near coords align={anchor=west},
+    every node near coord/.append style={
+        black,
+        fill=white,
+        fill opacity=0.75,
+        text opacity=1,
+    }
+] table [x=NichtGestreamt, meta=Model,y expr=\coordindex] {\sorteddatastreamnostream};
+\legend{Gestreamt,Nicht Gestreamt}
+\end{axis}
+\end{tikzpicture}
+\caption{Zeitperformanzvergleich Gestreamt vs Nicht Gestreamt}
+\label{fig:timing-streaming}
+\end{figure}
+
+Aus diesen Daten geht hervor, dass bei jedem Modell die Variante des Streamings die Variante 
+ohne Streamings in Bezug auf Geschwindigkeit überbietet.
+Der Unterschied beträgt jeweils unter 10\%.
+Damit ist nun klar, dass die Variante des Stremings nicht der Variante Ohne Streamings unterliegt
+und für weitere Tests kann die Variante des Streamings verwendet werden während die Nicht 
+Streaming Variante vernachlässigt wird.
+Als nächstes soll nun untersucht werden welcher der zwei implementierten Formate \texttt{JSON}
+und \texttt{XML} sich Zeitlich besser verhält.
+In Abbildung \ref{fig:timing-xmljson} wird für das Promptbeispiel TBA ref dieses Verhalten 
+getestet.
+
+\begin{figure}[ht]
+\centering
+\pgfplotstableread{ % data 
+Model	Antwort	StreamInitialisierung	Text	Diagramm	Formatierung	Datenbank
+XML	    28.345	0.004                   0.194	24.949	    0	            0.671
+JSON	28.453	0.001	                0.189	13.707	    0.009	        0.554
+}\dataxmljson
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,   % Stacked horizontal bars
+    width=.9\textwidth,
+    xmin=0,         % Start x axis at 0
+    ytick=data,     % Use as many tick labels as y coordinates
+    bar width=6mm,
+    y=8mm,
+    enlarge y limits=0.8,
+    legend style={
+        legend columns=4,
+        at={(0.5,0)},   % Mitte Unten der Achse
+        anchor=north,
+        yshift=-3em,
+        draw=none
+    },
+    area legend,
+    xlabel={Zeit [Sekunden]},
+    yticklabels from table={\dataxmljson}{Model}  % Get the labels from the Model column of the \datatable
+]
+\addplot [fill=green!60] table [x=Antwort, meta=Model,y expr=\coordindex] {\dataxmljson};   % "First" column against the data index
+\addplot [fill=blue!60] table [x=StreamInitialisierung, meta=Model,y expr=\coordindex] {\dataxmljson};
+\addplot [fill=magenta!60] table [x=Text, meta=Model,y expr=\coordindex] {\dataxmljson};   % "First" column against the data index
+\addplot [fill=orange!60] table [x=Diagramm, meta=Model,y expr=\coordindex] {\dataxmljson};   % "First" column against the data index
+\addplot [fill=purple!60] table [x=Formatierung, meta=Model,y expr=\coordindex] {\dataxmljson};   % "First" column against the data index
+
+\addplot [fill=red!60,
+    point meta=x,
+    nodes near coords,
+    nodes near coords align={anchor=west},
+    every node near coord/.append style={
+        black,
+        fill=white,
+        fill opacity=0.75,
+        text opacity=1,
+    }
+] table [x=Datenbank, meta=Model,y expr=\coordindex] {\dataxmljson};
+\legend{Antwort,Streamstart,Textgenerierung,Diagrammgenerierung,Formatierung,Datenbankaufruf}
+\end{axis}
+\end{tikzpicture}
+\caption{Zeitperformanzvergleich JSON vs XML bei Gemini 2.5 Pro}
+\label{fig:timing-xmljson}
+\end{figure}
+
+Man erkannt einfach, dass die Diagrammgenerierung bei JSON um einiges schneller ist als XML.
+Der Konvertierungsprozess von JSON zu XML beträgt in diesem Beispiel nur 9 ms und ist damit um
+einiges effizienter als die um 11.242 ms längere Diagrammgenerierung bei XML.
+Interessant ist nun noch zu sehen wie diese Aufwandsdifferenz von der Größe des Diagramms abhängt.
+Hierfür wird nun in TBA ref Gemini 2.5 Pro im Quick modus benutzt um verschieden große Diagramme
+zu erzeugen.
+Hierfür wird folgender Prompt verwendet:
+
+\noindent\fbox{
+  \parbox{\textwidth}{
+    Erstelle ein BPMN Diagramm für ein Prozess deiner Wahl. 
+    Sei kreativ.
+    Benutze insgesamt genau [anzahl-elemente] Elemente wie z.B. Tasks, Gates, End-Events, 
+    Message-Flows, Pools, Lanes, etc.
+  }
+}
+
+
+
+\begin{figure}[ht]
+\centering
+\pgfplotstableread{ % data 
+Elemente	XML	    JSON
+2	        5.567	2.444
+5	        7.302	3.816
+10	        13.594	8.489
+20	        26.565	16.049
+50	        80.995	36.091
+}\dataxmljson
+\begin{tikzpicture}
+\begin{axis}[
+    xtick=data,
+    width=.9\textwidth,
+    xmin=0,
+    ymin=0,
+    enlarge y limits=0,
+    legend style={
+        legend columns=4,
+        at={(0.5,0)},   % Mitte Unten der Achse
+        anchor=north,
+        yshift=-3em,
+        draw=none
+    },
+    area legend,
+    xlabel={Anzahl Elemente},
+    ylabel={Zeit [Sekunden]},
+]
+\addlegendentry{XML};
+\addplot [smooth,mark=*,color=blue!60] table [y=XML, x=Elemente] {\dataxmljson};
+\addlegendentry{JSON};
+\addplot [smooth,mark=*,color=red!60] table [y=JSON, x=Elemente] {\dataxmljson};
+
+
+\end{axis}
+\end{tikzpicture}
+\caption{Zeitperformanzvergleich JSON vs XML bei Gemini 2.5 Pro nach Anzahl der Elemente (Nur Diagramm)}
+\label{fig:timing-xmljson-elements}
+\end{figure}
+
 \section{Kosten}

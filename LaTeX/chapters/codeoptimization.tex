@@ -409,7 +409,7 @@ protected updateInstructions(threadID: string, format: format){
 
 Damit hat die KI nun alle Informationen die sie benötigt um eine Konversation führen zu können.
 
-\subsection{Konversationen}
+\subsection{Konversationen} \label{konversationen}
 
 Für eine vollständige Konversation benötigt die KI nun aber noch Anweisungen.
 Dafür werden der KI noch die sogenannten $modeInstructions$ bereitgestellt.
@@ -581,13 +581,13 @@ Dies wird hier durch den Aufruf eines Regex ermöglicht.
 \end{minted}
 \end{samepage}
 
-Über dieses werden automatisch alle validen XML Teile (In TBA label grün markiert) erkannt.
+Über dieses werden automatisch alle validen XML Teile (In TBA label bunt markiert) erkannt.
 Durch die Benutzung einer Non-capturing group werden Wrapper des XML 
-(In TBA label blau-grün markiert) wie zum Beispiel das 
+(In TBA label blau markiert) wie zum Beispiel das 
 `\textasciigrave\textasciigrave\textasciigrave xml', automatisch entfernt.
 Alle matches werden danach auf ihre Länge geprüft um herauszufinden ob diese ein 
 vollständiges Diagramm repräsentieren oder nur eine Referenz bzw. Erklärung als 
-Teil des Klartextes sind. (In TBA label grün-gelb markiert)
+Teil des Klartextes sind. (In TBA label rot markiert)
 
 \noindent\fbox{
   \parbox{\textwidth}{
@@ -599,24 +599,24 @@ Teil des Klartextes sind. (In TBA label grün-gelb markiert)
     * **Bei Genehmigung:** Der Mitarbeiter wird über die Genehmigung informiert. \\
     * **Bei Ablehnung:** Der Mitarbeiter wird über die Ablehnung informiert. \\
     4. Der Prozess ist in beiden Fällen abgeschlossen. \\
-    \colorbox{green!70!blue!90}{\strut\textasciigrave\textasciigrave\textasciigrave xml}%
-    \colorbox{green!90!black}{\parbox{\linewidth-46pt}{\strut<?xml version=1.0 encoding=UTF-8?><bpmn:definitions}}\\
-    \colorbox{green!90!black}{\parbox{\linewidth-5pt}{\strut[\ldots]}}\\
-    \colorbox{green!90!black}{\strut</bpmn:definitions>}%
-    \colorbox{green!70!blue!90}{\strut\textasciigrave\textasciigrave\textasciigrave}
+    \colorbox{blue!60}{\strut\textasciigrave\textasciigrave\textasciigrave xml}%
+    \colorbox{green!60}{\parbox{\linewidth-46pt}{\strut<?xml version=1.0 encoding=UTF-8?><bpmn:definitions}}\\
+    \colorbox{green!60}{\parbox{\linewidth-5pt}{\strut[\ldots]}}\\
+    \colorbox{green!60}{\strut</bpmn:definitions>}%
+    \colorbox{blue!60}{\strut\textasciigrave\textasciigrave\textasciigrave}
     In diesem Beispiel gibt es ein \\ 
-    \colorbox{green!20!yellow}{\strut<bpmn:startEvent name=``Urlaubsantrag ausgefüllt''>}
+    \colorbox{red!60}{\strut<bpmn:startEvent name=``Urlaubsantrag ausgefüllt''>}
     , ein \\
-    \colorbox{green!70!blue!90}{\strut\textasciigrave}%
-    \colorbox{green!20!yellow}{\strut<bpmn:exclusiveGateway name=``Antrag genehmigt?''>}%
-    \colorbox{green!70!blue!90}{\strut\textasciigrave}
+    \colorbox{blue!60}{\strut\textasciigrave}%
+    \colorbox{red!60}{\strut<bpmn:exclusiveGateway name=``Antrag genehmigt?''>}%
+    \colorbox{blue!60}{\strut\textasciigrave}
     und weitere tasks welche den Ablauf eines Urlaubsantrags zeigen.
   }
 }
 
 Somit kann die gesamte Nachricht kategorisiert werden.
-Rein-Grüne Teile sind Diagramme,
-Nicht markierte Teile und gelb-grüne Teile sind Teil der Klartextnachricht.
+Grüne Teile sind Diagramme,
+Nicht markierte Teile und rote Teile sind Teil der Klartextnachricht.
 
 \section{Weitere Anbieter}
 
@@ -786,7 +786,215 @@ Der BPMNGen-Server verarbeitet die gesamte Antwort, extrahiert den Klartext in E
 leitet ihn unmittelbar weiter, während das Diagramm erst nach seiner vollständigen Fertigstellung 
 bereitgestellt wird. 
 
+Die gestreamte Ausgabe eines LLM-Anbieters zu starten ist in den meisten Fällen unkompliziert. 
+Viele Modelle bieten dafür einen expliziten Parameter an, der direkt in der Anfrage gesetzt 
+werden kann. 
+Sowohl ChatGPT als auch Claude unterstützen dieses Vorgehen nativ, sodass sich das gewünschte 
+Verhalten bereits beim Abschicken des Requests konfigurieren lässt. 
+Ein entsprechendes Beispiel sieht wie folgt aus:\\
 
+\begin{samepage}
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+protected mapPromptInput(input: PromptInput, stream: boolean) {
+  [...]
+  return {
+    model: this.model,
+    stream: stream,
+    system: systemInst,
+    input: [historyInst, userInst, imageInst]
+  };
+}
+\end{minted}
+\end{samepage}
+
+Andere Anbieter wie Gemini oder Grok verfolgen dagegen einen leicht unterschiedlichen Ansatz und 
+stellen das Streaming über eine separate API-Funktion bereit. 
+Je nach verwendetem Endpunkt wird entweder ein normaler Text generiert oder ein Stream 
+zurückgegeben. 
+Der Wechsel zwischen beiden Varianten lässt sich dadurch einfach implementieren:\\
+
+\begin{samepage}
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+async generateContent(input: any, stream: boolean) {
+  if (stream) return streamText(input)
+  return generateText(input);
+}
+\end{minted}
+\end{samepage}
+
+Sobald die Antwort der KI eintrifft, wird zunächst überprüft, ob es sich tatsächlich um einen 
+Stream handelt. 
+Da JavaScript-basierte Streams typischerweise das Symbol \texttt{asyncIterator} implementieren, 
+lässt sich dies zuverlässig über eine einfache Typprüfung feststellen:\\
+
+\begin{samepage}
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+protected isStream(obj: any): boolean {
+  return obj && typeof obj[Symbol.asyncIterator] === "function";
+}
+\end{minted}
+\end{samepage}
+
+Wird ein Stream erkannt, kann dieser anschließend mithilfe eines asynchronen Iterations-Loops 
+ausgelesen werden. 
+Die empfangenen Delta-Fragmente lassen sich so in Echtzeit weiterverarbeiten, um 
+Klartext sofort an den Client zu streamen, bevor das vollständige Diagramm erzeugt wird.\\
+
+\begin{samepage}
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+protected async processStream(stream: any){
+  for await (const chunk of stream) {
+    switch (chunk.type) {
+      case "response.output_text.delta":
+        // Text oder andere Änderungen
+        processDelta(chunk.delta);
+        break;
+
+      case "response.completed":
+        // Fertig gelesen
+        return;
+
+      case "response.error":
+      case "response.failed":
+        // Fehler
+        error(chunk.response.error.message);
+        return;
+
+      default:
+        break;
+    }
+  }
+}
+\end{minted}
+\end{samepage}
+
+Während der Stream verarbeitet wird, wird die Antwort der KI schrittweise in einem internen 
+Buffer aufgebaut. 
+Nach jeder Erweiterung des Buffers wird der Klartextanteil, wie in Abschnitt \ref{konversationen}
+beschrieben, extrahiert und an den Client weitergeleitet. 
+Auf diese Weise erhält der Nutzer bereits während der Generierung der vollständigen Antwort 
+fortlaufend Informationen, ohne auf das Endergebnis warten zu müssen.
+
+Erkennt das System jedoch, dass der Stream gerade einen Diagrammteil enthält, wird dieser 
+zunächst zurückgehalten und nicht an den Client übertragen. 
+Diagrammfragmente sind während der laufenden Generierung weder syntaktisch vollständig noch 
+anzeigbar. 
+Es macht daher keinen Sinn diese zu streamen.
+
+Sobald das Diagramm allerdings vollständig empfangen wurde, kann es analysiert und eindeutig 
+einer Kategorie zugeordnet werden. 
+Dabei wird, wie in Abschnitt \ref{konversationen} beschrieben, entschieden, ob es sich um ein 
+finales BPMN-Diagramm handelt, das angezeigt werden soll, oder ob der betreffende Abschnitt 
+lediglich Bestandteil eines beschreibenden Klartextes ist und somit kein eigenständiges 
+Diagramm ist. 
+Dieses Vorgehen stellt sicher, dass sowohl Text- als auch Diagrammausgaben sauber voneinander 
+getrennt und jeweils korrekt verarbeitet werden, ohne dass unvollständige oder fehlerhafte 
+Diagrammfragmente beim Client ankommen.
+
+\subsection{SSE}
+
+Für die Übertragung der erzeugten Informationen an den Client wird die Technik der Server-Sent 
+Events (SSE) eingesetzt. 
+SSE ermöglicht es dem Server, Daten in Echtzeit an den Client zu senden, ohne dass dieser 
+wiederholt aktiv Anfragen stellen muss. 
+Jede gesendete Nachricht folgt dabei einem strukturierten Aufbau und besteht aus zwei 
+wesentlichen Komponenten: einem \texttt{event}-Feld und einem \texttt{data}-Feld.
+
+Der \texttt{event}-Teil enthält in der Regel ein einzelnes Wort, das den Typ oder die Bedeutung 
+der übertragenen Daten beschreibt, zum Beispiel \texttt{delta}, \texttt{diagram}, \texttt{error} 
+oder \texttt{end}. 
+Dadurch kann der Client umgehend erkennen, wie der empfangene Inhalt weiterzuverarbeiten ist.
+
+Der eigentliche Inhalt befindet sich im \texttt{data}-Teil. 
+Hier werden die Daten hinterlegt, beispielsweise ein Textdelta oder ein fertig generiertes 
+Diagramm.
+
+Zusammengefügt und korrekt formatiert wird die gesamte SSE-Nachricht schließlich in folgender 
+Form an den Client übermittelt:
+
+\noindent\fbox{
+  \parbox{\textwidth}{
+    event: \textit{event-name}\\
+    data: \textit{Erste Zeile der Daten}\\
+    data: \textit{Weitere Zeile mit Daten}\\
+
+    event: \textit{Nächstes Event}\\
+    \ldots
+  }
+}
+
+Im folgenden wird nun gezeigt welche Events für die Übertragung einer Antwort an den Client
+implementiert wurden.
+
+Der Stream beginnt mit einem \texttt{start} Event. In diesem wird dem Client die Thread-ID mitgeteilt
+und indirekt erkenntlich gemacht, dass nun ein Stream gestartet wird.
+
+Da manche KI Anbieter Modelle entwickelt haben, welche zunächst Websuchen durchführen oder interne 
+Prozesse durchführen,
+kann es sein, dass zwischen dem Start des Streams und dem ersten Delta einiges an Zeit vergeht.
+Um zu verhindern, dass der Browser des Clients deshalb durch einen Timeout die Verbindung schliesst,
+wird das \texttt{alive} Event implementiert.
+Dieses wird jede Sekunde gesendet und beinhaltet als data jedeglich die aktuelle Uhrzeit.
+
+Das erste eigentliche Daten Event ist nun das \texttt{delta} Event bis dem die tatsächlichen
+Deltas des Klartextteils versendet werden. 
+Die Deltas haben keine fixe größe und können je nach LLM Anbieter und Antwort variieren.
+
+Jegliche Fehler werden dem Client als \texttt{error} Event mitgleteil, wobei die Error Nachricht
+als Data mitgesendet wird. Nach einem \texttt{error} Event wird die Verbindung automatisch vom 
+Server beendet.
+
+Wenn der Server erkennt, dass gerade ein vollständiges Diagramm erzeugt wird, sendet er ein
+\texttt{diagram-start} Event welches dem Client mitteilt welche modell verwendet wird.
+Sobald das Diagramm fertig erstellt wurde, wird auch ein \texttt{diagram-end} Event gesendet,
+welches dem Client mitteilt, dass das Diagramm fertig erzeugt wurde,
+sowie ein \texttt{diagram} Event gesendet, welches das fertige und formatierte Diagramm enthält.
+
+Sobald der Stream des LLMs fertig ist, wird noch ein \texttt{end} Event versendet, welches die
+gesamte Antwort als JSON versendet, genau so, wie die Antwort gewesen wäre, falls nicht an
+den Client gestreamt worden wäre. Dies ist da um mögliche Fehler bei der Übersendung des Streams
+ausbessern zu können.
+
+Final wird noch ein \texttt{save} Event versendet, welches dem Client mitteilt, dass die generierte
+Antwort nun auch erfolgreich in der Datenbank abgespeichert wurde und nun für weitere Anfragen 
+bereit steht.
+Danach wird der Stream geschlossen und die Übertragung ist abgeschlossen.
+
+\noindent\fbox{
+  \parbox{\textwidth}{
+    event: start\\
+    data: faf8ad85-5546-4da2-98d9-8784844f1ea9\\
+
+    event: delta\\
+    data: Ich bin\\
+
+    event: delta\\
+    data: ChatGPT 4.1 mini\\
+
+    event: diagram-start\\
+    data: gpt-4.1-mini\\
+
+    event: alive\\
+    data: 01.01.2025 00:02\\
+
+    event: diagram-end\\
+    data: gpt-4.1-mini\\
+
+    event: diagram\\
+    data: <?xml version=\textbackslash``1.0\textbackslash'' encoding=\textbackslash``UTF-8\textbackslash''?>\\
+    data: <bpmn:definitions \ldots\\
+    data: </bpmn:definitions>\\
+
+    event: end\\
+    data: \{ \\
+    data: ``text'': ``Ich bin ChatGPT 4.1 mini''\\
+    data: ``xml'': ``<?xml version=\textbackslash``1.0\textbackslash'' encoding=\textbackslash``UTF-8\textbackslash''?>\ldots</bpmn:definitions>''\\
+    data: \}\\
+    
+    event: save\\
+    data: success\\
+  }
+}
 
 \section{Schema-Constraining}
 
