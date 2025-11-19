@@ -15,9 +15,9 @@ Hierfür ist es wichtig, den code möglichst schnell an Änderungen der OpenAI A
 Um das zu erreichen wird ein Objektorientierter Ansatz gewählt.
 Die objektorientierte Programmierung bietet für den Aufbau des Prompting-Codes viele Vorteile und macht die Entwicklung 
 langfristig übersichtlicher und wartbarer. 
-Wir erstellen eine abstrakte Klasse `ai.ts' welche die gesamte Logik des Prompting beinhält und eine Klasse `openai.ts' 
+Wir erstellen eine abstrakte Klasse \texttt{Ai} welche die gesamte Logik des Prompting beinhält und eine Klasse \texttt{ChatGPT} 
 welche von der AI Klasse erbt.
-Die OpenAi Klasse muss nun nur noch Methoden implementieren, welche konkret auf die aktuelle version der API angepasst sind.
+Die ChatGPT Klasse muss nun nur noch Methoden implementieren, welche konkret auf die aktuelle version der API angepasst sind.
 Durch die Verwendung von abstrakten Methoden wie generateContent(), createTitle() oder processResponse() wird sichergestellt, 
 dass jede konkrete Implementierung dieselbe Schnittstelle einhält, 
 aber ihre eigenen internen Abläufe definieren kann. 
@@ -31,7 +31,7 @@ Es gibt eine Methode \mintinline{typescript}{mapPromptInput();} um den Prompt in
 \mintinline{typescript}{generateContent();} um den eigentlichen API aufruf durchzuführen und \mintinline{typescript}{preocessResponse();}
 um die Antwort der API auszulesen.\\
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 export class ChatGPT extends Ai {
   openai = new OpenAI({
@@ -59,7 +59,9 @@ export class ChatGPT extends Ai {
   }
 }
 \end{minted}
-\end{samepage}
+\label{code:chatgpt-class}
+\caption{ChatGPT Klasse}
+\end{code}
 
 \subsection{Von Assistants zu Responses}
 
@@ -69,13 +71,15 @@ Sie emfehlen einen Umzug zu ihrer neuen Responses API.
 Dies ist nun recht einfach umzusetzten, da wir nur die elementaren Methoden der API ändern müssen. 
 So sieht nun die neue Methode \mintinline{typescript}{generateContent();} aus:\\
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 protected async generateContent(input) {
   return this.openai.responses.create(input);
 }
 \end{minted}
-\end{samepage}
+\label{code:generate-content}
+\caption{generateContent()}
+\end{code}
 
 Einer der zentralen Unterschiede zwischen der Assistants- und der Responses-API besteht darin, 
 dass die System-Instructions bei der Verwendung der Responses-API manuell übergeben werden müssen. 
@@ -141,6 +145,7 @@ Beide Formate haben somit ihre jeweiligen Stärken und Einsatzgebiete.
     Kein Standard, Lernaufwand, komplizierter Konvertierungsalgorythmus. &
     hoher Tokenverbrauch, umfangreiche Syntax, unübersichtlicher, mehr Kosten, längere Generierung. \\ \hline
   \end{tabular}
+  \label{tab:vor-nachteile-json-xml}
   \caption{Vergleich der Vor- und Nachteile der unterstützten Ausgabeformate}
 \end{table}
 
@@ -149,20 +154,24 @@ Dadurch kann der Nutzer selbst entscheiden, welches Format im jeweiligen Anwendu
 Da sich die Formatwahl ähnlich wie die Wahl des verwendeten Modells direkt auf die Qualität der Ergebnisse auswirkt, 
 wird die Auswahlmöglichkeit direkt in die Modellkonfiguration integriert. 
 So kann beispielsweise zwischen Varianten wie `gpt-4.1-mini (xml)' und `gpt-4.1-mini (json)' gewählt werden. 
+Alternativ kann das Format such im separaten \texttt{format} Parameter angegeben werden.
 Wird kein Format angegeben, erfolgt die Ausgabe standardmäßig im XML-Format.
 
 Eine Anfrage sieht damit z.B. folgendermaßen aus:\\
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{json}
 // POST /threads
 { 
   "inputString": "Bitte generiere mir ein BPMN Diagram, 
       welches den Ablauf in einem Restaurant zeigt", 
   "model": "gpt-5 (xml)",
+  "format": "xml"
 }
 \end{minted}
-\end{samepage}
+\label{code:post-model-format}
+\caption{Post Request an /threads mit Format}
+\end{code}
 
 Bei einer Anfrage kann dann die jeweilige AI über eine Map 
 
@@ -170,7 +179,7 @@ Bei einer Anfrage kann dann die jeweilige AI über eine Map
 
 zugeordnet werden, welche die Anfrage bearbeitet.
 
-// TODO: update neuerungen noch machen
+// TODO: update neuerungen des alten json formats noch machen
 
 
 \section{Dateien}
@@ -204,7 +213,7 @@ der Anfrage hinzufügen.
 
 Eine Anfrage sieht damit z.B. folgendermaßen aus:\\
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{json}
 // POST /threads
 { 
@@ -214,22 +223,26 @@ Eine Anfrage sieht damit z.B. folgendermaßen aus:\\
   "file": "data:image/png;base64,A35ekZ...",
 }
 \end{minted}
-\end{samepage}
+\label{code:post-file}
+\caption{Post Request an /threads mit Datei}
+\end{code}
 
 Der string wird auf Validität geprüft\\
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 private checkBase64DataUrl(dataUrl: string): boolean {
   regex = /^data:([\w.+-]+\/[\w.+-]+)?;base64,[\w+\/]+=*$/;
   return regex.test(dataUrl);
 }
 \end{minted}
-\end{samepage}
+\label{code:check-base64}
+\caption{checkBase64DataUrl()}
+\end{code}
 
 und dann im richtigen Format an die OpenAI API gesendet:\\
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 const imageInstructions = {
   role: "user",
@@ -241,7 +254,9 @@ const imageInstructions = {
   ],
 } as ResponseInputItem
 \end{minted}
-\end{samepage}
+\label{code:chatgpt-file-format}
+\caption{Darstellung des Formats für die ChatGPT API}
+\end{code}
 
 \section{Chain of Thought}
 
@@ -293,7 +308,7 @@ unvollständigen Eingaben von Vorteil ist.
 Eine Anfrage, die eine solche erweiterte Unterhaltung ermöglicht, könnte
 beispielsweise folgendermaßen aussehen:\\
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{json}
 // POST /threads
 { 
@@ -304,7 +319,9 @@ beispielsweise folgendermaßen aussehen:\\
   "mode": "detail",
 }
 \end{minted}
-\end{samepage}
+\label{code:post-mode}
+\caption{Post Request an /threads mit mode}
+\end{code}
 
 \subsection{Konversationskontext}
 
@@ -337,7 +354,7 @@ Eingabeformat konvertieren, sodass keine manuelle Aufbereitung mehr erforderlich
 
 Die Klasse \texttt{PromptInput} verfügt über folgende Attribute:\\
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 export class PromptInput {
   instructions: string[];
@@ -346,27 +363,31 @@ export class PromptInput {
   file?: ;
 }
 \end{minted}
-\end{samepage}
+\label{code:promptinput-class}
+\caption{PromptInput Klasse}
+\end{code}
 
 Damit ist es möglich, bestehende Nachrichtenverläufe aus der Datenbank abzurufen und automatisch in 
 das benötigte Format zu überführen. 
 Die Klasse übernimmt hierbei die vollständige Strukturierung der Daten, sodass diese
 für die Kommunikation mit der KI genutzt werden können:\\
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 const instructions = [formatInstructions, modeInstructions];
 const chatsFromDB = getAllChatsFromDB(threadID);
 new PromptInput(instructions, prompt, chatsFromDB, file);
 \end{minted}
-\end{samepage}
+\label{code:prompt-input-creation}
+\caption{PromptInput Erstellung}
+\end{code}
 
 Das so erzeugte \texttt{PromptInput}-Objekt kann anschließend durch interne Methoden in das finale 
 Format umgewandelt werden, das von der KI-Schnittstelle erwartet wird. 
 Dadurch entsteht ein einheitlicher, wiederverwendbarer Datenfluss zwischen Anwendung, Datenbank und 
 Modell, der die Wartung sowie zukünftige Erweiterungen vereinfacht.\\
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 protected mapPromptInput(input: PromptInput) {   
   [...]
@@ -380,7 +401,9 @@ protected mapPromptInput(input: PromptInput) {
   };
 }
 \end{minted}
-\end{samepage}
+\label{code:map-promptinput}
+\caption{mapPromptInput()}
+\end{code}
 
 Darüber hinaus soll künftig auch die jeweils aktuellste Version des Diagramms an die Anfrage angehängt 
 werden. 
@@ -397,7 +420,7 @@ in die System Instructions eingefügt.
 Durch dieses Verfahren ist sichergestellt, dass die KI bei jeder Interaktion auf dem neuesten Stand 
 bleibt und Änderungen im Diagramm jederzeit konsistent nachvollziehen kann.\\
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 protected updateInstructions(threadID: string, format: format){
   const diagram = getLatestDiagramFromDB(threadID);
@@ -405,7 +428,9 @@ protected updateInstructions(threadID: string, format: format){
     ${format == "xml" ? diagram?.xml : diagram?.json}`]
 }
 \end{minted}
-\end{samepage}
+\label{code:update-instructions}
+\caption{updateInstructions()}
+\end{code}
 
 Damit hat die KI nun alle Informationen die sie benötigt um eine Konversation führen zu können.
 
@@ -418,20 +443,25 @@ Diese sehen zunächst so aus:\\
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{text}
 [Output Language depends on prompt language]
 
-Alternative to creating a bpmn diagram you may ask any 
-questions you feel like need answering to create the best bpmn 
-diagram.
-If you do not have any questions any more, please write a 
-quick summary of the agreed diagram before creating the bpmn 
-xml.
-If the initial prompt is really basic provide the user with a 
+Instead of creating a bpmn diagram, you can also chat with the 
+user.
+Any descriptions, questions, summaries or any other type of 
+text the user may want, you must answer.
+You may ask any questions you feel like you need to 
+answer to create the best bpmn diagram.
+If you do not have any questions anymore, you may write a 
+quick summary of the agreed diagram before creating the 
+bpmn.
+If the initial prompt is really basic, provide the user with a 
 creative scenario summary.
 
-Once the user has agreed on a summary, Do no longer answer in 
-plain text but only in bpmn xml.
 If you want to provide questions, summary or any other type of 
 text, that is not a diagram. Do not use JSON or XML. 
 Only plain Text!
+You may answer with both a plaintext section and a diagram. 
+Do not put plain text in a JSON or XML section. 
+If you want to provide a description, summary or any other type 
+of text, that is not a diagram, send it outside the diagram.
 \end{minted}
 
 Diese Instructions werden nur mitgesendet, falls der $detail$ modus genutzt wird.
@@ -492,7 +522,8 @@ Dieses sieht folgendermaßen aus:
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{images/diagrams/diagram_1}
-  \caption{\label{fig:diagram1}Beschreibung/Beschriftung des Bilds}
+  \label{fig:detailmode-diagram1}
+  \caption{Generierung eines Diagrammes}
 \end{figure}
 
 
@@ -505,7 +536,8 @@ Der Bot erkennt nun wieder, dass keine Textantwort gewünscht ist und beginnt mi
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{images/diagrams/diagram_2}
-  \caption{\label{fig:diagram1}Beschreibung/Beschriftung des Bilds}
+  \label{fig:detailmode-diagram2}
+  \caption{Überarbeitung eines Diagrammes mit dem detail mode}
 \end{figure}
 
 Das Verhalten des ChatBots entspricht damit exakt den Anforderungen: 
@@ -575,11 +607,13 @@ Für dieses Kategorisierung wird eine Beispiel-Antwort betrachtet:
 Der Algorithmus soll nun zunächst alle Diagramme finden.
 Dies wird hier durch den Aufruf eines Regex ermöglicht.
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs, breaklines, breakanywhere]{typescript}
 /(?:``?`?\s*(?:xml)?\s*)?(<[^<>]*\/[^<>]*>\s*|<[^\/<>]*>[^`]*<\/[^<>]*>)+\s*(?:``?`?|(?=[^<>`\s]))\n?/g
 \end{minted}
-\end{samepage}
+\label{code:regex}
+\caption{Regex zur Diagrammerkennung}
+\end{code}
 
 Über dieses werden automatisch alle validen XML Teile (In TBA label bunt markiert) erkannt.
 Durch die Benutzung einer Non-capturing group werden Wrapper des XML 
@@ -651,7 +685,7 @@ Die Dokumentation findet man hier: \url{https://ai-sdk.dev/providers/ai-sdk-prov
 Die zu versendende Nachricht an die Grok API muss nun nur noch vom PromptInput Objekt auf das 
 API Format gebracht werden.\\
 
-\begin{samepage}
+\begin{code}[H]
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 protected mapPromptInput(input: PromptInput) {
   const historyInst = input.history.map((item) => {
@@ -672,7 +706,9 @@ protected mapPromptInput(input: PromptInput) {
   };
 }
 \end{minted}
-\end{samepage}
+\label{code:grok-format}
+\caption{mapPromptInput() für Grok}
+\end{code}
 
 
 \subsection{Gemini}
@@ -683,7 +719,7 @@ Dadurch kann der Bot bei der Modellierung und Optimierung von BPMN-Prozessen zus
 Präzision und alternative Lösungswege bieten. Gemini erhöht so die fachliche Tiefe, Robustheit 
 und Variantenvielfalt der Ergebnisse.\\
 
-\begin{samepage}
+\begin{code}[H]
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 protected mapPromptInput(input: PromptInput) {
   const systemInst = input.instructions.map((instruction) => {
@@ -721,14 +757,16 @@ protected mapPromptInput(input: PromptInput) {
   };
 }
 \end{minted}
-\end{samepage}
+\label{code:gemini-format}
+\caption{mapPromptInput() für Gemini}
+\end{code}
 
 Die Gemini API erwartet bei Jedem Text Teil der Anfrage noch das Feld `thought', welches angibt
 ob dieser Teil bereit von einer KI gedacht wurde.\\
 
 \subsection{Claude}
 
-\begin{samepage}
+\begin{code}[H]
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 protected mapPromptInput(input: PromptInput) {
   const systemInst = input.instructions.map((instruction) => {
@@ -757,7 +795,9 @@ protected mapPromptInput(input: PromptInput) {
   };
 }
 \end{minted}
-\end{samepage}
+\label{code:claude-format}
+\caption{mapPromptInput() für Claude}
+\end{code}
 
 \section{Streaming}
 
@@ -793,7 +833,7 @@ Sowohl ChatGPT als auch Claude unterstützen dieses Vorgehen nativ, sodass sich 
 Verhalten bereits beim Abschicken des Requests konfigurieren lässt. 
 Ein entsprechendes Beispiel sieht wie folgt aus:\\
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 protected mapPromptInput(input: PromptInput, stream: boolean) {
   [...]
@@ -805,7 +845,9 @@ protected mapPromptInput(input: PromptInput, stream: boolean) {
   };
 }
 \end{minted}
-\end{samepage}
+\label{code:chatgpt-format-stream}
+\caption{mapPromptInput() für einen Stream}
+\end{code}
 
 Andere Anbieter wie Gemini oder Grok verfolgen dagegen einen leicht unterschiedlichen Ansatz und 
 stellen das Streaming über eine separate API-Funktion bereit. 
@@ -813,34 +855,38 @@ Je nach verwendetem Endpunkt wird entweder ein normaler Text generiert oder ein 
 zurückgegeben. 
 Der Wechsel zwischen beiden Varianten lässt sich dadurch einfach implementieren:\\
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 async generateContent(input: any, stream: boolean) {
   if (stream) return streamText(input)
   return generateText(input);
 }
 \end{minted}
-\end{samepage}
+\label{code:grok-format-stream}
+\caption{generateContent() für einen Stream}
+\end{code}
 
 Sobald die Antwort der KI eintrifft, wird zunächst überprüft, ob es sich tatsächlich um einen 
 Stream handelt. 
 Da JavaScript-basierte Streams typischerweise das Symbol \texttt{asyncIterator} implementieren, 
 lässt sich dies zuverlässig über eine einfache Typprüfung feststellen:\\
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 protected isStream(obj: any): boolean {
   return obj && typeof obj[Symbol.asyncIterator] === "function";
 }
 \end{minted}
-\end{samepage}
+\label{code:is-stream}
+\caption{isStream()}
+\end{code}
 
 Wird ein Stream erkannt, kann dieser anschließend mithilfe eines asynchronen Iterations-Loops 
 ausgelesen werden. 
 Die empfangenen Delta-Fragmente lassen sich so in Echtzeit weiterverarbeiten, um 
 Klartext sofort an den Client zu streamen, bevor das vollständige Diagramm erzeugt wird.\\
 
-\begin{samepage}
+\begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 protected async processStream(stream: any){
   for await (const chunk of stream) {
@@ -866,7 +912,9 @@ protected async processStream(stream: any){
   }
 }
 \end{minted}
-\end{samepage}
+\label{code:process-stream}
+\caption{processStream()}
+\end{code}
 
 Während der Stream verarbeitet wird, wird die Antwort der KI schrittweise in einem internen 
 Buffer aufgebaut. 

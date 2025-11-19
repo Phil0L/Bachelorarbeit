@@ -12,9 +12,11 @@ Um sich aber nur auf gestreamte Daten zu begrenzen, muss zunächst festgestellt 
 sich die Generierungszeiten eines LLM Anbieters unterscheiden, wenn man stream bzw. nicht 
 streamt.
 
-Dafür werden nun in Abbildung \ref{fig:timing-streaming} einige Modelle getestet, ob sich die Zeiten jeweils stark unterscheiden.
+Dafür werden nun in Abbildung \ref{fig:timing-streaming} einige Modelle getestet, ob sich die Zeiten 
+jeweils stark unterscheiden.
 Hierfür wird folgender Prompt verwendet:
 
+\begin{prompt}
 \noindent\fbox{
   \parbox{\textwidth}{
     Erstelle eine Prozessbeschreibung eines Beliebigen Prozesses mit 95 bis 105 Wörtern welche 
@@ -23,8 +25,11 @@ Hierfür wird folgender Prompt verwendet:
     gateway und 2 message flows beinhalten, mehr nicht.
   }
 }
+\label{prompt:speed}
+\caption{Prompt für einen Geschwindigkeitstest}
+\end{prompt}
 
-\begin{figure}[ht]
+\begin{figure}[H]
 \centering
 \pgfplotstableread{ % data 
 Model	           Gestreamt   NichtGestreamt
@@ -39,23 +44,23 @@ Claude-Sonnet-4.5	52.913	    53.079
 \pgfplotstablesort[sort key=Gestreamt, sort cmp=float <]{\sorteddatastreamnostream}{\datastreamnostream}
 \begin{tikzpicture}
 \begin{axis}[
-    xbar,   % Stacked horizontal bars
+    xbar,   % Dual horizontal bars
     width=.8\textwidth,
-    xmin=0,         % Start x axis at 0
-    ytick=data,     % Use as many tick labels as y coordinates
+    xmin=0,         
+    ytick=data,     
     bar width=4mm,
     y=11mm,
     enlarge y limits=0.1,
     legend style={
         legend columns=2,
-        at={(0.5,0)},   % Mitte Unten der Achse
+        at={(0.5,0)},   
         anchor=north,
         yshift=-3em,
         draw=none
     },
     area legend,
     xlabel={Zeit [Sekunden]},
-    yticklabels from table={\sorteddatastreamnostream}{Model},  % Get the labels from the Model column of the \datatable
+    yticklabels from table={\sorteddatastreamnostream}{Model}, 
     tick label style={font=\footnotesize}
 ]
 \addplot [fill=green!60,
@@ -68,7 +73,7 @@ Claude-Sonnet-4.5	52.913	    53.079
         fill opacity=0.75,
         text opacity=1,
     }
-] table [x=Gestreamt, meta=Model,y expr=\coordindex] {\sorteddatastreamnostream};   % "First" column against the data index
+] table [x=Gestreamt, meta=Model,y expr=\coordindex] {\sorteddatastreamnostream};   
 \addplot [fill=red!60,
     point meta=x,
     nodes near coords,
@@ -93,14 +98,15 @@ Der Unterschied beträgt jeweils unter 10\%.
 Damit ist nun klar, dass die Variante des Stremings nicht der Variante Ohne Streamings unterliegt
 und für weitere Tests kann die Variante des Streamings verwendet werden während die Nicht 
 Streaming Variante vernachlässigt wird.
+
 Als nächstes soll nun untersucht werden welcher der zwei implementierten Formate \texttt{JSON}
 und \texttt{XML} sich Zeitlich besser verhält.
-In Abbildung \ref{fig:timing-xmljson} wird für das Promptbeispiel TBA ref dieses Verhalten 
+In Abbildung \ref{fig:timing-xmljson} wird für das Promptbeispiel auf Seite \pageref{prompt:speed} dieses Verhalten 
 getestet.
 
-\begin{figure}[ht]
+\begin{figure}[H]
 \centering
-\pgfplotstableread{ % data 
+\pgfplotstableread{ 
 Model	Antwort	StreamInitialisierung	Text	Diagramm	Formatierung	Datenbank
 XML	    28.345	0.004                   0.194	24.949	    0	            0.671
 JSON	28.453	0.001	                0.189	13.707	    0.009	        0.554
@@ -109,27 +115,27 @@ JSON	28.453	0.001	                0.189	13.707	    0.009	        0.554
 \begin{axis}[
     xbar stacked,   % Stacked horizontal bars
     width=.9\textwidth,
-    xmin=0,         % Start x axis at 0
-    ytick=data,     % Use as many tick labels as y coordinates
+    xmin=0,         
+    ytick=data,     
     bar width=6mm,
     y=8mm,
     enlarge y limits=0.8,
     legend style={
         legend columns=4,
-        at={(0.5,0)},   % Mitte Unten der Achse
+        at={(0.5,0)},   
         anchor=north,
         yshift=-3em,
         draw=none
     },
     area legend,
     xlabel={Zeit [Sekunden]},
-    yticklabels from table={\dataxmljson}{Model}  % Get the labels from the Model column of the \datatable
+    yticklabels from table={\dataxmljson}{Model}  
 ]
-\addplot [fill=green!60] table [x=Antwort, meta=Model,y expr=\coordindex] {\dataxmljson};   % "First" column against the data index
+\addplot [fill=green!60] table [x=Antwort, meta=Model,y expr=\coordindex] {\dataxmljson};   
 \addplot [fill=blue!60] table [x=StreamInitialisierung, meta=Model,y expr=\coordindex] {\dataxmljson};
-\addplot [fill=magenta!60] table [x=Text, meta=Model,y expr=\coordindex] {\dataxmljson};   % "First" column against the data index
-\addplot [fill=orange!60] table [x=Diagramm, meta=Model,y expr=\coordindex] {\dataxmljson};   % "First" column against the data index
-\addplot [fill=purple!60] table [x=Formatierung, meta=Model,y expr=\coordindex] {\dataxmljson};   % "First" column against the data index
+\addplot [fill=magenta!60] table [x=Text, meta=Model,y expr=\coordindex] {\dataxmljson};   
+\addplot [fill=orange!60] table [x=Diagramm, meta=Model,y expr=\coordindex] {\dataxmljson};   
+\addplot [fill=purple!60] table [x=Formatierung, meta=Model,y expr=\coordindex] {\dataxmljson};   
 
 \addplot [fill=red!60,
     point meta=x,
@@ -149,14 +155,16 @@ JSON	28.453	0.001	                0.189	13.707	    0.009	        0.554
 \label{fig:timing-xmljson}
 \end{figure}
 
-Man erkannt einfach, dass die Diagrammgenerierung bei JSON um einiges schneller ist als XML.
+Man erkannt einfach, dass die Diagrammgenerierung bei JSON um einiges schneller ist als bei XML.
 Der Konvertierungsprozess von JSON zu XML beträgt in diesem Beispiel nur 9 ms und ist damit um
 einiges effizienter als die um 11.242 ms längere Diagrammgenerierung bei XML.
+
 Interessant ist nun noch zu sehen wie diese Aufwandsdifferenz von der Größe des Diagramms abhängt.
-Hierfür wird nun in TBA ref Gemini 2.5 Pro im Quick modus benutzt um verschieden große Diagramme
-zu erzeugen.
+Hierfür wird nun in Abbildung \ref{fig:timing-xmljson-elements} Gemini 2.5 Pro im Quick modus benutzt um 
+verschieden große Diagramme zu erzeugen.
 Hierfür wird folgender Prompt verwendet:
 
+\begin{prompt}[H]
 \noindent\fbox{
   \parbox{\textwidth}{
     Erstelle ein BPMN Diagramm für ein Prozess deiner Wahl. 
@@ -165,12 +173,14 @@ Hierfür wird folgender Prompt verwendet:
     Message-Flows, Pools, Lanes, etc.
   }
 }
+\label{prompt:speed-elements}
+\caption{Prompt für einen Diagramm-Geschwindigkeitstest nach Größe}
+\end{prompt}
 
 
-
-\begin{figure}[ht]
+\begin{figure}[H]
 \centering
-\pgfplotstableread{ % data 
+\pgfplotstableread{ 
 Elemente	XML	    JSON
 2	        5.567	2.444
 5	        7.302	3.816
@@ -187,7 +197,7 @@ Elemente	XML	    JSON
     enlarge y limits=0,
     legend style={
         legend columns=4,
-        at={(0.5,0)},   % Mitte Unten der Achse
+        at={(0.5,0)},   
         anchor=north,
         yshift=-3em,
         draw=none
@@ -200,12 +210,104 @@ Elemente	XML	    JSON
 \addplot [smooth,mark=*,color=blue!60] table [y=XML, x=Elemente] {\dataxmljson};
 \addlegendentry{JSON};
 \addplot [smooth,mark=*,color=red!60] table [y=JSON, x=Elemente] {\dataxmljson};
-
-
 \end{axis}
 \end{tikzpicture}
 \caption{Zeitperformanzvergleich JSON vs XML bei Gemini 2.5 Pro nach Anzahl der Elemente (Nur Diagramm)}
 \label{fig:timing-xmljson-elements}
 \end{figure}
+
+Die Auswertung der gemessenen Laufzeiten in Abbildung \ref{fig:timing-xmljson-elements} zeigt 
+deutlich, dass die Diagrammgenerierung im 
+JSON-Format gegenüber dem XML-Format einen spürbaren Geschwindigkeitsvorteil bietet. 
+Insbesondere bei zunehmender Diagrammgröße wächst der Unterschied merklich.  
+In den meisten Testfällen liegt die Generierungsdauer des JSON-Modells bei ungefähr der Hälfte 
+der Zeit, die für die entsprechende XML-Ausgabe erforderlich ist. 
+Dieser Geschwindigkeitsvorteil lässt sich vor allem auf die kompaktere Syntax und die geringere 
+Redundanz zurückführen. 
+Insgesamt wird dadurch klar, dass JSON für performanzkritische Anwendungsfälle, 
+insbesondere bei großen oder komplexen Diagrammen, erhebliche Vorteile bietet.
+
+Weitergehend soll nun untersucht werden welche Modelle sich für eine Zeiteffiziente 
+Generierung eignen. Dafür werden in Abbildung \ref{fig:timing-models} einige gänige Modelle
+getestet.
+
+\begin{figure}[h]
+\centering
+\pgfplotstableread{ 
+Model	            Antwort	StreamInitialisierung	Text	Diagramm	Formatierung	Datenbank
+Gemini-2.5-Pro	    34.396	000.001	                0.433	15.274	    0.005	        0.554
+Gemini-2.5-Flash	36.529	000.002	                0.162	07.292	    0.005	        0.512
+Grok-3	            00.003	006.203	                0.418	16.850	    0.005	        0.510
+Grok-3-Fast	        00.004	005.056	                0.386	14.853	    0.007	        0.508
+ChatGPT-4.1	        00.904	001.138	                0.232	18.051	    0.003	        0.580
+ChatGPT-5-Mini	    01.874	115.226	                0.414	22.258	    0.007	        0.580
+Claude-Sonnet-4.5	04.370	000.001	                0.906	16.903	    0.006	        0.582
+}\datamodels
+\pgfplotstableset{
+    create on use/Total/.style={
+        create col/expr={\thisrow{Antwort} + \thisrow{StreamInitialisierung} + \thisrow{Text} + \thisrow{Diagramm} + \thisrow{Formatierung} + \thisrow{Datenbank}}
+    }
+}
+\pgfplotstablesort[sort key=Total, sort cmp=float <]{\sorteddatamodels}{\datamodels}
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,   % Stacked horizontal bars
+    width=.9\textwidth,
+    xmin=0,         
+    ytick=data,     
+    bar width=6mm,
+    y=8mm,
+    enlarge y limits=0.15,
+    legend style={
+        legend columns=4,
+        at={(0.5,0)},   
+        anchor=north,
+        yshift=-3em,
+        draw=none
+    },
+    area legend,
+    xlabel={Zeit [Sekunden]},
+    yticklabels from table={\sorteddatamodels}{Model}  
+]
+\addplot [fill=green!60] table [x=Antwort, meta=Model,y expr=\coordindex] {\sorteddatamodels};   
+\addplot [fill=blue!60] table [x=StreamInitialisierung, meta=Model,y expr=\coordindex] {\sorteddatamodels};
+\addplot [fill=magenta!60] table [x=Text, meta=Model,y expr=\coordindex] {\sorteddatamodels};   
+\addplot [fill=orange!60] table [x=Diagramm, meta=Model,y expr=\coordindex] {\sorteddatamodels};   
+\addplot [fill=purple!60] table [x=Formatierung, meta=Model,y expr=\coordindex] {\sorteddatamodels};   
+
+\addplot [fill=red!60,
+    point meta=x,
+    nodes near coords,
+    nodes near coords align={anchor=west},
+    every node near coord/.append style={
+        black,
+        fill=white,
+        fill opacity=0.75,
+        text opacity=1,
+    }
+] table [x=Datenbank, meta=Model,y expr=\coordindex] {\sorteddatamodels};
+\legend{Antwort,Streamstart,Textgenerierung,Diagrammgenerierung,Formatierung,Datenbankaufruf}
+\end{axis}
+\end{tikzpicture}
+\caption{Zeitperformanzvergleich verschiedener Modelle}
+\label{fig:timing-models}
+\end{figure}
+
+Auffällig in Abbildung \ref{fig:timing-models} ist, dass ChatGPT-5-Mini mit großem Abstand die 
+längste Gesamtzeit benötigt
+Besonders der Streamstart dauert extrem lange, was darauf hindeutet, dass dieses Modell trotz 
+möglicher inhaltlicher Stärke für eine schnelle Generierung ungeeignet ist. 
+Die beiden Gemini-2.5-Modelle liegen im mittleren Bereich und zeigen ihre Stärken vor allem in 
+der schnellen eigentlichen Antwortphase und soliden Textgenerierung, verlieren jedoch viel Zeit 
+dabei die Anfrage anzuhmen und die Antwort zu übersenden. 
+Grok-3, Grok-3-Fast, Claude-Sonnet-4.5 und ChatGPT-4.1 zeigen die insgesamt ausgewogenste 
+Performance, da keine der Einzeldisziplinen überproportional viel Zeit beansprucht. 
+Besonders Grok-3-Fast und ChatGPT-4.1 sind nahezu gleich schnell und deutlich effizienter als die 
+größeren Modelle; sie zeichnen sich durch kurze Streamstart-Phasen und schnelle Diagramm- und 
+Texterstellung aus.  
+Insgesamt zeigen die kompakten oder speziell optimierten Modelle eine hohe 
+Reaktionsgeschwindigkeit über alle Teilschritte hinweg, während größere Modelle wie 
+ChatGPT-5-Mini und die Gemini-Reihe durch längere Initialisierungen ausgebremst werden. 
+
 
 \section{Kosten}

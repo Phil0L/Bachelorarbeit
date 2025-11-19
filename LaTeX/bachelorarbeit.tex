@@ -69,7 +69,22 @@ BCOR15mm               % Bindekorrektur
 \usepackage{minted}
 % \usepackage{markdown}
 \usepackage{caption}
+\usepackage{float}
 \usepackage{newfloat}
+\DeclareFloatingEnvironment[
+    fileext=prompt,
+    listname={Prompt},
+    name=Prompt,
+    placement=tbhp,
+    within=section,
+]{prompt}
+\DeclareFloatingEnvironment[
+    fileext=code,
+    listname={Codeauschnitt},
+    name=Codeauschnitt,
+    placement=tbhp,
+    within=section,
+]{code}
 
 % hier Namen etc. einsetzen
 \newcommand{\fullname}{Philipp Letschka}
