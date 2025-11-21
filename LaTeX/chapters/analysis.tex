@@ -2,7 +2,7 @@
 
 \section{Qualität}
 
-\section{Geschwindigkeit}
+\section{Geschwindigkeit} \label{sec:speed}
 
 Um die Geschwindigkeit verscheidener Prozessabschnitte und modellen zu testen, bietet es sich
 an, die Antwort der KI als Stream zu betrachten, da dieser in Echtzeit ausgewertet werden kann.
@@ -157,7 +157,7 @@ JSON	28.453	0.001	                0.189	13.707	    0.009	        0.554
 
 Man erkannt einfach, dass die Diagrammgenerierung bei JSON um einiges schneller ist als bei XML.
 Der Konvertierungsprozess von JSON zu XML beträgt in diesem Beispiel nur 9 ms und ist damit um
-einiges effizienter als die um 11.242 ms längere Diagrammgenerierung bei XML.
+einiges effizienter als die um 11242 ms längere Diagrammgenerierung bei XML.
 
 Interessant ist nun noch zu sehen wie diese Aufwandsdifferenz von der Größe des Diagramms abhängt.
 Hierfür wird nun in Abbildung \ref{fig:timing-xmljson-elements} Gemini 2.5 Pro im Quick modus benutzt um 
@@ -309,5 +309,154 @@ Insgesamt zeigen die kompakten oder speziell optimierten Modelle eine hohe
 Reaktionsgeschwindigkeit über alle Teilschritte hinweg, während größere Modelle wie 
 ChatGPT-5-Mini und die Gemini-Reihe durch längere Initialisierungen ausgebremst werden. 
 
-
 \section{Kosten}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{llrrr}
+        \toprule
+        Provider & Model & Input & Cached Input & Output \\
+        \midrule
+        OpenAI & gpt-5.1 & 1.25 \$ & 0.13 \$ & 10.00 \$ \\
+        OpenAI & gpt-5 & 1.25 \$ & 0.13 \$ & 10.00 \$ \\
+        OpenAI & gpt-5-mini & 0.25 \$ & 0.03 \$ & 2.00 \$ \\
+        OpenAI & gpt-5-nano & 0.05 \$ & 0.01 \$ & 0.40 \$ \\
+        OpenAI & gpt-5-pro & 15.00 \$ & 0.00 \$ & 120.00 \$ \\
+        OpenAI & gpt-4.1 & 2.00 \$ & 0.50 \$ & 8.00 \$ \\
+        OpenAI & gpt-4.1-mini & 0.40 \$ & 0.10 \$ & 1.60 \$ \\
+        OpenAI & gpt-4.1-nano & 0.10 \$ & 0.03 \$ & 0.40 \$ \\
+        OpenAI & gpt-4o & 2.50 \$ & 1.25 \$ & 10.00 \$ \\
+        OpenAI & gpt-4o-mini & 0.15 \$ & 0.08 \$ & 0.60 \$ \\
+        \midrule
+        Anthropic & claude-opus-4-1 & 15.00 \$ & 1.50 \$ & 75.00 \$ \\
+        Anthropic & claude-sonnet-4-5 & 3.00 \$ & 0.30 \$ & 15.00 \$ \\
+        Anthropic & claude-haiku-4-5 & 1.00 \$ & 0.10 \$ & 5.00 \$ \\
+        Anthropic & claude-sonnet-4 & 3.00 \$ & 0.30 \$ & 15.00 \$ \\
+        Anthropic & claude-opus-4 & 15.00 \$ & 1.50 \$ & 75.00 \$ \\
+        Anthropic & claude-sonnet-3-7 & 3.00 \$ & 0.30 \$ & 15.00 \$ \\
+        Anthropic & claude-haiku-3-5 & 0.80 \$ & 0.08 \$ & 4.00 \$ \\
+        Anthropic & claude-opus-3 & 15.00 \$ & 1.50 \$ & 75.00 \$ \\
+        \midrule
+        xAI & grok-4-1-fast-reasoning & 0.20 \$ & 0.05 \$ & 0.50 \$ \\
+        xAI & grok-4-1-fast-non-reasoning & 0.20 \$ & 0.05 \$ & 0.50 \$ \\
+        xAI & grok-4-fast-reasoning & 0.20 \$ & 0.05 \$ & 0.50 \$ \\
+        xAI & grok-4-fast-non-reasoning & 0.20 \$ & 0.05 \$ & 0.50 \$ \\
+        xAI & grok-4 & 3.00 \$ & 0.05 \$ & 15.00 \$ \\
+        xAI & grok-3-mini & 0.30 \$ & 0.08 \$ & 0.50 \$ \\
+        xAI & grok-3 & 3.00 \$ & 0.75 \$ & 15.00 \$ \\
+        \midrule
+        Google & gemini-2.5-pro & 0.00 \$ & 0.00 \$ & 0.00 \$ \\
+        Google & gemini-2.5-flash & 0.00 \$ & 0.00 \$ & 0.00 \$ \\
+        Google & gemini-2.5-flash-lite & 0.00 \$ & 0.00 \$ & 0.00 \$ \\
+        Google & gemini-2.0-flash & 0.00 \$ & 0.00 \$ & 0.00 \$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{Tokenpreise pro 1M Token \\ (Stand: 20.11.2025)}
+    \label{tab:tokenpreise}
+\end{table}
+
+Die Tabelle \ref{tab:tokenpreise} zeigt einen Überblick über die Tokenpreise der 
+KI-Modellanbieter, welche implementiert wurden, im Stand von November 2025.
+Jeder Modellanbieter hat eine breite Abdeckung an Modellen mit unterschiedlichen Preisen.
+Hierbei gibt es oftmals ein  billiges Modell, welches möglicherweise qualitativ
+schlechtere Ergebnisse erziehlt und ein teureres Modell, welches qualitativ besser ist.
+Über alle Modelle hinweg wird aber klar, dass Tokens, welche für den Output verwendet werden,
+mit Abstand am teuersten sind, während Tokens für den Input generell eher billiger sind.
+
+Die Gemini kostenlose Stufe bietet den Vorteil, dass man manche Gemini Modelle, darunter 
+Gemini 2.5, völlig kostenlos nutzen kann. 
+Allerdings gibt es hier auch Nachteile: 
+Laut offizieller Rate-Limits sind beispielsweise bei Gemini 2.5 Flash nur 10 Anfragen pro 
+Minute und 250 Anfragen pro Tag erlaubt. 
+
+Betrachtet man nun eine Diagrammerstellung mit dem Prompt von Seite \pageref{prompt:speed},
+kann man sehen wie sich die Menge der Tokens Für Input und Output auf den Preis auswirken.
+In Diagramm \ref{fig:price-gen-1} wurde Beispielsweise GPT-4.1 verwendet um ein Diagramm zu 
+erstellen.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        \pie[pos ={0,0}, radius=2, sum=0.0466, after number=\space\$]{0.0235/input, 0.0231/output}
+        \pie[pos ={5,0}, radius=2, sum=0.1018, after number=\space\$]{0.0775/input, 0.0243/output}
+    \end{tikzpicture}
+    \caption{Kosten für die erste und fünfte Diagrammerstellung im Thread}
+    \label{fig:price-gen-1}
+\end{figure}
+
+Wie man sieht sind, obwohl die input token preise um einiges billiger sind als die output token 
+preise, die Kosten des Inputs für eine Diagrammerstellung in der ersten Nachricht mehr als 50\%.
+In der fünften Nachricht sind die Input Token Kosten bereits bei über 75\%.
+Während die Kosten für das erste Diagramm noch 0.0466 \$ betragen, sind es bei der fünften Nachricht
+schon 0.1018 \$. 
+Da der Input bei Folgenachrichten zum Großteil der gleiche ist, wie der bei Nachrichten davor,
+Bieten viele LLM Anbieter eine Funktionalität des \texttt{Input Caching} an. 
+
+Input zu cachen kann viel bringen, wenn sich Teile einer Anfrage immer wiederholen. 
+Viele Inhalte der Anfragen ist dem LLM Anbieter durch vorherige ANchrichten in einem Thread bereits bekannt. 
+Diese Inhalte jedes Mal neu an das Modell zu schicken, kostet viele Tokens und damit Geld. 
+Wenn der Input aber gecacht wird, kann das Modell auf eine bereits gespeicherte interne 
+Darstellung zurückgreifen. 
+Dadurch muss es die Daten nicht noch einmal vollständig verarbeiten.
+
+Die Tabelle \ref{tab:tokenpreise} zeigt, dass gecachter Input bei vielen Modellen deutlich 
+günstiger ist als normaler Input, bei manchen Modellen sogar gar nichts. 
+Das bedeutet: Je mehr wiederverwendete Daten eine Anfrage hat, desto stärker sinken die 
+Gesamtkosten. 
+Gleichzeitig antwortet das Modell schneller, weil weniger berechnet werden muss.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        \pie[pos ={0,0}, radius=2, sum=0.0466, after number=\space\$]{0.0235/input, 0.0231/output}
+        \pie[pos ={5,0}, radius=2, sum=0.0578, after number=\space\$]{0.0065/input,  0.0240/output, 0.0272/cached input}
+    \end{tikzpicture}
+    \caption{Kosten für die erste und fünfte Diagrammerstellung im Thread mit Input-Caching}
+    \label{fig:price-gen-2}
+\end{figure}
+
+Man sieht in Abbildung \ref{fig:price-gen-2} gut, dass das Caching des Inputs viel Geld sparen 
+kann.
+Während in diesem Beispiel das fünfte Diagramm ohne Caching noch 0.1018 \$ gekostet hat,
+hat das fünfte Diagramm mit Caching nur noch 0.0578 \$ gekostet.
+Für dieses Beispiel hat sich Caching sehr gelohnt.
+
+Das Caching hat aber für den BPMN Bot nur begrenzt einen Effekt.
+Es ist Teil der Software, dass der Nutzer das KI Modell komplett frei wählen kann.
+Dies kann er auch innerhalb eines Threads bei jeder neuen Nachricht entscheiden und ist dabei nicht
+an einen Anbieter gebunden.
+Dadurch muss bei einem Modellwechsel trotzdem der gesamte Threadkontext an das neue Modell
+gesendet werden.
+
+Zusammenfassend lässt sich festhalten, dass es verschiedene Strategien gibt, 
+die Kosten für die Nutzung von KI-Modellen zu reduzieren. 
+Ein naheliegender Ansatz ist die Auswahl eines Modells mit niedrigen Tokenpreisen. 
+Dabei besteht jedoch immer das Risiko, dass günstigere Modelle auch qualitativ schwächere 
+Ergebnisse liefern. 
+Für bestimmte Anwendungsfälle mag dies ausreichend sein, bei komplexeren Diagrammen kann es 
+jedoch zu deutlichen Qualitätseinbußen kommen.
+
+Eine weitere Möglichkeit bietet das kostenfreie Gemini-Angebot. 
+Allerdings bringt die kostenlose Stufe klare Einschränkungen mit sich, insbesondere die 
+strengen Limits an täglichen und minütlichen Anfragen. 
+Dadurch wird die skalierung der Software auf eine große Nutzeranzahl verhindert.
+
+Auch das Input-Caching kann eine wirksame Methode zur Kostenreduzierung sein. 
+Insbesondere bei langen Chats, kann das Caching den Preis pro Anfrage deutlich senken. 
+Gleichzeitig verbessert sich die Antwortgeschwindigkeit, da bereits bekannte Inhalte nicht 
+erneut ausgewertet werden müssen. 
+Allerdings entfaltet Caching seine Vorteile nur dann, wenn innerhalb eines Threads durchgehend 
+derselbe Modellanbieter verwendet wird. 
+Da der BPMN-Bot dem Nutzer jedoch volle Flexibilität bei der Modellwahl lässt, 
+einschließlich eines Modellwechsels mitten im Gespräch, muss beim Wechsel weiterhin der 
+komplette Kontext erneut übertragen werden. 
+Dadurch verliert das Caching in solchen Situationen an Effektivität.
+
+Wie auch schon im Kapitel \ref{sec:speed} besprochen, hat auch die Wahl des Diagrammformats eine
+entscheidenden Rolle.
+Die Nutzung von JSON gegenüber XML kann eine Einsparung von bis zu etwa 50\% der Output
+Token bewirken, wodurch weiter einiges an Kosten gespart werden kann.
+
+Insgesamt wird deutlich, dass es nicht die eine perfekte Lösung zur Kostensenkung gibt. 
+Eine bewusste Kombination dieser Ansätze ermöglicht es, sowohl Qualität als auch Kosten 
+sinnvoll auszubalancieren.
