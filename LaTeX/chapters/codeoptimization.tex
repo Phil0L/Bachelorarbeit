@@ -59,8 +59,8 @@ export class ChatGPT extends Ai {
   }
 }
 \end{minted}
-\label{code:chatgpt-class}
 \caption{ChatGPT Klasse}
+\label{code:chatgpt-class}
 \end{code}
 
 \subsection{Von Assistants zu Responses}
@@ -77,8 +77,8 @@ protected async generateContent(input) {
   return this.openai.responses.create(input);
 }
 \end{minted}
-\label{code:generate-content}
 \caption{generateContent()}
+\label{code:generate-content}
 \end{code}
 
 Einer der zentralen Unterschiede zwischen der Assistants- und der Responses-API besteht darin, 
@@ -145,8 +145,8 @@ Beide Formate haben somit ihre jeweiligen Stärken und Einsatzgebiete.
     Kein Standard, Lernaufwand, komplizierter Konvertierungsalgorythmus. &
     hoher Tokenverbrauch, umfangreiche Syntax, unübersichtlicher, mehr Kosten, längere Generierung. \\ \hline
   \end{tabular}
-  \label{tab:vor-nachteile-json-xml}
   \caption{Vergleich der Vor- und Nachteile der unterstützten Ausgabeformate}
+  \label{tab:vor-nachteile-json-xml}
 \end{table}
 
 Für die Weiterentwicklung ist ein flexibles System das Ziel, das eine dynamische Auswahl des Ausgabeformats besitzt. 
@@ -169,8 +169,8 @@ Eine Anfrage sieht damit z.B. folgendermaßen aus:\\
   "format": "xml"
 }
 \end{minted}
-\label{code:post-model-format}
 \caption{Post Request an /threads mit Format}
+\label{code:post-model-format}
 \end{code}
 
 Bei einer Anfrage kann dann die jeweilige AI über eine Map 
@@ -223,8 +223,8 @@ Eine Anfrage sieht damit z.B. folgendermaßen aus:\\
   "file": "data:image/png;base64,A35ekZ...",
 }
 \end{minted}
-\label{code:post-file}
 \caption{Post Request an /threads mit Datei}
+\label{code:post-file}
 \end{code}
 
 Der string wird auf Validität geprüft\\
@@ -236,8 +236,8 @@ private checkBase64DataUrl(dataUrl: string): boolean {
   return regex.test(dataUrl);
 }
 \end{minted}
-\label{code:check-base64}
 \caption{checkBase64DataUrl()}
+\label{code:check-base64}
 \end{code}
 
 und dann im richtigen Format an die OpenAI API gesendet:\\
@@ -254,8 +254,8 @@ const imageInstructions = {
   ],
 } as ResponseInputItem
 \end{minted}
-\label{code:chatgpt-file-format}
 \caption{Darstellung des Formats für die ChatGPT API}
+\label{code:chatgpt-file-format}
 \end{code}
 
 \section{Chain of Thought}
@@ -319,8 +319,8 @@ beispielsweise folgendermaßen aussehen:\\
   "mode": "detail",
 }
 \end{minted}
-\label{code:post-mode}
 \caption{Post Request an /threads mit mode}
+\label{code:post-mode}
 \end{code}
 
 \subsection{Konversationskontext}
@@ -363,8 +363,8 @@ export class PromptInput {
   file?: ;
 }
 \end{minted}
-\label{code:promptinput-class}
 \caption{PromptInput Klasse}
+\label{code:promptinput-class}
 \end{code}
 
 Damit ist es möglich, bestehende Nachrichtenverläufe aus der Datenbank abzurufen und automatisch in 
@@ -378,8 +378,8 @@ const instructions = [formatInstructions, modeInstructions];
 const chatsFromDB = getAllChatsFromDB(threadID);
 new PromptInput(instructions, prompt, chatsFromDB, file);
 \end{minted}
-\label{code:prompt-input-creation}
 \caption{PromptInput Erstellung}
+\label{code:prompt-input-creation}
 \end{code}
 
 Das so erzeugte \texttt{PromptInput}-Objekt kann anschließend durch interne Methoden in das finale 
@@ -401,8 +401,8 @@ protected mapPromptInput(input: PromptInput) {
   };
 }
 \end{minted}
-\label{code:map-promptinput}
 \caption{mapPromptInput()}
+\label{code:map-promptinput}
 \end{code}
 
 Darüber hinaus soll künftig auch die jeweils aktuellste Version des Diagramms an die Anfrage angehängt 
@@ -428,8 +428,8 @@ protected updateInstructions(threadID: string, format: format){
     ${format == "xml" ? diagram?.xml : diagram?.json}`]
 }
 \end{minted}
-\label{code:update-instructions}
 \caption{updateInstructions()}
+\label{code:update-instructions}
 \end{code}
 
 Damit hat die KI nun alle Informationen die sie benötigt um eine Konversation führen zu können.
@@ -611,8 +611,8 @@ Dies wird hier durch den Aufruf eines Regex ermöglicht.
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs, breaklines, breakanywhere]{typescript}
 /(?:``?`?\s*(?:xml)?\s*)?(<[^<>]*\/[^<>]*>\s*|<[^\/<>]*>[^`]*<\/[^<>]*>)+\s*(?:``?`?|(?=[^<>`\s]))\n?/g
 \end{minted}
-\label{code:regex}
 \caption{Regex zur Diagrammerkennung}
+\label{code:regex}
 \end{code}
 
 Über dieses werden automatisch alle validen XML Teile (In TBA label bunt markiert) erkannt.
@@ -706,8 +706,8 @@ protected mapPromptInput(input: PromptInput) {
   };
 }
 \end{minted}
-\label{code:grok-format}
 \caption{mapPromptInput() für Grok}
+\label{code:grok-format}
 \end{code}
 
 
@@ -757,8 +757,8 @@ protected mapPromptInput(input: PromptInput) {
   };
 }
 \end{minted}
-\label{code:gemini-format}
 \caption{mapPromptInput() für Gemini}
+\label{code:gemini-format}
 \end{code}
 
 Die Gemini API erwartet bei Jedem Text Teil der Anfrage noch das Feld `thought', welches angibt
@@ -795,8 +795,8 @@ protected mapPromptInput(input: PromptInput) {
   };
 }
 \end{minted}
-\label{code:claude-format}
 \caption{mapPromptInput() für Claude}
+\label{code:claude-format}
 \end{code}
 
 \section{Streaming}
@@ -845,8 +845,8 @@ protected mapPromptInput(input: PromptInput, stream: boolean) {
   };
 }
 \end{minted}
-\label{code:chatgpt-format-stream}
 \caption{mapPromptInput() für einen Stream}
+\label{code:chatgpt-format-stream}
 \end{code}
 
 Andere Anbieter wie Gemini oder Grok verfolgen dagegen einen leicht unterschiedlichen Ansatz und 
@@ -862,8 +862,8 @@ async generateContent(input: any, stream: boolean) {
   return generateText(input);
 }
 \end{minted}
-\label{code:grok-format-stream}
 \caption{generateContent() für einen Stream}
+\label{code:grok-format-stream}
 \end{code}
 
 Sobald die Antwort der KI eintrifft, wird zunächst überprüft, ob es sich tatsächlich um einen 
@@ -877,8 +877,8 @@ protected isStream(obj: any): boolean {
   return obj && typeof obj[Symbol.asyncIterator] === "function";
 }
 \end{minted}
-\label{code:is-stream}
 \caption{isStream()}
+\label{code:is-stream}
 \end{code}
 
 Wird ein Stream erkannt, kann dieser anschließend mithilfe eines asynchronen Iterations-Loops 
@@ -912,8 +912,8 @@ protected async processStream(stream: any){
   }
 }
 \end{minted}
-\label{code:process-stream}
 \caption{processStream()}
+\label{code:process-stream}
 \end{code}
 
 Während der Stream verarbeitet wird, wird die Antwort der KI schrittweise in einem internen 
@@ -1046,9 +1046,145 @@ Danach wird der Stream geschlossen und die Übertragung ist abgeschlossen.
 
 \section{Schema-Constraining}
 
-\section{Evtl. Sampling}
+\section{Diagramm Sampling}
 
-\section{Evtl. Reflective Prompting}
+Während die Bezeichnung \texttt{Spampling} in Bezug auf LLMs bereits eine Bedeutung
+hat, wir hier im Bezug auf BPMN Generierung nicht von Token-Sampling sondern von
+Diagramm-Sampling gesprochen.
+
+Der Begriff „Sampling“ bedeutet im Kontext von KI-Modellen allgemein: 
+``Aus einer Menge möglicher Modellantworten mehrere Alternativen erzeugen.''
+
+Dies bedeutet konkret, dass beim Token-Sampling mehrere Token erstellt werden und
+daraus das beste gewählt wird.
+Beim Sampling für Diagramme werden nun auch mehrere Diagramme erstellt.
+Allerdings ist es schwierig zu beurteilen, welches Diagramm nun das `beste' ist.
+Darum werden bei der erstellung der Diagramme klar festgelegt, welche Anbieter 
+ein Diagramm erzeugen und alle werden dem Nutzer präsentiert, da dieser selber 
+am besten die Qualität beurteilen kann.
+
+Die Erstellung mehrerer Diagramme erfolgt, indem dieselbe textuelle 
+Prozessbeschreibung parallel an verschiedene Sprachmodelle bzw. KI-Anbieter 
+gesendet wird. 
+Jedes Modell generiert daraufhin eigenständig ein vollständiges BPMN-Diagramm, 
+basierend auf seiner internen Architektur, Trainingsdaten und Interpretationslogik. 
+Durch ein einheitliches Prompt-Design wird 
+sichergestellt, dass alle Modelle unter vergleichbaren Bedingungen arbeiten und 
+somit miteinander vergleichbare Ergebnisse liefern. 
+Dieser parallele Erstellungsprozess ermöglicht es, innerhalb eines einzigen 
+Ausführungsvorgangs mehrere unabhängige Modellierungen desselben Prozesses zu 
+erhalten, ohne zusätzliche Laufzeit oder iterative Interaktion mit einem einzelnen 
+Modell zu benötigen. 
+
+Da keine zusätzlichen textuellen Ausgaben benötigt werden, erfolgt die Generierung 
+der zusätzlichen Diagramme ausschließlich im \texttt{quick}-Modus. 
+Die Auswahl der Modelle, die für die parallele Diagrammerzeugung genutzt werden, 
+ist flexibel und kann vom Nutzer oder vom Client als Parameter 
+der Anfrage frei bestimmt werden. 
+Dadurch lässt sich die Zahl der beteiligten Anbieter dynamisch variieren, was 
+insbesondere für Vergleiche oder Qualitätssicherung von 
+Vorteil ist.
+
+Alle erzeugten Diagramme, unabhängig davon, welches Modell sie generiert hat, 
+werden anschließend gesammelt und gebündelt an den Client übermittelt. 
+Dies ermöglicht es, die Ergebnisse unmittelbar nebeneinander anzuzeigen, 
+wodurch der Nutzer einen direkten Vergleich der unterschiedlichen 
+Modelle erhält. 
+
+Eine Anfrage mit Diagramm Sampling kann in etwa so aussehen wie in Anfrage 
+\ref{code:post-samples}.
+
+\begin{code}
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{json}
+// POST /threads
+{ 
+  "inputString": "Bitte generiere mir ein BPMN Diagram, 
+      welches den Ablauf in einem Restaurant zeigt", 
+  "model": "gpt-5 (xml)",
+  "mode": "detail",
+  "samples": [
+    "gemini-2.5-pro (xml)",
+    "grok-4 (json)"
+  ]
+}
+\end{minted}
+\caption{Post Request an /threads mit Sampling}
+\label{code:post-samples}
+\end{code}
+
+CURSOR
+
+\begin{code}
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+const gpt = getGPT(model, format)!;
+const sampling = !!samples;
+const primary = gpt.createBPMN(input, file, userId, res, mode, stream, sampling);
+const secondaries = samples
+    .map(str => getGPT(str))
+    .filter(gpt => !!gpt) // remove null values
+    .filter((item, pos, self) => self.indexOf(item) == pos)
+    .slice(0, 5) // limit to 5 samples
+    .map(gpt => gpt.createBPMN(input, file, userId, res, "quick", stream, "secondary"));
+const outputs = await Promise.all([primary, ...secondaries]);
+\end{minted}
+\caption{Ausführung der Samples}
+\label{code:run-samples}
+\end{code}
+
+\section{Reflective Prompting}
+
+Reflective Prompting ist eine Technik, bei der ein KI-Modell bewusst dazu angeleitet wird, über 
+seine eigenen Antworten nachzudenken, bevor es ein endgültiges Ergebnis liefert. 
+Anders als beim klassischen Prompting, bei dem das Modell direkt versucht, die bestmögliche 
+Antwort zu erzeugen, besteht Reflective Prompting aus zwei Stufen: 
+Zuerst erstellt das Modell einen Entwurf oder eine Einschätzung, anschließend überprüft es diesen 
+Entwurf selbstständig, reflektiert mögliche Fehler oder Unklarheiten und verbessert die Antwort 
+basierend auf dieser Selbstkritik.
+
+Dieses Vorgehen hat mehrere Vorteile. 
+Das Modell erkennt häufiger eigene Ungenauigkeiten, identifiziert logische Fehler oder fehlende 
+Details und kann dadurch qualitativ hochwertigere Ergebnisse liefern. 
+Reflective Prompting eignet sich besonders für Aufgaben, die komplexes Denken, Fehlererkennung 
+oder mehrstufiges Argumentieren erfordern, etwa bei der Analyse und Erstellung von Diagrammen.
+
+Da das Modell aktiv „darüber nachdenkt“, wie gut seine Antwort ist, nähert es sich stärker 
+menschlichem Problemlösungsverhalten an. 
+Gleichzeitig kann diese Technik aber auch zu längeren Antwortzeiten oder höheren Tokenkosten 
+führen, da das Modell intern mehrere Schritte durchläuft. 
+In vielen Fällen lohnt sich Reflective Prompting jedoch, weil die resultierenden Antworten 
+deutlich präziser und verlässlicher sind.
+
+In dem Anwendungsfall des BPMNGen Bots wird das \texttt{Reflective Prompting} nicht als ein
+Schritt der Generierung implementiert, bei dem das Diagramm bereits überarbeitet wird, bevor
+es der Nutzer zu sehen bekommt.
+Da eine Generierung des Diagramms viel Zeit beansprucht, würde dies die Generierungszeit verdoppeln.
+Stattdessen wird die erste Diagrammerstellung dem Nutzer normal angezeigt.
+Wenn der Nutzer nun Änderungswünsche hat werden diese Parallel mit den Diagrammfehlern zum
+\texttt{reflektieren} an die KI gesendet.
+Damit können nun Gleichzeitig Anderungswünsche des Nutzers umgesetzt werden, sowie Probleme des
+Diagramms intern behoben werden.
+Die Implementierung wird in Codeauschnitt \ref{code:update-instructions-reflection} auf Seite \pageref{code:update-instructions-reflection} gezeigt.
+
+\begin{code}
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+protectes updateInstructions(threadID: string, format: format){
+  const diagram = await this.getLatestDiagramFromDB(threadID);
+  if (!diagram || !diagram.xmlContent)
+    return [];
+  const xmlModdle = await moddle.fromXML(diagram.xmlContent);
+  const warnings = xmlModdle.warnings;
+  return [`The The following diagram has already been created:
+    ${diagram.xmlContent}\n
+    The following warnings were found in the diagram:
+    ${warnings.join("\n")}\n
+    Fix the warnings while updating the diagram.
+    Update the diagram, if asked for, for the given prompt.`]
+}
+\end{minted}
+\caption{updateInstructions() mit Reflektion}
+\label{code:update-instructions-reflection}
+\end{code}
+
 
 
 

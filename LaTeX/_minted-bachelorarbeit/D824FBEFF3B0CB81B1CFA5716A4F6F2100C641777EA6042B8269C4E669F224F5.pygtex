@@ -1,6 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k+kd}{function}\PYG{+w}{ }\PYG{n+nx}{greet}\PYG{p}{(}\PYG{n+nx}{name}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{o+ow}{void}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
-\PYG{+w}{    }\PYG{n+nx}{console}\PYG{p}{.}\PYG{n+nx}{log}\PYG{p}{(}\PYG{l+s+sb}{`Hello, }\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{name}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{!`}\PYG{p}{);}
-\PYG{p}{\PYGZcb{}}
-\PYG{n+nx}{greet}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}World\PYGZdq{}}\PYG{p}{);}
-\end{Verbatim}

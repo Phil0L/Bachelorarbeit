@@ -17,148 +17,133 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
-  \entry{Knappen2009}{book}{}
+  \entry{shi2025bpmngen}{thesis}{}
     \name{author}{1}{}{%
-      {{hash=KJ}{%
-         family={Knappen},
-         familyi={K\bibinitperiod},
-         given={Jörg},
-         giveni={J\bibinitperiod},
+      {{hash=SZ}{%
+         family={Shi},
+         familyi={S\bibinitperiod},
+         given={Zhe},
+         giveni={Z\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {Oldenbourg}%
-    }
-    \strng{namehash}{KJ1}
-    \strng{fullhash}{KJ1}
+    \strng{namehash}{SZ1}
+    \strng{fullhash}{SZ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{K}
-    \field{sortinithash}{K}
-    \field{edition}{3., überarb. Aufl.}
-    \field{title}{Schnell ans Ziel mit LATEX 2e}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{note}{Submitted for the degree of Bachelor of Science (B.Sc) in Informatik. Advisor: Prof. Dr. Manfred Reichert; Supervisor: Luca H{\"o}rner}
+    \field{title}{Enhancing BPMNGen: Improving LLM-based BPMN 2.0 Process Model Generation through Natural Language Processing}
     \list{location}{1}{%
-      {München}%
+      {Ulm, Germany}%
     }
-    \field{year}{2009}
+    \list{institution}{1}{%
+      {Ulm University}%
+    }
+    \field{type}{Bachelor thesis}
+    \field{year}{2025}
   \endentry
 
-  \entry{Mittelbach2005}{book}{}
-    \name{author}{3}{}{%
-      {{hash=MF}{%
-         family={Mittelbach},
-         familyi={M\bibinitperiod},
-         given={Frank},
-         giveni={F\bibinitperiod},
+  \entry{wei2023chainofthoughtpromptingelicitsreasoning}{misc}{}
+    \name{author}{9}{}{%
+      {{hash=WJ}{%
+         family={Wei},
+         familyi={W\bibinitperiod},
+         given={Jason},
+         giveni={J\bibinitperiod},
       }}%
-      {{hash=GM}{%
-         family={Goossens},
-         familyi={G\bibinitperiod},
-         given={Michel},
+      {{hash=WX}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Xuezhi},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=SD}{%
+         family={Schuurmans},
+         familyi={S\bibinitperiod},
+         given={Dale},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Bosma},
+         familyi={B\bibinitperiod},
+         given={Maarten},
          giveni={M\bibinitperiod},
       }}%
-      {{hash=BJ}{%
-         family={Braams},
-         familyi={B\bibinitperiod},
-         given={Johannes},
-         giveni={J\bibinitperiod},
+      {{hash=IB}{%
+         family={Ichter},
+         familyi={I\bibinitperiod},
+         given={Brian},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=XF}{%
+         family={Xia},
+         familyi={X\bibinitperiod},
+         given={Fei},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=CE}{%
+         family={Chi},
+         familyi={C\bibinitperiod},
+         given={Ed},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=LQ}{%
+         family={Le},
+         familyi={L\bibinitperiod},
+         given={Quoc},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=ZD}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Denny},
+         giveni={D\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {Pearson Studium}%
-    }
-    \strng{namehash}{MFGMBJ1}
-    \strng{fullhash}{MFGMBJ1}
+    \strng{namehash}{WJ+1}
+    \strng{fullhash}{WJWXSDBMIBXFCELQZD1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{M}
-    \field{sortinithash}{M}
-    \field{edition}{2., überarb. und erw. Aufl.}
-    \field{series}{ST - Scientific tools}
-    \field{title}{Der Latex-Begleiter}
-    \list{location}{1}{%
-      {München [u.a.]}%
-    }
-    \field{year}{2005}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \verb{eprint}
+    \verb 2201.11903
+    \endverb
+    \field{title}{Chain-of-Thought Prompting Elicits Reasoning in Large Language Models}
+    \verb{url}
+    \verb https://arxiv.org/abs/2201.11903
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2023}
   \endentry
 
-  \entry{Schlosser2014}{book}{}
+  \entry{weidl2024bpmngen}{thesis}{}
     \name{author}{1}{}{%
-      {{hash=SJ}{%
-         family={Schlosser},
-         familyi={S\bibinitperiod},
-         given={Joachim},
-         giveni={J\bibinitperiod},
+      {{hash=WN}{%
+         family={Weidl},
+         familyi={W\bibinitperiod},
+         given={Niklas},
+         giveni={N\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {mitp}%
-    }
-    \strng{namehash}{SJ1}
-    \strng{fullhash}{SJ1}
+    \strng{namehash}{WN1}
+    \strng{fullhash}{WN1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{S}
-    \field{sortinithash}{S}
-    \field{edition}{5., überarb. Aufl.}
-    \field{title}{Wissenschaftliche Arbeiten schreiben mit LATEX : Leitfaden für Einsteiger}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{note}{Submitted for the degree of Bachelor of Science (BSc) in Medieninformatik. Advisors: Prof. Dr. Manfred Reichert; Supervisor: Luca H{\"o}rner}
+    \field{title}{BPMN Diagram Generation with ChatGPT}
     \list{location}{1}{%
-      {Frechen}%
+      {Ulm, Germany}%
     }
-    \field{year}{2014}
-  \endentry
-
-  \entry{Sturm2012}{book}{}
-    \name{author}{1}{}{%
-      {{hash=STF}{%
-         family={Sturm},
-         familyi={S\bibinitperiod},
-         given={Thomas\bibnamedelima F.},
-         giveni={T\bibinitperiod\bibinitdelim F\bibinitperiod},
-      }}%
+    \list{institution}{1}{%
+      {Ulm University}%
     }
-    \list{publisher}{1}{%
-      {Regionales Rechenzentrum für Niedersachsen, RRZN}%
-    }
-    \strng{namehash}{STF1}
-    \strng{fullhash}{STF1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{S}
-    \field{sortinithash}{S}
-    \field{edition}{9., unveränd. Aufl.}
-    \field{series}{RRZN-Handbuch}
-    \field{title}{LATEX : Einführung in das Textsatzsystem}
-    \list{location}{1}{%
-      {Hannover [u.a.]}%
-    }
-    \field{year}{2012}
-  \endentry
-
-  \entry{Voss2010}{book}{}
-    \name{author}{1}{}{%
-      {{hash=VH}{%
-         family={Voß},
-         familyi={V\bibinitperiod},
-         given={Herbert},
-         giveni={H\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Lehmanns Media}%
-    }
-    \strng{namehash}{VH1}
-    \strng{fullhash}{VH1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{V}
-    \field{sortinithash}{V}
-    \field{edition}{2., überarb. u. erw. Aufl.}
-    \field{title}{LaTeX Referenz}
-    \list{location}{1}{%
-      {Berlin}%
-    }
-    \field{year}{2010}
+    \field{type}{Bachelor thesis}
+    \field{year}{2024}
   \endentry
 \enddatalist
 \endinput

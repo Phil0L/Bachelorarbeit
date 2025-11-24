@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.6)  21 NOV 2025 12:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.6)  24 NOV 2025 17:18
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1523,16 +1523,50 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 
 ]
 chapter 2.
-) (./chapters/codeoptimization.tex [2
+LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
+(Font)              scaled to size 11.39996pt on input line 19.
+[2
 
 ]
+Overfull \hbox (7.28564pt too wide) in paragraph at lines 48--49
+[]\T1/phv/b/n/12 Sequence Flows\T1/phv/m/n/12 : Lo-gi-sche Ab-fol-ge von Ak-ti-vi-tä-ten in-ner-halb ei-nes Pools. 
+ []
+
+
+Overfull \hbox (1.3809pt too wide) in paragraph at lines 49--50
+[]\T1/phv/b/n/12 Message Flows\T1/phv/m/n/12 : Kom-mu-ni-ka-ti-on zwi-schen un-ter-schied-li-chen Pools oder
+ []
+
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 57.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 11.39996pt on input line 57.
+<images/diagrams/diagram_0.pdf, id=135, 1443.14156pt x 903.375pt>
+File: images/diagrams/diagram_0.pdf Graphic file (type pdf)
+<use images/diagrams/diagram_0.pdf>
+Package pdftex.def Info: images/diagrams/diagram_0.pdf  used on input line 63.
+(pdftex.def)             Requested size: 416.12161pt x 260.48332pt.
+
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [3]
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 78.
+ (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [4 <./images/diagrams/diagram_0.pdf>]
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [5]) (./chapters/codeoptimization.tex
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [6]
 chapter 3.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 13.67995pt on input line 11.
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 18.
-(d:/TexLive/2023/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [3
+[7
 
 ]
 \openout6 = `bachelorarbeit.pyg'.
@@ -1555,7 +1589,7 @@ LaTeX Font Info:    Trying to load font information for T1+ptm on input line 2.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ))
-Package hyperref Info: bookmark level for unknown code defaults to 0 on input line 63.
+Package hyperref Info: bookmark level for unknown code defaults to 0 on input line 62.
 \openout6 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/326C14F56E25FFD5D4F30CEEF2D8D47F00C641777EA6042B8269C4E669F224F5.pygtex)
@@ -1566,7 +1600,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 68--73
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [4]
+ [8]
 \openout5 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/9D49B497275EA3854AB87DE8B57AB2F400C641777EA6042B8269C4E669F224F5.pygtex)
@@ -1577,7 +1611,7 @@ Overfull \hbox (5.66519pt too wide) in paragraph at lines 84--91
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [5]
+ [9]
 Underfull \hbox (badness 1147) in paragraph at lines 142--142
 \T1/phv/m/n/12 ger To-ken-ver-brauch, schnel-le
  []
@@ -1610,7 +1644,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 146--146
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [6]
+ [10]
 Underfull \hbox (badness 10000) in paragraph at lines 160--161
 
  []
@@ -1623,7 +1657,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 160--161
  (./_minted-bachelorarbeit/5CD8203FF80F08E213B04FF4B9D9B60200C641777EA6042B8269C4E669F224F5.pygtex)
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [7]
+ [11]
 Overfull \hbox (96.57817pt too wide) in paragraph at lines 187--200
 \T1/pcr/m/n/12 com / docs / guides / images-[]vision ? api-[]mode = responses & format = base64-[]encoded #
  []
@@ -1643,7 +1677,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 230--231
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [8]
+ [12]
 \openout5 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/290B00BD2C639B2083653BD56F4A0D5D00C641777EA6042B8269C4E669F224F5.pygtex)
@@ -1661,10 +1695,10 @@ Overfull \hbox (1.07977pt too wide) in paragraph at lines 263--270
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [9]
+ [13]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [10]
+ [14]
 Underfull \hbox (badness 10000) in paragraph at lines 308--310
 
  []
@@ -1674,7 +1708,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 308--310
 (./_minted-bachelorarbeit/3FBEE05C79C5E05AA0B5FED9C1C8EE1A01D3707017B41C60CC59CD5A809FF8D0.pygtex)
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [11]
+ [15]
 Underfull \hbox (badness 10000) in paragraph at lines 355--356
 
  []
@@ -1696,7 +1730,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 385--389
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [12]
+ [16]
 \openout5 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/D1443EF89DE5DEDD1C7D53F1DC9B25C400C641777EA6042B8269C4E669F224F5.pygtex)
@@ -1724,7 +1758,7 @@ Package textcomp Info: Symbol \textasciigrave not provided by
 )
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [13]
+ [17]
 Underfull \hbox (badness 10000) in paragraph at lines 439--442
 
  []
@@ -1734,10 +1768,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 439--442
 (./_minted-bachelorarbeit/6FED0394EB474819E1D56E62D3CF145F88DD8CBCA5DC732330A7A33BAA956AD8.pygtex
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [14{d:/TexLive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}])
-LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 11.39996pt on input line 515.
-
+ [18{d:/TexLive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}])
 Overfull \hbox (13.13812pt too wide) in paragraph at lines 474--516
 [] 
  []
@@ -1745,8 +1776,8 @@ Overfull \hbox (13.13812pt too wide) in paragraph at lines 474--516
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [15]
-<images/diagrams/diagram_1.pdf, id=196, 760.34062pt x 557.08125pt>
+ [19]
+<images/diagrams/diagram_1.pdf, id=251, 760.34062pt x 557.08125pt>
 File: images/diagrams/diagram_1.pdf Graphic file (type pdf)
 <use images/diagrams/diagram_1.pdf>
 Package pdftex.def Info: images/diagrams/diagram_1.pdf  used on input line 524.
@@ -1754,8 +1785,8 @@ Package pdftex.def Info: images/diagrams/diagram_1.pdf  used on input line 524.
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [16]
-<images/diagrams/diagram_2.pdf, id=212, 760.34062pt x 557.08125pt>
+ [20]
+<images/diagrams/diagram_2.pdf, id=267, 760.34062pt x 557.08125pt>
 File: images/diagrams/diagram_2.pdf Graphic file (type pdf)
 <use images/diagrams/diagram_2.pdf>
 Package pdftex.def Info: images/diagrams/diagram_2.pdf  used on input line 538.
@@ -1763,7 +1794,7 @@ Package pdftex.def Info: images/diagrams/diagram_2.pdf  used on input line 538.
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [17 <./images/diagrams/diagram_1.pdf>]
+ [21 <./images/diagrams/diagram_1.pdf>]
 Overfull \hbox (0.56561pt too wide) in paragraph at lines 566--574
 \T1/phv/m/n/12 wel-che Be-stand-tei-le tat-säch-lich ein Dia-gramm dar-stel-len, das wei-ter-ver-ar-bei-tet oder
  []
@@ -1771,7 +1802,7 @@ Overfull \hbox (0.56561pt too wide) in paragraph at lines 566--574
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [18 <./images/diagrams/diagram_2.pdf>]
+ [22 <./images/diagrams/diagram_2.pdf>]
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
 (textcomp)             Default family used instead on input line 605.
@@ -1887,7 +1918,7 @@ Package textcomp Info: Symbol \textasciigrave not provided by
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [19]
+ [23]
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
 (textcomp)             Default family used instead on input line 649.
@@ -1935,7 +1966,7 @@ Overfull \hbox (13.13812pt too wide) in paragraph at lines 626--650
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [20]
+ [24]
 Underfull \hbox (badness 10000) in paragraph at lines 685--687
 
  []
@@ -1945,7 +1976,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 685--687
 (./_minted-bachelorarbeit/E343E59125416BD15EFE2FA51A56573100C641777EA6042B8269C4E669F224F5.pygtex)
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [21]
+ [25]
 Underfull \hbox (badness 10000) in paragraph at lines 716--721
 
  []
@@ -1955,13 +1986,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 716--721
 (./_minted-bachelorarbeit/79762DE3263D7C70D9A912445E75483000C641777EA6042B8269C4E669F224F5.pygtex)
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [22]
+ [26]
 Overfull \vbox (6.9981pt too high) has occurred while \output is active []
 
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [23]
+ [27]
 Underfull \hbox (badness 10000) in paragraph at lines 764--766
 
  []
@@ -1975,7 +2006,7 @@ File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
 ))
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [24]
+ [28]
 Underfull \hbox (badness 10000) in paragraph at lines 829--835
 
  []
@@ -1990,7 +2021,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 852--857
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [25]
+ [29]
 \openout5 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/2E0AAF74DE4DD3EF597AA2A4BABF2DE900C641777EA6042B8269C4E669F224F5.pygtex)
@@ -2008,7 +2039,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 884--888
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [26]
+ [30]
 \openout5 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/3F501AA24B2941B2A7E8A403D72E74BD00C641777EA6042B8269C4E669F224F5.pygtex)
@@ -2019,12 +2050,7 @@ Overfull \hbox (1.37907pt too wide) in paragraph at lines 926--931
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [27]
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 972.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 11.39996pt on input line 972.
-
+ [31]
 Underfull \hbox (badness 10000) in paragraph at lines 972--972
 
  []
@@ -2037,7 +2063,7 @@ Overfull \hbox (13.13812pt too wide) in paragraph at lines 963--973
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [28]
+ [32]
 Overfull \hbox (26.0087pt too wide) in paragraph at lines 995--1000
 \T1/phv/m/n/12 ver-wen-det wird. So-bald das Dia-gramm fer-tig er-stellt wur-de, wird auch ein \T1/pcr/m/n/12 diagram-end
  []
@@ -2095,13 +2121,43 @@ Overfull \hbox (13.13812pt too wide) in paragraph at lines 1011--1046
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [29]) (./chapters/analysis.tex
+ [33]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [30]
+ [34]
+Overfull \hbox (2.21124pt too wide) in paragraph at lines 1066--1078
+\T1/phv/m/n/12 schrei-bung par-al-lel an ver-schie-de-ne Sprach-mo-del-le bzw. KI-Anbieter ge-sen-det wird.
+ []
+
+
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [31]
+ [35]
+\openout5 = `bachelorarbeit.pyg'.
+
+ (./_minted-bachelorarbeit/D6BF055F110C4F8747DDC21A2D18097401D3707017B41C60CC59CD5A809FF8D0.pygtex)
+\openout5 = `bachelorarbeit.pyg'.
+
+ (./_minted-bachelorarbeit/F027244A0E3DED9482B38CBC4806FE5400C641777EA6042B8269C4E669F224F5.pygtex)
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [36]
+\openout5 = `bachelorarbeit.pyg'.
+
+ (./_minted-bachelorarbeit/D3453C94BBB762DA3888583FAEBC784B00C641777EA6042B8269C4E669F224F5.pygtex
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 8.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 13.
+)) (./chapters/analysis.tex
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [37]
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [38]
 chapter 4.
 
 Overfull \hbox (13.13812pt too wide) in paragraph at lines 20--29
@@ -2109,7 +2165,7 @@ Overfull \hbox (13.13812pt too wide) in paragraph at lines 20--29
  []
 
 Package hyperref Info: bookmark level for unknown prompt defaults to 0 on input line 29.
-[32
+[39
 
 ]
 Overfull \hbox (23.2547pt too wide) in paragraph at lines 153--154
@@ -2119,7 +2175,7 @@ Overfull \hbox (23.2547pt too wide) in paragraph at lines 153--154
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [33]
+ [40]
 Overfull \hbox (13.13812pt too wide) in paragraph at lines 168--177
 []
  []
@@ -2129,7 +2185,7 @@ Missing character: There is no ; in font nullfont!
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [34]
+ [41]
 Overfull \hbox (9.90611pt too wide) in paragraph at lines 219--229
 \T1/phv/m/n/12 spür-ba-ren Ge-schwin-dig-keits-vor-teil bie-tet. Ins-be-son-de-re bei zu-neh-men-der Dia-gramm-
  []
@@ -2145,122 +2201,57 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [35]
+ [42]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [36]
+ [43]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [37]
+ [44]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [38]
+ [45]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [39]) (./chapters/relatedwork.tex
+ [46]) (./chapters/relatedwork.tex
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [40]
+ [47]
 chapter 5.
-) (./chapters/conclusion.tex [41
+) (./chapters/conclusion.tex [48
 
 ]
 chapter 6.
-) (./chapters/notes.tex [42
+) (./chapters/notes.tex [49
 
-] [43
+] [50
 
 ]
 Overfull \hbox (13.95427pt too wide) in paragraph at lines 36--37
 []\T1/phv/b/n/12 Inhalt: \T1/phv/m/n/12 Ein-satz von RL-HF zur Ver-bes-se-rung der In-struk-ti-ons-be-fol-gung durch Sprach-
  []
 
-) (./chapters/vorlage.tex
+) (./chapters/sources.tex
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [44]
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.54997pt on input line 3.
-
-Overfull \hbox (6.25032pt too wide) in paragraph at lines 18--19
-[]\T1/phv/m/n/12 Allerdings soll-te man sich über-le-gen, ob man wirk-lich bis zur Stu-fe [][]\T1/pcr/m/n/12 subsubsection
- []
-
-[45
-
-]
-<images/Suffix_tree_ABAB_BABA.pdf, id=404, 252.945pt x 298.716pt>
-File: images/Suffix_tree_ABAB_BABA.pdf Graphic file (type pdf)
-<use images/Suffix_tree_ABAB_BABA.pdf>
-Package pdftex.def Info: images/Suffix_tree_ABAB_BABA.pdf  used on input line 32.
-(pdftex.def)             Requested size: 166.44609pt x 196.56973pt.
-
-Overfull \vbox (1.17493pt too high) has occurred while \output is active []
-
- [46]
-Overfull \vbox (1.17493pt too high) has occurred while \output is active []
-
- [47 <./images/Suffix_tree_ABAB_BABA.pdf>]
-Overfull \hbox (23.0782pt too wide) in paragraph at lines 86--86
-[]  \T1/pcr/m/n/12 Dieser Text steht in einer verbatim-Umgebung und wird daher[] 
- []
-
-
-Overfull \hbox (87.87817pt too wide) in paragraph at lines 86--86
-[]  \T1/pcr/m/n/12 LaTeX-Kommandos, z.B. \includegraphics[width=.6\textwidth]{bild.jpg}[] 
- []
-
-
-Overfull \hbox (15.8782pt too wide) in paragraph at lines 86--86
-[]  \T1/pcr/m/n/12 werden nicht interpretiert, sondern "verbatim" ausgegeben.[] 
- []
-
-
-Overfull \vbox (1.17493pt too high) has occurred while \output is active []
-
- [48]
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.02997pt on input line 107.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 107.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 9.49997pt on input line 107.
-
-Overfull \hbox (9.95029pt too wide) in paragraph at lines 111--112
-\T1/phv/m/n/12 zu nutzt man die Sti-l-op-tio-nen und Zi-tier-be-feh-le des Pa-kets [][]\T1/pcr/m/n/12 biblatex[]\T1/phv/m/n/12 , z.B.[][]\T1/pcr/m/n/12 numeric
- []
-
-
-Overfull \vbox (1.17493pt too high) has occurred while \output is active []
-
- [49]) (./chapters/sources.tex
-Overfull \vbox (1.17493pt too high) has occurred while \output is active []
-
- [50]
+ [51]
 chapter A.
-\openout5 = `bachelorarbeit.pyg'.
-
-(./_minted-bachelorarbeit/D824FBEFF3B0CB81B1CFA5716A4F6F2100C641777EA6042B8269C4E669F224F5.pygtex
-Package textcomp Info: Symbol \textasciigrave not provided by
-(textcomp)             font family pcr in TS1 encoding.
-(textcomp)             Default family used instead on input line 3.
-Package textcomp Info: Symbol \textasciigrave not provided by
-(textcomp)             font family pcr in TS1 encoding.
-(textcomp)             Default family used instead on input line 3.
-)) [51
+) [52
 
 ]
 chapter without number
+LaTeX Font Info:    Font shape `T1/phv/m/sc' will be
+(Font)              scaled to size 11.39996pt on input line 206.
 
-Overfull \hbox (4.15958pt too wide) in paragraph at lines 212--212
-[]\T1/phv/m/n/12 Frank Mit-tel-bach, Mi-chel Goos-sens und Jo-han-nes Braams. \T1/phv/m/sl/12 Der Latex-Begleiter\T1/phv/m/n/12 .
+Overfull \hbox (3.97057pt too wide) in paragraph at lines 207--207
+\T1/phv/m/sl/12 gua-ge Mo-dels\T1/phv/m/n/12 . 2023. ar-Xiv: []$\T1/pcr/m/n/12 2201 . 11903$ [cs.CL][]\T1/phv/m/n/12 . \T1/phv/m/sc/12 url\T1/phv/m/n/12 : []$\T1/pcr/m/n/12 https : / / arxiv .
  []
 
-[52
+[53
 
 
 
-] [53
+] [54
 
 ] (./bachelorarbeit.aux)
 Package rerunfilecheck Info: File `bachelorarbeit.out' has not changed.
@@ -2272,18 +2263,18 @@ Package logreq Info: Writing requests to 'bachelorarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52635 strings out of 476038
- 1190699 string characters out of 5794174
- 1994712 words of memory out of 5000000
- 71941 multiletter control sequences out of 15000+600000
- 609475 words of font info for 185 fonts, out of 8000000 for 9000
+ 52291 strings out of 476038
+ 1188799 string characters out of 5794174
+ 1995202 words of memory out of 5000000
+ 71609 multiletter control sequences out of 15000+600000
+ 600078 words of font info for 170 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  108i,19n,106p,11015b,2455s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<d:/TexLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on bachelorarbeit.pdf (59 pages, 304247 bytes).
+<d:/TexLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on bachelorarbeit.pdf (60 pages, 309828 bytes).
 PDF statistics:
- 681 PDF objects out of 1000 (max. 8388607)
- 577 compressed objects within 6 object streams
- 172 named destinations out of 1000 (max. 500000)
- 313 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 704 PDF objects out of 1000 (max. 8388607)
+ 599 compressed objects within 6 object streams
+ 168 named destinations out of 1000 (max. 500000)
+ 361 words of extra memory for PDF output out of 10000 (max. 10000000)
 
