@@ -1,3 +1,9 @@
+% chktex-file 1
+% chktex-file 8
+% chktex-file 24
+% chktex-file 36
+% chktex-file 44
+
 \chapter{Umstrukturierung und Innovation}
 
 Als erstes gilt es herauszufinden welcher Teil des Code, der zuständig für das prompting ist, wie verbessert werden kann.
@@ -18,7 +24,8 @@ langfristig übersichtlicher und wartbarer.
 Wir erstellen eine abstrakte Klasse \texttt{Ai} welche die gesamte Logik des Prompting beinhält und eine Klasse \texttt{ChatGPT} 
 welche von der AI Klasse erbt.
 Die ChatGPT Klasse muss nun nur noch Methoden implementieren, welche konkret auf die aktuelle version der API angepasst sind.
-Durch die Verwendung von abstrakten Methoden wie generateContent(), createTitle() oder processResponse() wird sichergestellt, 
+Durch die Verwendung von abstrakten Methoden wie \mintinline{typescript}{generateContent()}, 
+\mintinline{typescript}{createTitle()} oder processResponse() wird sichergestellt, 
 dass jede konkrete Implementierung dieselbe Schnittstelle einhält, 
 aber ihre eigenen internen Abläufe definieren kann. 
 Dies erleichtert den Austausch und die Erweiterung von Modellen, ohne den restlichen Code verändern zu müssen. 
@@ -59,8 +66,7 @@ export class ChatGPT extends Ai {
   }
 }
 \end{minted}
-\caption{ChatGPT Klasse}
-\label{code:chatgpt-class}
+\caption{ChatGPT Klasse}\label{code:chatgpt-class}
 \end{code}
 
 \subsection{Von Assistants zu Responses}
@@ -77,8 +83,7 @@ protected async generateContent(input) {
   return this.openai.responses.create(input);
 }
 \end{minted}
-\caption{generateContent()}
-\label{code:generate-content}
+\caption{generateContent()}\label{code:generate-content}
 \end{code}
 
 Einer der zentralen Unterschiede zwischen der Assistants- und der Responses-API besteht darin, 
@@ -146,7 +151,7 @@ Beide Formate haben somit ihre jeweiligen Stärken und Einsatzgebiete.
     hoher Tokenverbrauch, umfangreiche Syntax, unübersichtlicher, mehr Kosten, längere Generierung. \\ \hline
   \end{tabular}
   \caption{Vergleich der Vor- und Nachteile der unterstützten Ausgabeformate}
-  \label{tab:vor-nachteile-json-xml}
+\label{tab:vor-nachteile-json-xml}
 \end{table}
 
 Für die Weiterentwicklung ist ein flexibles System das Ziel, das eine dynamische Auswahl des Ausgabeformats besitzt. 
@@ -437,7 +442,7 @@ Damit hat die KI nun alle Informationen die sie benötigt um eine Konversation f
 \subsection{Konversationen} \label{konversationen}
 
 Für eine vollständige Konversation benötigt die KI nun aber noch Anweisungen.
-Dafür werden der KI noch die sogenannten $modeInstructions$ bereitgestellt.
+Dafür werden der KI noch die sogenannten \texttt{modeInstructions} bereitgestellt.
 Diese sehen zunächst so aus:\\
 
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{text}
@@ -464,7 +469,7 @@ If you want to provide a description, summary or any other type
 of text, that is not a diagram, send it outside the diagram.
 \end{minted}
 
-Diese Instructions werden nur mitgesendet, falls der $detail$ modus genutzt wird.
+Diese Instructions werden nur mitgesendet, falls der \texttt{detail} modus genutzt wird.
 
 Es ist nun eine Konversation möglich.
 
@@ -535,8 +540,7 @@ Der Bot erkennt nun wieder, dass keine Textantwort gewünscht ist und beginnt mi
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=\textwidth]{images/diagrams/diagram_2}
-  \label{fig:detailmode-diagram2}
+  \includegraphics[width=\textwidth]{images/diagrams/diagram_2}\label{fig:detailmode-diagram2}
   \caption{Überarbeitung eines Diagrammes mit dem detail mode}
 \end{figure}
 
@@ -634,23 +638,23 @@ Teil des Klartextes sind. (In TBA label rot markiert)
     * **Bei Ablehnung:** Der Mitarbeiter wird über die Ablehnung informiert. \\
     4. Der Prozess ist in beiden Fällen abgeschlossen. \\
     \colorbox{blue!60}{\strut\textasciigrave\textasciigrave\textasciigrave xml}%
-    \colorbox{green!60}{\parbox{\linewidth-46pt}{\strut<?xml version=1.0 encoding=UTF-8?><bpmn:definitions}}\\
-    \colorbox{green!60}{\parbox{\linewidth-5pt}{\strut[\ldots]}}\\
-    \colorbox{green!60}{\strut</bpmn:definitions>}%
+    \colorbox{cyan!60}{\parbox{\linewidth-46pt}{\strut<?xml version=1.0 encoding=UTF-8?><bpmn:definitions}}\\
+    \colorbox{cyan!60}{\parbox{\linewidth-5pt}{\strut[\ldots]}}\\
+    \colorbox{cyan!60}{\strut</bpmn:definitions>}%
     \colorbox{blue!60}{\strut\textasciigrave\textasciigrave\textasciigrave}
     In diesem Beispiel gibt es ein \\ 
-    \colorbox{red!60}{\strut<bpmn:startEvent name=``Urlaubsantrag ausgefüllt''>}
+    \colorbox{yellow!60}{\strut<bpmn:startEvent name=``Urlaubsantrag ausgefüllt''>}
     , ein \\
     \colorbox{blue!60}{\strut\textasciigrave}%
-    \colorbox{red!60}{\strut<bpmn:exclusiveGateway name=``Antrag genehmigt?''>}%
+    \colorbox{yellow!60}{\strut<bpmn:exclusiveGateway name=``Antrag genehmigt?''>}%
     \colorbox{blue!60}{\strut\textasciigrave}
     und weitere tasks welche den Ablauf eines Urlaubsantrags zeigen.
   }
 }
 
 Somit kann die gesamte Nachricht kategorisiert werden.
-Grüne Teile sind Diagramme,
-Nicht markierte Teile und rote Teile sind Teil der Klartextnachricht.
+Hellblaue Textstellen sind Diagramme,
+Nicht markierte Teile und gelbe Textstellen sind Teil der Klartextnachricht.
 
 \section{Weitere Anbieter}
 
@@ -1046,10 +1050,61 @@ Danach wird der Stream geschlossen und die Übertragung ist abgeschlossen.
 
 \section{Schema-Constraining}
 
-\section{Diagramm Sampling}
+\begin{code}
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+const CoordinateSchema = z.array(
+  z.number().int().nonnegative()
+).length(2);
+const ComponentTypeEnum = z.enum([
+  'startEvent','messageStartEvent','timerStartEvent',
+  'intermediateCatchEvent','intermediateThrowEvent',
+  'messageCatchEvent','messageThrowEvent',
+  'timerIntermediateEvent','endEvent','messageEndEvent',
+  'task','subProcess','exclusiveGateway','parallelGateway',
+  'inclusiveGateway',
+]);
+const FlowTypeEnum = z.enum([
+  'sequenceFlow','messageFlow','association',
+  'dataInputAssociation','dataOutputAssociation',
+]);
+const FlowSchema = z.object({
+  ID: z.string().min(1),
+  Start: z.string(),
+  Target: z.string(),
+  Type: FlowTypeEnum,
+  StartXY: CoordinateSchema,
+  TargetXY: CoordinateSchema,
+  Descriptor: z.string(),
+});
+const ComponentSchema: z.ZodType<any> = z.lazy(() => z.object({
+    ID: z.string().min(1),
+    Name: z.string(),
+    Type: ComponentTypeEnum,
+    x: z.number().int().nonnegative(),
+    y: z.number().int().nonnegative(),
+    Incoming: z.array(z.string()),
+    Outgoing: z.array(z.string()),
+    Components: z.array(ComponentSchema).optional().nullable(),
+    Flows: z.array(FlowSchema).optional().nullable(),
+}));
+const LaneSchema = z.object({
+  ID: z.string().min(1),
+  Name: z.string().min(1),
+  XY: CoordinateSchema,
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
+  Components: z.array(ComponentSchema),
+  Flows: z.array(FlowSchema),
+});
+\end{minted}
+\caption{Schema Constraining with ZOD}
+\label{code:schema}
+\end{code}
+
+\section{Diagramm-Sampling}
 
 Während die Bezeichnung \texttt{Spampling} in Bezug auf LLMs bereits eine Bedeutung
-hat, wir hier im Bezug auf BPMN Generierung nicht von Token-Sampling sondern von
+hat, wird hier im Bezug auf BPMN Generierung nicht von Token-Sampling sondern von
 Diagramm-Sampling gesprochen.
 
 Der Begriff „Sampling“ bedeutet im Kontext von KI-Modellen allgemein: 
@@ -1112,19 +1167,31 @@ Eine Anfrage mit Diagramm Sampling kann in etwa so aussehen wie in Anfrage
 \label{code:post-samples}
 \end{code}
 
-CURSOR
+Der Code in Codeausschnitt \ref{code:run-samples} führt die parallele Generierung 
+aller BPMN-Diagramme aus. 
+Zunächst wird anhand des ausgewählten Modells die primäre Genereierung vorbereitet.
+Die Sampling-Modelle, hier die sekundären genannt, werden zunächst gefiltert, um 
+ungültige Einträge sowie Duplikate zu 
+entfernen, und anschließend auf maximal fünf zusätzliche Modelle begrenzt. 
+Für jedes dieser Modelle wird ebenfalls die Diagrammgenerierung vorbereitet, jedoch im 
+ressourcenschonenden \texttt{quick}-Modus.
+
+Alle Diagramm-Generierungen, das primäre sowie die sekundären, werden schließlich 
+über \mintinline{typescript}{Promise.all(...)} parallel ausgeführt. 
+Dadurch entstehen mehrere unabhängige Modellantworten in einem einzigen 
+Ausführungsschritt, die anschließend gemeinsam an den Client geschickt werden.
 
 \begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 const gpt = getGPT(model, format)!;
 const sampling = !!samples;
-const primary = gpt.createBPMN(input, file, userId, res, mode, stream, sampling);
+const primary = gpt.createBPMN(input, file, uid, res, mode, stream);
 const secondaries = samples
-    .map(str => getGPT(str))
-    .filter(gpt => !!gpt) // remove null values
-    .filter((item, pos, self) => self.indexOf(item) == pos)
-    .slice(0, 5) // limit to 5 samples
-    .map(gpt => gpt.createBPMN(input, file, userId, res, "quick", stream, "secondary"));
+  .map(str => getGPT(str))
+  .filter(gpt => !!gpt)                   // remove invalid
+  .filter((v, i, s) => s.indexOf(v) == i) // remove duplicates
+  .slice(0, 5)                            // limit to 5 samples
+  .map(gpt => gpt.createBPMN(input, file, uid, res, "quick", stream));
 const outputs = await Promise.all([primary, ...secondaries]);
 \end{minted}
 \caption{Ausführung der Samples}

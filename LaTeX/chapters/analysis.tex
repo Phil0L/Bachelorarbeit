@@ -1,6 +1,186 @@
+% chktex-file 1
+% chktex-file 8
+% chktex-file 13
+% chktex-file 24
+% chktex-file 36
+% chktex-file 44
+
 \chapter{Performanzanalyse}
 
 \section{Qualität}
+
+Nun gilt es, die Qualität der erstellten Diagramme zu untersuchen.
+Für diesen Test werden mit verschiedenen Modellen Diagramme erzeugt.
+Dabei wird der einheitliche Prompt~\ref{prompt:quality} verwendet.
+
+\begin{prompt}[H]
+    \noindent\fbox{
+      \parbox{\textwidth}{
+        Der Kunde sendet online seine Bestellung an die E-Commerce-Plattform.
+        Dort wird parallel in der Finanzbuchhaltung die Zahlungsautorisierung angefragt, wobei eine Kreditprüfung (automatisch, manuell nur über 200€) erfolgt.
+        Die Finanzbuchhaltung meldet dann „Zahlung OK“ oder „abgelehnt“ zurück, wobei nach einer Stunde ohne Antwort eine Erinnerung folgt.
+        Gleichzeitig verzweigt der Prozess: Es wird für jeden Artikel der Bestand beim Lager \& Logistik angefragt, und wenn ein Artikel eine Sonderanfertigung ist, 
+        geht zusätzlich eine Anfrage an die Fertigung. Im Lager wird bei Verfügbarkeit reserviert, bei Nichtverfügbarkeit der Kunde informiert und eine Nachbestellung ausgelöst.
+        Die Fertigung beginnt den Subprozess der Sonderanfertigung und sendet nach Abschluss eine Fertigstellungsnachricht an die Plattform und eine Abholbereitmeldung ans Lager.
+        Die E-Commerce Plattform wartet auf alle Rückmeldungen. Bei Zahlungsablehnung wird alles storniert und der Kunde benachrichtigt.
+        Bei Erfüllung geht der Kommissionierungsauftrag ans Lager (mit Eskalation an den Manager nach 48 Stunden).
+        Das Lager kommissioniert, verpackt und sendet den Lieferschein an die Finanzbuchhaltung sowie eine Abholanforderung an den Versanddienstleister.
+      }
+    }
+    \caption{Prompt für einen Qualitätstest}
+    \label{prompt:quality}
+    
+\end{prompt}
+
+\begin{samepage}
+Zunächst werden nur die Diagramme analysiert und nicht auch die Klartextantworten.
+Die Modelle, welche getestet werden sind:
+\begin{itemize}
+    \item \textbf{Gemini 2.5 Pro} \\
+        Erzeugt Diagramm~\ref{fig:gemini-2-5-pro-json} in JSON \\
+        und Diagramm~\ref{fig:gemini-2-5-pro-xml} in XML
+    \item \textbf{ChatGPT 5.1} \\
+        Erzeugt Diagramm~\ref{fig:gpt-5-1-json} in JSON \\
+        und Diagramm~\ref{fig:gpt-5-1-xml} in XML
+    \item \textbf{Grok 4} \\
+        Erzeugt Diagramm~\ref{fig:grok-4-json} in JSON \\
+        und Diagramm~\ref{fig:grok-4-xml} in XML
+    \item \textbf{Claude Opus 4.5} \\
+        Erzeugt Diagramm~\ref{fig:claude-opus-4-5-json} in JSON \\
+\end{itemize}
+\end{samepage}
+
+Vorab ist es nun wichtig zu erwähnen, dass mit diesem Prompt kein Diagramm von
+\texttt{Claude Opus 4.5} mit XML erstellt werden konnte, da dies die 
+Maximaltokenanzahl dieses Modells übersteigt.
+
+\paragraph{Formale Richtigkeit}
+
+Damit wird geprüft, ob das Diagramm regelkonform nach BPMN 2.0 ist.
+Hierbei ist entscheidend, wie viele Formatbedingte und Conventionelle Fehler in 
+dem Diagramm erzeugt wurden.
+Dazu zählen unter anderem:
+
+\begin{itemize}
+    \item Jeder Flow beginnt mit einem Start Event und endet mit einem End Event.
+    \item Gateways haben korrekte Ein- und Ausgänge (z. B. XOR, AND, Event-Based).
+    \item Kein Element hat ungültige Sequenzen (z. B. Aktivitäten direkt nach Nachrichtenflüssen).
+    \item Es gibt keine ID Duplikate.
+    \item Keine grundlegenden Formatfehler.
+    \item Alle Referenzen sind richtig.
+    \item \dots
+\end{itemize}
+
+Der Test wurde drei Mal widerholt, um eine gute Repräsentation der Formalen Richtigkeit
+des Modells zu erhalten.
+Dabei wurden alle Fehler gesammelt und zusammengefasst.
+Hierbei ist ein Fehler, durch den das gesamte Diagramm nicht angezeigt werden kann,
+ein \texttt{kritischer Fehler} und ein Fehler, durch den ein einzelnes Element
+nicht angezeigt werden kann ein \texttt{elementarer Fehler}.
+Das jeweils beste Diagramm der Modelle wird in den Abbildungen:
+~\ref{fig:gemini-2-5-pro-json},
+~\ref{fig:gemini-2-5-pro-xml},
+~\ref{fig:gpt-5-1-json},
+~\ref{fig:gpt-5-1-xml},
+~\ref{fig:grok-4-json},
+~\ref{fig:grok-4-xml},
+~\ref{fig:claude-opus-4-5-json} dargestellt.
+Die Anzahl an Fehlern ist in Tabelle~\ref{tab:qualitat-formal} zu sehen.
+Hierbei fällt auf, dass Claude Opus 4.5 am Wenigsten Formale Fehler erstellt.
+Dieses Modell ist sehr konsistent in der Ausgabe und scheint sehr gut mit der 
+Definition des JSON Formats klar zu kommen.
+Für formalitätsfehlerfreie Diagramme ohne JSON scheint Grok 4 am besten geeignet
+zu sein. 
+
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{|l|c|c|}
+      \hline
+      \textbf{Modell} & \textbf{kritische Fehler} & \textbf{elementare Fehler} \\ \hline
+      \textbf{Gemini 2.5 Pro JSON}      & 0 & 6   \\ \hline
+      \textbf{Gemini 2.5 Pro XML}       & 1 & 8   \\ \hline
+      \textbf{ChatGPT 5.1 JSON}         & 0 & 7   \\ \hline
+      \textbf{ChatGPT 5.1 XML}          & 0 & 26  \\ \hline
+      \textbf{Grok 4 JSON}              & 0 & 12  \\ \hline
+      \textbf{Grok 4 XML}               & 0 & 1   \\ \hline
+      \textbf{Claude Opus 4.5 JSON}     & 0 & 0   \\ \hline
+    \end{tabular}
+    \caption{Formale Richtigkeit}
+    \label{tab:qualitat-formal}
+  \end{table}
+
+\paragraph{Semantische Richtigkeit}
+
+Hier geht es darum, ob das Modell inhaltlich korrekt ist.
+
+\begin{itemize}
+    \item Bildet das Diagramm den beschriebenen Prozess korrekt ab?
+    \item Sind alle nötigen Komponenten Vorhanden?
+    \item Wurden unnötige Komponenten hinzugefügt?
+    \item Stimmen Reihenfolgen und Abhängigkeiten überein?
+\end{itemize}
+
+In der folgenden Tabelle~\ref{tab:qualitat-semantisch} wurde untersucht, wie viele
+Komponenten in den einzelnen Diagrammen jeweils fehlen bzw.\ ungewünscht 
+hinzugefügt wurden.
+Das jeweils beste Ergebnis der drei Generierungen wurde dann in der tabelle festgehalten.
+
+\begin{table}[htb]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{|l|c|c|}
+      \hline
+      \textbf{Modell} & \textbf{fehlenden Komponenten} & \textbf{zusätzliche Komponenten} \\ \hline
+      \textbf{Gemini 2.5 Pro JSON}      & 4 & 1   \\ \hline
+      \textbf{Gemini 2.5 Pro XML}       & 2 & 0   \\ \hline
+      \textbf{ChatGPT 5.1 JSON}         & 4 & 2   \\ \hline
+      \textbf{ChatGPT 5.1 XML}          & 5 & 10  \\ \hline      
+      \textbf{Grok 4 JSON}              & 4 & 0   \\ \hline
+      \textbf{Grok 4 XML}               & 5 & 2   \\ \hline
+      \textbf{Claude Opus 4.5 JSON}     & 0 & 6   \\ \hline
+    \end{tabular}
+    \caption{Semantische Richtigkeit}
+    \label{tab:qualitat-semantisch}
+\end{table}
+
+Die Auswertung zeigt klare Unterschiede zwischen den 
+getesteten Modellen: 
+Claude Opus 4.5 (JSON) hat als einziges Modell keine fehlenden Komponenten. 
+Gemini 2.5 Pro (XML) erzielt insgesamt das ausgewogenste Ergebnis mit nur 2 
+fehlenden und keinen zusätzlichen Elementen. 
+Auch Grok 4 (JSON) zeigt eine solide Leistung mit 4 fehlenden und 0 zusätzlichen 
+Komponenten. 
+Die übrigen Modelle weisen teils deutliche Abweichungen auf: 
+ChatGPT 5.1 (XML), das mit 5 fehlenden und 10 zusätzlichen Komponenten die größte 
+Abweichung hat. 
+
+Was auch auffällt, ist, dass bei XML die Komponeten weitaus unübersichtlicher 
+angeordnet werden. 
+Dies kann auch daran liegen, dass die Positionierund der 
+Komponenten im JSON Format um einiges einfacher definiert ist. 
+JSON liefert in der Regel ein weitaus ordnetlicheres Ergebnis.
+ChatGPT 5.1 (XML) (Abbildung~\ref{fig:gpt-5-1-xml}) und Grok 4 (XML) 
+(Abbildung~\ref{fig:grok-4-xml})
+liefern ein generell eher unübersichtliches Ergebnis, während 
+Gemini 2.5 Pro (JSON) (Abbildung~\ref{fig:gemini-2-5-pro-json}), Grok 4 (JSON) 
+(Abbildung~\ref{fig:grok-4-json})
+und Claude Opus 4.5 (JSON) (Abbildung~\ref{fig:claude-opus-4-5-json}) ein vergleichbar 
+übersichtliches und ordentliches Ergebnis erstellen.
+
+Zusammenfassend kann man festhalten, dass der BPMN Bot bereits sehr gut darin ist,
+Alle nötigen Komponenten zu identifizieren und korrekt zu erstellen.
+Es gibt aber auch noch Probleme, welche verbessert werden können.
+
+Generell fällt auf, dass auch bei `ordentlichen' Diagrammen immernoch Raum zur 
+Verbesserung besteht.
+Es werden leider sehr häufig Flows genau auf Kanten von Lanes, Pools oder anderen
+Flows gelegt, wes es sehr schwer macht diese nachzuverfolgen.
+Auch mit expliziten Anweisungen dies nicht zu machen, Kann dieses Problem nicht
+vollständig mit Prompting behoben werden.
+Es würde sich anbieten einen Algorithmus zu implementieren, welcher die Positionierung
+aller Komponenten nachverbessert.
+Dies übersteigt allerdings den Rahmen dieser Arbeit. 
 
 \section{Geschwindigkeit} \label{sec:speed}
 
@@ -9,10 +189,10 @@ an, die Antwort der KI als Stream zu betrachten, da dieser in Echtzeit ausgewert
 So kann zum Beispiel auch untersucht werden bei welche modellen die Textgenerierung und bei
 welchen die Diagrammgenereirung schneller ist.
 Um sich aber nur auf gestreamte Daten zu begrenzen, muss zunächst festgestellt werden, ob
-sich die Generierungszeiten eines LLM Anbieters unterscheiden, wenn man stream bzw. nicht 
+sich die Generierungszeiten eines LLM Anbieters unterscheiden, wenn man stream bzw.\ nicht 
 streamt.
 
-Dafür werden nun in Abbildung \ref{fig:timing-streaming} einige Modelle getestet, ob sich die Zeiten 
+Dafür werden nun in Abbildung~\ref{fig:timing-streaming} einige Modelle getestet, ob sich die Zeiten 
 jeweils stark unterscheiden.
 Hierfür wird folgender Prompt verwendet:
 
@@ -63,7 +243,7 @@ Claude-Sonnet-4.5	52.913	    53.079
     yticklabels from table={\sorteddatastreamnostream}{Model}, 
     tick label style={font=\footnotesize}
 ]
-\addplot [fill=green!60,
+\addplot [fill=blue!60,
     point meta=x,
     nodes near coords,
     nodes near coords align={anchor=west},
@@ -74,7 +254,7 @@ Claude-Sonnet-4.5	52.913	    53.079
         text opacity=1,
     }
 ] table [x=Gestreamt, meta=Model,y expr=\coordindex] {\sorteddatastreamnostream};   
-\addplot [fill=red!60,
+\addplot [fill=cyan!60,
     point meta=x,
     nodes near coords,
     nodes near coords align={anchor=west},
@@ -101,7 +281,7 @@ Streaming Variante vernachlässigt wird.
 
 Als nächstes soll nun untersucht werden welcher der zwei implementierten Formate \texttt{JSON}
 und \texttt{XML} sich Zeitlich besser verhält.
-In Abbildung \ref{fig:timing-xmljson} wird für das Promptbeispiel auf Seite \pageref{prompt:speed} dieses Verhalten 
+In Abbildung~\ref{fig:timing-xmljson} wird für das Promptbeispiel auf Seite~\pageref{prompt:speed} dieses Verhalten 
 getestet.
 
 \begin{figure}[H]
@@ -131,13 +311,13 @@ JSON	28.453	0.001	                0.189	13.707	    0.009	        0.554
     xlabel={Zeit [Sekunden]},
     yticklabels from table={\dataxmljson}{Model}  
 ]
-\addplot [fill=green!60] table [x=Antwort, meta=Model,y expr=\coordindex] {\dataxmljson};   
-\addplot [fill=blue!60] table [x=StreamInitialisierung, meta=Model,y expr=\coordindex] {\dataxmljson};
-\addplot [fill=magenta!60] table [x=Text, meta=Model,y expr=\coordindex] {\dataxmljson};   
+\addplot [fill=blue!60] table [x=Antwort, meta=Model,y expr=\coordindex] {\dataxmljson};   
+\addplot [fill=cyan!60] table [x=StreamInitialisierung, meta=Model,y expr=\coordindex] {\dataxmljson};
+\addplot [fill=yellow!60] table [x=Text, meta=Model,y expr=\coordindex] {\dataxmljson};   
 \addplot [fill=orange!60] table [x=Diagramm, meta=Model,y expr=\coordindex] {\dataxmljson};   
-\addplot [fill=purple!60] table [x=Formatierung, meta=Model,y expr=\coordindex] {\dataxmljson};   
+\addplot [fill=red!60] table [x=Formatierung, meta=Model,y expr=\coordindex] {\dataxmljson};   
 
-\addplot [fill=red!60,
+\addplot [fill=purple!60,
     point meta=x,
     nodes near coords,
     nodes near coords align={anchor=west},
@@ -160,7 +340,7 @@ Der Konvertierungsprozess von JSON zu XML beträgt in diesem Beispiel nur 9 ms u
 einiges effizienter als die um 11242 ms längere Diagrammgenerierung bei XML.
 
 Interessant ist nun noch zu sehen wie diese Aufwandsdifferenz von der Größe des Diagramms abhängt.
-Hierfür wird nun in Abbildung \ref{fig:timing-xmljson-elements} Gemini 2.5 Pro im Quick modus benutzt um 
+Hierfür wird nun in Abbildung~\ref{fig:timing-xmljson-elements} Gemini 2.5 Pro im Quick modus benutzt um 
 verschieden große Diagramme zu erzeugen.
 Hierfür wird folgender Prompt verwendet:
 
@@ -196,27 +376,27 @@ Elemente	XML	    JSON
     ymin=0,
     enlarge y limits=0,
     legend style={
-        legend columns=4,
+        legend columns=2,
         at={(0.5,0)},   
         anchor=north,
         yshift=-3em,
         draw=none
     },
     area legend,
-    xlabel={Anzahl Elemente},
+    xlabel={Anzahl Komponenten},
     ylabel={Zeit [Sekunden]},
 ]
 \addlegendentry{XML};
 \addplot [smooth,mark=*,color=blue!60] table [y=XML, x=Elemente] {\dataxmljson};
 \addlegendentry{JSON};
-\addplot [smooth,mark=*,color=red!60] table [y=JSON, x=Elemente] {\dataxmljson};
+\addplot [smooth,mark=*,color=cyan!60] table [y=JSON, x=Elemente] {\dataxmljson};
 \end{axis}
 \end{tikzpicture}
-\caption{Zeitperformanzvergleich JSON vs XML bei Gemini 2.5 Pro nach Anzahl der Elemente (Nur Diagramm)}
+\caption{Zeitperformanzvergleich JSON vs XML bei Gemini 2.5 Pro nach Anzahl der Komponmenten (Nur Diagramm)}
 \label{fig:timing-xmljson-elements}
 \end{figure}
 
-Die Auswertung der gemessenen Laufzeiten in Abbildung \ref{fig:timing-xmljson-elements} zeigt 
+Die Auswertung der gemessenen Laufzeiten in Abbildung~\ref{fig:timing-xmljson-elements} zeigt 
 deutlich, dass die Diagrammgenerierung im 
 JSON-Format gegenüber dem XML-Format einen spürbaren Geschwindigkeitsvorteil bietet. 
 Insbesondere bei zunehmender Diagrammgröße wächst der Unterschied merklich.  
@@ -228,10 +408,10 @@ Insgesamt wird dadurch klar, dass JSON für performanzkritische Anwendungsfälle
 insbesondere bei großen oder komplexen Diagrammen, erhebliche Vorteile bietet.
 
 Weitergehend soll nun untersucht werden welche Modelle sich für eine Zeiteffiziente 
-Generierung eignen. Dafür werden in Abbildung \ref{fig:timing-models} einige gänige Modelle
+Generierung eignen. Dafür werden in Abbildung~\ref{fig:timing-models} einige gänige Modelle
 getestet.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \pgfplotstableread{ 
 Model	            Antwort	StreamInitialisierung	Text	Diagramm	Formatierung	Datenbank
@@ -269,13 +449,13 @@ Claude-Sonnet-4.5	04.370	000.001	                0.906	16.903	    0.006	        
     xlabel={Zeit [Sekunden]},
     yticklabels from table={\sorteddatamodels}{Model}  
 ]
-\addplot [fill=green!60] table [x=Antwort, meta=Model,y expr=\coordindex] {\sorteddatamodels};   
-\addplot [fill=blue!60] table [x=StreamInitialisierung, meta=Model,y expr=\coordindex] {\sorteddatamodels};
-\addplot [fill=magenta!60] table [x=Text, meta=Model,y expr=\coordindex] {\sorteddatamodels};   
+\addplot [fill=blue!60] table [x=Antwort, meta=Model,y expr=\coordindex] {\sorteddatamodels};   
+\addplot [fill=cyan!60] table [x=StreamInitialisierung, meta=Model,y expr=\coordindex] {\sorteddatamodels};
+\addplot [fill=yellow!60] table [x=Text, meta=Model,y expr=\coordindex] {\sorteddatamodels};   
 \addplot [fill=orange!60] table [x=Diagramm, meta=Model,y expr=\coordindex] {\sorteddatamodels};   
-\addplot [fill=purple!60] table [x=Formatierung, meta=Model,y expr=\coordindex] {\sorteddatamodels};   
+\addplot [fill=red!60] table [x=Formatierung, meta=Model,y expr=\coordindex] {\sorteddatamodels};   
 
-\addplot [fill=red!60,
+\addplot [fill=purple!60,
     point meta=x,
     nodes near coords,
     nodes near coords align={anchor=west},
@@ -293,7 +473,7 @@ Claude-Sonnet-4.5	04.370	000.001	                0.906	16.903	    0.006	        
 \label{fig:timing-models}
 \end{figure}
 
-Auffällig in Abbildung \ref{fig:timing-models} ist, dass ChatGPT-5-Mini mit großem Abstand die 
+Auffällig in Abbildung~\ref{fig:timing-models} ist, dass ChatGPT-5-Mini mit großem Abstand die 
 längste Gesamtzeit benötigt
 Besonders der Streamstart dauert extrem lange, was darauf hindeutet, dass dieses Modell trotz 
 möglicher inhaltlicher Stärke für eine schnelle Generierung ungeeignet ist. 
@@ -303,7 +483,8 @@ dabei die Anfrage anzuhmen und die Antwort zu übersenden.
 Grok-3, Grok-3-Fast, Claude-Sonnet-4.5 und ChatGPT-4.1 zeigen die insgesamt ausgewogenste 
 Performance, da keine der Einzeldisziplinen überproportional viel Zeit beansprucht. 
 Besonders Grok-3-Fast und ChatGPT-4.1 sind nahezu gleich schnell und deutlich effizienter als die 
-größeren Modelle; sie zeichnen sich durch kurze Streamstart-Phasen und schnelle Diagramm- und 
+größeren Modelle. 
+Sie zeichnen sich durch kurze Streamstart-Phasen und schnelle Diagramm- und 
 Texterstellung aus.  
 Insgesamt zeigen die kompakten oder speziell optimierten Modelle eine hohe 
 Reaktionsgeschwindigkeit über alle Teilschritte hinweg, während größere Modelle wie 
@@ -355,7 +536,7 @@ ChatGPT-5-Mini und die Gemini-Reihe durch längere Initialisierungen ausgebremst
     \label{tab:tokenpreise}
 \end{table}
 
-Die Tabelle \ref{tab:tokenpreise} zeigt einen Überblick über die Tokenpreise der 
+Die Tabelle~\ref{tab:tokenpreise} zeigt einen Überblick über die Tokenpreise der 
 KI-Modellanbieter, welche implementiert wurden, im Stand von November 2025.
 Jeder Modellanbieter hat eine breite Abdeckung an Modellen mit unterschiedlichen Preisen.
 Hierbei gibt es oftmals ein  billiges Modell, welches möglicherweise qualitativ
@@ -369,12 +550,12 @@ Allerdings gibt es hier auch Nachteile:
 Laut offizieller Rate-Limits sind beispielsweise bei Gemini 2.5 Flash nur 10 Anfragen pro 
 Minute und 250 Anfragen pro Tag erlaubt. 
 
-Betrachtet man nun eine Diagrammerstellung mit dem Prompt von Seite \pageref{prompt:speed},
+Betrachtet man nun eine Diagrammerstellung mit dem Prompt von Seite~\pageref{prompt:speed},
 kann man sehen wie sich die Menge der Tokens Für Input und Output auf den Preis auswirken.
-In Diagramm \ref{fig:price-gen-1} wurde Beispielsweise GPT-4.1 verwendet um ein Diagramm zu 
+In Diagramm~\ref{fig:price-gen-1} wurde Beispielsweise GPT-4.1 verwendet um ein Diagramm zu 
 erstellen.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \begin{tikzpicture}
         \pie[pos ={0,0}, radius=2, sum=0.0466, after number=\space\$]{0.0235/input, 0.0231/output}
@@ -399,13 +580,13 @@ Wenn der Input aber gecacht wird, kann das Modell auf eine bereits gespeicherte 
 Darstellung zurückgreifen. 
 Dadurch muss es die Daten nicht noch einmal vollständig verarbeiten.
 
-Die Tabelle \ref{tab:tokenpreise} zeigt, dass gecachter Input bei vielen Modellen deutlich 
+Die Tabelle~\ref{tab:tokenpreise} zeigt, dass gecachter Input bei vielen Modellen deutlich 
 günstiger ist als normaler Input, bei manchen Modellen sogar gar nichts. 
 Das bedeutet: Je mehr wiederverwendete Daten eine Anfrage hat, desto stärker sinken die 
 Gesamtkosten. 
 Gleichzeitig antwortet das Modell schneller, weil weniger berechnet werden muss.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \begin{tikzpicture}
         \pie[pos ={0,0}, radius=2, sum=0.0466, after number=\space\$]{0.0235/input, 0.0231/output}
@@ -415,7 +596,7 @@ Gleichzeitig antwortet das Modell schneller, weil weniger berechnet werden muss.
     \label{fig:price-gen-2}
 \end{figure}
 
-Man sieht in Abbildung \ref{fig:price-gen-2} gut, dass das Caching des Inputs viel Geld sparen 
+Man sieht in Abbildung~\ref{fig:price-gen-2} gut, dass das Caching des Inputs viel Geld sparen 
 kann.
 Während in diesem Beispiel das fünfte Diagramm ohne Caching noch 0.1018 \$ gekostet hat,
 hat das fünfte Diagramm mit Caching nur noch 0.0578 \$ gekostet.
@@ -452,7 +633,7 @@ einschließlich eines Modellwechsels mitten im Gespräch, muss beim Wechsel weit
 komplette Kontext erneut übertragen werden. 
 Dadurch verliert das Caching in solchen Situationen an Effektivität.
 
-Wie auch schon im Kapitel \ref{sec:speed} besprochen, hat auch die Wahl des Diagrammformats eine
+Wie auch schon im Kapitel~\ref{sec:speed} besprochen, hat auch die Wahl des Diagrammformats eine
 entscheidenden Rolle.
 Die Nutzung von JSON gegenüber XML kann eine Einsparung von bis zu etwa 50\% der Output
 Token bewirken, wodurch weiter einiges an Kosten gespart werden kann.
