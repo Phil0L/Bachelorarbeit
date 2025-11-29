@@ -47,8 +47,8 @@ Lagerbestandsprüfung und Zahlungsabwicklung durchlaufen und mit dem Versand des
 
     \item \textbf{Flows:}
     \begin{itemize}
-        \item \textbf{Sequence Flows}: Logische Abfolge von Aktivitäten innerhalb eines Pools.
-        \item \textbf{Message Flows}: Kommunikation zwischen unterschiedlichen Pools oder Prozessbeteiligten.
+        \item \textbf{Sequence Flows}: Abfolge von Aktivitäten innerhalb eines Pools.
+        \item \textbf{Message Flows}: Kommunikation zwischen Pools oder Prozessbeteiligten.
         \item \textbf{Association Flows}: Verknüpfung von Artefakten oder Datenobjekten mit Aktivitäten.
     \end{itemize}
 
@@ -136,7 +136,64 @@ konsistenter.
 
 \section{Streaming}
 
+Streaming bezeichnet die kontinuierliche Übertragung von Daten zwischen einem Sender und einem 
+Empfänger, wobei die Daten in aufeinanderfolgenden Teilen statt als komplette Datei oder Nachricht 
+übertragen werden. 
+Dieses Verfahren ermöglicht es, dass Informationen bereits während der Generierung oder Übertragung 
+verarbeitet und angezeigt werden können, wodurch die Latenz für den Nutzer deutlich reduziert wird. 
+Streaming findet Anwendung in vielfältigen Bereichen, etwa bei Audio- und Videoinhalten, 
+Live-Datenübertragungen oder auch der Ausgabe von Ergebnissen von KI\@. 
+Technisch basiert Streaming häufig auf asynchronen Datenströmen, bei denen die empfangenen Daten in 
+Echtzeit analysiert und weiterverarbeitet werden. 
+Zu den verbreiteten Übertragungsprotokollen zählen HTTP-basierte Verfahren wie Server-Sent Events (SSE) 
+oder WebSockets, die eine kontinuierliche, bidirektionale Kommunikation ermöglichen. 
+Insgesamt steigert Streaming die Geschwindigkeit der Datenverarbeitung und verbessert die Nutzererfahrung 
+durch eine Anzteige des aktuellen Zustands in Echtzeit.
+
+Im Kontext von KI-Systemen ermöglicht Streaming die Übersendung von Modellantworten an 
+den Nutzer, noch während die Generierung der Daten läuft. 
+Dies ist besonders relevant bei Modellen, die unter anderem auch Text erzeugen. 
+Technisch erfolgt dies meist über asynchrone Streams, die Datenpakete kontinuierlich übertragen.
+Die Textfragmente werden hier in der Regel auch \texttt{Delta} genannt.
+Auf diese Weise lässt sich die Benutzererfahrung deutlich verbessern, da Rückmeldungen sofort sichtbar 
+sind und Wartezeiten minimiert werden. 
+
 \section{Base64}
 
+Base64 ist ein Kodierungsverfahren, das Binärdaten in eine reine Textdarstellung überführt, 
+um sie über textbasierte Protokolle wie HTTP mit unter anderem JSON zuverlässig übertragen 
+zu können. 
+Da viele APIs und Webschnittstellen ausschließlich Text unterstützen oder die Übermittlung 
+binärer Inhalte erschweren, bietet Base64 eine Möglichkeit, Dateien plattformunabhängig und 
+ohne zusätzliche Infrastruktur weiterzugeben. 
+Die Kodierung funktioniert, indem jeweils 24 Bit (drei Byte) in vier 6-Bit-Gruppen umgewandelt 
+und anschließend als ASCII-Zeichen dargestellt werden. 
+Dadurch vergrößert sich die Datenmenge zwar um etwa ein Drittel, sie wird jedoch vollständig 
+textkompatibel.
+
+Im Kontext von Webanwendungen werden Base64-kodierte Inhalte häufig in Form sogenannter 
+\texttt{Data URL}s übertragen. 
+Eine Data URL bettet die kodierten Daten direkt in einen einzigen Zeichenstring ein, der aus 
+vier Komponenten besteht: 
+\begin{enumerate}
+    \item einem Präfix zur Typangabe (data:)
+    \item dem MIME-Typ der Datei (z. B. image/png)
+    \item der Kodierungsart (;base64)
+    \item dem eigentlichen
+\end{enumerate}
+Eine Data URL mit Base64 Encoding entspricht somit typischerweise der Form
+\verb|data:<mime-type>;base64,<kodierte-daten>|. 
+Browser und APIs können diese Darstellung unmittelbar wieder in eine gültige Datei 
+zurückkonvertieren, ohne dass separate Dateipfade, temporäre Speicherorte oder Upload-Endpunkte 
+notwendig sind.
+
+Für KI-Systeme stellt dieses Verfahren einen effizienten Weg dar, Dateien wie 
+Bilder oder Dokumente direkt in die Prompt-Struktur zu integrieren. 
+Die Base64 Data URL kann als gewöhnlicher String an das Backend übermittelt und ohne weiteren 
+Zwischenschritt an die API des KI-Anbieters weitergereicht werden. 
+Dies reduziert die Komplexität der Implementierung und ermöglicht eine 
+Unterstützung verschiedener Dateitypen. 
+Durch diese Eigenschaften eignet sich Base64 in Kombination mit Data URLs optimal für eine 
+unkomplizierte Übertragung von Dateien innerhalb von KI basierten Anwendungen.
 \section{Reflective Prompting}
 

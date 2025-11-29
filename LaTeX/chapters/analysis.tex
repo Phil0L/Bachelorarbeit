@@ -15,7 +15,7 @@ Dabei wird der einheitliche Prompt~\ref{prompt:quality} verwendet.
 
 \begin{prompt}[H]
     \noindent\fbox{
-      \parbox{\textwidth}{
+      \parbox{.96\textwidth}{
         Der Kunde sendet online seine Bestellung an die E-Commerce-Plattform.
         Dort wird parallel in der Finanzbuchhaltung die Zahlungsautorisierung angefragt, wobei eine Kreditprüfung (automatisch, manuell nur über 200€) erfolgt.
         Die Finanzbuchhaltung meldet dann „Zahlung OK“ oder „abgelehnt“ zurück, wobei nach einer Stunde ohne Antwort eine Erinnerung folgt.
@@ -36,17 +36,17 @@ Dabei wird der einheitliche Prompt~\ref{prompt:quality} verwendet.
 Zunächst werden nur die Diagramme analysiert und nicht auch die Klartextantworten.
 Die Modelle, welche getestet werden sind:
 \begin{itemize}
-    \item \textbf{Gemini 2.5 Pro} \\
-        Erzeugt Diagramm~\ref{fig:gemini-2-5-pro-json} in JSON \\
+    \item \textbf{Gemini 2.5 Pro} 
+        erzeugt Diagramm~\ref{fig:gemini-2-5-pro-json} in JSON 
         und Diagramm~\ref{fig:gemini-2-5-pro-xml} in XML
-    \item \textbf{ChatGPT 5.1} \\
-        Erzeugt Diagramm~\ref{fig:gpt-5-1-json} in JSON \\
+    \item \textbf{ChatGPT 5.1} 
+        erzeugt Diagramm~\ref{fig:gpt-5-1-json} in JSON 
         und Diagramm~\ref{fig:gpt-5-1-xml} in XML
-    \item \textbf{Grok 4} \\
-        Erzeugt Diagramm~\ref{fig:grok-4-json} in JSON \\
+    \item \textbf{Grok 4}
+        erzeugt Diagramm~\ref{fig:grok-4-json} in JSON 
         und Diagramm~\ref{fig:grok-4-xml} in XML
-    \item \textbf{Claude Opus 4.5} \\
-        Erzeugt Diagramm~\ref{fig:claude-opus-4-5-json} in JSON \\
+    \item \textbf{Claude Opus 4.5} 
+        erzeugt Diagramm~\ref{fig:claude-opus-4-5-json} in JSON 
 \end{itemize}
 \end{samepage}
 
@@ -131,7 +131,7 @@ Das jeweils beste Ergebnis der drei Generierungen wurde dann in der tabelle fest
     \renewcommand{\arraystretch}{1.2}
     \begin{tabular}{|l|c|c|}
       \hline
-      \textbf{Modell} & \textbf{fehlenden Komponenten} & \textbf{zusätzliche Komponenten} \\ \hline
+      \textbf{Modell} & \textbf{fehlende Komponenten} & \textbf{unnötige Komponenten} \\ \hline
       \textbf{Gemini 2.5 Pro JSON}      & 4 & 1   \\ \hline
       \textbf{Gemini 2.5 Pro XML}       & 2 & 0   \\ \hline
       \textbf{ChatGPT 5.1 JSON}         & 4 & 2   \\ \hline
@@ -197,8 +197,9 @@ jeweils stark unterscheiden.
 Hierfür wird folgender Prompt verwendet:
 
 \begin{prompt}
+\centering
 \noindent\fbox{
-  \parbox{\textwidth}{
+  \parbox{.96\textwidth}{
     Erstelle eine Prozessbeschreibung eines Beliebigen Prozesses mit 95 bis 105 Wörtern welche 
     5 tasks, 1 gateway und 2 message flows beinhaltet.
     Setzte diese dann direkt in ein Diagramm um. Das Diagramm soll nur genau die 5 tasks, 1 
@@ -301,12 +302,13 @@ JSON	28.453	0.001	                0.189	13.707	    0.009	        0.554
     y=8mm,
     enlarge y limits=0.8,
     legend style={
-        legend columns=4,
+        legend columns=3,
         at={(0.5,0)},   
         anchor=north,
         yshift=-3em,
         draw=none
     },
+    legend cell align = left,
     area legend,
     xlabel={Zeit [Sekunden]},
     yticklabels from table={\dataxmljson}{Model}  
@@ -346,7 +348,7 @@ Hierfür wird folgender Prompt verwendet:
 
 \begin{prompt}[H]
 \noindent\fbox{
-  \parbox{\textwidth}{
+  \parbox{.96\textwidth}{
     Erstelle ein BPMN Diagramm für ein Prozess deiner Wahl. 
     Sei kreativ.
     Benutze insgesamt genau [anzahl-elemente] Elemente wie z.B. Tasks, Gates, End-Events, 
@@ -386,9 +388,9 @@ Elemente	XML	    JSON
     xlabel={Anzahl Komponenten},
     ylabel={Zeit [Sekunden]},
 ]
-\addlegendentry{XML};
+\addlegendentry{XML}
 \addplot [smooth,mark=*,color=blue!60] table [y=XML, x=Elemente] {\dataxmljson};
-\addlegendentry{JSON};
+\addlegendentry{JSON}
 \addplot [smooth,mark=*,color=cyan!60] table [y=JSON, x=Elemente] {\dataxmljson};
 \end{axis}
 \end{tikzpicture}
@@ -399,6 +401,7 @@ Elemente	XML	    JSON
 Die Auswertung der gemessenen Laufzeiten in Abbildung~\ref{fig:timing-xmljson-elements} zeigt 
 deutlich, dass die Diagrammgenerierung im 
 JSON-Format gegenüber dem XML-Format einen spürbaren Geschwindigkeitsvorteil bietet. 
+
 Insbesondere bei zunehmender Diagrammgröße wächst der Unterschied merklich.  
 In den meisten Testfällen liegt die Generierungsdauer des JSON-Modells bei ungefähr der Hälfte 
 der Zeit, die für die entsprechende XML-Ausgabe erforderlich ist. 
@@ -415,13 +418,13 @@ getestet.
 \centering
 \pgfplotstableread{ 
 Model	            Antwort	StreamInitialisierung	Text	Diagramm	Formatierung	Datenbank
-Gemini-2.5-Pro	    34.396	000.001	                0.433	15.274	    0.005	        0.554
-Gemini-2.5-Flash	36.529	000.002	                0.162	07.292	    0.005	        0.512
-Grok-3	            00.003	006.203	                0.418	16.850	    0.005	        0.510
-Grok-3-Fast	        00.004	005.056	                0.386	14.853	    0.007	        0.508
-ChatGPT-4.1	        00.904	001.138	                0.232	18.051	    0.003	        0.580
-ChatGPT-5-Mini	    01.874	115.226	                0.414	22.258	    0.007	        0.580
-Claude-Sonnet-4.5	04.370	000.001	                0.906	16.903	    0.006	        0.582
+gemini-2.5-pro	    34.396	000.001	                0.433	15.274	    0.005	        0.554
+gemini-2.5-flash	36.529	000.002	                0.162	07.292	    0.005	        0.512
+grok-3	            00.003	006.203	                0.418	16.850	    0.005	        0.510
+grok-3-fast	        00.004	005.056	                0.386	14.853	    0.007	        0.508
+gpt-4.1	            00.904	001.138	                0.232	18.051	    0.003	        0.580
+gpt-5-mini	        01.874	115.226	                0.414	22.258	    0.007	        0.580
+claude-sonnet-4.5	04.370	000.001	                0.906	16.903	    0.006	        0.582
 }\datamodels
 \pgfplotstableset{
     create on use/Total/.style={
@@ -432,22 +435,25 @@ Claude-Sonnet-4.5	04.370	000.001	                0.906	16.903	    0.006	        
 \begin{tikzpicture}
 \begin{axis}[
     xbar stacked,   % Stacked horizontal bars
-    width=.9\textwidth,
+    width=.8\textwidth,
     xmin=0,         
     ytick=data,     
     bar width=6mm,
     y=8mm,
     enlarge y limits=0.15,
     legend style={
-        legend columns=4,
+        legend columns=3,
         at={(0.5,0)},   
         anchor=north,
         yshift=-3em,
+        xshift=-3em,
         draw=none
     },
+    legend cell align = left,
     area legend,
     xlabel={Zeit [Sekunden]},
-    yticklabels from table={\sorteddatamodels}{Model}  
+    yticklabels from table={\sorteddatamodels}{Model},
+    ylabel style={font=\footnotesize},
 ]
 \addplot [fill=blue!60] table [x=Antwort, meta=Model,y expr=\coordindex] {\sorteddatamodels};   
 \addplot [fill=cyan!60] table [x=StreamInitialisierung, meta=Model,y expr=\coordindex] {\sorteddatamodels};
