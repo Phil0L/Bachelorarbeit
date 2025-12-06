@@ -4,13 +4,13 @@
 
 \section{Business Process Model and Notation 2.0}
 
-Business Process Model and Notation (BPMN 2.0) ist eine standardisierte grafische Sprache, 
+Business Process Model and Notation (BPMN 2.0)\cite{omg2014bpmn2} ist eine standardisierte grafische Sprache, 
 die verwendet wird, um Geschäftsprozesse so zu dokumentieren, dass sie sowohl für Fachanwender 
 als auch für technische Entwickler leicht verständlich sind. 
 Ähnlich wie ein Architekt Baupläne nutzt, um Gebäude darzustellen, verwenden Business-Analysten 
 BPMN 2.0, um visuelle Darstellungen organisatorischer Arbeitsabläufe und Abläufe zu erstellen.
 
-BPMN-2.0-Diagramme zeigen die Abfolge von Geschäftstätigkeiten von Anfang bis Ende, 
+BPMN-2.0-Diagramme\cite{omg2014bpmn2} zeigen die Abfolge von Geschäftstätigkeiten von Anfang bis Ende, 
 einschließlich was passiert, wann es passiert und wer jede Aufgabe ausführt. Ein Beispiel: 
 Ein Kundenbestellprozess könnte mit dem Eingang einer Bestellung beginnen, eine 
 Lagerbestandsprüfung und Zahlungsabwicklung durchlaufen und mit dem Versand des Produkts enden.
@@ -64,7 +64,7 @@ Lagerbestandsprüfung und Zahlungsabwicklung durchlaufen und mit dem Versand des
     \centering
     \includegraphics[width=\textwidth]{images/diagrams/diagram_0}
     \label{fig:bpmn-elements}
-    \caption{BPMN 2.0 Diagramm mit allen relevanten Elementen}
+    \caption{BPMN 2.0\cite{omg2014bpmn2} Diagramm mit allen relevanten Elementen}
   \end{figure}
 
 
@@ -77,6 +77,7 @@ in bpmn.js korrekt dargestellt werden.
 
 Large Language Models (LLMs) sind Systeme, die auf der Verarbeitung und Generierung 
 natürlicher Sprache spezialisiert sind. 
+Das Konzept wurde 2017 von Vaswani et al.\cite{vaswani2023attentionneed} eigeführt.
 Sie basieren auf \texttt{Deep-neural Networks}, insbesondere auf Transformer-Architekturen, die große 
 Mengen an Textdaten analysieren, um Muster, Strukturen und Zusammenhänge in der Sprache zu erkennen. 
 Durch dieses Training können LLMs sowohl Texte verstehen als auch neue Texte generieren.
@@ -114,7 +115,7 @@ Diese Vorgehensweise ist besonders hilfreich bei Aufgaben, die mehrere Denkschri
 etwa beim Lösen von Problemen, beim Strukturieren von Informationen oder beim Verstehen komplexer 
 Anweisungen.
 Diese Vorgehensweise wurde von Wei et al.\ grundlegend untersucht
-~\cite{wei2023chainofthoughtpromptingelicitsreasoning}.
+~\cite{wei2023chainofthought}.
 
 Im Kontext der Unterhaltung zwischen Mensch und KI führt Chain of Thought dazu, dass das Modell 
 transparenter und nachvollziehbarer reagiert. 
@@ -143,9 +144,13 @@ Dieses Verfahren ermöglicht es, dass Informationen bereits während der Generie
 verarbeitet und angezeigt werden können, wodurch die Latenz für den Nutzer deutlich reduziert wird. 
 Streaming findet Anwendung in vielfältigen Bereichen, etwa bei Audio- und Videoinhalten, 
 Live-Datenübertragungen oder auch der Ausgabe von Ergebnissen von KI\@. 
+Wie dieses Streaming effizient umgesetzt werden kann, wurde von Xiao et al.\ bei der 
+International Conference on Representation Learning 2024 (ICLR 2025)\cite{iclr2024streaming}
+gezeigt.
 Technisch basiert Streaming häufig auf asynchronen Datenströmen, bei denen die empfangenen Daten in 
 Echtzeit analysiert und weiterverarbeitet werden. 
-Zu den verbreiteten Übertragungsprotokollen zählen HTTP-basierte Verfahren wie Server-Sent Events (SSE) 
+Zu den verbreiteten Übertragungsprotokollen zählen HTTP-basierte Verfahren wie 
+Server-Sent Events (SSE)\cite{fette2011sse}
 oder WebSockets, die eine kontinuierliche, bidirektionale Kommunikation ermöglichen. 
 Insgesamt steigert Streaming die Geschwindigkeit der Datenverarbeitung und verbessert die Nutzererfahrung 
 durch eine Anzteige des aktuellen Zustands in Echtzeit.
@@ -169,17 +174,17 @@ ohne zusätzliche Infrastruktur weiterzugeben.
 Die Kodierung funktioniert, indem jeweils 24 Bit (drei Byte) in vier 6-Bit-Gruppen umgewandelt 
 und anschließend als ASCII-Zeichen dargestellt werden. 
 Dadurch vergrößert sich die Datenmenge zwar um etwa ein Drittel, sie wird jedoch vollständig 
-textkompatibel.
+textkompatibel.\cite{rfc4648}
 
 Im Kontext von Webanwendungen werden Base64-kodierte Inhalte häufig in Form sogenannter 
-\texttt{Data URL}s übertragen. 
+\texttt{Data URL}s\cite{rfc2397} übertragen. 
 Eine Data URL bettet die kodierten Daten direkt in einen einzigen Zeichenstring ein, der aus 
 vier Komponenten besteht: 
 \begin{enumerate}
     \item einem Präfix zur Typangabe (data:)
-    \item dem MIME-Typ der Datei (z. B. image/png)
-    \item der Kodierungsart (;base64)
-    \item dem eigentlichen
+    \item dem MIME-Typ der Datei (z. B. image/png;)
+    \item der Kodierungsart (base64)
+    \item dem eigentlichen Datenbereich
 \end{enumerate}
 Eine Data URL mit Base64 Encoding entspricht somit typischerweise der Form
 \verb|data:<mime-type>;base64,<kodierte-daten>|. 
@@ -195,5 +200,28 @@ Dies reduziert die Komplexität der Implementierung und ermöglicht eine
 Unterstützung verschiedener Dateitypen. 
 Durch diese Eigenschaften eignet sich Base64 in Kombination mit Data URLs optimal für eine 
 unkomplizierte Übertragung von Dateien innerhalb von KI basierten Anwendungen.
+
 \section{Reflective Prompting}
 
+Reflective Prompting ist eine Strategie, bei der ein KI-Modell dazu 
+aufgefordert wird, seine eigenen Ergebnisse zu überprüfen.
+Im Gegensatz zum klassischen Prompting, das direkt eine fertige Ausgabe erzeugt, arbeitet 
+Reflective Prompting in zwei voneinander getrennten Phasen: 
+Zunächst erstellt das Modell einen ersten Entwurf, eine interne Einschätzung oder einen 
+vorläufigen Vorschlag. 
+Anschließend reflektiert das Modell diesen Entwurf, prüft auf mögliche Fehler, Unklarheiten 
+und logische Inkonsistenzen und verbessert daraufhin die Antwort.\cite{zhao2024factandreflection}
+
+Durch die Einbeziehung einer Reflexionsphase steigt die Wahrscheinlichkeit, dass 
+das Modell eigene Ungenauigkeiten erkennt, fehlende Teile ergänzt und konsistentere 
+und qualitativ bessere Ergebnisse liefert. 
+Reflective Prompting hat sich insbesondere bei Aufgaben bewährt, die mehrstufiges Denken, 
+komplexe Entscheidungsfindung oder strukturiertes Argumentieren erfordern.
+
+Gleichzeitig bringt diese Technik auch Herausforderungen mit sich. 
+Da das Modell zusätzliche Denk- und Analyseprozesse durchläuft, erhöht sich sowohl die 
+Rechenzeit als auch der Tokenverbrauch. 
+Dennoch überwiegt in vielen Anwendungsszenarien der Qualitätsgewinn. 
+In der Forschung zu Large Language Models wird Reflective Prompting daher zunehmend als 
+zentrale Methode betrachtet, um Fehlerraten zu senken und die Robustheit der 
+Antworten zu verbessern.

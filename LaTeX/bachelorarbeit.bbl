@@ -17,6 +17,188 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
+  \entry{rfc2397}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=D}{%
+         family={{D. Connolly and L. Masinter}},
+         familyi={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{D1}
+    \strng{fullhash}{D1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{howpublished}{\url{https://www.rfc-editor.org/rfc/rfc2397.html}}
+    \field{note}{W3C / IETF Standard}
+    \field{title}{RFC 2397: The ``data'' URL Scheme}
+    \field{month}{07}
+    \field{year}{1998}
+  \endentry
+
+  \entry{fette2011sse}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=FI}{%
+         family={Fette},
+         familyi={F\bibinitperiod},
+         given={Ian},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Melnikov},
+         familyi={M\bibinitperiod},
+         given={Alexey},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FIMA1}
+    \strng{fullhash}{FIMA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{howpublished}{\url{https://www.w3.org/TR/eventsource/}}
+    \field{note}{W3C Recommendation}
+    \field{title}{HTML5 Server-Sent Events}
+    \field{year}{2011}
+  \endentry
+
+  \entry{omg2014bpmn2}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=GOM}{%
+         family={Group},
+         familyi={G\bibinitperiod},
+         given={Object\bibnamedelima Management},
+         giveni={O\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GOM1}
+    \strng{fullhash}{GOM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{note}{Normative specification}
+    \field{title}{Business Process Model and Notation (BPMN), Version 2.0.2}
+    \verb{url}
+    \verb https://www.omg.org/spec/BPMN/2.0.2/
+    \endverb
+    \field{month}{01}
+    \field{year}{2014}
+  \endentry
+
+  \entry{klievtsova2015autobpmnai}{article}{}
+    \name{author}{4}{}{%
+      {{hash=KN}{%
+         family={Klievtsova},
+         familyi={K\bibinitperiod},
+         given={Nataliia},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=EM}{%
+         family={Ehrendorfer},
+         familyi={E\bibinitperiod},
+         given={Matthias},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MJ}{%
+         family={Mangler},
+         familyi={M\bibinitperiod},
+         given={Juergen},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=RMS}{%
+         family={Rinderle-Ma},
+         familyi={R\bibinithyphendelim M\bibinitperiod},
+         given={Stefanie},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {English}%
+    }
+    \list{publisher}{1}{%
+      {CEUR-WS}%
+    }
+    \strng{namehash}{KN+1}
+    \strng{fullhash}{KNEMMJRMS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{abstract}{%
+    We demonstrate the text-based modeling and redesign of processes in the process execution environment of the Cloud Process Execution Engine (CPEE) based on iterative conversations with an LLM such as gemini or gpt. The input can be text and an empty model as well as text and an existing model. The output is a newly created or redesigned process model in executable format, i.e., based on abstract syntax trees and displayed in BPMN-like fashion, exploiting the automatic layout capabilities of the CPEE. The tool is demonstrated for different scenarios such as the creation and redesign of the process models, as well as the subsequent process model execution.%
+    }
+    \field{issn}{1613-0073}
+    \field{note}{Publisher Copyright: {\textcopyright} 2025 Copyright for this paper by its authors.; Best Dissertation Award, Doctoral Consortium, and Demonstration and Resources Forum at 23rd International Conference on Business Process Management, BPM-D 2025 ; Conference date: 31-08-2025 Through 05-09-2025}
+    \field{pages}{304\bibrangedash 311}
+    \field{title}{AutoBPMN.AI: Conversational Process Modeling and Automation}
+    \field{volume}{4032}
+    \field{journaltitle}{CEUR Workshop Proceedings}
+    \field{year}{2025}
+  \endentry
+
+  \entry{kourani2024promoai}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=KH}{%
+         family={Kourani},
+         familyi={K\bibinitperiod},
+         given={Humam},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=BA}{%
+         family={Berti},
+         familyi={B\bibinitperiod},
+         given={Alessandro},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SD}{%
+         family={Schuster},
+         familyi={S\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=vdAWM}{%
+         prefix={van\bibnamedelima der},
+         prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod},
+         family={Aalst},
+         familyi={A\bibinitperiod},
+         given={Wil\bibnamedelima M.P.},
+         giveni={W\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=LK}{%
+         family={Larson},
+         familyi={L\bibinitperiod},
+         given={Kate},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {International Joint Conferences on Artificial Intelligence Organization}%
+    }
+    \strng{namehash}{KH+1}
+    \strng{fullhash}{KHBASDAWMvd1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{booktitle}{Proceedings of the Thirty-Third International Joint Conference on Artificial Intelligence, {IJCAI-24}}
+    \verb{doi}
+    \verb 10.24963/ijcai.2024/1014
+    \endverb
+    \field{note}{Demo Track}
+    \field{pages}{8708\bibrangedash 8712}
+    \field{title}{ProMoAI: Process Modeling with Generative AI}
+    \verb{url}
+    \verb https://doi.org/10.24963/ijcai.2024/1014
+    \endverb
+    \field{month}{08}
+    \field{year}{2024}
+  \endentry
+
   \entry{shi2025bpmngen}{thesis}{}
     \name{author}{1}{}{%
       {{hash=SZ}{%
@@ -44,7 +226,96 @@
     \field{year}{2025}
   \endentry
 
-  \entry{wei2023chainofthoughtpromptingelicitsreasoning}{misc}{}
+  \entry{rfc4648}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=T}{%
+         family={{T. D. Hansen and P. Hoffman and A. Malhotra}},
+         familyi={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{T1}
+    \strng{fullhash}{T1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{howpublished}{\url{https://www.rfc-editor.org/rfc/rfc4648.html}}
+    \field{note}{IETF Standard}
+    \field{title}{RFC 4648: The Base16, Base32, and Base64 Data Encodings}
+    \field{month}{10}
+    \field{year}{2006}
+  \endentry
+
+  \entry{vaswani2023attentionneed}{misc}{}
+    \name{author}{8}{}{%
+      {{hash=VA}{%
+         family={Vaswani},
+         familyi={V\bibinitperiod},
+         given={Ashish},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Shazeer},
+         familyi={S\bibinitperiod},
+         given={Noam},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=PN}{%
+         family={Parmar},
+         familyi={P\bibinitperiod},
+         given={Niki},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=UJ}{%
+         family={Uszkoreit},
+         familyi={U\bibinitperiod},
+         given={Jakob},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=JL}{%
+         family={Jones},
+         familyi={J\bibinitperiod},
+         given={Llion},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=GAN}{%
+         family={Gomez},
+         familyi={G\bibinitperiod},
+         given={Aidan\bibnamedelima N.},
+         giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=KL}{%
+         family={Kaiser},
+         familyi={K\bibinitperiod},
+         given={Lukasz},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=PI}{%
+         family={Polosukhin},
+         familyi={P\bibinitperiod},
+         given={Illia},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{VA+1}
+    \strng{fullhash}{VASNPNUJJLGANKLPI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{V}
+    \field{sortinithash}{V}
+    \verb{eprint}
+    \verb 1706.03762
+    \endverb
+    \field{title}{Attention Is All You Need}
+    \verb{url}
+    \verb https://arxiv.org/abs/1706.03762
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2023}
+  \endentry
+
+  \entry{wei2023chainofthought}{misc}{}
     \name{author}{9}{}{%
       {{hash=WJ}{%
          family={Wei},
@@ -143,6 +414,157 @@
       {Ulm University}%
     }
     \field{type}{Bachelor thesis}
+    \field{year}{2024}
+  \endentry
+
+  \entry{iclr2024streaming}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=XG}{%
+         family={Xiao},
+         familyi={X\bibinitperiod},
+         given={Guangxuan},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=TY}{%
+         family={Tian},
+         familyi={T\bibinitperiod},
+         given={Yuandong},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=CB}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Beidi},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=HS}{%
+         family={Han},
+         familyi={H\bibinitperiod},
+         given={Song},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=LM}{%
+         family={Lewis},
+         familyi={L\bibinitperiod},
+         given={Mike},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \name{editor}{6}{}{%
+      {{hash=KB}{%
+         family={Kim},
+         familyi={K\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=YY}{%
+         family={Yue},
+         familyi={Y\bibinitperiod},
+         given={Y.},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=CS}{%
+         family={Chaudhuri},
+         familyi={C\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=FK}{%
+         family={Fragkiadaki},
+         familyi={F\bibinitperiod},
+         given={K.},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Khan},
+         familyi={K\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SY}{%
+         family={Sun},
+         familyi={S\bibinitperiod},
+         given={Y.},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{XG+1}
+    \strng{fullhash}{XGTYCBHSLM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{X}
+    \field{sortinithash}{X}
+    \field{booktitle}{International Conference on Representation Learning}
+    \field{pages}{21875\bibrangedash 21895}
+    \field{title}{Efficient Streaming Language Models with Attention Sinks}
+    \verb{url}
+    \verb https://proceedings.iclr.cc/paper_files/paper/2024/file/5e5fd18f863cb
+    \verb e6d8ae392a93fd271c9-Paper-Conference.pdf
+    \endverb
+    \field{volume}{2024}
+    \field{year}{2024}
+  \endentry
+
+  \entry{zhao2024factandreflection}{misc}{}
+    \name{author}{7}{}{%
+      {{hash=ZX}{%
+         family={Zhao},
+         familyi={Z\bibinitperiod},
+         given={Xinran},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=ZH}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Hongming},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=PX}{%
+         family={Pan},
+         familyi={P\bibinitperiod},
+         given={Xiaoman},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=YW}{%
+         family={Yao},
+         familyi={Y\bibinitperiod},
+         given={Wenlin},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=YD}{%
+         family={Yu},
+         familyi={Y\bibinitperiod},
+         given={Dong},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=WT}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Tongshuang},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=CJ}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Jianshu},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZX+1}
+    \strng{fullhash}{ZXZHPXYWYDWTCJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \verb{eprint}
+    \verb 2402.17124
+    \endverb
+    \field{title}{Fact-and-Reflection (FaR) Improves Confidence Calibration of Large Language Models}
+    \verb{url}
+    \verb https://arxiv.org/abs/2402.17124
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
     \field{year}{2024}
   \endentry
 \enddatalist

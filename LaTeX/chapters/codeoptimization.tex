@@ -6,13 +6,16 @@
 
 \chapter{Umstrukturierung und Innovation}
 
-Als erstes gilt es herauszufinden welcher Teil des Code, der zuständig für das prompting ist, wie verbessert werden kann.
-Das Projekt von TBA benutzt zur Erstellung von BPMN Diagrammen die OpenAI API und verwendet hier die bereitgestellte 
-Technologie der Assistants.
+Als erstes gilt es herauszufinden welcher Teil des Code, der zuständig für das prompting ist, 
+wie verbessert werden kann.
+Das Projekt von Weidl\cite{weidl2024bpmngen} und Shi\cite{shi2025bpmngen} benutzt zur Erstellung 
+von BPMN Diagrammen die OpenAI API und verwendet hier die Technologie der Assistants von OpenAI\@.
+\footnote{\url{https://platform.openai.com/docs/assistants/overview}}
 
 \section{Generelle Umstrukturierungen}
 
-Während der Code gut für seinen (bisherigen) speziellen Anwendungsfall ist, können hier einige Verbesserungen gemacht werden.
+Während der Code gut für seinen (bisherigen) speziellen Anwendungsfall ist, können hier einige 
+Verbesserungen gemacht werden.
 
 \subsection{Objektorientierter Ansatz}
 
@@ -74,6 +77,7 @@ export class ChatGPT extends Ai {
 Die Änderungen welche im vorherigen Kapitel beschrieben wurden, zeigen gleich ihren Effekt, da OpenAI ankündigt ihre 
 Assistants API einstellen zu wollen.
 Sie emfehlen einen Umzug zu ihrer neuen Responses API\@.
+\footnote{\url{https://platform.openai.com/docs/api-reference/responses}}
 Dies ist nun recht einfach umzusetzten, da wir nur die elementaren Methoden der API ändern müssen. 
 So sieht nun die neue Methode \mintinline{typescript}{generateContent();} aus:
 
@@ -132,7 +136,7 @@ bestimmte Kontextinformationen fehlen.
 Um dieses Problem zu vermeiden, wird künftig die Option ergänzt, dass die KI ihre Ausgabe auch direkt im offiziellen 
 Standardformat erzeugen kann. 
 Das weltweit am häufigsten verwendete Austauschformat für BPMN-Diagramme ist XML, 
-zu dem umfangreiche Dokumentation und etablierte Werkzeuge existieren. 
+zu dem umfangreiche Dokumentation und etablierte Werkzeuge existieren.\cite{omg2014bpmn2}
 Dennoch bietet das eigens entwickelte JSON-Format einen entscheidenden Vorteil: 
 Es besitzt eine deutlich höhere Informationsdichte und lässt sich dadurch kompakter und effizienter verarbeiten. 
 Beide Formate haben somit ihre jeweiligen Stärken und Einsatzgebiete.
@@ -142,13 +146,13 @@ Beide Formate haben somit ihre jeweiligen Stärken und Einsatzgebiete.
   \renewcommand{\arraystretch}{1.2}
   \begin{tabular}{|p{2cm}|p{5.5cm}|p{5.5cm}|}
     \hline
-    \textbf{Kriterium} & \textbf{JSON-Format} & \textbf{XML-Format} \\ \hline
+    \textbf{} & \textbf{JSON-Format} & \textbf{XML-Format} \\ \hline
     \textbf{Vorteile} &
-    hohe Informationsdichte, geringer Tokenverbrauch, schnelle Generierung. &
-    Standardisiert, gut dokumentiert, weit verbreitet, einfachere Instructions \\ \hline
+    hohe Informationsdichte,\newline geringer Tokenverbrauch,\newline schnelle Generierung. &
+    Standardisiert,\newline gut dokumentiert,\newline weit verbreitet,\newline einfachere Instructions \\ \hline
     \textbf{Nachteile} &
-    Kein Standard, Lernaufwand, komplizierter Konvertierungsalgorythmus. &
-    hoher Tokenverbrauch, umfangreiche Syntax, unübersichtlicher, mehr Kosten, längere Generierung.\\\hline
+    Kein Standard,\newline Lernaufwand,\newline komplizierter Konvertierungsalgorythmus. &
+    hoher Tokenverbrauch,\newline umfangreiche Syntax,\newline unübersichtlicher,\newline mehr Kosten,\newline längere Generierung.\\\hline
   \end{tabular}
   \caption{Vergleich der Vor- und Nachteile der unterstützten Ausgabeformate}
 \label{tab:vor-nachteile-json-xml}
@@ -211,8 +215,8 @@ Dabei steht im Vordergrund, dass das Verfahren sowohl im Frontend als auch im Ba
 unkompliziert umgesetzt werden kann. 
 Es soll keine aufwendigen oder zeitraubenden Konvertierungen erfordern und eine breite Auswahl an 
 Dateitypen unterstützen, um die Nutzung so flexibel wie möglich zu gestalten.
-Nach einer Analyse der OpenAI-Dokumentation unter
-\url{https://platform.openai.com/docs/guides/images-vision?api-mode=responses&format=base64-encoded#analyze-images}
+Nach einer Analyse der OpenAI-Dokumentation
+\footnote{\url{https://platform.openai.com/docs/guides/images-vision?api-mode=responses&format=base64-encoded}}
 zeigt sich, dass die einfachste und zugleich effizienteste Methode zur Dateiübertragung die 
 Verwendung einer Base64 Data URL ist. 
 Diese Variante bietet eine einfache Möglichkeit, Binärdaten wie Bilder oder Dokumente direkt 
@@ -220,6 +224,7 @@ in Textform zu kodieren und zu übermitteln, ohne zusätzliche Infrastruktur ode
 Upload-Mechanismen zu benötigen.
 
 Eine Base64 Data URL ist im eine Textdarstellung einer Datei, die direkt in eine URL eingebettet wird. 
+~\cite{rfc2397,rfc4648}
 Dabei werden die ursprünglichen Binärdaten in ein spezielles Textformat namens Base64 umgewandelt. 
 Diese kodierten Daten beginnen typischerweise mit einer Kennzeichnung wie data:image/png;base64,\dots 
 und enthalten danach die eigentlichen kodierten Inhalte. 
@@ -283,7 +288,7 @@ const imageInstructions = {
 \section{Chain of Thought}
 
 Um die Erzeugung und Interaktion rund um BPMN-Diagramme weiter zu verbessern, wird eine 
-Technik implementiert, die als \texttt{Chain of Thought} bezeichnet wird. 
+Technik implementiert, die als \texttt{Chain of Thought}\cite{wei2023chainofthought} bezeichnet wird. 
 Dieses Verfahren ermöglicht es dem Modell, komplexere Denkprozesse intern nachzuvollziehen und 
 schrittweise zu argumentieren, bevor eine Antwort erzeugt wird. 
 Dadurch kann der Dialog natürlich und strukturiert verlaufen, da der Chatbot in der Lage ist, 
@@ -358,7 +363,7 @@ Hierfür müssen alle Nachrichten eines Theads aus der Datenbank geladen werden.
 Die Nachrichten werden dann auf wesentliche gefiltert und auf ein kompaktes Foramt gebracht.
 Die OpenAI Klasse muss dann nur noch die Nachrichten auf das gefoderte Format bringen und in der
 Anfrage mitschicken.
-Da die Anfagen an die KI immer komplexer werden, wird nun eine Klasse $PromptInput$ angelegt.
+Da die Anfagen an die KI immer komplexer werden, wird nun eine Klasse \texttt{PromptInput} angelegt.
 Diese Klasse beinhaltet alle Informationen welche der KI mitgesendet werden sollen.
 Bei einer erstellung diese Objekt können alle Rohdaten wie Instructions, Dateien oder der Chatverlauf
 übergebe werden, welche die Klasse dann automatisch formatiert.
@@ -382,7 +387,7 @@ export class PromptInput {
   instructions: string[];
   history: {role: "user" | "assistant", content: string}[];
   prompt: string;
-  file?: ;
+  file?: string;
 }
 \end{minted}
 \caption{PromptInput Klasse}
@@ -585,18 +590,13 @@ Der Klartextteil soll wie gewohnt im Chat ausgegeben werden, während der Diagra
 entsprechende Ausgabeformat überführt und anschließend angezeigt wird. 
 
 Zu diesem Zweck wird ein zusätzlicher Erkennungsschritt eingeführt, der die Antwort der KI 
-analysiert und die jeweiligen Segmente eindeutig identifiziert. 
+analysiert und die jeweiligen Segmente eindeutig kategorisiert. 
 Der ChatBot muss erkennen, welche Abschnitte in natürlicher Sprache formuliert sind und welche 
-Bestandteile ein Diagramm darstellen, das weiterverarbeitet oder visualisiert werden 
+Bestandteile ein Diagramm darstellen, das weiterverarbeitet werden 
 soll. 
 Dieses Verhalten ermöglicht eine deutlich flexiblere Interaktion und eröffnet neue 
 Einsatzmöglichkeiten, besonders dann, wenn der Nutzer sowohl inhaltliche Erläuterungen als auch die 
 direkte Umsetzung in einem BPMN-Diagramm erwartet.
-
-% evtl wieder entfernen:
-Mit dieser Erweiterung entwickelt sich der BPMN-Bot zunehmend zu einem umfassenden 
-Assistenzsystem, das nicht nur Modellierungsartefakte erzeugt, sondern auch begleitend erklärt, 
-begründet und interaktiv mit dem Nutzer zusammenarbeitet.
 
 Für dieses Kategorisierung wird eine Beispiel-Antwort betrachtet:
 
@@ -635,13 +635,13 @@ Dies wird hier durch den Aufruf eines Regex ermöglicht.
 \label{code:regex}
 \end{code}
 
-Über dieses werden automatisch alle validen XML Teile (In TBA label bunt markiert) erkannt.
+Über dieses werden automatisch alle validen XML Teile (Im folgenden Beispiel bunt markiert) erkannt.
 Durch die Benutzung einer Non-capturing group werden Wrapper des XML 
-(In TBA label blau markiert) wie zum Beispiel das 
+(Im folgenden Beispiel dunkelblau markiert) wie zum Beispiel das 
 `\textasciigrave\textasciigrave\textasciigrave xml', automatisch entfernt.
 Alle matches werden danach auf ihre Länge geprüft um herauszufinden ob diese ein 
 vollständiges Diagramm repräsentieren oder nur eine Referenz bzw. Erklärung als 
-Teil des Klartextes sind. (In TBA label rot markiert)
+Teil des Klartextes sind. (Im folgenden Beispiel gelb markiert)
 
 \noindent\fbox{
   \parbox{.96\textwidth}{
@@ -675,34 +675,58 @@ Nicht markierte Teile und gelbe Textstellen sind Teil der Klartextnachricht.
 
 Es ist sinnvoll, dass der Chatbot neben ChatGPT auch andere Chatbot-Anbieter 
 nutzen kann, um Flexibilität, Ausfallsicherheit und Vielfalt in den 
-Antwortmöglichkeiten zu gewährleisten. 
+Antwortmöglichkeiten sicherzustellen. 
 Unterschiedliche Anbieter bieten verschiedene Stärken, wie etwa spezialisierte Natural 
 Language Processing-Modelle, schnellere Antwortzeiten oder kosteneffizientere Lösungen. 
-Durch die Integration mehrerer Anbieter kann der Bot je nach Bedarf die beste Leistung auswählen, 
-alternative Perspektiven liefern und Ausfälle eines einzelnen Dienstes abfedern. 
+Durch die Integration mehrerer Anbieter kann  je nach Bedarf die beste Leistung ausgewählt werden 
+und Ausfälle eines einzelnen Dienstes werden abgefedert. 
 Dies erhöht die Zuverlässigkeit und Qualität der generierten BPMN-Diagramme.
 
 Durch die Objektorientierte Konfiguration der KI Schnittstelle ist es nun sehr einfach weitere 
 Anbieter hinzuzufügen.
 Im weiteren wird gezeigt wie weitere Anbieter nun hinzugefügt werden.
 
-% TBA in den folgenden blöcken muss noch einiges getan werden. Kann man so nicht lassen.
-
 \subsection{Grok}
 
-% TBA umschreiben
 Die Einbindung von Grok ergänzt ChatGPT, weil Grok schneller auf aktuelle Daten zugreift, oft 
 direkter formuliert und technische Zusammenhänge sehr präzise erkennt. 
-Dadurch kann der Bot bei bestimmten Aufgaben – etwa beim Interpretieren knapper Anweisungen 
-oder beim Erzeugen alternativer BPMN-Varianten – Ergebnisse liefern, die ChatGPT allein nicht 
+Dadurch kann der Bot bei bestimmten Aufgaben, etwa beim Interpretieren knapper Anweisungen 
+oder beim Erzeugen alternativer BPMN-Varianten, Ergebnisse liefern, die ChatGPT allein nicht 
 immer erreicht. 
-Grok erhöht damit die Vielfalt, Genauigkeit und Zuverlässigkeit des Systems.
 
-Grok kann einfach über die XAI SDK hinzugefügt werden.
-Die Dokumentation findet man hier: \url{https://ai-sdk.dev/providers/ai-sdk-providers/xai}
+Grok kann einfach über die XAI SDK 
+\footnote{\url{https://ai-sdk.dev/providers/ai-sdk-providers/xai}}
+und die Typescript AI SDK
+\footnote{\url{https://www.npmjs.com/package/ai}}
+zu BPMN-Gen hinzugefügt werden.
 
-Die zu versendende Nachricht an die Grok API muss nun nur noch vom PromptInput Objekt auf das 
+Hierfür wird eine Klasse Grok erstellt, welche die Ai Klasse vererbt bekommt und damit nur 
+noch die Schnittstelle des Grok API implementieren muss.
+Die zu versendende Nachricht an die Grok API muss vom PromptInput Objekt auf das 
 API Format gebracht werden.
+Diese Konvertierung kann man in Codeauschnitt~\ref{code:grok-format} sehen.
+
+Folgende Modelle sind damit zum aktuellen Stand für BPMN-Gen verfügbar:
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{lrr}
+      \toprule
+      Model & Input-Kosten & Output-Kosten \\
+      \midrule
+      grok-4-1-fast-reasoning & 0.20 \$ & 0.50 \$ \\
+      grok-4-fast-reasoning & 0.20 \$ & 0.50 \$ \\
+      grok-4-1-fast-non-reasoning & 0.20 \$ & 0.50 \$ \\
+      grok-4-fast-non-reasoning & 0.20 \$ & 0.50 \$ \\
+      grok-code-fast-1 & 0.20 \$ & 1.50 \$ \\
+      grok-4 & 3.00 \$ & 15.00 \$ \\
+      grok-3-mini & 0.30 \$ & 0.50 \$ \\
+      grok-3 & 3.00 \$ & 15.00 \$ \\
+      \bottomrule
+  \end{tabular}
+  \caption{Modelle von xAI \\ (Stand: 20.11.2025)}
+  \label{tab:grok-models}
+\end{table}
 
 \begin{code}[H]
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
@@ -729,6 +753,7 @@ protected mapPromptInput(input: PromptInput) {
 \label{code:grok-format}
 \end{code}
 
+Die Nachricht wird dann mit Hilfe der AI SDK an Grok gesendet und die Antwort empfangen.
 
 \subsection{Gemini}
 
@@ -737,6 +762,38 @@ strukturiertem Denken und dem Umgang mit großen Informationsmengen besonders st
 Dadurch kann der Bot bei der Modellierung und Optimierung von BPMN-Prozessen zusätzliche 
 Präzision und alternative Lösungswege bieten. Gemini erhöht so die fachliche Tiefe, Robustheit 
 und Variantenvielfalt der Ergebnisse.
+Gemini hat zum aktuellen Zeitpunkt auch einen entscheidenden Vorteil gegenüber den anderen 
+LLM Anbietern.
+Die API hat auch eine kostenlose Stufe, wodurch es möglich ist, bis zu einer gewissen 
+Menge an Anfragen, Diagramme zu erstellen, welche kein Geld kosten.
+
+Ähnlich wie bei Grok wird nun die Klasse Gemini erstellt, welche die Schnittstelle zur API
+implementiert.
+Dies passiert über die Gemini SDK
+\footnote{\url{https://ai.google.dev/gemini-api/docs?hl=de}},
+für welche die Anfrage wieder auf das gewünschte Format gebracht werden muss.
+
+Durch Gemeini sind dannn diese Modelle alle benutzbar:
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{lrr}
+      \toprule
+      Model & Input-Kosten & Output-Kosten \\
+      \midrule
+      gemini-2.5-pro & 0.00 \$ & 0.00 \$ \\
+      gemini-2.5-flash & 0.00 \$ & 0.00 \$ \\
+      gemini-2.5-flash-lite & 0.00 \$ & 0.00 \$ \\
+      gemini-2.0-flash & 0.00 \$ & 0.00 \$ \\
+      \midrule
+      \multicolumn{3}{l}{Nicht auf der kostelosen Stufe verfügbar:} \\
+      gemini-3-pro-preview & 2.00 \$ & 12.00 \$ \\
+      \bottomrule
+  \end{tabular}
+  \caption{Modelle von Google \\ (Stand: 20.11.2025)}
+  \label{tab:gemini-models}
+\end{table}
+
 
 \begin{code}[H]
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
@@ -757,15 +814,13 @@ protected mapPromptInput(input: PromptInput) {
     };
   });
   const imageInst = input.file ? {
-    role: "user",
-    parts: [{
+    role: "user", parts: [{
       type: "input_file",
       inlineData: {
         data: input.getFileBase64Data(),
         mimeType: input.getFileMimeType(),
       },
-    }],
-    } : [];
+    }]} : [];
   const userInst = {
     role: "user", 
     parts: [{text: input.prompt}]
@@ -780,10 +835,48 @@ protected mapPromptInput(input: PromptInput) {
 \label{code:gemini-format}
 \end{code}
 
-Die Gemini API erwartet bei Jedem Text Teil der Anfrage noch das Feld `thought', welches angibt
+Die Gemini API erwartet bei Jedem Textteil der Anfrage noch das Feld `thought', welches angibt
 ob dieser Teil bereit von einer KI gedacht wurde.
 
 \subsection{Claude}
+
+Claude ergänzt BPMN-Gen besonders gut, weil er stark auf programmierbezogene Aufgaben 
+spezialisiert ist. 
+Sein Modell ist darauf ausgelegt, Code sehr zuverlässig zu verstehen, zu strukturieren und 
+zu korrigieren. 
+Dadurch liefert Claude bei der Umsetzung von BPMN-Diagrammen in JSON und XML
+und bei der Fehleranalyse oft besonders saubere Ergebnisse, da diese Formate besonders
+gut verstanden und umgesetzt werden.
+Die Einbindung von Claude erhöht somit die Präzision und Qualität von
+BPMN-Gen.
+
+Claude wird nun wie schon bei den anderen Anietern über seine eigene Klasse zu BPMN-Gen 
+hinzugefügt. Hierbei wird die Schnittstelle, wie in Codeausschnitt~\ref{code:claude-format},
+über die Anthropic SDK implemenitert.
+\footnote{\url{https://platform.claude.com/docs/en/api/client-sdks}}
+
+Mit Claude sind dann auch noch diese Modelle verfügbar:
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{lrr}
+      \toprule
+      Model & Input-Kosten & Output-Kosten \\
+      \midrule
+      claude-opus-4-5 & 5.00 \$ & 25.00 \$ \\
+      claude-opus-4-1 & 15.00 \$ & 75.00 \$ \\
+      claude-sonnet-4-5 & 3.00 \$ & 15.00 \$ \\
+      claude-haiku-4-5 & 1.00 \$ & 5.00 \$ \\
+      claude-sonnet-4 & 3.00 \$ & 15.00 \$ \\
+      claude-opus-4 & 15.00 \$ & 75.00 \$ \\
+      claude-sonnet-3-7 & 3.00 \$ & 15.00 \$ \\
+      claude-haiku-3-5 & 0.80 \$ & 4.00 \$ \\
+      claude-opus-3 & 15.00 \$ & 75.00 \$ \\
+      \bottomrule
+  \end{tabular}
+  \caption{Modelle von Anthropic \\ (Stand: 20.11.2025)}
+  \label{tab:claude-modelle}
+\end{table}
 
 \begin{code}[H]
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
@@ -807,10 +900,10 @@ protected mapPromptInput(input: PromptInput) {
   } : [];
   const userInst = {role: "user", content: input.prompt};
   return {
-      model: this.model,
-      max_tokens: 15000,
-      system: systemInst,
-      messages: [historyInst, userInst, imageInst],
+    model: this.model,
+    max_tokens: 15000,
+    system: systemInst,
+    messages: [historyInst, userInst, imageInst],
   };
 }
 \end{minted}
@@ -1065,6 +1158,38 @@ Danach wird der Stream geschlossen und die Übertragung ist abgeschlossen.
 
 \section{Schema-Constraining}
 
+Schema Constraining bezeichnet die Technik, bei der das Ausgabeformat eines KI-Modells 
+durch ein vorgegebenes Schema eingeschränkt wird. 
+Statt den Text frei formulieren zu können, muss das Modell seine Antwort exakt in der 
+festgelegten Struktur ausgeben.
+Dies kann beispielsweise ein JSON-Schema, ein XML-Schema oder eine 
+andere Form haben. 
+
+Der große Vorteil besteht darin, dass die Antworten vorhersehbar sind. 
+Fehler wie fehlende Felder, falsche Datentypen oder ungültige Strukturen werden 
+verhindert, da das Modell gezwungen ist, jede Ausgabe formal korrekt zu gestalten. 
+Dies ist besonders wichtig in Anwendungen, bei denen die KI-Ausgabe 
+weiterverarbeitet wird, wie etwa bei der Erstellung von 
+BPMN-Diagrammen.
+
+Dadurch ist sichergestellt, dass alle erzeugten Diagramme syntaktisch korrekt sind.
+Allerdings kann das Schema-Constraining nicht auf den \texttt{detail} Modus 
+angewendet werden, da dieser nach dem Design auch frei mit Klartext, Beschreibungen,
+Beispielen, Fragen und allem was gewünscht wird antworten können soll.
+Daher wird das Schema Constraining bei dem \texttt{quick} Modus verwendet.
+
+Die Nutzung des Schema Constraining wird von allen Anbietern bereitgestellt, allerdings  
+hat auch jeder Anbieter seine eigene Umsetztung dieser Constraints.
+Alle Anbieter erlauben aber die Nutzung des Schema-Validators \texttt{zod}.
+\footnote{\url{https://zod.dev/}}
+Hierbei wird das Schema über Objects, Arrays und Enums abbilden, wobei diese jeweils
+primitive Attribute besitzen wie z.B.\@ numbers, strings, booleans, uuids, chars\dots
+
+Mit zod lässt sich sehr gut das definierte JSON Schema darstellen.
+Wie diese Schema Constraints für JSON aussehen, wird in Codeausschnitt~\ref{code:schema}
+gezeigt.
+Eine Unterstützung für XML Schemas ist leider mit Zod nur begrenzt möglich.
+
 \begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\footnotesize, style=vs]{typescript}
 const CoordinateSchema = z.array(
@@ -1265,7 +1390,3 @@ protectes updateInstructions(threadID: string, format: format){
 \caption{updateInstructions() mit Reflektion}
 \label{code:update-instructions-reflection}
 \end{code}
-
-
-
-
