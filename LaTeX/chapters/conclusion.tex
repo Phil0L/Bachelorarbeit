@@ -2,4 +2,44 @@
 
 \section{Zusammenfassung}
 
+In dieser Arbeit wurde das bestehende BPMNGen-System grundlegend erweitert und modernisiert, 
+um die automatische Erstellung und Bearbeitung von BPMN-Diagrammen mit Hilfe von 
+Large Language Models deutlich zu verbessern. 
+Dazu wurde zunächst die Architektur vollständig neu strukturiert und in ein objektorientiertes 
+System überführt, das mehrere KI-Anbieter flexibel unterstützt. 
+Durch optimierte Instructions, neue Interaktionsmodi, das Einbeziehen des Chatverlaufs und 
+des aktuellen Diagrammzustands sowie Funktionen wie Datei-Uploads, Streaming 
+und die Kombination von Text- und Diagrammausgaben konnte die Qualität der 
+Diagramme und die Nutzererfahrung deutlich gesteigert werden. 
+Ergänzende Methoden wie Reflective Prompting und Diagramm-Sampling ermöglichen 
+zudem eine präzisere und vielfältigere Modellgenerierung. 
+Insgesamt zeigt die Arbeit, dass moderne Prompting-Strategien und flexible Systemarchitekturen 
+einen entscheidenden Beitrag dazu leisten können, LLMs sinnvoll und effizient für die 
+BPMN-Modellierung einzusetzen.
+
 \section{Ausblick}
+
+Obwohl das BPMNGen-System nun deutliche Fortschritte erzielt hat, bieten sich zahlreiche 
+Ansatzpunkte für zukünftige Entwicklungen. In diesem Abschnitt soll gezeigt werden inwiefern
+das Prompting und die Diagrammerstellung weiter verbessert werden könnte.
+
+\paragraph{Auto layouting} 
+Viele generierte Diagramme sind korrekt, aber optisch unübersichtlich.
+Man könnte ein KI-Layoutmodell integrieren oder ein heuristischen Ansatz wählen.
+Es gibt hierzu bereits Ansätze wie das BPMN-Auto-Layout.
+\footnote{\url{https://github.com/bpmn-io/bpmn-auto-layout}}
+Dieses kann aber zum aktuellen Stand nicht ohne Überarbeitung zum Projekt hinzugefügt werden.
+
+\paragraph{Automatische Prozessoptimierung}
+Der BPMNGen Chatbot könnte auch ohne, dass der Nutzer ihn darum bittet, Vorschläge zur Optimierung machen.
+Dies können sowohl Semantische Vorschläge wie unnötige Elemente, fehldene Gates, etc.\ als auch Formale
+Vorschläge wie Fehlende oder Duplizierte IDs oder sogar Inhaltliche Vorschläge wie veränderte Prozesse sein.
+Der Bot könnte diese Vorschläge ganz ohne Aufforderung zum Beispiel als PopUp anzeigen.
+
+\paragraph{Fine Tuning} Der Chatbot könnte mit den Daten der genereirten Diagrammen weitertrainiert 
+werden. Hierbei könnte zum Beispiel mit Hilfe der Änderungen, welche der Nutzer selber durchführt,
+oder Änderungen welche der Chatbot machen soll, dem Chatbot mitgeteilt werden, was er besser machen könnte.
+Somit wäre es möglich, dass der Bot mit der Zeit immer besser wird.
+Es könnte hier sowohl ein generelles Fine-tuning des BPMNGen Chatbots erstellt werden,
+sowie ein Nutzerspezifisches Fine-tuning.
+

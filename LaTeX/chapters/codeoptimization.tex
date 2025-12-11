@@ -1324,13 +1324,13 @@ Ausführungsschritt, die anschließend gemeinsam an den Client geschickt werden.
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 const gpt = getGPT(model, format)!;
 const sampling = !!samples;
-const primary = gpt.createBPMN(input, file, uid, res, mode, stream);
+const primary = gpt.createBPMN([...], mode, "primary");
 const secondaries = samples
   .map(str => getGPT(str))
   .filter(gpt => !!gpt)                   // remove invalid
   .filter((v, i, s) => s.indexOf(v) == i) // remove duplicates
   .slice(0, 5)                            // limit to 5 samples
-  .map(gpt => gpt.createBPMN(input, file, uid, res, "quick", stream));
+  .map(gpt => gpt.createBPMN([...], "quick", "secondary"));
 const outputs = await Promise.all([primary, ...secondaries]);
 \end{minted}
 \caption{Ausführung der Samples}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.6)  6 DEC 2025 17:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.6)  11 DEC 2025 13:44
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1011,24 +1011,31 @@ LaTeX Info: Redefining \hbar on input line 50.
 Package: setspace 2000/12/01 6.7 Contributed and Supported LaTeX2e package
 
 Package: `setspace' 6.7 <2000/12/01>
+) (d:/TexLive/2023/texmf-dist/tex/latex/graphics/rotating.sty
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+\c@r@tfl@t=\count465
+\rotFPtop=\skip93
+\rotFPbot=\skip94
+\rot@float@box=\box71
+\rot@mess@toks=\toks48
 ) (d:/TexLive/2023/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count465
-\lst@gtempboxa=\box71
-\lst@token=\toks48
-\lst@length=\count466
+\lst@mode=\count466
+\lst@gtempboxa=\box72
+\lst@token=\toks49
+\lst@length=\count467
 \lst@currlwidth=\dimen295
-\lst@column=\count467
-\lst@pos=\count468
+\lst@column=\count468
+\lst@pos=\count469
 \lst@lostspace=\dimen296
 \lst@width=\dimen297
-\lst@newlines=\count469
-\lst@lineno=\count470
+\lst@newlines=\count470
+\lst@lineno=\count471
 \lst@maxwidth=\dimen298
  (d:/TexLive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count471
-\lst@skipnumbers=\count472
-\lst@framebox=\box72
+\c@lstnumber=\count472
+\lst@skipnumbers=\count473
+\lst@framebox=\box73
 ) (d:/TexLive/2023/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
@@ -1041,11 +1048,11 @@ Package: minted 2022/12/12 v2.7 Yet another Pygments shim for LaTeX
 Package: fvextra 2022/11/30 v1.5 fvextra - extensions and patches for fancyvrb
  (d:/TexLive/2023/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2023/01/19 4.5a verbatim text (tvz,hv)
-\FV@CodeLineNo=\count473
+\FV@CodeLineNo=\count474
 \FV@InFile=\read5
-\FV@TabBox=\box73
-\c@FancyVerbLine=\count474
-\FV@StepNumber=\count475
+\FV@TabBox=\box74
+\c@FancyVerbLine=\count475
+\FV@StepNumber=\count476
 \FV@OutFile=\write5
 ) (d:/TexLive/2023/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
@@ -1053,21 +1060,21 @@ Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbat
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )) (d:/TexLive/2023/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2023/05/20 line numbers on paragraphs v5.3
-\linenopenalty=\count476
-\output=\toks49
-\linenoprevgraf=\count477
+\linenopenalty=\count477
+\output=\toks50
+\linenoprevgraf=\count478
 \linenumbersep=\dimen299
 \linenumberwidth=\dimen300
-\c@linenumber=\count478
-\c@pagewiselinenumber=\count479
-\c@LN@truepage=\count480
-\c@internallinenumber=\count481
-\c@internallinenumbers=\count482
+\c@linenumber=\count479
+\c@pagewiselinenumber=\count480
+\c@LN@truepage=\count481
+\c@internallinenumber=\count482
+\c@internallinenumbers=\count483
 \quotelinenumbersep=\dimen301
 \bframerule=\dimen302
 \bframesep=\dimen303
-\bframebox=\box74
-\linenoamsmath@ams@eqpen=\count483
+\bframebox=\box75
+\linenoamsmath@ams@eqpen=\count484
 
 
 LaTeX Warning: Command \@parboxrestore  has changed.
@@ -1078,41 +1085,41 @@ LaTeX Info: Redefining \\ on input line 3180.
 
 Package fvextra Warning: csquotes should be loaded after fvextra, to avoid a warning from the lineno package on input line 36.
 
-\c@FV@TrueTabGroupLevel=\count484
-\c@FV@TrueTabCounter=\count485
-\FV@TabBox@Group=\box75
-\FV@TmpLength=\skip93
-\c@FV@HighlightLinesStart=\count486
-\c@FV@HighlightLinesStop=\count487
-\FV@LoopCount=\count488
-\FV@NCharsBox=\box76
+\c@FV@TrueTabGroupLevel=\count485
+\c@FV@TrueTabCounter=\count486
+\FV@TabBox@Group=\box76
+\FV@TmpLength=\skip95
+\c@FV@HighlightLinesStart=\count487
+\c@FV@HighlightLinesStop=\count488
+\FV@LoopCount=\count489
+\FV@NCharsBox=\box77
 \FV@BreakIndent=\dimen304
-\FV@BreakIndentNChars=\count489
+\FV@BreakIndentNChars=\count490
 \FV@BreakSymbolSepLeft=\dimen305
-\FV@BreakSymbolSepLeftNChars=\count490
+\FV@BreakSymbolSepLeftNChars=\count491
 \FV@BreakSymbolSepRight=\dimen306
-\FV@BreakSymbolSepRightNChars=\count491
+\FV@BreakSymbolSepRightNChars=\count492
 \FV@BreakSymbolIndentLeft=\dimen307
-\FV@BreakSymbolIndentLeftNChars=\count492
+\FV@BreakSymbolIndentLeftNChars=\count493
 \FV@BreakSymbolIndentRight=\dimen308
-\FV@BreakSymbolIndentRightNChars=\count493
-\c@FancyVerbLineBreakLast=\count494
-\FV@LineBox=\box77
-\FV@LineIndentBox=\box78
-\c@FV@BreakBufferDepth=\count495
+\FV@BreakSymbolIndentRightNChars=\count494
+\c@FancyVerbLineBreakLast=\count495
+\FV@LineBox=\box78
+\FV@LineIndentBox=\box79
+\c@FV@BreakBufferDepth=\count496
 \FV@LineWidth=\dimen309
 ) (d:/TexLive/2023/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count496
-\calc@Bcount=\count497
+\calc@Acount=\count497
+\calc@Bcount=\count498
 \calc@Adimen=\dimen310
 \calc@Bdimen=\dimen311
-\calc@Askip=\skip94
-\calc@Bskip=\skip95
+\calc@Askip=\skip96
+\calc@Bskip=\skip97
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count498
-\calc@Cskip=\skip96
+\calc@Ccount=\count499
+\calc@Cskip=\skip98
 ) (d:/TexLive/2023/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
 Package shellesc Info: Unrestricted shell escape enabled on input line 75.
@@ -1125,32 +1132,32 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )) (d:/TexLive/2023/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )) (d:/TexLive/2023/texmf-dist/tex/generic/xstring/xstring.sty (d:/TexLive/2023/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count499
-\decimalpart=\count500
+\integerpart=\count500
+\decimalpart=\count501
 )
 Package: xstring 2023/01/14 v1.85 String manipulations (CT)
 ) (d:/TexLive/2023/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip97
+\OuterFrameSep=\skip99
 \fb@frw=\dimen312
 \fb@frh=\dimen313
 \FrameRule=\dimen314
 \FrameSep=\dimen315
 ) (d:/TexLive/2023/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count501
-\float@exts=\toks50
-\float@box=\box79
-\@float@everytoks=\toks51
-\@floatcapt=\box80
+\c@float@type=\count502
+\float@exts=\toks51
+\float@box=\box80
+\@float@everytoks=\toks52
+\@floatcapt=\box81
 )
 \minted@appexistsfile=\read6
-\minted@bgbox=\box81
+\minted@bgbox=\box82
 \minted@code=\write6
-\c@minted@FancyVerbLineTemp=\count502
-\c@minted@pygmentizecounter=\count503
-\@float@every@listing=\toks52
-\c@listing=\count504
+\c@minted@FancyVerbLineTemp=\count503
+\c@minted@pygmentizecounter=\count504
+\@float@every@listing=\toks53
+\c@listing=\count505
 )
 runsystem(if not exist _minted-bachelorarbeit mkdir _minted-bachelorarbeit)...executed.
 
@@ -1170,24 +1177,26 @@ Package caption Info: KOMA-Script document class detected.
  (d:/TexLive/2023/texmf-dist/tex/latex/caption/caption-koma.sto
 File: caption-koma.sto 2022/12/27 v2.0c Adaption of the caption package to the KOMA-Script document classes (AR)
 ))
-\c@caption@flags=\count505
-\c@continuedfloat=\count506
+\c@caption@flags=\count506
+\c@continuedfloat=\count507
 Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
+Package caption Info: rotating package is loaded.
 Package caption Info: KOMA-Script scrextend package detected.
 \caption@addmargin@hsize=\dimen324
 \caption@addmargin@linewidth=\dimen325
 ) (d:/TexLive/2023/texmf-dist/tex/latex/newfloat/newfloat.sty
 Package: newfloat 2019/09/02 v1.1l Defining new floating environments (AR)
+Package newfloat Info: `rotating' package detected.
 )
-Package newfloat Info: New float `prompt' with options ` fileext=prompt, listname={Prompt}, name=Prompt, placement=tbhp, within=section, ' on input line 86.
-\c@prompt=\count507
-Package newfloat Info: float type `prompt'=8 on input line 86.
-Package tocbasic Info: setting babel extension for `prompt' on input line 86.
-Package newfloat Info: New float `code' with options ` fileext=code, listname={Codeauschnitt}, name=Codeauschnitt, placement=tbhp, within=section, ' on input line 93.
-\c@code=\count508
-Package newfloat Info: float type `code'=16 on input line 93.
-Package tocbasic Info: setting babel extension for `code' on input line 93.
+Package newfloat Info: New float `prompt' with options ` fileext=prompt, listname={Prompt}, name=Prompt, placement=tbhp, within=section, ' on input line 87.
+\c@prompt=\count508
+Package newfloat Info: float type `prompt'=8 on input line 87.
+Package tocbasic Info: setting babel extension for `prompt' on input line 87.
+Package newfloat Info: New float `code' with options ` fileext=code, listname={Codeauschnitt}, name=Codeauschnitt, placement=tbhp, within=section, ' on input line 94.
+\c@code=\count509
+Package newfloat Info: float type `code'=16 on input line 94.
+Package tocbasic Info: setting babel extension for `code' on input line 94.
  (d:/TexLive/2023/texmf-dist/tex/latex/xurl/xurl.sty
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
 
@@ -1211,11 +1220,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (d:/TexLive/2023/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count509
+\c@section@level=\count510
 )
 \@linkdim=\dimen326
-\Hy@linkcounter=\count510
-\Hy@pagecounter=\count511
+\Hy@linkcounter=\count511
+\Hy@pagecounter=\count512
  (d:/TexLive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2023-05-16 v7.00y Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -1223,7 +1232,7 @@ Now handling font encoding PD1 ...
 ) (d:/TexLive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count512
+\Hy@SavedSpaceFactor=\count513
  (d:/TexLive/2023/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2023-05-16 v7.00y Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -1236,7 +1245,7 @@ Package hyperref Info: Plain pages OFF on input line 4182.
 Package hyperref Info: Backreferencing OFF on input line 4187.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4434.
-\c@Hy@tempcnt=\count513
+\c@Hy@tempcnt=\count514
 LaTeX Info: Redefining \url on input line 4772.
 \XeTeXLinkMargin=\dimen327
  (d:/TexLive/2023/texmf-dist/tex/generic/bitset/bitset.sty
@@ -1244,7 +1253,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (d:/TexLive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count514
+\Fld@menulength=\count515
 \Field@Width=\dimen328
 \Fld@charsize=\dimen329
 Package hyperref Info: Hyper figures OFF on input line 6051.
@@ -1258,9 +1267,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6081.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count515
-\c@Item=\count516
-\c@Hfootnote=\count517
+\Hy@abspage=\count516
+\c@Item=\count517
+\c@Hfootnote=\count518
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (d:/TexLive/2023/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -1269,8 +1278,8 @@ File: hpdftex.def 2023-05-16 v7.00y Hyperref driver for pdfTeX
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count518
-\c@bookmark@seq@number=\count519
+\Fld@listcount=\count519
+\c@bookmark@seq@number=\count520
  (d:/TexLive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
  (d:/TexLive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -1278,55 +1287,55 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip98
+\Hy@SectionHShift=\skip100
 )
-Package hyperref Info: Option `colorlinks' set `false' on input line 132.
+Package hyperref Info: Option `colorlinks' set `false' on input line 133.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > bachelorarbeit.aex <nul: /p x=^%~$PATH:i>> bachelorarbeit.aex)...executed.
 
 runsystem(del bachelorarbeit.aex)...executed.
 
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 138.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 139.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 11.39996pt on input line 138.
+(Font)              scaled to size 11.39996pt on input line 139.
  (./bachelorarbeit.aux)
 \openout1 = `bachelorarbeit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 138.
-LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
  (d:/TexLive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count520
+\scratchcounter=\count521
 \scratchdimen=\dimen330
-\scratchbox=\box82
-\nofMPsegments=\count521
-\nofMParguments=\count522
-\everyMPshowfont=\toks53
-\MPscratchCnt=\count523
+\scratchbox=\box83
+\nofMPsegments=\count522
+\nofMParguments=\count523
+\everyMPshowfont=\toks54
+\MPscratchCnt=\count524
 \MPscratchDim=\dimen331
-\MPnumerator=\count524
-\makeMPintoPDFobject=\count525
-\everyMPtoPDFconversion=\toks54
+\MPnumerator=\count525
+\makeMPintoPDFobject=\count526
+\everyMPtoPDFconversion=\toks55
 ) (d:/TexLive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -1358,17 +1367,17 @@ Package biblatex Info: Data encoding 'utf8' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'bachelorarbeit.bbl' found.
  (./bachelorarbeit.bbl)
-Package biblatex Info: Reference section=0 on input line 138.
-Package biblatex Info: Reference segment=0 on input line 138.
+Package biblatex Info: Reference section=0 on input line 139.
+Package biblatex Info: Reference segment=0 on input line 139.
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-\c@lstlisting=\count526
+\c@lstlisting=\count527
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package newfloat Info: `float' package detected.
-Package hyperref Info: Link coloring OFF on input line 138.
+Package hyperref Info: Link coloring OFF on input line 139.
 (./bachelorarbeit.out) (./bachelorarbeit.out)
 \@outlinefile=\write7
 \openout7 = `bachelorarbeit.out'.
@@ -1380,77 +1389,77 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 138.
+(scrbook)           before \begin{document} on input line 139.
  (d:/TexLive/2023/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
  (d:/TexLive/2023/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
-\BKM@id=\count527
+\BKM@id=\count528
 ))
 <images/logo_uulm_sw.png, id=7, 285.9483pt x 81.1833pt>
 File: images/logo_uulm_sw.png Graphic file (type png)
 <use images/logo_uulm_sw.png>
-Package pdftex.def Info: images/logo_uulm_sw.png  used on input line 146.
+Package pdftex.def Info: images/logo_uulm_sw.png  used on input line 147.
 (pdftex.def)             Requested size: 180.39706pt x 51.21504pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--147
+Underfull \hbox (badness 10000) in paragraph at lines 146--148
 
  []
 
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 148.
+(Font)              scaled to size 9.49997pt on input line 149.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 9.49997pt on input line 153.
+(Font)              scaled to size 9.49997pt on input line 154.
 
-Overfull \hbox (16.56062pt too wide) in paragraph at lines 153--153
+Overfull \hbox (16.56062pt too wide) in paragraph at lines 154--154
 \T1/phv/b/n/10 Ingenieurwissenschaften,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--153
+Underfull \hbox (badness 10000) in paragraph at lines 154--154
 \T1/phv/m/n/10 Datenbanken und
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--154
+Underfull \hbox (badness 10000) in paragraph at lines 151--155
 
  []
 
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 19.70294pt on input line 155.
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 155.
+(Font)              scaled to size 19.70294pt on input line 156.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 156.
 (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 155.
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 156.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 155.
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 156.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 155.
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 156.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 155.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 156.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 155.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 156.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 155.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 156.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 155.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 156.
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--157
+Underfull \hbox (badness 10000) in paragraph at lines 156--158
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--166
+Underfull \hbox (badness 10000) in paragraph at lines 159--167
 
  []
 
@@ -1459,19 +1468,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 158--166
 
 {d:/TexLive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{d:/TexLive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc} <./images/logo_uulm_sw.png>]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 172.
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 175.
+(Font)              scaled to size 10.40245pt on input line 173.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 176.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 175.
+(Font)              scaled to size 10.40245pt on input line 176.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 178.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 179.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 178.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 179.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 178.
+(Font)              scaled to size 7.59998pt on input line 179.
  (./chapters/acknowledgement.tex) (./chapters/abstract.tex [2
 
 ]
@@ -1485,7 +1494,7 @@ Overfull \hbox (1.21461pt too wide) in paragraph at lines 3--14
  []
 
 )
-Overfull \hbox (2.10883pt too wide) in paragraph at lines 15--187
+Overfull \hbox (2.10883pt too wide) in paragraph at lines 15--188
 \T1/phv/m/n/12 und Dia-gram-man-tei-len im-ple-men-tiert. Neue Tech-ni-ken wie Diagramm-Sampling und
  []
 
@@ -1505,7 +1514,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 \openout8 = `bachelorarbeit.toc'.
 
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 11.39996pt on input line 190.
+(Font)              scaled to size 11.39996pt on input line 191.
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
@@ -1986,7 +1995,7 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
  (./_minted-bachelorarbeit/B6013478E0736180FFCAEA9C312B528600C641777EA6042B8269C4E669F224F5.pygtex)
 \openout5 = `bachelorarbeit.pyg'.
 
- (./_minted-bachelorarbeit/677C48EA2AD3A453FD67F57F7D94475B00C641777EA6042B8269C4E669F224F5.pygtex)
+ (./_minted-bachelorarbeit/983BE8CEF5141B6C4BEDB3DE182CA0F600C641777EA6042B8269C4E669F224F5.pygtex)
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [45]
@@ -2023,7 +2032,7 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [52]
-Package pgfplots info on input line 315: Using 'lua backend=false' for axis: stacked plots unsupported (yet).
+Package pgfplots info on input line 318: Using 'lua backend=false' for axis: stacked plots unsupported (yet).
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
@@ -2031,11 +2040,15 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [54]
-Package pgfplots info on input line 457: Using 'lua backend=false' for axis: stacked plots unsupported (yet).
+Package pgfplots info on input line 476: Using 'lua backend=false' for axis: stacked plots unsupported (yet).
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [55]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [56]
@@ -2044,95 +2057,571 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
  [57]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [58]) (./chapters/relatedwork.tex
+ [58]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [59]
+ [59]) (./chapters/relatedwork.tex
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [60]
 chapter 5.
-) (./chapters/conclusion.tex [60
+) (./chapters/conclusion.tex [61
 
 ]
 chapter 6.
-) (./chapters/sources.tex [61
-
-]
-chapter A.
 [62
 
+]) (./chapters/sources.tex
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [63]
+chapter A.
+\openout5 = `bachelorarbeit.pyg'.
+
+(./_minted-bachelorarbeit/4D1F3E263B57D8F4698E3D279346159C00C641777EA6042B8269C4E669F224F5.pygtex
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 38.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 38.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 45.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 45.
+ [64
+
 ]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 68.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 68.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 113.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 113.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 118.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 118.
+
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [65]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 134.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 134.
+
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [66]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 203.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 203.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 211.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 211.
+
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [67]
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [68]
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [69]
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [70]
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [71]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 570.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 575.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 585.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 585.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 591.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 598.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 598.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 598.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 598.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 608.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 608.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 624.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 624.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 626.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 626.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 627.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 627.
+
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [72]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 629.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 629.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 630.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 630.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 630.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 630.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 631.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 631.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 633.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 633.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 649.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 649.
+
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [73]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 700.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 700.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 700.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 700.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 703.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 703.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 703.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 703.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 715.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 715.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 715.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 715.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 718.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 718.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 718.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 718.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 729.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 729.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 729.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 729.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 729.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 731.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 731.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 731.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 731.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 731.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 742.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 742.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 742.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 742.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 742.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 744.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 744.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 744.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 744.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 744.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 757.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 757.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 757.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 757.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 757.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 757.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 757.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 757.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 763.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 763.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 763.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 763.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 763.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 763.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 763.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 763.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 763.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 763.
+
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [74]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 782.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 783.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 831.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 831.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 831.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 831.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 831.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 831.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 831.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 831.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 835.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 835.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 835.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 835.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 835.
+
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [75]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 841.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 841.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 841.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 841.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 841.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 846.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 846.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 846.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 846.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 846.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 846.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 846.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 846.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 846.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 846.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 862.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 862.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 862.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 862.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 862.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 862.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 873.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 874.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 896.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 896.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 896.
+
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [76])
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [77]
 chapter B.
-<images/diagrams/gemini-2.5-pro-(json)-9zeuvovk.pdf, id=625, 3121.6625pt x 2318.6625pt>
+<images/diagrams/gemini-2.5-pro-(json)-9zeuvovk.pdf, id=702, 3121.6625pt x 2318.6625pt>
 File: images/diagrams/gemini-2.5-pro-(json)-9zeuvovk.pdf Graphic file (type pdf)
 <use images/diagrams/gemini-2.5-pro-(json)-9zeuvovk.pdf>
-Package pdftex.def Info: images/diagrams/gemini-2.5-pro-(json)-9zeuvovk.pdf  used on input line 15.
+Package pdftex.def Info: images/diagrams/gemini-2.5-pro-(json)-9zeuvovk.pdf  used on input line 935.
 (pdftex.def)             Requested size: 416.12161pt x 309.07877pt.
-<images/diagrams/gemini-2.5-pro-(xml)-67z0in69.pdf, id=626, 1616.0375pt x 1817.79124pt>
+<images/diagrams/gemini-2.5-pro-(xml)-67z0in69.pdf, id=703, 1616.0375pt x 1817.79124pt>
 File: images/diagrams/gemini-2.5-pro-(xml)-67z0in69.pdf Graphic file (type pdf)
 <use images/diagrams/gemini-2.5-pro-(xml)-67z0in69.pdf>
-Package pdftex.def Info: images/diagrams/gemini-2.5-pro-(xml)-67z0in69.pdf  used on input line 22.
+Package pdftex.def Info: images/diagrams/gemini-2.5-pro-(xml)-67z0in69.pdf  used on input line 942.
 (pdftex.def)             Requested size: 416.12161pt x 468.06567pt.
-<images/diagrams/gpt-5.1-(json)-ai2w4c2b.pdf, id=627, 2268.475pt x 1716.4125pt>
+<images/diagrams/gpt-5.1-(json)-ai2w4c2b.pdf, id=704, 2268.475pt x 1716.4125pt>
 File: images/diagrams/gpt-5.1-(json)-ai2w4c2b.pdf Graphic file (type pdf)
 <use images/diagrams/gpt-5.1-(json)-ai2w4c2b.pdf>
-Package pdftex.def Info: images/diagrams/gpt-5.1-(json)-ai2w4c2b.pdf  used on input line 29.
+Package pdftex.def Info: images/diagrams/gpt-5.1-(json)-ai2w4c2b.pdf  used on input line 949.
 (pdftex.def)             Requested size: 416.12161pt x 314.83374pt.
-<images/diagrams/gpt-5.1-(xml)-obl5u8o2.pdf, id=628, 1616.0375pt x 1395.2125pt>
+<images/diagrams/gpt-5.1-(xml)-obl5u8o2.pdf, id=705, 1616.0375pt x 1395.2125pt>
 File: images/diagrams/gpt-5.1-(xml)-obl5u8o2.pdf Graphic file (type pdf)
 <use images/diagrams/gpt-5.1-(xml)-obl5u8o2.pdf>
-Package pdftex.def Info: images/diagrams/gpt-5.1-(xml)-obl5u8o2.pdf  used on input line 36.
+Package pdftex.def Info: images/diagrams/gpt-5.1-(xml)-obl5u8o2.pdf  used on input line 956.
 (pdftex.def)             Requested size: 416.12161pt x 359.25526pt.
-<images/diagrams/grok-4-(json)-0pkdhn37.pdf, id=629, 2117.9125pt x 1816.7875pt>
+<images/diagrams/grok-4-(json)-0pkdhn37.pdf, id=706, 2117.9125pt x 1816.7875pt>
 File: images/diagrams/grok-4-(json)-0pkdhn37.pdf Graphic file (type pdf)
 <use images/diagrams/grok-4-(json)-0pkdhn37.pdf>
-Package pdftex.def Info: images/diagrams/grok-4-(json)-0pkdhn37.pdf  used on input line 43.
+Package pdftex.def Info: images/diagrams/grok-4-(json)-0pkdhn37.pdf  used on input line 963.
 (pdftex.def)             Requested size: 416.12161pt x 356.94731pt.
-<images/diagrams/grok-4-(xml)-zyw3qofn.pdf, id=630, 618.31pt x 1836.8625pt>
+<images/diagrams/grok-4-(xml)-zyw3qofn.pdf, id=707, 618.31pt x 1836.8625pt>
 File: images/diagrams/grok-4-(xml)-zyw3qofn.pdf Graphic file (type pdf)
 <use images/diagrams/grok-4-(xml)-zyw3qofn.pdf>
-Package pdftex.def Info: images/diagrams/grok-4-(xml)-zyw3qofn.pdf  used on input line 50.
+Package pdftex.def Info: images/diagrams/grok-4-(xml)-zyw3qofn.pdf  used on input line 970.
 (pdftex.def)             Requested size: 193.94786pt x 576.17314pt.
-<images/diagrams/claude-opus-4-5-(json)-p0ejrwf2.pdf, id=631, 2017.5375pt x 2469.225pt>
+<images/diagrams/claude-opus-4-5-(json)-p0ejrwf2.pdf, id=708, 2017.5375pt x 2469.225pt>
 File: images/diagrams/claude-opus-4-5-(json)-p0ejrwf2.pdf Graphic file (type pdf)
 <use images/diagrams/claude-opus-4-5-(json)-p0ejrwf2.pdf>
-Package pdftex.def Info: images/diagrams/claude-opus-4-5-(json)-p0ejrwf2.pdf  used on input line 57.
+Package pdftex.def Info: images/diagrams/claude-opus-4-5-(json)-p0ejrwf2.pdf  used on input line 977.
 (pdftex.def)             Requested size: 416.12161pt x 509.24628pt.
-) [63
+) [78
 
  <./images/diagrams/gemini-2.5-pro-(json)-9zeuvovk.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [64 <./images/diagrams/gemini-2.5-pro-(xml)-67z0in69.pdf>]
+ [79 <./images/diagrams/gemini-2.5-pro-(xml)-67z0in69.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [65 <./images/diagrams/gpt-5.1-(json)-ai2w4c2b.pdf>]
+ [80 <./images/diagrams/gpt-5.1-(json)-ai2w4c2b.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [66 <./images/diagrams/gpt-5.1-(xml)-obl5u8o2.pdf>]
+ [81 <./images/diagrams/gpt-5.1-(xml)-obl5u8o2.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [67 <./images/diagrams/grok-4-(json)-0pkdhn37.pdf>]
+ [82 <./images/diagrams/grok-4-(json)-0pkdhn37.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [68 <./images/diagrams/grok-4-(xml)-zyw3qofn.pdf>]
+ [83 <./images/diagrams/grok-4-(xml)-zyw3qofn.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [69 <./images/diagrams/claude-opus-4-5-(json)-p0ejrwf2.pdf>]
+ [84 <./images/diagrams/claude-opus-4-5-(json)-p0ejrwf2.pdf>]
 chapter without number
 LaTeX Font Info:    Font shape `T1/phv/m/sc' will be
-(Font)              scaled to size 11.39996pt on input line 213.
+(Font)              scaled to size 11.39996pt on input line 214.
 
-Overfull \hbox (0.54369pt too wide) in paragraph at lines 214--214
+Overfull \hbox (0.54369pt too wide) in paragraph at lines 215--215
 []\T1/phv/m/n/12 Nataliia Klievt-so-va u.a. ^^R  Au-toBPMN.AI: Con-ver-sa-tio-nal Pro-cess Mo-de-ling and
  []
 
-[70
+[85
 
 
 
 ]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [71] [72
+ [86] [87
 
 ] (./bachelorarbeit.aux)
 Package rerunfilecheck Info: File `bachelorarbeit.out' has not changed.
@@ -2144,18 +2633,18 @@ Package logreq Info: Writing requests to 'bachelorarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52551 strings out of 476038
- 1198828 string characters out of 5794174
- 2004191 words of memory out of 5000000
- 71784 multiletter control sequences out of 15000+600000
- 608094 words of font info for 177 fonts, out of 8000000 for 9000
+ 52672 strings out of 476038
+ 1201254 string characters out of 5794174
+ 2003289 words of memory out of 5000000
+ 71872 multiletter control sequences out of 15000+600000
+ 609296 words of font info for 181 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  108i,19n,106p,11015b,2631s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<d:/TexLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on bachelorarbeit.pdf (77 pages, 1388611 bytes).
+<d:/TexLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on bachelorarbeit.pdf (92 pages, 1454009 bytes).
 PDF statistics:
- 990 PDF objects out of 1000 (max. 8388607)
- 859 compressed objects within 9 object streams
- 223 named destinations out of 1000 (max. 500000)
+ 1076 PDF objects out of 1200 (max. 8388607)
+ 927 compressed objects within 10 object streams
+ 247 named destinations out of 1000 (max. 500000)
  404 words of extra memory for PDF output out of 10000 (max. 10000000)
 

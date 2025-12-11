@@ -284,6 +284,9 @@ Als nächstes soll nun untersucht werden welcher der zwei implementierten Format
 und \texttt{XML} sich Zeitlich besser verhält.
 In Abbildung~\ref{fig:timing-xmljson} wird für das Promptbeispiel auf Seite~\pageref{prompt:speed} dieses Verhalten 
 getestet.
+Da die Laufzeit für die Schritte Textgenerierung, Formatierung und Datenbankaufruf, sowie bei Gemini auch 
+Streamstart im Vergleich zu der Diagrammgenereiung sowie der API Antwort sehr wenig Zeit beanspruchen,
+Sind die exakten Zeiten auch noch in Tabelle~\ref{tab:timing-xmljson} zu sehen.
 
 \begin{figure}[H]
 \centering
@@ -328,6 +331,7 @@ JSON	28.453	0.001	                0.189	13.707	    0.009	        0.554
         fill=white,
         fill opacity=0.75,
         text opacity=1,
+        xshift=2mm
     }
 ] table [x=Datenbank, meta=Model,y expr=\coordindex] {\dataxmljson};
 \legend{Antwort,Streamstart,Textgenerierung,Diagrammgenerierung,Formatierung,Datenbankaufruf}
@@ -336,6 +340,20 @@ JSON	28.453	0.001	                0.189	13.707	    0.009	        0.554
 \caption{Zeitperformanzvergleich JSON vs XML bei Gemini 2.5 Pro}
 \label{fig:timing-xmljson}
 \end{figure}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lrrrrrr}
+\hline
+\textbf{Format} & \textbf{Antwort} & \textbf{Stream.} & \textbf{Text.} & \textbf{Diagr.} & \textbf{Form.} & \textbf{Datenb.} \\
+\hline
+XML  & 28.345 & 0.004 & 0.194 & 24.949 & 0.000 & 0.671 \\
+JSON & 28.453 & 0.001 & 0.189 & 13.707 & 0.009 & 0.554 \\
+\hline
+\end{tabular}
+\caption{Zeitperformanzvergleich JSON vs XML bei Gemini 2.5 Pro\\Zeit in Sekunden}
+\label{tab:timing-xmljson}
+\end{table}
 
 Man erkannt einfach, dass die Diagrammgenerierung bei JSON um einiges schneller ist als bei XML.
 Der Konvertierungsprozess von JSON zu XML beträgt in diesem Beispiel nur 9 ms und ist damit um
@@ -413,6 +431,7 @@ insbesondere bei großen oder komplexen Diagrammen, erhebliche Vorteile bietet.
 Weitergehend soll nun untersucht werden welche Modelle sich für eine Zeiteffiziente 
 Generierung eignen. Dafür werden in Abbildung~\ref{fig:timing-models} einige gänige Modelle
 getestet.
+Die exakten Zeiten stehen in Tabelle~\ref{tab:timing-modelle}.
 
 \begin{figure}[ht]
 \centering
@@ -460,7 +479,6 @@ claude-sonnet-4.5	04.370	000.001	                0.906	16.903	    0.006	        
 \addplot [fill=yellow!60] table [x=Text, meta=Model,y expr=\coordindex] {\sorteddatamodels};   
 \addplot [fill=orange!60] table [x=Diagramm, meta=Model,y expr=\coordindex] {\sorteddatamodels};   
 \addplot [fill=red!60] table [x=Formatierung, meta=Model,y expr=\coordindex] {\sorteddatamodels};   
-
 \addplot [fill=purple!60,
     point meta=x,
     nodes near coords,
@@ -470,6 +488,7 @@ claude-sonnet-4.5	04.370	000.001	                0.906	16.903	    0.006	        
         fill=white,
         fill opacity=0.75,
         text opacity=1,
+        xshift=2mm
     }
 ] table [x=Datenbank, meta=Model,y expr=\coordindex] {\sorteddatamodels};
 \legend{Antwort,Streamstart,Textgenerierung,Diagrammgenerierung,Formatierung,Datenbankaufruf}
@@ -478,6 +497,26 @@ claude-sonnet-4.5	04.370	000.001	                0.906	16.903	    0.006	        
 \caption{Zeitperformanzvergleich verschiedener Modelle}
 \label{fig:timing-models}
 \end{figure}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lrrrrrr}
+\hline
+\textbf{Format} & \textbf{Antwort} & \textbf{Stream.} & \textbf{Text.} & \textbf{Diagr.} & \textbf{Form.} & \textbf{Datenb.} \\
+\hline
+gemini-2.5-pro     & 34.396 & 0.001   & 0.433 & 15.274 & 0.005 & 0.554 \\
+gemini-2.5-flash   & 36.529 & 0.002   & 0.162 & 7.292  & 0.005 & 0.512 \\
+grok-3             & 0.003  & 6.203   & 0.418 & 16.850 & 0.005 & 0.510 \\
+grok-3-fast        & 0.004  & 5.056   & 0.386 & 14.853 & 0.007 & 0.508 \\
+gpt-4.1            & 0.904  & 1.138   & 0.232 & 18.051 & 0.003 & 0.580 \\
+gpt-5-mini         & 1.874  & 115.226 & 0.414 & 22.258 & 0.007 & 0.580 \\
+claude-sonnet-4.5  & 4.370  & 0.001   & 0.906 & 16.903 & 0.006 & 0.582 \\
+\hline
+\end{tabular}
+\caption{Zeitperformanzvergleich verschiedener Modelle\\Zeit in Sekunden}
+\label{tab:timing-modelle}
+\end{table}
+    
 
 Auffällig in Abbildung~\ref{fig:timing-models} ist, dass ChatGPT-5-Mini mit großem Abstand die 
 längste Gesamtzeit benötigt
