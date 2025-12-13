@@ -17,6 +17,147 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
+  \entry{bellan2022pet}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=BP}{%
+         family={Bellan},
+         familyi={B\bibinitperiod},
+         given={Patrizio},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=vdAH}{%
+         prefix={van\bibnamedelima der},
+         prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod},
+         family={Aa},
+         familyi={A\bibinitperiod},
+         given={Han},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=DM}{%
+         family={Dragoni},
+         familyi={D\bibinitperiod},
+         given={Mauro},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=GC}{%
+         family={Ghidini},
+         familyi={G\bibinitperiod},
+         given={Chiara},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=PSP}{%
+         family={Ponzetto},
+         familyi={P\bibinitperiod},
+         given={Simone\bibnamedelima Paolo},
+         giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+    }
+    \name{editor}{3}{}{%
+      {{hash=CC}{%
+         family={Cabanillas},
+         familyi={C\bibinitperiod},
+         given={Cristina},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=GNF}{%
+         family={Garmann{-}Johnsen},
+         familyi={G\bibinitperiod},
+         given={Niels\bibnamedelima Frederik},
+         giveni={N\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Koschmider},
+         familyi={K\bibinitperiod},
+         given={Agnes},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{BP+1}
+    \strng{fullhash}{BPAHvdDMGCPSP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Business Process Management Workshops - {BPM} 2022 International Workshops, M{\"{u}}nster, Germany, September 11-16, 2022, Revised Selected Papers}
+    \verb{doi}
+    \verb 10.1007/978-3-031-25383-6\_23
+    \endverb
+    \field{pages}{315\bibrangedash 321}
+    \field{series}{Lecture Notes in Business Information Processing}
+    \field{title}{{PET:} An Annotated Dataset for Process Extraction from Natural Language Text Tasks}
+    \verb{url}
+    \verb https://doi.org/10.1007/978-3-031-25383-6\_23
+    \endverb
+    \field{volume}{460}
+    \field{year}{2022}
+  \endentry
+
+  \entry{corradini2020correctness}{article}{}
+    \name{author}{6}{}{%
+      {{hash=CF}{%
+         family={Corradini},
+         familyi={C\bibinitperiod},
+         given={Flavio},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Morichetta},
+         familyi={M\bibinitperiod},
+         given={Andrea},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Polini},
+         familyi={P\bibinitperiod},
+         given={Andrea},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=RB}{%
+         family={Re},
+         familyi={R\bibinitperiod},
+         given={Barbara},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=RL}{%
+         family={Rossi},
+         familyi={R\bibinitperiod},
+         given={Lorenzo},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=TF}{%
+         family={Tiezzi},
+         familyi={T\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \keyw{BPMN 2.0, Collaborations, Sub-Processes, Message flow, Formal verification}
+    \strng{namehash}{CF+1}
+    \strng{fullhash}{CFMAPARBRLTF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{abstract}{%
+    BPMN collaboration models are commonly used to describe the behaviour and interactions of processes in an inter-organisational context. An important role in this kind of models is played both by the message flow, and by sub-processes. The interplay between these features of BPMN models can conceal subtle or unexpected effects, which makes the design activity error-prone, thus leading to the possible inclusion of incorrect behaviour. In this paper, we face this problem by providing a framework for checking the correctness of BPMN models. In particular we are interested on collaboration models that include message exchange and/or sub-processes, and with a special focus on properties well-established in the business process domain, namely safeness and soundness. To enable such a verification, we have (i) defined an operational semantics for BPMN collaborations, (ii) formalised safeness and soundness properties, and a new relaxed version of soundness for detecting situations where asynchronous messages are not handled correctly by the receiver, (iii) applied the related checks on state-space representations (i.e., labelled transition systems) of collaborations, and (iv) implemented the overall formal framework that has been also integrated in the Camunda modelling environment. The resulting verification framework and tool, named S3, have been validated in relation to its effectiveness, efficiency and usability, both by using models available on a publicly accessible repository, and by carrying out experiments with a group of designers.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.jss.2020.110594
+    \endverb
+    \field{issn}{0164-1212}
+    \field{pages}{110594}
+    \field{title}{Correctness checking for BPMN collaborations with sub-processes}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0164121220300716
+    \endverb
+    \field{volume}{166}
+    \field{journaltitle}{Journal of Systems and Software}
+    \field{year}{2020}
+  \endentry
+
   \entry{rfc2397}{misc}{}
     \name{author}{1}{}{%
       {{hash=D}{%
@@ -139,6 +280,90 @@
     \field{year}{2025}
   \endentry
 
+  \entry{koeppke2024NLP4BPM}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=KJ}{%
+         family={K{\"o}pke},
+         familyi={K\bibinitperiod},
+         given={Julius},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SAMA}{%
+         family={Safan},
+         familyi={S\bibinitperiod},
+         given={Aya M.\bibnamedelima A.},
+         giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KJSAMA1}
+    \strng{fullhash}{KJSAMA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{booktitle}{NLP4BPM Workshop at BPM 2024}
+    \field{title}{Efficient LLM-Based Conversational Process Modeling}
+    \field{year}{2024}
+  \endentry
+
+  \entry{koeppke2024BPMNChatbot}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=KJ}{%
+         family={K{\"o}pke},
+         familyi={K\bibinitperiod},
+         given={Julius},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SAMA}{%
+         family={Safan},
+         familyi={S\bibinitperiod},
+         given={Aya M.\bibnamedelima A.},
+         giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KJSAMA1}
+    \strng{fullhash}{KJSAMA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{booktitle}{BPM 2024 Demos}
+    \field{title}{Introducing the BPMN-Chatbot for Efficient LLM-Based Process Modeling}
+    \field{year}{2024}
+  \endentry
+
+  \entry{kourani2023powl}{article}{}
+    \name{author}{2}{}{%
+      {{hash=KH}{%
+         family={Kourani},
+         familyi={K\bibinitperiod},
+         given={Humam},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=vZS}{%
+         prefix={van},
+         prefixi={v\bibinitperiod},
+         family={Zelst},
+         familyi={Z\bibinitperiod},
+         given={Sebastiaan},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KHZSv1}
+    \strng{fullhash}{KHZSv1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{title}{POWL: Partially Ordered Workflow Language}
+    \verb{url}
+    \verb https://sebastiaanvanzelst.com/wp-content/uploads/2023/08/paper_6723.
+    \verb pdf
+    \endverb
+    \field{journaltitle}{arXiv preprint}
+    \field{year}{2023}
+  \endentry
+
   \entry{kourani2024promoai}{inproceedings}{}
     \name{author}{4}{}{%
       {{hash=KH}{%
@@ -197,6 +422,212 @@
     \endverb
     \field{month}{08}
     \field{year}{2024}
+  \endentry
+
+  \entry{noureldin2024hybridnala2bpmn}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=NEA}{%
+         family={Nour\bibnamedelima Eldin},
+         familyi={N\bibinitperiod\bibinitdelim E\bibinitperiod},
+         given={Ali},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=AN}{%
+         family={Assy},
+         familyi={A\bibinitperiod},
+         given={Nour},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=AO}{%
+         family={Anesini},
+         familyi={A\bibinitperiod},
+         given={Olan},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=DB}{%
+         family={Dalmas},
+         familyi={D\bibinitperiod},
+         given={Benjamin},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=GW}{%
+         family={Gaaloul},
+         familyi={G\bibinitperiod},
+         given={Walid},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NEA+1}
+    \strng{fullhash}{NEAANAODBGW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{A Decomposed Hybrid Approach to Business Process Modeling with LLMs}
+    \field{month}{11}
+    \field{year}{2024}
+  \endentry
+
+  \entry{noureldin2024nala2bpmn}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=NEA}{%
+         family={Nour\bibnamedelima Eldin},
+         familyi={N\bibinitperiod\bibinitdelim E\bibinitperiod},
+         given={Ali},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=AN}{%
+         family={Assy},
+         familyi={A\bibinitperiod},
+         given={Nour},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=AO}{%
+         family={Anesini},
+         familyi={A\bibinitperiod},
+         given={Olan},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=DB}{%
+         family={Dalmas},
+         familyi={D\bibinitperiod},
+         given={Benjamin},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=GW}{%
+         family={Gaaloul},
+         familyi={G\bibinitperiod},
+         given={Walid},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NEA+1}
+    \strng{fullhash}{NEAANAODBGW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{Nala2BPMN: Automating BPMN Model Generation with Large Language Models}
+    \field{month}{11}
+    \field{year}{2025}
+  \endentry
+
+  \entry{koeppke2025ERForum}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=SAMA}{%
+         family={Safan},
+         familyi={S\bibinitperiod},
+         given={Aya M.\bibnamedelima A.},
+         giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={K{\"o}pke},
+         familyi={K\bibinitperiod},
+         given={Julius},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SAMAKJ1}
+    \strng{fullhash}{SAMAKJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{ER Forum in ER 2025: Companion Proceedings of the 44th International Conference on Conceptual Modeling: Industrial Track, ER Forum, 8th SCME, Doctoral Consortium, Tutorials, Project Exhibitions, Posters and Demos}
+    \field{title}{A Framework for LLM-Based Conceptual Modeling: Application to BPMN Collaboration Diagrams}
+    \list{location}{1}{%
+      {Poitiers, France}%
+    }
+    \field{year}{2025}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{koeppke2025BPMNChatbotPP}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=SAMA}{%
+         family={Safan},
+         familyi={S\bibinitperiod},
+         given={Aya M.\bibnamedelima A.},
+         giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={K{\"o}pke},
+         familyi={K\bibinitperiod},
+         given={Julius},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {CEUR-WS.org}%
+    }
+    \strng{namehash}{SAMAKJ1}
+    \strng{fullhash}{SAMAKJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{Proceedings of the Best Dissertation Award, Doctoral Consortium, and Demonstration \& Resources Forum at BPM 2024 co-located with the 23rd International Conference on Business Process Management (BPM 2025)}
+    \field{title}{BPMN-Chatbot++: LLM-Based Modeling of Collaboration Diagrams with Data}
+    \list{location}{1}{%
+      {Seville, Spain}%
+    }
+    \field{year}{2025}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{schneid2021data}{report}{}
+    \name{author}{4}{}{%
+      {{hash=SK}{%
+         family={Schneid},
+         familyi={S\bibinitperiod},
+         given={Konrad},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=BSD}{%
+         family={Bernardo},
+         familyi={B\bibinitperiod},
+         given={Sascha\bibnamedelima Di},
+         giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=KH}{%
+         family={Kuchen},
+         familyi={K\bibinitperiod},
+         given={Herbert},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=TS}{%
+         family={Th\"{o}ne},
+         familyi={T\bibinitperiod},
+         given={Sebastian},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {eng}%
+    }
+    \list{publisher}{1}{%
+      {Westf\"{a}lische Wilhelms-Universit\"{a}t M\"{u}nster, European Research Center for Information Systems (ERCIS)}%
+    }
+    \keyw{650; Process-Driven Application; Data-Flow Anomalies; Control-Flow Graph Analysis; BPMN}
+    \strng{namehash}{SK+1}
+    \strng{fullhash}{SKBSDKHTS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{abstract}{%
+    Process-Driven Applications (PDA) combine Business Process Management and less-code approaches. They are typically based on executable process models, human tasks, and adapter code to external software services. Process data is shared across these artifacts, managed by a process engine. Therefore process engineers and programmers must ensure the correct data flow within these components, but also in between. However, previous approaches have only considered the data-flow analysis of those components separately. This paper provides a concept for detecting data-flow anomalies in BPMN-based Process-Driven Applications across all artifacts. The main idea is to create a single Data-Flow Analysis (DFA) graph based on the process model's abstract syntax. Call graphs representing the internal flows of the referenced source code are transformed and merged into the DFA graph. Then, the resulting graph is extended by labels indicating data-object operations occurring at its nodes. Eventually, a combined forward and backward analysis is performed to uncover data-flow anomalies as indicators of potential errors. The analysis concept was implemented as a prototype designed for the Camunda BPM Framework, proving its practicality in several case studies.%
+    }
+    \field{number}{38}
+    \field{title}{Data-Flow Analysis of BPMN-based Process-Driven Applications: Detecting anomalies across model and code}
+    \verb{url}
+    \verb https://hdl.handle.net/10419/243142
+    \endverb
+    \list{location}{1}{%
+      {M\"{u}nster}%
+    }
+    \field{type}{ERCIS Working Paper}
+    \field{year}{2021}
   \endentry
 
   \entry{shi2025bpmngen}{thesis}{}
@@ -565,6 +996,32 @@
     \endverb
     \field{eprinttype}{arXiv}
     \field{eprintclass}{cs.CL}
+    \field{year}{2024}
+  \endentry
+
+  \entry{ziche2024llm4pm}{article}{}
+    \name{author}{2}{}{%
+      {{hash=ZC}{%
+         family={Ziche},
+         familyi={Z\bibinitperiod},
+         given={Clara},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=AG}{%
+         family={Apruzzese},
+         familyi={A\bibinitperiod},
+         given={Giovanni},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZCAG1}
+    \strng{fullhash}{ZCAG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \field{booktitle}{Business Process Management (BPM) Conference -- Industry Forum}
+    \field{title}{{LLM4PM: A case study on using Large Language Models for Process Modeling in Enterprise Organizations}}
     \field{year}{2024}
   \endentry
 \enddatalist

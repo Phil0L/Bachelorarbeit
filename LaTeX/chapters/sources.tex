@@ -61,8 +61,10 @@ export abstract class Ai {
 
   public async updateBPMN(prompt: string, file: string, threadID: string, res: Response, mode: mode = "quick", 
                           stream = false, sampling: sampling = "false"): Promise<diagramResponse> {
-    const instructions = Array.prototype.concat(Ai.formatInstructions(this.format), Ai.modeInstructions(mode), await Ai.updateInstructions(threadID, this.format))
-    const promptInput = new PromptInput(instructions, prompt, await Ai.getAllChatsFromDB(threadID), undefined, file);
+    const instructions = Array.prototype.concat(Ai.formatInstructions(this.format), Ai.modeInstructions(mode), 
+                                                await Ai.updateInstructions(threadID, this.format))
+    const promptInput = new PromptInput(instructions, prompt, await Ai.getAllChatsFromDB(threadID), 
+                                        undefined, file);
     const input = this.mapPromptInput(promptInput, mode, stream);
     if (!input) throw new Error("Unable to create update input for the ai");
     const response = await this.generateContent(input, mode, stream);
@@ -112,7 +114,8 @@ export abstract class Ai {
     return input.join("\n\n");
   }
 
-  private async startResponse(obj: any, res: Response, threadId: string, mode: mode, sampling: sampling = "false"): Promise<diagramResponse | null> {
+  private async startResponse(obj: any, res: Response, threadId: string, mode: mode, 
+                              sampling: sampling = "false"): Promise<diagramResponse | null> {
     Ai.startStopwatch('format-conversion', threadId)
     const stringResponse = this.processResponse(obj);
     if (!stringResponse) throw new Error("Invalid ai response format");
@@ -124,7 +127,8 @@ export abstract class Ai {
     const prize = await this.calculatePrize(tokens);
     obj.tokens = tokens;
     obj.prize = prize;
-    if (diagramOutput.xml && this.createDebugFile) await Ai.generateDebugFile(diagramOutput.xml, threadId, obj, `${this.model} (${this.format})`);
+    if (diagramOutput.xml && this.createDebugFile) 
+      await Ai.generateDebugFile(diagramOutput.xml, threadId, obj, `${this.model} (${this.format})`);
     if (sampling !== "secondary")
       diagramOutput.threadId = threadId;
     Ai.endStopwatch('format-conversion', threadId)
@@ -137,7 +141,8 @@ export abstract class Ai {
     return false;
   }
 
-  private async startStream(obj: any, res: Response, threadId: string, mode: mode, sampling: sampling = "false"): Promise<diagramResponse | null> {
+  private async startStream(obj: any, res: Response, threadId: string, mode: mode, 
+                            sampling: sampling = "false"): Promise<diagramResponse | null> {
     const sendSSE = (event: string, payload: any) => {
       if (!payload) return
       res.write(`event: ${event}\ndata: ${payload.replace(/\r?\n/g, () => "\ndata:")}\n\n`);
@@ -162,8 +167,10 @@ export abstract class Ai {
           // diagram streaming ended
           diagramStreamFinished = true;
           sendSSE("diagram-end", this.model);
-          if (this.format == "xml") sendSSE("diagram", data.largeDiagrams.at(-1) ?? "");
-          if (this.format == "json") sendSSE("diagram", convertJsonToXml(JSON.parse(data.largeDiagrams.at(-1) ?? "")));
+          if (this.format == "xml") 
+            sendSSE("diagram", data.largeDiagrams.at(-1) ?? "");
+          if (this.format == "json") 
+            sendSSE("diagram", convertJsonToXml(JSON.parse(data.largeDiagrams.at(-1) ?? "")));
           Ai.endStopwatch('diagram-generation', threadId);
         }
         if (data && data.text && data.text.length > textBuffer.length) {
@@ -217,14 +224,16 @@ export abstract class Ai {
     const prize = await this.calculatePrize(tokens);
     obj.tokens = tokens;
     obj.prize = prize;
-    if (diagramOutput.xml && this.createDebugFile) await Ai.generateDebugFile(diagramOutput.xml, threadId, obj, `${this.model} (${this.format})`);
+    if (diagramOutput.xml && this.createDebugFile) 
+      await Ai.generateDebugFile(diagramOutput.xml, threadId, obj, `${this.model} (${this.format})`);
     if (sampling === "false")
       sendSSE("end", JSON.stringify(Ai.diagramOutputToStringVersion(diagramOutput)));
     clearInterval(heartbeat);
     return diagramOutput;
   }
 
-  protected async processStream(stream: any, token: (content: string) => void, error: (content: string) => void, debugData: (content: any) => void): Promise<void> {}
+  protected async processStream(stream: any, token: (content: string) => void, error: (content: string) => void, 
+                                debugData: (content: any) => void): Promise<void> {}
 
   protected async retrieveTokens(response: any, threadId: string): Promise<{ [key: string]: number }> {
     return {};
@@ -323,8 +332,11 @@ export abstract class Ai {
     return currDiagram;
   }
 
-  protected static async saveNewThreadToDB(threadID: string, userID: number, title: string, prompt: string, diagramOutput: diagramResponse) {
-    const messages: { text: string; author: Author; diagrams?: { create: { xmlContent: string; jsonContent: InputJsonValue; previewImageSVG?: string | null;}; }; }[]  = []
+  protected static async saveNewThreadToDB(threadID: string, userID: number, title: string, prompt: string, 
+                                           diagramOutput: diagramResponse) {
+    const messages: { text: string; author: Author; diagrams?: { create: 
+      { xmlContent: string; jsonContent: InputJsonValue; previewImageSVG?: string | null;}; 
+    }; }[]  = []
     if (diagramOutput.xml && !diagramOutput.text) {
       // message 1: prompt + xml (+ json)
       messages.push({
@@ -390,7 +402,9 @@ export abstract class Ai {
   }
 
   protected static async saveUpdatedThreadToDB(threadID: string, prompt: string, diagramOutput: diagramResponse) {
-    const messages: { text: string; threadId: string; author: Author; diagrams?: { create: { xmlContent: string; jsonContent: InputJsonValue; previewImageSVG?: string | null;}; }; }[] = []
+    const messages: { text: string; threadId: string; author: Author; diagrams?: { create: 
+      { xmlContent: string; jsonContent: InputJsonValue; previewImageSVG?: string | null;}; 
+    }; }[] = []
     if (diagramOutput.xml && !diagramOutput.text) {
       // message 1: prompt + xml (+ json)
       messages.push({
@@ -586,7 +600,8 @@ export abstract class Ai {
 
   /////////////// DEBUGGING //////////////
 
-  private static async generateDebugFile(xml: string, threadID: string, additionalDebugData?: any, model?: string): Promise<void> {
+  private static async generateDebugFile(xml: string, threadID: string, additionalDebugData?: any, 
+                                         model?: string): Promise<void> {
     try {
       const templatePath = path.join(process.cwd()!, "data/assistant/debug/template.html");
       const template = await fs.promises.readFile(templatePath, "utf8");
@@ -682,7 +697,8 @@ export abstract class Ai {
 
   //////////// PARSING OUTPUT ////////////
 
-  protected static convertResponseToDiagramOutput(response: string, format: format, mode: mode): diagramResponse | null {
+  protected static convertResponseToDiagramOutput(response: string, format: format, 
+                                                  mode: mode): diagramResponse | null {
     if (format == "xml") {
       const xml = this.convertStringToXml(response);
       const text = this.convertStringToTextPart(response, format);
@@ -763,13 +779,17 @@ export abstract class Ai {
     if (format == "xml") {
       try {
         // remove complete and large diagrams
-        input.match(/(?:``?`?\s*(?:xml)?\s*)?(?:<[^<>]*\/[^<>]*>\s*|<[^\/<>]*>[^`]*<\/[^<>]*>)+\s*(?:``?`?|(?=[^<>`\s]))\n?/g)?.forEach(match => {
+        input.match(
+/(?:``?`?\s*(?:xml)?\s*)?(?:<[^<>]*\/[^<>]*>\s*|<[^\/<>]*>[^`]*<\/[^<>]*>)+\s*(?:``?`?|(?=[^<>`\s]))\n?/g
+        )?.forEach(match => {
           strict = input.replace(match, "");
           if (match.length < MIN_DIAGRAM_LENGTH) return;
           input = input.replace(match, "");
         });
         // removing the incomplete diagram at the end
-        strict.match(/(?:``?`?\s*(?:xm?l?)?\s*)?(?:\s*(?:<[^<>`]*>?\s*|<[^\/<>`]*?>?[^<>`]*?<?\/?[^<>`]*?>?)*?)*(?:``?`?)?$/)?.forEach(match => {
+        strict.match(
+/(?:``?`?\s*(?:xm?l?)?\s*)?(?:\s*(?:<[^<>`]*>?\s*|<[^\/<>`]*?>?[^<>`]*?<?\/?[^<>`]*?>?)*?)*(?:``?`?)?$/
+        )?.forEach(match => {
           if (!match || !match.trim()) return;
           input = input.replace(match, "");
         });
@@ -837,22 +857,30 @@ export abstract class Ai {
     if (format == "xml") {
       try {
         // remove complete and large diagrams
-        text.match(/(?:``?`?\s*(?:xml)?\s*)?(?:<[^<>]*\/[^<>]*>\s*|<[^\/<>]*>[^`]*<\/[^<>]*>)+\s*(?:``?`?|(?=[^<>`\s]))\n?/g)?.forEach(match => {
+        text.match(
+/(?:``?`?\s*(?:xml)?\s*)?(?:<[^<>]*\/[^<>]*>\s*|<[^\/<>]*>[^`]*<\/[^<>]*>)+\s*(?:``?`?|(?=[^<>`\s]))\n?/g
+        )?.forEach(match => {
           strict = text.replace(match, "");
           if (match.length < MIN_DIAGRAM_LENGTH) {
             numSmallDiagrams++;
-            const diagram = match.match(/(?:<[^<>]*\/[^<>]*>\s*|<[^\/<>]*>[^`]*<\/[^<>]*>)+\s*(?=``?`?|[^<>`\s]|$)\n?/)?.at(0);
+            const diagram = match.match(
+/(?:<[^<>]*\/[^<>]*>\s*|<[^\/<>]*>[^`]*<\/[^<>]*>)+\s*(?=``?`?|[^<>`\s]|$)\n?/
+            )?.at(0);
             if (diagram) smallDiagrams.push(diagram);
           }
           else {
             numLargeDiagrams++;
             text = text.replace(match, "");
-            const diagram = match.match(/(?:<[^<>]*\/[^<>]*>\s*|<[^\/<>]*>[^`]*<\/[^<>]*>)+\s*(?=``?`?|[^<>`\s]|$)\n?/)?.at(0);
+            const diagram = match.match(
+/(?:<[^<>]*\/[^<>]*>\s*|<[^\/<>]*>[^`]*<\/[^<>]*>)+\s*(?=``?`?|[^<>`\s]|$)\n?/
+            )?.at(0);
             if (diagram) largeDiagrams.push(diagram);
           }
         });
         // removing the incomplete diagram at the end
-        strict.match(/(?:``?`?\s*(?:xm?l?)?\s*)?(?:\s*(?:<[^<>`]*>?\s*|<[^\/<>`]*?>?[^<>`]*?<?\/?[^<>`]*?>?)*?)*(?:``?`?)?$/)?.forEach(match => {
+        strict.match(
+/(?:``?`?\s*(?:xm?l?)?\s*)?(?:\s*(?:<[^<>`]*>?\s*|<[^\/<>`]*?>?[^<>`]*?<?\/?[^<>`]*?>?)*?)*(?:``?`?)?$/
+        )?.forEach(match => {
           if (!match || !match.trim()) return;
           currentlyDiagram = true;
           currentlyText = false;
@@ -862,7 +890,8 @@ export abstract class Ai {
           text = text.replace(match, "");
         });
         text = text.replace("\u0004", "")
-        return {currentlyText, currentlyDiagram, currentlyLargeDiagram, currentlySmallDiagram, numLargeDiagrams, numSmallDiagrams, largeDiagrams, smallDiagrams, currentDiagram, text};
+        return {currentlyText, currentlyDiagram, currentlyLargeDiagram, currentlySmallDiagram, 
+                numLargeDiagrams, numSmallDiagrams, largeDiagrams, smallDiagrams, currentDiagram, text};
       } catch {
         return undefined;
       }
@@ -902,7 +931,9 @@ export abstract class Ai {
         else currentlyLargeDiagram = currentlyDiagram;
         currentDiagram = diagram;
         diagrams.forEach(match => {
-          const diagram = match.match(/{(?:[{[\]},\s\d]|"[^{[\]}]*":?)*}(?=\s*``?`?|\s*[^{}[\]\s,]|,?\s*\w|$)\n?/)?.at(0) ?? "";
+          const diagram = match.match(
+/{(?:[{[\]},\s\d]|"[^{[\]}]*":?)*}(?=\s*``?`?|\s*[^{}[\]\s,]|,?\s*\w|$)\n?/
+          )?.at(0) ?? "";
           if (!diagram) return;
           if (diagram.length < MIN_DIAGRAM_LENGTH) {
             numSmallDiagrams++;
@@ -913,7 +944,8 @@ export abstract class Ai {
             largeDiagrams.push(diagram);
           }
         });
-        return {currentlyText, currentlyDiagram, currentlyLargeDiagram, currentlySmallDiagram, numLargeDiagrams, numSmallDiagrams, largeDiagrams, smallDiagrams, currentDiagram, text};
+        return {currentlyText, currentlyDiagram, currentlyLargeDiagram, currentlySmallDiagram, 
+                numLargeDiagrams, numSmallDiagrams, largeDiagrams, smallDiagrams, currentDiagram, text};
       } catch {
         return undefined;
       }
@@ -929,6 +961,27 @@ export abstract class Ai {
 \end{minted}
 
 \chapter{Anhänge}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=\textwidth]{images/diagrams/1_3_assistant}
+  \caption{Diagramm mit dem ChatGPT Assistant}
+  \label{fig:dia-assistant}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=\textwidth]{images/diagrams/1_3_json}
+  \caption{Diagramm mit der Responses API und JSON Format}
+  \label{fig:dia-responses-json}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=\textwidth]{images/diagrams/1_3_xml}
+  \caption{Diagramm mit der Responses API und XML Format}
+  \label{fig:dia-responses-xml}
+\end{figure}
 
 \begin{figure}[!htb]
   \centering
