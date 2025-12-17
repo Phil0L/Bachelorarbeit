@@ -225,3 +225,46 @@ Dennoch überwiegt in vielen Anwendungsszenarien der Qualitätsgewinn.
 In der Forschung zu Large Language Models wird Reflective Prompting daher zunehmend als 
 zentrale Methode betrachtet, um Fehlerraten zu senken und die Robustheit der 
 Antworten zu verbessern.
+
+\section{BPMN-Gen}
+
+BPMN-Gen ist ein Projekt der Universität Ulm, Institut für Datenbanken und Informationssystem.
+Das Projekt wurde von Weidl~\cite{weidl2024bpmngen} gestartet, von Shi~\cite{shi2025bpmngen} fortgeführt und 
+von weiteren Personen und Gruppen weiterentwickelt.
+Es geht in dem Projekt darum einen LLM basierten Chatbot zu entwickeln, welcher möglichst interaktiv Prozessbeschreibungen 
+in BPMN 2.0 Diagramme umwandeln kann.
+Dieser Chatbot ist als Webanwendung
+\footnote{Die Anwendung ist verfügbar unter \url{https://bpmngen.de}} und als Rest-API implementiert.
+
+\subsection{Frontend}
+
+Das Frontend ermöglicht es den Nutzerinnen und Nutzern, mit dem BPMN-Gen System zu interagieren.
+Die Grundidee besteht darin, BPMN Diagramme über Chat Interaktionen mit verschiedenen KI Modellen zu generieren.
+Nutzer können sich über eine Login- und Registrierungsseite anmelden.
+Nach dem Login erhalten sie Zugriff auf ein Dashboard, in dem sie
+neue Chats erstellen, bestehende Chats anzeigen, verwalten und fortsetzen können.
+Dabei haben sie die Möglichkeit, zwischen verschiedenen KI Modellen, Ausgabeformaten und Modi für die BPMN Diagrammgenerierung zu wählen.
+Zusätzlich können Dateien als Eingabe für die KI Modelle bereitgestellt werden, beispielsweise bereits vorhandene BPMN Diagramme.
+Die Chat Interaktion kann sowohl über Texteingabe als auch über Spracheingabe erfolgen.
+Das Frontend ist mit Angular umgesetzt und nutzt die Bibliothek bpmn-js zur Darstellung und Bearbeitung von BPMN Diagrammen.
+
+In dieser Arbeit wird nicht weiter auf das Frontend eingegangen, sondern fokusiert ausschließlich auf dem Backend.
+
+\subsection{Backend}
+
+Das Backend stellt den Zugriff auf mehrere KI-APIs, sowie eine Nutzer- und Threadverwaltung bereit.
+Die Implemtierung ist darauf ausgelegt, BPMN-Diagramme aus Benutzereingaben zu generieren. 
+Diese Eingaben können in Form von Text, Bildern, Dokumenten oder natürlicher Sprache erfolgen.
+Der Server kann Create- und Update-Anfragen für Diagramme entgegennehmen und leitet diese an die KI-API weiter.
+Die Antwort des Servers hängt dabei vom gewählten KI-Modell und dem angeforderten Ausgabeformat ab.
+Alle generierten Diagramme werden in einer durch Prisma erzeugten Postgres Datenbank gespeichert.
+Das Backend basiert auf Express.js, welches als Webserver Framework für die Verarbeitung von 
+HTTP-Anfragen, Routing und Middleware eingesetzt wird.
+
+\section{Thread}
+
+Ein Thread ist ein fortlaufender Gesprächsverlauf zwischen einem Nutzer und einem KI-Modell. 
+In einem Thread werden alle Nachrichten, also Fragen, Antworten und Kontext, gespeichert, 
+sodass das Modell den Zusammenhang früherer Beiträge berücksichtigen kann. 
+Dadurch kann die KI besser reagieren, sich auf bereits Gesagtes beziehen und ein Gespräch 
+weiterführen, anstatt jede Anfrage isoliert zu behandeln.

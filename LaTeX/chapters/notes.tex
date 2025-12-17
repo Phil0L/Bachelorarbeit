@@ -1,38 +1,60 @@
 \chapter*{Notizen}
 
-Diagrammvergelich Assistants zu responses
-
-Prompts in Anhang und in 3.1.3 darauf verweisen.
-
 Basics:
 Thread, BPMN-Gen Frontend,
 
 Referenzierte arbeiten noch deutlich machen was bei bpmngen besser ist.
 
-0 doc-10.1
-1 doc-10.12
-2 doc-1.2
-3 doc-10.2
-4 doc-1.4
-5 doc-3.8
-6 doc-10.4
-7 doc-10.7
-8 doc-9.1
-9 doc-10.13
-10 doc-8.1
-11 doc-2.1
-12 doc-6.2
-13 doc-3.6
-14 doc-9.4
-15 doc-9.3
-16 doc-7.1
-17 doc-8.2
-18 doc-10.14
-19 doc-8.3
-20 doc-6.3
-21 doc-10.6
-22 doc-10.9
-23 doc-1.3
+doc-10.1
+A small company manufactures customized bicycles. Whenever the sales department receives an order, a new process instance is created. A member of the sales department can then reject or accept the order for a customized bike. In the former case, the process instance is finished. In the latter case, the storehouse and the engineering department are informed. The storehouse immediately processes the part list of the order and checks the required quantity of each part. If the part is available in-house, it is reserved. If it is not available, it is back-ordered. This procedure is repeated for each item on the part list. In the meantime, the engineering department prepares everything for the assembling of the ordered bicycle. If the storehouse has successfully reserved or back-ordered every item of the part list and the preparation activity has finished, the engineering department assembles the bicycle. Afterwards, the sales department ships the bicycle to the customer and finishes the process instance.
+doc-10.12
+The EC tells the INQ about the change of his master data. The INQ notifies the IP of the change. The IP checks whether the master data can be changed at the desired time. The IP confirmes the changes of the INQ or the IP rejectes the changes of the INQ.
+doc-1.2
+A customer brings in a defective computer and the CRS checks the defect and hands out a repair cost calculation back. If the customer decides that the costs are acceptable, the process continues, otherwise she takes her computer home unrepaired. The ongoing repair consists of two activities, which are executed, in an arbitrary order. The first activity is to check and repair the hardware, whereas the second activity checks and configures the software. After each of these activities, the proper system functionality is tested. If an error is detected another arbitrary repair activity is executed, otherwise the repair is finished.
+doc-10.2
+The MPON reports the meter operation to the GO. The GO examines the application of the MPON. The GO rejects the application of the MPON or the GO confirmes the application of the MPON. The GO informs the MPOO about the registration confirmation of the MPON. The GO informs the MSPO about the registration confirmation of the MPON. The MPON and the MPOO perform the equipment acquisition and / or equipment changes. The MPON informs the GO about the failure of the entire process or the MPON informs the GO about the successful completion of the entire process. The GO informs the MPON about the failure of the overall transaction by deadline if after a maximum time limit no message of the MPON is present at the GO. If the MPON informs the GO about the failure of the entire process, the GO confirms the failure of the assignment to the MPON. If the MPON informs the GO about the successful completion of the overall process, the GO assigns the MPON. The GO confirms the assignment to the MPON. The GO informs the MPOO about the failure of the assignment of the MPON or the GO informs the MPOO about the assignment of the MPON. The GO informs the MSPO about the failure of the assignment of the MPON or the GO informs the MSPO about the assignment of the MPON. The GO informs the SP about the assignment of the MPON.
+doc-1.4
+Whenever a company makes the decision to go public, its first task is to select the underwriters. Underwriters act as financial midwives to a new issue. Usually they play a triple role: First they provide the company with procedural and financial advice, then they buy the issue, and finally they resell it to the public. Established underwriters are careful of their reputation and will not handle a new issue unless they believe the facts have been presented fairly. Thus, in addition to handling the sale of a company ’ s issue, the underwriters in effect give their seal of approval to it. They prepare a registration statement for the approval of the Securities and Exchange Commission ( SEC ). In addition to registering the issue with the SEC, they need to check that the issue complies with the so-called blue-sky laws of each state that regulate sales of securities within the state. While the registration statement is awaiting approval, underwriters begin to firm up the issue price. They arrange a road show to talk to potential investors. Immediately after they receive clearance from the SEC, underwriters fix the issue price. After that they enter into a firm commitment to buy the stock and then offer it to the public, when they haven ’ t still found any reason not to do it.
+doc-3.8
+The process starts when a customer submits a claim by sending in relevant documentation. The Notification department at the car insurer checks the documents upon completeness and registers the claim. Then, the Handling department picks up the claim and checks the insurance. Then, an assessment is performed. If the assessment is positive, a garage is phoned to authorise the repairs and the payment is scheduled ( in this order ). Otherwise, the claim is rejected. In any case ( whether the outcome is positive or negative ), a letter is sent to the customer and the process is considered to be complete.
+doc-10.4
+The MPON notifies the MPOO about equipment change intentions. The MPOO announces self dismounting to the MPON or the MPOO shall notify the MPON about no self-dismounting of the MPOO. The MPON or the MPOO perform the final reading. The MPON or the MPOO dismount the old equipment. The MPON mounts the new device. The MPON reads the meter count from the installed meter. The MPON sents the values of the final reading to the GO. The MPON tells the GO about the device changes, the master data and the meter count at installation. The GO shall notify the MSP about the device changes, the master data, the meter count at dismounting, and the meter count at installation.
+doc-10.7
+The MSPN registers the measurement at the GO. The GO examines the application of the MSPN. The GO rejects the application of the MSPN or the GO confirmes the application of the MSPN. The GO assigns the MSPN. The GO informs the MSPO about the assignment of MSPN. The GO informs the MPO about the assignment of the MSPN. The GO informs the SP about the assignment of MSPN.
+doc-9.1
+Every weekday morning, the database is backed up and then it is checked to see whether the Account Defaulter table has new records. If no new records are found, then the process should check the CRM system to see whether new returns have been filed. If new returns exist, then register all defaulting accounts and customers. If the defaulting client codes have not been previously advised, produce another table of defaulting accounts and send to account management. All of this must be completed by 2: 30 pm, if it is not, then an alert should be sent to the supervisor. Once the new defaulting account report has been completed, check the CRM system to see whether new returns have been filed. If new returns have been filed, reconcile with the existing account defaulters table. This must be completed by 4: 0 pm otherwise a supervisor should be sent a message.
+doc-10.13
+The INQ transmits the transaction data request to the IP. The IP checks the request of the INQ. The IP answers the question of the INQ depending on the outcome of the examination, i.e. Transmission of data or rejection.
+doc-8.1
+The process is triggered by the demand of a functional department to fill a post. The post is advertised, applicants apply, the applications are checked and the post is filled. The process finishes when the post was filled, precisely through the conclusion of a contract of employment.
+doc-2.1
+At the beginning the customer perceives that her subscribed service has degraded. A list with all the problem parameters is then sent to the Customer Service department of TELECO. At the customer service an employee enters ( based on the received data ) a problem report into system T.. Then the problem report is compared to the customer SLA to identify what the extent and the details of the service degradation are. Based on this, the necessary counter measures are determined including their respective priorities. An electronic service then determines the significance of the customer based on information that has been collected during the history of the contractual relationship. In case the customer is premium, the process will link to an extra problem fix process ( this process will not be detailed here ). In case the customer is of certain significance which would affect the counter measures previously decided upon, the process goes back to re-prioritize these measures otherwise the process continues. Taking together the information ( i.e. contract commitment data + prioritized actions ) a detailed problem report is created. The detailed problem report is then sent to Service Management. Service Management deals on a first level with violations of quality in services that are provided to customers. 
+After receiving the detailed problem report, Service management investigates whether the problem is analyzable at the level of their department or whether the problem may be located at Resource Provisioning. In case Service Management assesses the problem to be not analyzable by themselves, the detailed problem report is sent out to Resource Provisioning. If Service Management is sure they can analyze it, they perform the analysis and based on the outcome they create a trouble report that indicates the type of problem. After Resource Provisioning receives the detailed problem report, it is checked whether there are any possible problems. If no problems are detected, a notification about the normal service execution is created. If a problem is detected this will be analyzed by Resource Provisioning and a trouble report is created. Either trouble report or the normal execution notification will be included in a status report and sent back to Service Management. Service Management then prepares the final status report based on the received information. Subsequently it has to be determined what counter measures should be taken depending on the information in the final status report. Three alternative process paths may be taken. For the case that no problem was detected at all, the actual service performance is sent back to the Customer Service. 
+For the case that minor corrective actions are required, Service Management will undertake corrective actions by themselves. Subsequently, the problem resolution report is created and then sent out to Customer Service. After sending, this process path of Service Management ends. For the case that automatic resource restoration from Resource Provisioning is required, Service Management must create a request for automatic resource restoration. This message is then sent to Resource Provisioning. Resource Provisioning has been on-hold and waiting for a restoration request but this must happen within 2 days after the status report was sent out, otherwise Resource Provisioning terminates the process. After the restoration request is received, all possible errors are tracked. Based on the tracked errors, all necessary corrective actions are undertaken by Resource Provisioning. Then a trouble-shooting report is created. This report is sent out to Service Management; then the process ends. The trouble-shooting report is received by Service Management and this information goes then into the creation of the problem resolution report just as described for ii ). Customer Service either receives the actual service performance ( if there was no problem ) or the problem resolution report. 
+Then, two concurrent activities are triggered, i.e. i ) a report is created for the customer which details the current service performance and the resolution of the problem, and ii ) an SLA violation rebate is reported to Billing & Collections who will adjust the billing. The report for the customer is sent out to her. After all three activities are completed the process ends within Customer Service. After the customer then receives the report about service performance and problem resolution from Customer Service, the process flow at the customer also ends.
+doc-6.2
+The process starts periodically on the first of each month, when Assembler AG places an order with the supplier in order to request more product parts. a ) Assembler AG sends the order to the supplier. b ) The supplier processes the order. c ) The supplier sends an invoice to Assembler AG. d ) Assembler AG receives the invoice.
+doc-3.6
+When a claim is received, it is first checked whether the claimant is insured by the organization. If not, the claimant is informed that the claim must be rejected. Otherwise, the severity of the claim is evaluated. Based on the outcome ( simple or complex claims ), relevant forms are sent to the claimant. Once the forms are returned, they are checked for completeness. If the forms provide all relevant details, the claim is registered in the Claims Management system, which ends the Claims Notification process. Otherwise, the claimant is informed to update the forms. Upon reception of the updated forms, they are checked again.
+doc-9.4
+Once the dates are finalized ( by the Coordination Unit ), the Support Officer updates all group calendars and creates meeting folders for each meeting and ensures all appropriate documents are uploaded to system. Committee Members are advised a week before each meeting to read all related documents. The Committee Members hold their meeting, and the Support Office then produces minutes including any Action Points for each Committee Member. Within 5 working days, the Coordination Unit must conduct a QA check on the minutes, which are then sent to all Committee Members. The Support Officer then updates all departmental records.
+doc-9.3
+In November of each year, the Coordination Unit at the Town Planning Authority drafts a schedule of meetings for the next calendar year and adds draft dates to all calendars. The Support Officer then checks the dates and suggests modifications. The Coordination Unit then rechecks all dates and looks for potential conflicts. The final schedule of meeting dates is sent to all the independent Committee Members by email, who then check their diaries and advise the Coordination Unit of any conflicts.
+doc-7.1
+First, the Manager checks the open leads. Afterwards, he selects the top five ones. He then tells his Sales Assistant to call the contact person of the leads. The Sales Assistant calls each customer. If someone is interested, he sends a note to the Manager. The Manager then processes the lead. Otherwise, he calls the next customer.
+doc-8.2
+I am the HR clerk. When a vacancy is reported to me, I create a job description from the information. Sometimes there is still confusion in the message, then I must ask the Department again. I am submitting the job description for consideration and waiting for the approval. But, it can also happen that the department does not approve it, but rejects it, and requests a correction. Then I correct the description and submit it again for consideration. If the description is finally approved, I post the job.
+doc-10.14
+If the MPOO sends the bill for the temporary continuation of the metering point operations to the GO, the GO examines the bill. If the MSPO sends the bill for the temporary continuation of the measurement to the GO, the GO examines the bill. If the MSPO sends the bill for additional readings to the GO, the GO examines the bill. If the MPOO sends the bill for the equipment acquisition to the MPON or the GO, the MPON or the GO examines the bill. The GO or the MPON confirms the invoice with payment advice to the MPOO or the MSPO, or the GO or the MPON rejects the invoice of the MPOO or the MSPO.
+doc-8.3
+I am the Head of the functional department. When I have detected a number of personnel requirements, I report the vacancy to the Personnel Department. Then I wait to get the job description for review before it is advertized. Under certain circumstances, I must ask for corrections again, otherwise I approve the job description. Sometimes it also happens that the colleague from the HR department still has questions about the tasks and requirements before he can describe the job. Then I am available for clarifications, of course.
+doc-6.3
+Every time we get a new order from the sales department, first, one of my masters determines the necessary parts and quantities as well as the delivery date. Once that information is present, it has to be entered into our production planning system ( PPS ). It optimizes our production processes and creates possibly uniform work packages so that the setup times are minimized. Besides, it creates a list of parts to be procured. Unfortunately it is not coupled correctly to our Enterprise Resource Planning system ( ERP ), so the data must be transferred manually. By the way, that is the second step. Once all the data is present, we need to decide whether any parts are missing and must be procured or if this is not necessary. Once production is scheduled to start, we receive a notice from the system and an employee takes care of the implementation. Finally, the order will be checked again for its quality.
+doc-10.6
+The MSPN sents a dismissal to the MSPO. The MSPO reviews the dismissal. The MSPO rejects the dismissal of the MSPN or The MSPO confirms the dismissal of the MSPN.
+doc-10.9
+The SP / PU / GO request changes to the MPO or the MPO himself causes a change. The MPO reviews the change request. The MPO rejects the change of the measuring point by the SP / PU / GO or the MPO confirmes the request of the SP / PU / GO. The MPO performs the measuring point change. The MPO reports the implementation to the SP / PU / GO or notifies the SP / PU / GO about the failure of the changes.
+doc-1.3
 The Evanstonian is an upscale independent hotel. When a guest calls room service at The Evanstonian, 
 the room-service manager takes down the order. She then submits an order ticket to the kitchen to 
 begin preparing the food. She also gives an order to the sommelier (i.e., the wine waiter) to fetch 
@@ -43,24 +65,69 @@ tablecloth on the cart and gathers silverware). The waiter is also responsible f
 drinks. Once the food, wine, and cart are ready, the waiter delivers it to the guest` s room. After 
 returning to the room-service station, the waiter debits the guest` s account. The waiter may wait 
 to do the billing if he has another order to prepare or deliver.
-24 doc-2.2
-25 doc-5.3
-26 doc-10.8
-27 doc-10.10
-28 doc-4.1
-29 doc-9.2
-30 doc-10.3
-31 doc-5.2
-32 doc-6.1
-33 doc-6.4
-34 doc-9.5
-35 doc-10.5
-36 doc-3.2
-37 doc-3.5
-38 doc-5.1
-39 doc-3.3
-40 doc-3.1
-41 doc-3.7
-42 doc-10.11
-43 doc-5.4
-44 doc-1.1
+doc-2.2
+doc-5.3
+doc-10.8
+doc-10.10
+doc-4.1
+doc-9.2
+doc-10.3
+doc-5.2
+doc-6.1
+doc-6.4
+doc-9.5
+doc-10.5
+doc-3.2
+doc-3.5
+doc-5.1
+doc-3.3
+doc-3.1
+doc-3.7
+doc-10.11
+doc-5.4
+doc-1.1
+
+Der Kunde sendet online seine Bestellung an die E-Commerce-Plattform.
+Dort wird parallel in der Finanzbuchhaltung die Zahlungsautorisierung angefragt, wobei eine Kreditprüfung (automatisch, manuell nur über 200€) erfolgt.
+Die Finanzbuchhaltung meldet dann „Zahlung OK“ oder „abgelehnt“ zurück, wobei nach einer Stunde ohne Antwort eine Erinnerung folgt.
+Gleichzeitig verzweigt der Prozess: Es wird für jeden Artikel der Bestand beim Lager \& Logistik angefragt, und wenn ein Artikel eine Sonderanfertigung ist, 
+geht zusätzlich eine Anfrage an die Fertigung. Im Lager wird bei Verfügbarkeit reserviert, bei Nichtverfügbarkeit der Kunde informiert und eine Nachbestellung ausgelöst.
+Die Fertigung beginnt den Subprozess der Sonderanfertigung und sendet nach Abschluss eine Fertigstellungsnachricht an die Plattform und eine Abholbereitmeldung ans Lager.
+Die E-Commerce Plattform wartet auf alle Rückmeldungen. Bei Zahlungsablehnung wird alles storniert und der Kunde benachrichtigt.
+Bei Erfüllung geht der Kommissionierungsauftrag ans Lager (mit Eskalation an den Manager nach 48 Stunden).
+Das Lager kommissioniert, verpackt und sendet den Lieferschein an die Finanzbuchhaltung sowie eine Abholanforderung an den Versanddienstleister.
+
+Kunde:
+Start, Bestellung
+Benachrichtigung, Ende
+
+E-Commerce-Plattform:
+Bestellung empfangen, AND: Zahlungsautorisierung angefragt mit Errinnerung, Bestand beim Lager \& Logistik angefragt, WENN Sonderanfertigung Anfragen
+Zahlung empfangen, Lager empfangen, Fertigung empfangen, 
+OR keine zahlung: stornieren, kunde benachrichtigen, zahlung: Kommissionierungsauftrag an lager und eskalation
+
+Finanzbuchhaltung:
+Zahlungsanfrage, Kreditprüfung, manuell über 200 oder automatisch, rückmelden
+lieferschein empfangen
+
+Lager & Logistik:
+Bestandsanfrage, OR Verfügbar: reserviert, Nicht: Kunde informieren, nachbestellen
+Kommissionierungsauftrag, kommissionieren, verpacken, lieferschein senden, abholanforderung senden
+
+Fertigung:
+Fertigung empfangen, SUBPROZESS, Fertigstellung senden, Abholinfo senden.
+
+Versanddienstleiter:
+Abholanforderung empfangen
+
+4.1 json 15
+4.1 xml alle flows 40
+5.1 json alles verschoben 9
+5.1 xml 7
+5.2 json 1
+5.2 xml 1
+grok 4 json 8
+grok 4 xml 3
+fast json 5
+xml 2
+

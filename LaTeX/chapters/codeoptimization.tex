@@ -114,7 +114,8 @@ Eine mit der Definition des verwendeten JSON-Formats und eine mit allgemeinen Re
 Die beiden PDF-Dokumente umfassen zusammen mehr als 10 MB und über 100 Seiten Text. 
 Da ChatGPT bereits ein solides Grundverständnis von BPMN-Diagrammen besitzt, werden diese umfangreichen Dateien aus 
 den Instructions entfernt. 
-Mehrere Tests zeigen, dass sich diese Reduktion nicht negativ auf die Ergebnisqualität auswirkt. TODO
+Diese Reduktion wirkt sich nicht negativ auf die Ergebnisqualität aus.
+Dies wird auf Seite~\pageref{sec:quality-control} gezeigt.
 Dadurch lassen sich eine große Zahl an Tokens sowie Rechenzeit und Kosten einsparen.
 
 Die beiden verbliebenen Textdokumente werden anschließend zusammengeführt und in ein einheitliches, 
@@ -131,7 +132,7 @@ einfache als auch komplexe Diagramme interpretieren und reproduzieren kann.
 Diese Technik ist auch bereits bei anderen BPMN Chatbots getestet worden und hat sich als sinnvoll erwiesen.
 ~\cite{koeppke2025BPMNChatbotPP,kourani2024promoai,ziche2024llm4pm}
 
-\section{Formatauswahl}
+\section{Formatauswahl} \label{sec:format}
 
 Bisher wird die KI angewiesen, das Diagramm in einem eigens definierten JSON-Format zu erzeugen. 
 Dieses Format wurde jedoch speziell für diesen Anwendungsfall entworfen und existiert in dieser Form nicht offiziell.
@@ -223,9 +224,10 @@ kann sinnvoll sein, da dadurch jeglicher Fehler korrigiert werden kann und die K
 entfernen kann, ohne dass die Diagrammdefinition länger wird.
 Dies haben auch andere ähnliche Projekte so entscheiden.~\cite{klievtsova2015autobpmnai,koeppke2025BPMNChatbotPP}
 
-Im Folgenden soll gezeigt werden, dass die Qualität durch die gemachten veränderungen nicht nachgelassen hat.
+\paragraph{Qualitätskontrolle} \label{sec:quality-control}
+Im Folgenden soll gezeigt werden, dass die Qualität durch die gemachten Veränderungen nicht nachgelassen hat.
 Dafür wird ein Diagramm sowohl für den alten Assistant als auch für die gemachten Änderungen erstellt.
-Für beide wird der einheitliche Prompt 1.3 aus dem PET Dataset~\cite{bellan2022pet}, sowie GPT-4.1 verwendet.
+Für alle wird der einheitliche Prompt 1.3 aus dem PET Dataset~\cite{bellan2022pet}, sowie GPT-4.1 verwendet.
 
 \noindent\fbox{
   \parbox{.96\textwidth}{
@@ -1202,7 +1204,7 @@ Danach wird der Stream geschlossen und die Übertragung ist abgeschlossen.
   }
 }
 
-\section{Schema-Constraining}
+\section{Schema-Constraining} \label{sec:schema}
 
 Schema Constraining bezeichnet die Technik, bei der das Ausgabeformat eines KI-Modells 
 durch ein vorgegebenes Schema eingeschränkt wird. 
