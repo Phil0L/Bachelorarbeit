@@ -79,7 +79,7 @@ wird diese Prozessbeschreibung in deutsch geschrieben.
         Das Lager kommissioniert, verpackt und sendet den Lieferschein an die Finanzbuchhaltung sowie eine Abholanforderung an den Versanddienstleister.
       }
     }
-    \caption{Prompt für einen Qualitätstest}
+    \caption{Komplexe Prozessbeschreibung für einen Qualitätstest}
     \label{prompt:quality-1}
 \end{prompt}
 
@@ -87,7 +87,7 @@ Vorab ist es nun wichtig zu erwähnen, dass mit diesem Prompt kein Diagramm von
 \texttt{Claude Opus 4.5} mit XML erstellt werden konnte, da dies die 
 Maximaltokenanzahl dieses Modells übersteigt.
 
-\paragraph{Formale Richtigkeit}
+\paragraph{Formale Richtigkeit} \label{sec:correctness-formal}
 Damit wird geprüft, ob das Diagramm regelkonform nach BPMN 2.0 ist.
 Hierbei ist entscheidend, wie viele formatbedingte und conventionelle Fehler in 
 dem Diagramm erzeugt werden.
@@ -178,7 +178,7 @@ ohne Zwischenformat eignet.
 Interessant ist auch, dass, obwohl Gemini 2.5 Pro und ChatGPT 5.2 kritische Fehler erstellen,
 sie bei einer nicht-kritischen Erstellung eines Diagramms auch keine elementaren Fehler erstellen.
 
-\paragraph{Semantische Richtigkeit}
+\paragraph{Semantische Richtigkeit} \label{sec:correctness-semantic}
 Hier geht es darum, ob das Modell inhaltlich korrekt ist.
 
 \begin{itemize}
@@ -218,10 +218,6 @@ hinzugefügt wurden.
     \caption{Semantische Richtigkeit}
     \label{tab:qualitat-semantisch}
 \end{table}
-
-Claude Sonnet: alle Message Flows nicht korrekt, Manager vergessen
-Gemini Flash json: alle Message Flows nicht korrekt, 
-
 
 Die Ergebnisse in Tabelle~\ref{tab:qualitat-semantisch} zeigen, dass die Modelle deutliche Unterschiede 
 hinsichtlich der Vollständigkeit der erzeugten Diagramme aufweisen. 
@@ -273,9 +269,185 @@ Gemini 2.5 Pro das beste inhaltliche Verständnis der komplexen Prozessbeschreib
 Modelle wie ChatGPT 4.1 oder Gemini 2.5 Flash mit hoher Anzahl falscher, fehlender oder unnötiger Komponenten sind hingegen für die automatisierte 
 Erstellung semantisch korrekter BPMN-Diagramme aus komplexen Textbeschreibungen nur eingeschränkt geeignet.
 
-\subsection{Modellunterschiede einfacher Diagramme}
+\subsection{Modellunterschiede mittelschwerer Diagramme}
+
+Nachdem nun getestet wurde welche Modelle sich besonders gut für komplexe Prozessbeschreibungen eignen,
+soll nun noch die Frage beantwortet werden.
+
+Welche Modelle kommen selbst mit einer mittelschweren Prozessbeschreibung nicht zurecht?
+
+Um dies herauszufinden wird die einheitliche Prozessbeschreibung~\ref{prompt:quality-2}, Dokument 1.2 des PET Datasets
+~\cite{bellan2022pet}, für alle Modelle verwendet.
+
+\begin{prompt}[H]
+  \noindent\fbox{
+    \parbox{.96\textwidth}{
+      A customer brings in a defective computer and the CRS checks the defect and hands out a repair cost 
+      calculation back. If the customer decides that the costs are acceptable, the process continues, 
+      otherwise she takes her computer home unrepaired. The ongoing repair consists of two activities, 
+      which are executed, in an arbitrary order. The first activity is to check and repair the hardware, 
+      whereas the second activity checks and configures the software. After each of these activities, the 
+      proper system functionality is tested. If an error is detected another arbitrary repair activity is 
+      executed, otherwise the repair is finished.
+    }
+  }
+  \caption{Dokument 1.2 des PET Datasets~\cite{bellan2022pet}}
+  \label{prompt:quality-2}
+\end{prompt}
+
+Es wird auch wieder zwischen den verwendeten Formaten XML und JSON, welche auf 
+Seite~\pageref{sec:format} beschrieben sind, unterschieden.
+Die Modelle, welche getestet werden sind:
+\begin{itemize}
+    \item \textbf{Gemini 2.5 Pro} 
+        erzeugt Diagramm~\ref{fig:gemini-2-5-pro-json-2} in JSON 
+        und Diagramm~\ref{fig:gemini-2-5-pro-xml-2} in XML
+    \item \textbf{Gemini 2.5 Flash} 
+        erzeugt Diagramm~\ref{fig:gemini-2-5-flash-json-2} in JSON 
+        und Diagramm~\ref{fig:gemini-2-5-flash-xml-2} in XML
+    \item \textbf{ChatGPT 5.2} 
+        erzeugt Diagramm~\ref{fig:gpt-5-2-json-2} in JSON 
+        und Diagramm~\ref{fig:gpt-5-2-xml-2} in XML
+    \item \textbf{ChatGPT 5.1} 
+        erzeugt Diagramm~\ref{fig:gpt-5-1-json-2} in JSON 
+        und Diagramm~\ref{fig:gpt-5-1-xml-2} in XML
+    \item \textbf{ChatGPT 4.1} 
+        erzeugt Diagramm~\ref{fig:gpt-4-1-json-2} in JSON 
+        und Diagramm~\ref{fig:gpt-4-1-xml-2} in XML
+    \item \textbf{Grok 4}
+        erzeugt Diagramm~\ref{fig:grok-4-json-2} in JSON 
+        und Diagramm~\ref{fig:grok-4-xml-2} in XML
+    \item \textbf{Grok 4.1 Fast}
+        erzeugt Diagramm~\ref{fig:grok-4-1-json-2} in JSON 
+        und Diagramm~\ref{fig:grok-4-1-xml-2} in XML
+    \item \textbf{Claude Opus 4.5} 
+        erzeugt Diagramm~\ref{fig:claude-opus-4-5-json-2} in JSON 
+        und Diagramm~\ref{fig:claude-opus-4-5-xml-2} in XML
+    \item \textbf{Claude Sonnet 4.5} 
+        erzeugt Diagramm~\ref{fig:claude-sonnet-4-5-json-2} in JSON
+        und Diagramm~\ref{fig:claude-sonnet-4-5-xml-2} in XML
+\end{itemize}
+
+\paragraph{Formale Richtigkeit}
+
+Wie bereits bei den komplexeren Prozessbeschreibungen wird nun die formale Richtigkeit untersucht.
+\footnote{Wie die formale Richtigkeit festgestellt wird, wir auf Seite~\ref{sec:correctness-formal} gezeigt.}
+Die Anzahl an erstellten kritischen und elementaren Fehlern ist in Tabelle~\ref{tab:qualitat-formal-2} zu sehen.
+
+\begin{table}[hbt]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|l|l|c|c|}
+    \hline
+    \multicolumn{2}{|l|}{\textbf{Modell}} & \textbf{kritische Fehler} & \textbf{elementare Fehler} \\ \hline
+    \multirow{2}{*}{\textbf{Gemini 2.5 Pro}}    & JSON & 0 & 0   \\ 
+                                                & XML  & 0 & 0   \\ \hline
+    \multirow{2}{*}{\textbf{Gemini 2.5 Flash}}  & JSON & 0 & 0   \\ 
+                                                & XML  & 0 & 8   \\ \hline
+    \multirow{2}{*}{\textbf{ChatGPT 5.1}}       & JSON & 0 & 0   \\ 
+                                                & XML  & 0 & 0   \\ \hline
+    \multirow{2}{*}{\textbf{ChatGPT 5.2}}       & JSON & 0 & 0   \\ 
+                                                & XML  & 0 & 0   \\ \hline
+    \multirow{2}{*}{\textbf{ChatGPT 4.1}}       & JSON & 0 & 0   \\ 
+                                                & XML  & 0 & 6   \\ \hline
+    \multirow{2}{*}{\textbf{Grok 4}}            & JSON & 0 & 0   \\ 
+                                                & XML  & 0 & 0   \\ \hline
+    \multirow{2}{*}{\textbf{Grok 4.1 Fast}}     & JSON & 0 & 0   \\ 
+                                                & XML  & 0 & 6   \\ \hline
+    \multirow{2}{*}{\textbf{Claude Opus 4.5}}   & JSON & 0 & 0   \\ 
+                                                & XML  & 0 & 0   \\ \hline
+    \multirow{2}{*}{\textbf{Claude Sonnet 4.5}} & JSON & 0 & 0   \\ 
+                                                & XML  & 0 & 0   \\ \hline
+  \end{tabular}
+  \caption{Formale Richtigkeit}
+  \label{tab:qualitat-formal-2}
+\end{table}
+
+Die Untersuchung der formalen Richtigkeit bei der mittelschweren Prozessbeschreibung zeigt insgesamt 
+ein deutlich besseres Ergebnis als bei den zuvor betrachteten komplexen Diagrammen. 
+Wie man in Tabelle~\ref{tab:qualitat-formal-2} sehen kann, sind bei keinem der getesteten Modelle kritische 
+Fehler aufgetreten, unabhängig vom verwendeten Ausgabeformat und Modell. 
+Dies bedeutet, dass alle erzeugten BPMN-Diagramme grundsätzlich darstellbar waren und keine 
+strukturellen Fehler enthielten.
+
+Ein Großteil der Modelle, darunter Gemini 2.5 Pro, ChatGPT 5.1, ChatGPT 5.2, Grok 4, Claude Opus 4.5,
+erzeugte sowohl im JSON- als auch im XML-Format vollständig formal korrekte 
+Diagramme ohne elementare Fehler. 
+Eine geringe Menge an elementaren Fehlern sind bei Gemini 2.5 Flash, ChatGPT 4.1 und Grok 4.1 Fast, jeweils 
+im XML-Format aufgetreten. 
+Diese Fehler betreffen zwar lediglich einzelne Diagrammbestandteile und beeinträchtigen nicht
+das ganze Diagramm, bedeuten aber, dass diese Modelle selbst bei dieser einfacheren Aufgabe Probleme haben.
+
+\paragraph{Semantische Richtigkeit}
+
+Hier soll nun auch wieder die semenatische Richtigkeit der erstellten Diagramme und damit konkret 
+auf fehlende und unnötige Elemente getestet werden.
+\footnote{Wie die semantische Richtigkeit festgestellt wird, wir auf Seite~\ref{sec:correctness-semantic} gezeigt.}
 
 
+\begin{table}[hbt]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|l|l|c|c|}
+    \hline
+    \multicolumn{2}{|l|}{\textbf{Modell}} & \textbf{fehlend} & \textbf{unnötig} \\ \hline
+    \multirow{2}{*}{\textbf{Gemini 2.5 Pro}}    & JSON & 0 & 0   \\ 
+                                                & XML  & 0 & 3   \\ \hline
+    \multirow{2}{*}{\textbf{Gemini 2.5 Flash}}  & JSON & 0 & 2   \\        
+                                                & XML  & 0 & 2   \\ \hline
+    \multirow{2}{*}{\textbf{ChatGPT 5.1}}       & JSON & 2 & 0   \\ 
+                                                & XML  & 0 & 3   \\ \hline
+    \multirow{2}{*}{\textbf{ChatGPT 5.2}}       & JSON & 0 & 1   \\ 
+                                                & XML  & 0 & 0   \\ \hline
+    \multirow{2}{*}{\textbf{ChatGPT 4.1}}       & JSON & 3 & 1   \\ 
+                                                & XML  & 0 & 3   \\ \hline
+    \multirow{2}{*}{\textbf{Grok 4}}            & JSON & 0 & 1   \\ 
+                                                & XML  & 0 & 2   \\ \hline
+    \multirow{2}{*}{\textbf{Grok 4.1 Fast}}     & JSON & 3 & 0   \\ 
+                                                & XML  & 2 & 0   \\ \hline
+    \multirow{2}{*}{\textbf{Claude Opus 4.5}}   & JSON & 0 & 2   \\ 
+                                                & XML  & 0 & 1   \\ \hline
+    \multirow{2}{*}{\textbf{Claude Sonnet 4.5}} & JSON & 0 & 4   \\ 
+                                                & XML  & 6 & 1   \\ \hline
+  \end{tabular}
+  \caption{Semantische Richtigkeit}
+  \label{tab:qualitat-semantisch-2}
+\end{table}
+
+Die Ergebnisse in Tabelle~\ref{tab:qualitat-semantisch-2} zeigen, dass die meisten Modelle 
+die mittelschwere Prozessbeschreibung inhaltlich weitgehend korrekt umsetzen können. 
+Fehlende Komponenten treten nur vereinzelt auf und betreffen vor allem ältere oder 
+schnellere Modellvarianten. 
+Unnötige Elemente werden hingegen häufiger ergänzt, beeinflussen jedoch meist nicht den 
+grundlegenden Prozessablauf.
+
+Besonders überzeugend sind ChatGPT 5.2, Gemini 2.5 Pro und Claude Opus 4.5 die besonders 
+wenige Abweichungen zu der Prozessbeschreibung haben.
+Schwächen zeigen sich bei ChatGPT 4.1, Grok 4.1 Fast und Claude Sonnet 4.5, 
+bei denen einzelne Elemente fehlen oder viele unötige hinzugefügt werden.
+
+Wichtig ist hier noch zu erwähnen, dass Gemini 2.5 Pro die mit Abstand ordentlichsten Diagramme
+erstellt hat. 
+Alle Elemte sind sinnvoll platziert, es gibt weder zu viel noch zu wenig Abstand zwischen Elementen
+und auch die Flows sind gut nachzuvollziehen.
+Dadurch zeigt Gemini 2.5 Pro einen großen Vorsprung gegenüber allen anderen getesteten Modellen.
+
+Zusammnefassend zeigen die Ergebnisse, dass mittelschwere Prozessbeschreibungen zwar von allen getesteten Modellen
+grundsätzlich verarbeitet werden können, die Qualität der Ergebnisse aber teilweise noch verbessungspotenzial hat. 
+Während formale Fehler nahezu vollständig vermieden werden, treten weiterhin einige semantische
+Fehler auf.
+Modelle wie ChatGPT 4.1, Grok 4.1 Fast und Claude Sonnet 4.5 zeigen hier deutliche Defizite, 
+was ihre Eignung für eine LLM-basierte BPMN Diagramm Erstellung einschränkt. 
+ChatGPT 5.2 und Claude Opus 4.5 erziehlen gute Ergebnisse, mit wenigen Fehlern, wodurch der
+gewünschte Prozess gut abgebildet werden kann.
+Alleinig Gemini 2.5 Pro erziehlt im Vergleich zu den anderen Modellen sehr gute Diagramme, die
+kaum Nachbearbeitung benötigen und zusätzlich noch optisch sehr ansprechend sind.
+
+\subsection{Vergleicht mit Assistant}
+
+\subsection{Schema Constraining}
+
+\subsection{Reflective Prompting}
 
 \section{Geschwindigkeit} \label{sec:speed}
 
@@ -374,6 +546,8 @@ Der Unterschied beträgt jeweils unter 10\%.
 Damit ist nun klar, dass die Variante des Stremings nicht der Variante Ohne Streamings unterliegt
 und für weitere Tests kann die Variante des Streamings verwendet werden während die Nicht 
 Streaming Variante vernachlässigt wird.
+
+\subsection{Formatunterschiede}
 
 Als nächstes soll nun untersucht werden welcher der zwei implementierten Formate \texttt{JSON}
 und \texttt{XML} sich Zeitlich besser verhält.
@@ -522,6 +696,8 @@ Dieser Geschwindigkeitsvorteil lässt sich vor allem auf die kompaktere Syntax u
 Redundanz zurückführen. 
 Insgesamt wird dadurch klar, dass JSON für performanzkritische Anwendungsfälle, 
 insbesondere bei großen oder komplexen Diagrammen, erhebliche Vorteile bietet.
+
+\subsection{Modellunterschiede}
 
 Weitergehend soll nun untersucht werden welche Modelle sich für eine Zeiteffiziente 
 Generierung eignen. Dafür werden in Abbildung~\ref{fig:timing-models} einige gänige Modelle
