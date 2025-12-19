@@ -445,6 +445,54 @@ kaum Nachbearbeitung benötigen und zusätzlich noch optisch sehr ansprechend si
 
 \subsection{Vergleicht mit Assistant}
 
+Eine weitere Interessante Frage ist:
+
+Sind Diagramme des überarbeiteten Chatbots besser als Diagramme des Assistants?
+
+Dafür werden die erstellten Diagramme
+~\ref{fig:gpt-4-1-json},~\ref{fig:gpt-4-1-json-2},
+~\ref{fig:gpt-4-1-xml} und~\ref{fig:gpt-4-1-xml-2}
+verglichen mit dem Assistant.
+Es werden nur Diagramme von ChatGPT 4.1 verglichen, das dieses Modell das fortgeschrittenste 
+Modell ist, das für den assistant verfügbar ist.
+Um die Diagramme zu vergleichen, bekommt der Assistant die gleichen 
+Prozessbeschreibungen~\ref{prompt:quality-1} und~\ref{prompt:quality-2}.
+Der Assistant erstellt daraus die Diagramme~\ref{fig:assistant-gpt-4-1} und~\ref{fig:assistant-gpt-4-1-2}
+
+\begin{table}[hbt]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|l|l|l|c|c|}
+    \hline
+    \multicolumn{2}{|l|}{\textbf{Modell}} & \textbf{Prozess} & \textbf{kritische Fehler} & \textbf{elementare Fehler} \\ \hline
+    \multirow{2}{*}{\textbf{ChatGPT 4.1}}       & JSON & 1 & 0 & 13  \\ 
+                                                & XML  & 1 & 0 & 5   \\ \hline
+    \multirow{2}{*}{\textbf{ChatGPT 4.1}}       & JSON & 2 & 0 & 0   \\ 
+                                                & XML  & 2 & 0 & 6   \\ \hline
+    \textbf{Assistant}                          & JSON & 1 & 0 & 10  \\ \hline
+    \textbf{Assistant}                          & JSON & 2 & 0 & 0   \\ \hline
+  \end{tabular}
+  \caption{Formale Richtigkeit}
+  \label{tab:qualitat-formal-3}
+\end{table}
+
+\begin{table}[hbt]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|l|l|l|c|c|}
+    \hline
+    \multicolumn{2}{|l|}{\textbf{Modell}} & \textbf{Prozess} & \textbf{fehlend} & \textbf{unnötig} \\ \hline
+    \multirow{2}{*}{\textbf{ChatGPT 4.1}}       & JSON & 1 & 15& 2  \\ 
+                                                & XML  & 1 & 40& 1   \\ \hline
+    \multirow{2}{*}{\textbf{ChatGPT 4.1}}       & JSON & 2 & 3 & 1   \\ 
+                                                & XML  & 2 & 0 & 3   \\ \hline
+    \textbf{Assistant}                          & JSON & 1 & 0 & 0   \\ \hline
+    \textbf{Assistant}                          & JSON & 2 & 0 & 0   \\ \hline
+  \end{tabular}
+  \caption{Semantische Richtigkeit}
+  \label{tab:qualitat-semantisch-3}
+\end{table}
+
 \subsection{Schema Constraining}
 
 \subsection{Reflective Prompting}
