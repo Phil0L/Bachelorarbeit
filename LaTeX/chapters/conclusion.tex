@@ -20,26 +20,29 @@ BPMN-Modellierung einzusetzen.
 \section{Ausblick}
 
 Obwohl das BPMNGen-System nun deutliche Fortschritte erzielt hat, bieten sich zahlreiche 
-Ansatzpunkte für zukünftige Entwicklungen. In diesem Abschnitt soll gezeigt werden inwiefern
+Ansatzpunkte für zukünftige Entwicklungen. In diesem Abschnitt soll gezeigt werden, inwiefern
 das Prompting und die Diagrammerstellung weiter verbessert werden könnte.
 
 \paragraph{Auto layouting} 
 Viele generierte Diagramme sind korrekt, aber optisch unübersichtlich.
-Man könnte ein KI-Layoutmodell integrieren oder ein heuristischen Ansatz wählen.
+Man könnte ein KI-Layoutmodell integrieren oder einen heuristischen Ansatz wählen.
 Es gibt hierzu bereits Ansätze wie das BPMN-Auto-Layout.
 \footnote{\url{https://github.com/bpmn-io/bpmn-auto-layout}}
 Dieses kann aber zum aktuellen Stand nicht ohne Überarbeitung zum Projekt hinzugefügt werden.
 
 \paragraph{Automatische Prozessoptimierung}
-Der BPMNGen Chatbot könnte auch ohne, dass der Nutzer ihn darum bittet, Vorschläge zur Optimierung machen.
-Dies können sowohl Semantische Vorschläge wie unnötige Elemente, fehldene Gates, etc.\ als auch Formale
-Vorschläge wie Fehlende oder Duplizierte IDs oder sogar Inhaltliche Vorschläge wie veränderte Prozesse sein.
+Der BPMNGen Chatbot könnte auch, ohne dass der Nutzer ihn darum bittet, Vorschläge zur Optimierung machen.
+Dies könnten sowohl semantische Vorschläge wie unnötige Elemente, fehlende Gates, etc.\ als auch formale
+Vorschläge wie fehlende oder duplizierte IDs oder sogar inhaltliche Vorschläge wie veränderte Prozesse sein.
 Der Bot könnte diese Vorschläge ganz ohne Aufforderung zum Beispiel als PopUp anzeigen.
 
-\paragraph{Fine Tuning} Der Chatbot könnte mit den Daten der genereirten Diagrammen weitertrainiert 
-werden. Hierbei könnte zum Beispiel mit Hilfe der Änderungen, welche der Nutzer selber durchführt,
-oder Änderungen welche der Chatbot machen soll, dem Chatbot mitgeteilt werden, was er besser machen könnte.
+\paragraph{Fine Tuning} Der Chatbot könnte mit den Daten der generierten Diagramme weitertrainiert 
+werden. 
+Hierbei könnte zum Beispiel mit Hilfe der Änderungen, welche der Nutzer selber durchführt, 
+dem Chatbot mitgeteilt werden, was er zukünftig besser machen könnte. 
+Alternativ könnten auch 
+die Änderungsanweisungen genutzt werden, um dem Chatbot Verbesserungen aufzuzeigen.
 Somit wäre es möglich, dass der Bot mit der Zeit immer besser wird.
-Es könnte hier sowohl ein generelles Fine-tuning des BPMNGen Chatbots erstellt werden,
-sowie ein Nutzerspezifisches Fine-tuning.
+Es könnte hier sowohl ein generelles Fine-Tuning des BPMNGen Chatbots erstellt werden,
+sowie ein nutzerspezifisches Fine-Tuning.
 

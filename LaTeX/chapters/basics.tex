@@ -4,16 +4,15 @@
 
 \section{Business Process Model and Notation 2.0}
 
-Business Process Model and Notation (BPMN 2.0)\cite{omg2014bpmn2} ist eine standardisierte grafische Sprache, 
+Business Process Model and Notation (BPMN 2.0)~\cite{omg2014bpmn2} ist eine standardisierte grafische Sprache, 
 die verwendet wird, um Geschäftsprozesse so zu dokumentieren, dass sie sowohl für Fachanwender 
 als auch für technische Entwickler leicht verständlich sind. 
 Ähnlich wie ein Architekt Baupläne nutzt, um Gebäude darzustellen, verwenden Business-Analysten 
 BPMN 2.0, um visuelle Darstellungen organisatorischer Arbeitsabläufe und Abläufe zu erstellen.
 
-BPMN-2.0-Diagramme\cite{omg2014bpmn2} zeigen die Abfolge von Geschäftstätigkeiten von Anfang bis Ende, 
-einschließlich was passiert, wann es passiert und wer jede Aufgabe ausführt. Ein Beispiel: 
-Ein Kundenbestellprozess könnte mit dem Eingang einer Bestellung beginnen, eine 
-Lagerbestandsprüfung und Zahlungsabwicklung durchlaufen und mit dem Versand des Produkts enden.
+BPMN 2.0 Diagramme\cite{omg2014bpmn2} zeigen die Abfolge von Tätigkeiten von Anfang bis Ende, 
+einschließlich was passiert, wann es passiert und wer jede Aufgabe ausführt. 
+Die Hauptkomponenten von BPMN 2.0 sind:
 
 \begin{enumerate}
     \item \textbf{Pools and Lanes:}
@@ -64,20 +63,21 @@ Lagerbestandsprüfung und Zahlungsabwicklung durchlaufen und mit dem Versand des
     \centering
     \includegraphics[width=\textwidth]{images/diagrams/diagram_0}
     \label{fig:bpmn-elements}
-    \caption{BPMN 2.0\cite{omg2014bpmn2} Diagramm mit allen relevanten Elementen}
+    \caption{BPMN 2.0~\cite{omg2014bpmn2} Diagramm mit allen relevanten Elementen}
   \end{figure}
 
 
 Für die Chatbot-Implementierung ist das Verständnis dieses Systems entscheidend, 
 da alle Elemente diesen Konventionen entsprechen müssen, damit sie 
-in bpmn.js korrekt dargestellt werden. 
-
+in dem Tool bpmn.js
+\footnote{\url{https://github.com/bpmn-io/bpmn-js}} 
+korrekt dargestellt werden. 
 
 \section{Large Language Models}
 
 Large Language Models (LLMs) sind Systeme, die auf der Verarbeitung und Generierung 
 natürlicher Sprache spezialisiert sind. 
-Das Konzept wurde 2017 von Vaswani et al.\cite{vaswani2023attentionneed} eigeführt.
+Das Konzept wurde 2017 von Vaswani et al.~\cite{vaswani2023attentionneed} eigeführt.
 Sie basieren auf \texttt{Deep-neural Networks}, insbesondere auf Transformer-Architekturen, die große 
 Mengen an Textdaten analysieren, um Muster, Strukturen und Zusammenhänge in der Sprache zu erkennen. 
 Durch dieses Training können LLMs sowohl Texte verstehen als auch neue Texte generieren.
@@ -93,11 +93,11 @@ Zusammenfassungen über Frage-Antwort-Systeme bis hin zu Chatbots und automatisi
 Prozessunterstützungen. 
 
 LLMs können genutzt werden, um Geschäftsprozesse in BPMN-Diagramme zu überführen. 
-Dazu analysiert das Modell natürliche Sprache, wie z.B. Prozessbeschreibungen, 
+Dazu analysiert das Modell natürliche Sprache, wie z. B. Prozessbeschreibungen, 
 Anweisungen oder Anforderungen, und 
 wandelt diese in strukturierte BPMN-Elemente wie Tasks, Events, Gateways, Pools und Lanes um. 
 LLMs können dabei sowohl die logische Abfolge der Prozessschritte erkennen als auch Verzweigungen 
-und Kommunikationsflüsse zwischen Beteiligten identifizieren.
+sowie Kommunikationsflüsse zwischen Beteiligten identifizieren.
 
 In der Praxis erfolgt dies oft in Form einer Text-zu-BPMN-Übersetzung, bei der das LLM die 
 Prozessinformationen in eine JSON- oder XML-Repräsentation überführt, die anschließend von Tools 
@@ -107,7 +107,7 @@ Standardisierung fördern und auch komplexe Abläufe automatisch konsistent dars
 
 \section{Chain of Thought}
 
-Chain of Thought beschreibt eine Methode, bei der ein Large Language Model (LLM) seine 
+Chain of Thought (CoT) beschreibt eine Methode, bei der ein Large Language Model (LLM) seine 
 Gedankenschritte offenlegt und erklärt, wie es zu einer bestimmten Antwort kommt. 
 Statt nur ein Ergebnis zu liefern, zeigt das Modell also den Weg dorthin, ähnlich wie ein Mensch, 
 der seine Überlegungen laut ausspricht. 
@@ -131,7 +131,7 @@ BPMN erfordert eine klare Struktur von Ereignissen, Aufgaben, Gateways und Ablä
 CoT ermöglicht es ChatGPT, Prozessbeschreibungen in einzelne Handlungsschritte zu zerlegen, diese 
 sinnvoll anzuordnen und anschließend die passenden BPMN-Elemente daraus abzuleiten. 
 So lässt sich Schritt für Schritt erarbeiten, welche Tasks benötigt werden, wo Entscheidungen 
-auftreten und wie die Kommunikation zwischen Rollen oder Abteilungen abgebildet werden muss. 
+auftreten und wie die Kommunikation zwischen Akteuren oder Abteilungen abgebildet werden muss. 
 Chain of Thought macht die Diagrammerstellung dadurch deutlich präziser, transparenter und 
 konsistenter.
 
@@ -145,18 +145,18 @@ verarbeitet und angezeigt werden können, wodurch die Latenz für den Nutzer deu
 Streaming findet Anwendung in vielfältigen Bereichen, etwa bei Audio- und Videoinhalten, 
 Live-Datenübertragungen oder auch der Ausgabe von Ergebnissen von KI\@. 
 Wie dieses Streaming effizient umgesetzt werden kann, wurde von Xiao et al.\ bei der 
-International Conference on Representation Learning 2024 (ICLR 2025)\cite{iclr2024streaming}
+International Conference on Representation Learning 2024 (ICLR 2025)~\cite{iclr2024streaming}
 gezeigt.
 Technisch basiert Streaming häufig auf asynchronen Datenströmen, bei denen die empfangenen Daten in 
 Echtzeit analysiert und weiterverarbeitet werden. 
 Zu den verbreiteten Übertragungsprotokollen zählen HTTP-basierte Verfahren wie 
-Server-Sent Events (SSE)\cite{fette2011sse}
+Server-Sent Events (SSE)~\cite{fette2011sse}
 oder WebSockets, die eine kontinuierliche, bidirektionale Kommunikation ermöglichen. 
 Insgesamt steigert Streaming die Geschwindigkeit der Datenverarbeitung und verbessert die Nutzererfahrung 
-durch eine Anzteige des aktuellen Zustands in Echtzeit.
+durch eine Anzeige des aktuellen Zustands in Echtzeit.
 
 Im Kontext von KI-Systemen ermöglicht Streaming die Übersendung von Modellantworten an 
-den Nutzer, noch während die Generierung der Daten läuft. 
+den Nutzer noch während die Generierung der Daten läuft. 
 Dies ist besonders relevant bei Modellen, die unter anderem auch Text erzeugen. 
 Technisch erfolgt dies meist über asynchrone Streams, die Datenpakete kontinuierlich übertragen.
 Die Textfragmente werden hier in der Regel auch \texttt{Delta} genannt.
@@ -174,10 +174,10 @@ ohne zusätzliche Infrastruktur weiterzugeben.
 Die Kodierung funktioniert, indem jeweils 24 Bit (drei Byte) in vier 6-Bit-Gruppen umgewandelt 
 und anschließend als ASCII-Zeichen dargestellt werden. 
 Dadurch vergrößert sich die Datenmenge zwar um etwa ein Drittel, sie wird jedoch vollständig 
-textkompatibel.\cite{rfc4648}
+textkompatibel.~\cite{rfc4648}
 
 Im Kontext von Webanwendungen werden Base64-kodierte Inhalte häufig in Form sogenannter 
-\texttt{Data URL}s\cite{rfc2397} übertragen. 
+\texttt{Data URL}s~\cite{rfc2397} übertragen. 
 Eine Data URL bettet die kodierten Daten direkt in einen einzigen Zeichenstring ein, der aus 
 vier Komponenten besteht: 
 \begin{enumerate}
@@ -210,7 +210,7 @@ Reflective Prompting in zwei voneinander getrennten Phasen:
 Zunächst erstellt das Modell einen ersten Entwurf, eine interne Einschätzung oder einen 
 vorläufigen Vorschlag. 
 Anschließend reflektiert das Modell diesen Entwurf, prüft auf mögliche Fehler, Unklarheiten 
-und logische Inkonsistenzen und verbessert daraufhin die Antwort.\cite{zhao2024factandreflection}
+und logische Inkonsistenzen und verbessert daraufhin die Antwort.~\cite{zhao2024factandreflection}
 
 Durch die Einbeziehung einer Reflexionsphase steigt die Wahrscheinlichkeit, dass 
 das Modell eigene Ungenauigkeiten erkennt, fehlende Teile ergänzt und konsistentere 

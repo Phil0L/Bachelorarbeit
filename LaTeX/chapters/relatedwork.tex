@@ -1,15 +1,15 @@
 \chapter{Verwandte Arbeiten} % Related Work
 
 Zunächst sind hier natürlich die zwei Arbeiten zu nennen, auf denen diese Arbeit hier basiert.
-Dies ist einmal `BPMN diagram generation with ChatGPT' von Weidl\cite{weidl2024bpmngen}
+Dies ist einmal `BPMN diagram generation with ChatGPT' von Weidl~\cite{weidl2024bpmngen}
 und `Enhancing BPMNGen: Improving LLM-based BPMN 2.0 Process Model Generation through 
-Natural Language Processing' von Shi\cite{shi2025bpmngen}.
-Diese zwei haben den Grundstein für dieses Arbeit gelegt.
+Natural Language Processing' von Shi~\cite{shi2025bpmngen}.
+Die genannten zwei Arbeiten bilden die Grundlage für dieses Arbeit.
 
 \paragraph{ProMoAI}
-Es existieren auch andere änhliche Projekte welche Prozessmodelle mit Hilfe von
+Es existieren auch andere ähnliche Projekte, welche Prozessmodelle mit Hilfe von
 LLMs erstellen.
-Dazu gehört das Projekt ProMoAi
+Dazu gehört das Projekt ProMoAI
 \footnote{\url{https://promoai.streamlit.app/}}
 von Kourani et al.~\cite{kourani2024promoai} an der RWTH Aachen University.
 ProMoAI setzt mehrere Prompting-Strategien ein, um Prozessmodelle aus Text zu erzeugen. 
@@ -19,15 +19,14 @@ damit das LLM typische Muster lernt.
 Zusätzlich nutzt ProMoAI Negative Prompting, um häufige Modellierungsfehler explizit zu 
 vermeiden. 
 Ein wichtiger Unterschied zu dieser Arbeit ist die Fokussierung auf die
-von Kourani et al.\ selber entwickelte Modellierungssprache POWL~\cite{kourani2023powl}, 
-deren Struktur und klar definierte Operatoren dazu dient, sodass das LLM 
+von Kourani et al.\ selbst entwickelte Modellierungssprache POWL~\cite{kourani2023powl}, 
+deren Struktur und klar definierte Operatoren dazu dienen, dass das LLM 
 Prozessmodelle in einem gut überprüfbaren Format generiert.
 
 \paragraph{AutoBPMN.AI}
-Ein anderes Projekt ist AutoBPMN.AI
-\footnote{\url{https://autobpmn.ai/}}
+Ein anderes Projekt ist AutoBPMN.AI\footnote{\url{https://autobpmn.ai/}}
 von Klievtsova et al.~\cite{klievtsova2015autobpmnai} an der Technischen Universität München.
-Beim diesem Projekt steht auch die konversationelle Modellierung im 
+Bei diesem Projekt steht auch, wie bei BPMNGen, die konversationelle Modellierung im 
 Vordergrund.
 AutoBPMN.AI erstellt oder updatet Prozessmodelle in einem iterativen Austausch 
 zwischen Nutzer und einem LLM, ähnlich wie bei dem Projekt dieser Arbeit.
@@ -36,14 +35,14 @@ Prozessbeschreibung inkl.\ bereits erstelltem Prozessmodell geschickt werden, wo
 Prozessmodell geantwortet wird.
 Es werden allerdings nicht BPMN 2.0 Prozessmodelle implementiert, sondern Graphen in der 
 Software CPEE~\footnote{\url{https://cpee.org/index.php?t=cpee}}.
-Für die KI wir allerdings so wie auch bei BPMNGen ein anderes Format für die KI benutzt.
+Für die KI wird allerdings so, wie auch bei BPMNGen, ein anderes Format für die KI benutzt.
 AutoBPMN.AI setzt hier auf Mermaid\footnote{\url{https://mermaid.js.org/}}.
 Dieses Format könnte auch für BPMN-Gen interessant sein.
 In den veröffentlichten Arbeiten werden die genauen Prompting-Strategien jedoch nur sehr 
 begrenzt beschrieben, sodass sich hier nur schwer konkrete Strategien ableiten lassen.
 
 \paragraph{NaLa2BPMN}
-Ein weiteres relevantes Projekt ist NaLa2BPMN\footnote{\url{https://nala2bpmn.bonitapps.com/}} 
+Ein weiteres relevantes Projekt ist NaLa2BPMN\footnote{\url{https://nala2bpmn.bonitapps.com/}},
 von Nour Eldin et al.~\cite{noureldin2024nala2bpmn, noureldin2024hybridnala2bpmn} 
 das ebenfalls LLMs zur automatischen Erzeugung von BPMN-Modellen aus Text nutzt. 
 NaLa2BPMN verfolgt einen hybriden Ansatz, bei dem der Gesamtprozess 
@@ -70,10 +69,10 @@ Der Ansatz nutzt dialogorientiertes Prompting, bei dem Nutzer in natürlicher Sp
 Anfragen an das System stellen und das LLM schrittweise Rückfragen und Modellteile 
 generiert, die in bestehende Modellierungswerkzeuge übernommen werden 
 können. 
-Hierbei ist das System sehr Änhlich wie der in dieser Arbeit verwendete Chain-of-tought
-Ansatz, mit dem Unterschied, dass PRODIGY mehr darauf ausgelegt ist einzelne Elemente des
+Hierbei ist das System sehr ähnlich wie der in dieser Arbeit verwendete Chain-of-Thought
+Ansatz, mit dem Unterschied, dass PRODIGY mehr darauf ausgelegt ist, einzelne Elemente des
 Prozessdiagramms zu optimieren, als vollständige Diagramme zu erzeugen.
-Ein zentrales Element bei LLM4PM die Integration unternehmensspezifischer Dokumentation, 
+Ein zentrales Element bei LLM4PM ist die Integration unternehmensspezifischer Dokumentation, 
 die über Retrieval-Augmented Generation eingebettet wird, 
 um das LLM mit organisationsspezifischem Kontextwissen zu versorgen und die Qualität der 
 generierten Modelle zu verbessern. 
@@ -91,7 +90,7 @@ BPM-Konferenz 2024~\cite{koeppke2024NLP4BPM} präsentiert und anschließend weit
 Im Rahmen dieses Projekts entstand außerdem eine React-basierte Anwendung~\cite{koeppke2024BPMNChatbot}
 \footnote{\url{https://bpmnchatbot.aau.at/pubserv/BPMN-Chatbot-Beta/}},
 die zur Generierung von BPMN-2.0-Diagrammen mit BPMN-Chatbot++ genutzt werden kann.
-Zwischen beiden Projekten bestehen einige Parallelen. 
+Zwischen BPMNGen und BPMN-Chatbot++ bestehen einige Parallelen. 
 Dazu zählt die dynamische
 Prompt-Generierung, durch die das Modell zum Beispiel aufgefordert werden kann, konkrete Fehler im
 Diagramm zu beheben. Ebenso wird ein Zwischenmodell in JSON erzeugt, in
@@ -100,8 +99,7 @@ dem die KI antworten soll und das anschließend mittels Model2Model-Transformati
 Few-Shot-Prompting umgestellt. 
 Auch das Schema-Constraining zur Validierung des generierten
 JSON-Modells wird wie bei BPMN-Gen verwendet.
-Ein wesentlicher Aspekt des BPMN-Chatbot++ sind die integrierten Model checking components
-~\cite{koeppke2025BPMNChatbotPP, koeppke2025ERForum}. 
+Ein wesentlicher Aspekt des BPMN-Chatbot++ sind die integrierten Model checking components~\cite{koeppke2025BPMNChatbotPP, koeppke2025ERForum}. 
 Diese sind direkt auf dem
 Zwischenmodell implementiert und ermöglichen es konkrete Fehler
 zu erkennen. 

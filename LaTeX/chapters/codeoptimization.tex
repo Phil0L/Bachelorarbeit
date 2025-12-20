@@ -6,27 +6,27 @@
 
 \chapter{Umstrukturierung und Innovation}
 
-Als erstes gilt es herauszufinden welcher Teil des Code, der zuständig für das Prompting ist, 
-wie verbessert werden kann.
-Das Projekt von Weidl\cite{weidl2024bpmngen} und Shi\cite{shi2025bpmngen} benutzt zur Erstellung 
+Als erstes gilt es herauszufinden, wie der Teil des Code, der zuständig für das Prompting ist, 
+verbessert werden kann.
+Das Projekt von Weidl~\cite{weidl2024bpmngen} und Shi~\cite{shi2025bpmngen} benutzt zur Erstellung 
 von BPMN Diagrammen die OpenAI API und verwendet hier die Technologie der Assistants\@.
 \footnote{\url{https://platform.openai.com/docs/assistants/overview}}
 
 \section{Generelle Umstrukturierungen}
 
-Während der Code gut für seinen (bisherigen) speziellen Anwendungsfall ist, können hier einige 
+Da der Code nur für seinen (bisherigen) speziellen Anwendungsfall konzipiert ist, können hier einige 
 Verbesserungen gemacht werden.
 
 \subsection{Objektorientierter Ansatz}
 
-Das Zeil ist es, den Code einfach erweiterbar und wartbar zu machen.
-Hierfür ist es wichtig, den code möglichst schnell an Änderungen der OpenAI Api anpassen zu können.
-Um das zu erreichen wird ein Objektorientierter Ansatz gewählt.
+Das Ziel ist es, den Code einfach erweiterbar und wartbar zu machen.
+Hierfür ist es wichtig, den Code möglichst schnell an Änderungen der OpenAI API anpassen zu können.
+Um das zu erreichen, wird ein objektorientierter Ansatz gewählt.
 Die objektorientierte Programmierung bietet für den Aufbau des Prompting-Codes viele Vorteile und macht die Entwicklung 
-langfristig übersichtlicher und wartbarer. 
-Wir erstellen eine abstrakte Klasse \texttt{Ai} welche die gesamte Logik des Prompting beinhält und eine Klasse \texttt{ChatGPT} 
+langfristig übersichtlicher und besser wartbar. 
+Es wird eine abstrakte Klasse \texttt{Ai} erstellt, welche die gesamte Logik des Prompting beinhält, und eine Klasse \texttt{ChatGPT} 
 welche von der AI Klasse erbt.
-Die ChatGPT Klasse muss nun nur noch Methoden implementieren, welche konkret auf die aktuelle version der API angepasst sind.
+Die ChatGPT Klasse muss nun nur noch Methoden implementieren, welche konkret auf die aktuelle Version der API angepasst sind.
 Durch die Verwendung von abstrakten Methoden wie \mintinline{typescript}{generateContent()}, 
 \mintinline{typescript}{createTitle()} oder processResponse() wird sichergestellt, 
 dass jede konkrete Implementierung dieselbe Schnittstelle einhält, 
@@ -34,11 +34,11 @@ aber ihre eigenen internen Abläufe definieren kann.
 Dies erleichtert den Austausch und die Erweiterung von Modellen, ohne den restlichen Code verändern zu müssen. 
 Darüber hinaus werden wiederkehrende Prozesse, etwa das Speichern von Verläufen, das Verarbeiten von Antworten 
 oder die Konvertierung zwischen Formaten, zentral in der Basisklasse gekapselt. 
-Falls sich die API ändert, kann dies nun einfach in der Erbenden Klasse angepasst werden, ohne die dahinterliegenden Logik verändern zu müssen.
+Falls sich die API ändert, kann dies nun einfach in der erbenden Klasse angepasst werden, ohne die dahinterliegenden Logik verändern zu müssen.
 
-So sieht nun in abgespeckter Variante die Klasse für die OpenAI API aus.
+So wie in Codeausschnitt~\ref{code:chatgpt-class} sieht nun in vereinfachter Variante die Klasse für die OpenAI API aus.
 Es gibt eine Methode \mintinline{typescript}{mapPromptInput();} um den Prompt in das richtige Format der API zu bringen,
-\mintinline{typescript}{generateContent();} um den eigentlichen API aufruf durchzuführen und \mintinline{typescript}{preocessResponse();}
+\mintinline{typescript}{generateContent();} um den eigentlichen API Aufruf durchzuführen und \mintinline{typescript}{processResponse();}
 um die Antwort der API auszulesen.
 
 \begin{code}
@@ -74,9 +74,9 @@ export class ChatGPT extends Ai {
 
 \subsection{Von Assistants zu Responses}
 
-Die Änderungen welche im vorherigen Kapitel beschrieben wurden, zeigen gleich ihren Effekt, 
-da OpenAI ankündigt ihre Assistants API einzustellen.
-Sie emfehlen einen Umzug zu einer ihrer neueren APIs\@.
+Die Änderungen, welche im vorherigen Kapitel beschrieben wurden, zeigen gleich ihren Effekt, 
+da OpenAI ankündigt, ihre Assistants API einzustellen. TODO: Umschreiben
+OpenAI empfiehlt einen Umzug zu einer ihrer neueren APIs\@.
 Für dieses Projekt wird die Responses API gewählt
 \footnote{\url{https://platform.openai.com/docs/api-reference/responses}}
 \footnote{\url{https://platform.openai.com/docs/assistants/migration}}.
@@ -102,7 +102,7 @@ Die Instructions können flexibel und situationsabhängig angepasst werden, wodu
 dynamisch steuern lässt.
 Im folgenden Abschnitt wird gezeigt, wie dieser Ansatz weiter verbessert und effizienter gestaltet werden kann.
 
-\subsection{Verbesserung der instructions}
+\subsection{Verbesserung der Instructions}
 
 Da die Instructions nun manuell mit jeder Anfrage übergeben werden, bietet sich die Möglichkeit, deren Aufbau 
 gezielt zu optimieren. 
@@ -143,17 +143,17 @@ bestimmte Kontextinformationen fehlen.
 
 Um dieses Problem zu vermeiden, wird künftig die Option ergänzt, dass die KI ihre Ausgabe auch direkt im offiziellen 
 Standardformat erzeugen kann. 
-Das Standardisierte Format für BPMN 2.0 Diagramme ist XML, 
-zu dem umfangreiche Dokumentationen und etablierte Werkzeuge existieren.\cite{omg2014bpmn2}
+Das standardisierte Format für BPMN 2.0 Diagramme ist XML, 
+zu dem umfangreiche Dokumentationen und etablierte Werkzeuge existieren.~\cite{omg2014bpmn2}
 Dennoch bietet das eigens entwickelte JSON-Format einen entscheidenden Vorteil: 
 Es besitzt eine deutlich höhere Informationsdichte und lässt sich dadurch schneller und effizienter verarbeiten.
-Aus diesem Grund haben sich einige anderen Implementierungen eines Text zu BPMN durch LLM dafür entschieden ein Zwischenformat
+Aus diesem Grund haben sich einige anderen Implementierungen eines Text zu BPMN durch LLM dafür entschieden, ein Zwischenformat
 wie das hier genannte JSON zu verwenden.
-Dazu gehört AutoBPMN.AI~\cite{klievtsova2015autobpmnai} welche auf das Format Mermaid gesetzt haben oder
-NaLa2BPMN~\cite{noureldin2024nala2bpmn} welche auch ein JSON implementieren.
-Beide Varianten, sowohl das direkte vollständige generiren als auch die Generierung mit Zwischenmodell, 
+Dazu gehört AutoBPMN.AI~\cite{klievtsova2015autobpmnai}, welche auf das Format Mermaid gesetzt haben oder
+NaLa2BPMN~\cite{noureldin2024nala2bpmn}, welche auch ein JSON implementieren.
+Beide Varianten, sowohl das direkte vollständige Generieren als auch die Generierung mit Zwischenmodell,
 haben ihre jeweiligen Stärken und Schwächen.
-Diese sind in Tabelle~\ref{tab:vor-nachteile-json-xml} zu sehen.
+Diese sind in Tabelle~\ref{tab:vor-nachteile-json-xml} gegenübergestellt.
 
 \begin{table}[H]
   \centering
@@ -163,24 +163,24 @@ Diese sind in Tabelle~\ref{tab:vor-nachteile-json-xml} zu sehen.
     \textbf{} & \textbf{JSON-Format} & \textbf{XML-Format} \\ \hline
     \textbf{Vorteile} &
     hohe Informationsdichte,\newline geringer Tokenverbrauch,\newline schnelle Generierung. &
-    Standardisiert,\newline gut dokumentiert,\newline weit verbreitet,\newline einfachere Instructions \\ \hline
+    standardisiert,\newline gut dokumentiert,\newline weit verbreitet,\newline einfachere Instructions \\ \hline
     \textbf{Nachteile} &
-    Kein Standard,\newline Lernaufwand,\newline komplizierter Konvertierungsalgorythmus. &
-    hoher Tokenverbrauch,\newline umfangreiche Syntax,\newline unübersichtlicher,\newline mehr Kosten,\newline längere Generierung.\\\hline
+    kein Standard,\newline hoher Lernaufwand,\newline komplizierter Konvertierungsalgorithmus. &
+    hoher Tokenverbrauch,\newline umfangreiche Syntax,\newline unübersichtlicher,\newline höhere Kosten,\newline längere Generierung.\\\hline
   \end{tabular}
   \caption{Vergleich der Vor- und Nachteile der unterstützten Ausgabeformate}
 \label{tab:vor-nachteile-json-xml}
 \end{table}
 
-Für die Weiterentwicklung ist ein flexibles System das Ziel, das eine dynamische Auswahl des Ausgabeformats besitzt. 
+Für die Weiterentwicklung ist das Ziel, ein flexibles System, das eine dynamische Auswahl des Ausgabeformats besitzt. 
 Dadurch kann der Nutzer selbst entscheiden, welches Format im jeweiligen Anwendungsfall die besseren Ergebnisse liefert. 
 Da sich die Formatwahl ähnlich wie die Wahl des verwendeten Modells direkt auf die Qualität der Ergebnisse auswirkt, 
 wird die Auswahlmöglichkeit direkt in die Modellkonfiguration integriert. 
 So kann beispielsweise zwischen Varianten wie `gpt-4.1-mini (xml)' und `gpt-4.1-mini (json)' gewählt werden. 
-Alternativ kann das Format such im separaten \texttt{format} Parameter angegeben werden.
+Alternativ kann das Format auch im separaten \texttt{format} Parameter angegeben werden.
 Wird kein Format angegeben, erfolgt die Ausgabe standardmäßig im XML-Format.
 
-Eine Anfrage sieht damit z.B. aus wie in Codeausschnitt~\ref{code:post-model-format}.
+Eine Anfrage sieht damit z. B. aus wie in Codeausschnitt~\ref{code:post-model-format}.
 
 \begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{json}
@@ -214,20 +214,20 @@ wodurch auch die Anzahl an Input Tokens immer weiter steigt.
 Zum anderen ist es nicht möglich, dass der Nutzer manuell Änderungen an dem Diagramm vornehmen kann
 und die KI dann mit diesen Änderungen fortfährt.
 
-Ausserdem ist ein solcher Update Block nicht im offiziellen XML Standard definiert. 
-Daher kann diese Technik nicht angewendet werden auf direkte XML-Diagramm Erstellungen.
+Außerdem ist ein solcher Update Block nicht im offiziellen XML Standard definiert. 
+Daher kann diese Technik nicht auf direkte XML-Diagramm Erstellungen angewendet werden.
 Für den weiteren Verlauf wird daher das Verfahren der Update Blöcke entfernt und stattdessen wird bei
 einer Diagrammänderung das gesamte Diagramm neu generiert.
 \footnote{Mehr dazu im Abschnitt~\ref{sec:konversationskontext}}
-Einer KI die Möglichkeit zu geben, ihre vorherigen Fehler zu aus dem Diagramm vollstänig zu beheben,
-kann sinnvoll sein, da dadurch jeglicher Fehler korrigiert werden kann und die KI zum Beispiel auch wieder Teile 
+Einer KI die Möglichkeit zu geben, ihre vorherigen Fehler aus dem Diagramm vollständig zu entfernen,
+kann sinnvoll sein, da dadurch jeglicher Fehler korrigiert werden kann und die KI zum Beispiel auch wieder Teile
 entfernen kann, ohne dass die Diagrammdefinition länger wird.
-Dies haben auch andere ähnliche Projekte so entscheiden.~\cite{klievtsova2015autobpmnai,koeppke2025BPMNChatbotPP}
+Dies haben auch andere ähnliche Projekte so entschieden.~\cite{klievtsova2015autobpmnai,koeppke2025BPMNChatbotPP}
 
 \paragraph{Qualitätskontrolle} \label{sec:quality-control}
 Im Folgenden soll gezeigt werden, dass die Qualität durch die gemachten Veränderungen nicht nachgelassen hat.
 Dafür wird ein Diagramm sowohl für den alten Assistant als auch für die gemachten Änderungen erstellt.
-Für alle wird der einheitliche Prompt 1.3 aus dem PET Dataset~\cite{bellan2022pet}, sowie GPT-4.1 verwendet.
+Für alle wird die einheitliche Prozessebschreibung, Dokument~1.3 aus dem PET Dataset~\cite{bellan2022pet}, sowie GPT-4.1 verwendet:
 
 \noindent\fbox{
   \parbox{.96\textwidth}{
@@ -243,6 +243,7 @@ Für alle wird der einheitliche Prompt 1.3 aus dem PET Dataset~\cite{bellan2022p
     to do the billing if he has another order to prepare or deliver.
   }
 }
+TODO: Float
 
 Die generierten Diagramme sind in den Abbildungen~\ref{fig:dia-assistant},~\ref{fig:dia-responses-json} und
 ~\ref{fig:dia-responses-xml} zu sehen.
@@ -267,7 +268,7 @@ Upload-Mechanismen zu benötigen.
 Eine Base64 Data URL ist eine Textdarstellung einer Datei, die direkt in eine URL eingebettet wird. 
 ~\cite{rfc2397,rfc4648}
 Dabei werden die ursprünglichen Binärdaten in ein spezielles Textformat namens Base64 umgewandelt. 
-Diese kodierten Daten beginnen typischerweise mit einer Kennzeichnung wie data:image/png;base64,\dots 
+Diese kodierten Daten beginnen typischerweise mit einer Kennzeichnung wie \texttt{data:image/png;base64,\dots }
 und enthalten danach die eigentlichen kodierten Inhalte. 
 Der große Vorteil liegt darin, dass der Browser oder die API diesen Text einfach wieder in die 
 ursprüngliche Datei zurückwandeln kann. 
@@ -276,13 +277,13 @@ JSON API-Anfragen integrieren, ohne dass zusätzliche Anfragen oder externe Spei
 erforderlich sind. 
 Dieses Verfahren ist daher besonders gut geeignet, um eine einfache, schnelle und universell 
 kompatible Dateiübertragung zu ermöglichen.
-AUsserdem wird diese Formatierung von allen relevanten LLM Anbietern unterstützt.
+Außerdem wird diese Formatierung von allen relevanten LLM Anbietern unterstützt.
 Dadurch, dass die Datei nun einfach als String übergeben werden kann, können wir die Datei dem Body 
 der Anfrage hinzufügen.
 
-Eine Anfrage sieht damit z.B. wie in Codeausschnitt~\ref{code:post-file} aus.
-Der string wird dann in Codeausschnitt~\ref{code:check-base64} auf Validität geprüft
-und dann wie in Codeausschnitt~\ref{code:chatgpt-file-format} im richtigen Format an 
+Eine Anfrage sieht damit z. B. wie in Codeausschnitt~\ref{code:post-file} aus.
+Der String wird dann in Codeausschnitt~\ref{code:check-base64} auf Validität geprüft
+und dann wie in Codeausschnitt~\ref{code:chatgpt-file-format} im richtigen Format an
 die OpenAI API gesendet:
 
 \begin{code}
@@ -329,7 +330,7 @@ const imageInstructions = {
 \section{Chain of Thought}
 
 Um die Erzeugung und Interaktion rund um BPMN-Diagramme weiter zu verbessern, wird eine 
-Technik implementiert, die als \texttt{Chain of Thought}\cite{wei2023chainofthought} bekannt ist. 
+Technik implementiert, die als \texttt{Chain of Thought}~\cite{wei2023chainofthought} bekannt ist. 
 Dieses Verfahren ermöglicht es dem Modell, komplexere Denkprozesse intern nachzuvollziehen und 
 schrittweise zu argumentieren, bevor eine Antwort erzeugt wird. 
 Dadurch kann der Dialog natürlich und strukturiert verlaufen, da der Chatbot in der Lage ist, 
@@ -405,15 +406,15 @@ Die Nachrichten werden dann auf das Wesentliche gefiltert und auf ein kompaktes 
 Die OpenAI Klasse muss dann nur noch die Nachrichten auf das von der API geforderte Format bringen und in der
 Anfrage mitschicken.
 
-Da die Anfagen an die KI immer komplexer werden, wird nun eine Klasse \texttt{PromptInput} angelegt.
-Diese Klasse beinhaltet alle Informationen welche der KI mitgesendet werden sollen.
+Da die Anfragen an die KI immer komplexer werden, wird nun eine Klasse \texttt{PromptInput} angelegt.
+Diese Klasse beinhaltet alle Informationen, welche der KI mitgesendet werden sollen.
 Bei einer Erstellung dieses Objekts können alle Rohdaten wie Instructions, Dateien oder der Chatverlauf
-übergebe werden, welche die Klasse dann automatisch formatiert.
-Ein entscheidender Schritt hierbei ist es die Teile der Nachrichten zu entfernen, in denen die KI mit einem
+übergeben werden, welche die Klasse dann automatisch formatiert.
+Ein entscheidender Schritt hierbei ist es, die Teile der Nachrichten zu entfernen, in denen die KI mit einem
 Diagramm geantwortet hat.
-Das ist wichtig, da die Diagramme viele Tokens beinhalten und eigentlich nur das aktuellste Diagram 
-wichtig ist. Hier bei kann es aber auch sein, dass das Diagramm noch vom Nutzer bearbeitet wurde.
-Um dies zu berücksichtigen sind die Diagramme nicht Teil der Nachrichten, welche mitgesendet werden.
+Das ist wichtig, da die Diagramme viele Tokens beinhalten und eigentlich nur das aktuellste Diagramm
+wichtig ist. Hierbei kann es aber auch sein, dass das Diagramm noch vom Nutzer bearbeitet wurde.
+Um dies zu berücksichtigen, sind die Diagramme nicht Teil der Nachrichten, welche mitgesendet werden.
 Die Implementierung der KI-Schnittstelle kann anschließend ein Objekt der Klasse \texttt{PromptInput} 
 entgegennehmen. 
 Dieses Objekt dient als zentrale Datenstruktur, über die alle für die Anfrage relevanten Informationen 
@@ -424,7 +425,7 @@ Eingabeformat konvertieren, sodass keine manuelle Aufbereitung mehr erforderlich
 Die Klasse \texttt{PromptInput} verfügt über die in Abbildung~\ref{code:promptinput-class} zu sehenden 
 Attribute.
 
-\begin{code}
+\begin{code}[htb]
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 export class PromptInput {
   instructions: string[];
@@ -440,24 +441,24 @@ export class PromptInput {
 Damit ist es möglich, bestehende Nachrichtenverläufe aus der Datenbank abzurufen und automatisch in 
 das benötigte Format zu überführen. 
 Die Klasse übernimmt hierbei die vollständige Strukturierung der Daten, sodass diese
-für die Kommunikation mit der KI genutzt werden können:
+für die Kommunikation mit der KI genutzt werden können.
 
-\begin{code}
-\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
-const instructions = [formatInstructions, modeInstructions];
-const chatsFromDB = getAllChatsFromDB(threadID);
-new PromptInput(instructions, prompt, chatsFromDB, file);
-\end{minted}
-\caption{PromptInput Erstellung}
-\label{code:prompt-input-creation}
-\end{code}
+% \begin{code}
+% \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
+% const instructions = [formatInstructions, modeInstructions];
+% const chatsFromDB = getAllChatsFromDB(threadID);
+% new PromptInput(instructions, prompt, chatsFromDB, file);
+% \end{minted}
+% \caption{PromptInput Erstellung}
+% \label{code:prompt-input-creation}
+% \end{code}
 
 Das so erzeugte \texttt{PromptInput}-Objekt kann anschließend durch interne Methoden in das finale 
-Format umgewandelt werden, das von der KI-Schnittstelle erwartet wird. 
+Format umgewandelt werden, das von der KI-Schnittstelle erwartet wird.~\ref{code:map-promptinput}
 Dadurch entsteht ein einheitlicher, wiederverwendbarer Datenfluss zwischen Anwendung, Datenbank und 
 Modell, der die Wartung sowie zukünftige Erweiterungen vereinfacht.
 
-\begin{code}
+\begin{code}[htb]
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 protected mapPromptInput(input: PromptInput) {   
   [...]
@@ -503,12 +504,12 @@ protected updateInstructions(threadID: string, format: format){
 \label{code:update-instructions}
 \end{code}
 
-Damit hat die KI nun alle Informationen die sie benötigt um eine Konversation führen zu können.
+Damit hat die KI nun alle Informationen, die sie benötigt, um eine Konversation führen zu können.
 
 \subsection{Konversationen} \label{sec:konversationen}
 
 Für eine vollständige Konversation benötigt die KI nun aber noch Anweisungen.
-Dafür werden der KI noch ein weiterer Block Instructions hinzugefügt.
+Dafür wird der KI noch ein weiterer Block Instructions hinzugefügt.
 Diese werden als `Update Instructions' bezeichnet.
 Diese sehen zunächst so aus:
 
@@ -587,7 +588,7 @@ Wenn man den Bot nun fragt: ``Bitte schlag mir ein Diagramm vor'', hat dieser ge
 Man kann diese Konversation jetzt fortführen und beispielsweise antworten mit 
 ``Ja, bitte generier mir das Diagramm genau so wie beschrieben''.
 Der Bot versteht, dass er nun nicht antworten, sondern ein Diagramm erstellen soll.
-Daher sendet er kein Klartext sondern direkt ein BPMN XML\@.
+Daher sendet er kein Klartext, sondern direkt ein BPMN XML\@.
 Dieses sieht in diesem Beispiel wie in Abbildung~\ref{fig:detailmode-diagram1} aus:
 
 \begin{figure}[ht]
@@ -599,8 +600,8 @@ Dieses sieht in diesem Beispiel wie in Abbildung~\ref{fig:detailmode-diagram1} a
 
 
 Es fällt auf, dass der Bot das Gateway `Ist der Artikel verfügbar' vergessen hat.
-Dies ist allerdings kein Problem da das Diagramm nun weiter durch Prompts verbessern kann.
-``Bitte bearbeite das Diagramm indem du das vergessene Gateway `Ist der Artikel verfügbar' hinzufügst''
+Dies ist allerdings kein Problem, da das Diagramm nun weiter durch Prompts verbessern kann.
+``Bitte bearbeite das Diagramm, indem du das vergessene Gateway `Ist der Artikel verfügbar' hinzufügst''.
 Der Bot erkennt nun wieder, dass keine Textantwort gewünscht ist und beginnt mit der  
 Übersendung des neuen Diagramms (\ref{fig:detailmode-diagram2}).
 
@@ -612,7 +613,7 @@ Der Bot erkennt nun wieder, dass keine Textantwort gewünscht ist und beginnt mi
 \end{figure}
 
 Das Verhalten des ChatBots entspricht damit exakt den Anforderungen: 
-Die Erstellung und Bearbeitung von Diagrammen kann vollständig interaktiv erfolgen, 
+Die Erstellung und Bearbeitung von Diagrammen kann vollständig interaktiv erfolgen
 und der Nutzer erhält abhängig vom Kontext entweder Klartext oder direkt ein BPMN-Diagramm. 
 Im gezeigten Beispiel war die Einordnung der Antwort relativ unkompliziert, 
 da jeweils eindeutig erkennbar war, ob die KI ausschließlich Text oder ausschließlich ein 
@@ -685,9 +686,9 @@ Das Regex ist in Abbildung~\ref{code:regex} zu sehen.
 Durch die Benutzung einer Non-capturing-group werden Wrapper des XML 
 (Im folgenden Beispiel dunkelblau markiert) wie zum Beispiel das 
 `\textasciigrave\textasciigrave\textasciigrave xml', automatisch entfernt.
-Alle gefundenen Übereinstimmungen werden danach auf ihre Länge geprüft um herauszufinden ob diese ein 
+Alle gefundenen Übereinstimmungen werden danach auf ihre Länge geprüft, um herauszufinden, ob diese ein 
 vollständiges Diagramm repräsentieren oder nur eine Referenz bzw. Erklärung als 
-Teil des Klartextes sind. (Im folgenden Beispiel gelb markiert)
+Teil des Klartextes sind. (In der folgenden Antwort gelb markiert)
 
 \noindent\fbox{
   \parbox{.96\textwidth}{
@@ -731,7 +732,7 @@ Durch die Integration mehrerer Anbieter kann je nach Bedarf die beste Leistung a
 und Ausfälle eines einzelnen Dienstes werden abgefedert. 
 Dies erhöht die Zuverlässigkeit und Qualität der generierten BPMN-Diagramme.
 
-Durch die objektorientierte Konfiguration der KI Schnittstelle ist es zudem sehr einfach weitere 
+Durch die objektorientierte Konfiguration der KI Schnittstelle ist es zudem sehr einfach, weitere 
 Anbieter hinzuzufügen.
 
 \subsection{Grok}
@@ -742,7 +743,7 @@ Dadurch kann der Bot bei bestimmten Aufgaben, etwa beim Interpretieren knapper A
 oder beim Erzeugen alternativer BPMN-Varianten, Ergebnisse liefern, die ChatGPT allein nicht 
 immer erreicht. 
 
-Grok kann einfach über die XAI SDK 
+Grok kann einfach über die xAI SDK 
 \footnote{\url{https://ai-sdk.dev/providers/ai-sdk-providers/xai}}
 und die Typescript AI SDK
 \footnote{\url{https://www.npmjs.com/package/ai}}
@@ -750,7 +751,7 @@ zu BPMN-Gen hinzugefügt werden.
 
 Hierfür wird eine Klasse Grok erstellt, welche die Ai Klasse vererbt bekommt und damit nur 
 noch die Schnittstelle der Grok API implementieren muss.
-Der entscheidende Schritt ist hierbei die zu versendende Nachricht an die Grok API vom PromptInput Objekt auf das 
+Der entscheidende Schritt ist hierbei, die zu versendende Nachricht an die Grok API vom PromptInput Objekt auf das 
 API Format zu bringen.
 Diese Konvertierung kann man in Codeauschnitt~\ref{code:grok-format} sehen.
 
@@ -813,7 +814,7 @@ und Variantenvielfalt der Ergebnisse.
 Gemini hat zum aktuellen Zeitpunkt auch einen entscheidenden Vorteil gegenüber den anderen 
 LLM Anbietern.
 Die API hat auch eine kostenlose Stufe, wodurch es möglich ist, bis zu einer gewissen 
-Menge an Anfragen, Diagramme zu erstellen, welche kein Geld kosten.
+Menge an Anfragen, kostenlose Diagramme zu erstellen.
 
 Ähnlich wie bei Grok wird nun die Klasse Gemini erstellt, welche die Schnittstelle zur API
 implementiert.
@@ -821,7 +822,7 @@ Dies passiert über die Gemini SDK
 \footnote{\url{https://ai.google.dev/gemini-api/docs?hl=de}},
 für welche die Anfrage wieder auf das gewünschte Format gebracht werden muss.
 
-Durch Gemeini sind dannn diese Modelle alle benutzbar:
+Durch Gemini sind dann diese Modelle alle benutzbar:
 
 \begin{table}[h!]
   \centering
@@ -883,8 +884,8 @@ protected mapPromptInput(input: PromptInput) {
 \label{code:gemini-format}
 \end{code}
 
-Die Gemini API erwartet bei Jedem Textteil der Anfrage noch das Feld `thought', welches angibt
-ob dieser Teil bereit von einer KI gedacht wurde.
+Die Gemini API erwartet bei jedem Textteil der Anfrage noch das Feld `thought', welches angibt,
+ob dieser Teil bereits von einer KI gedacht wurde.
 
 \subsection{Claude}
 
@@ -898,7 +899,7 @@ gut verstanden und umgesetzt werden.
 Die Einbindung von Claude erhöht somit die Präzision und Qualität von
 BPMN-Gen.
 
-Claude wird nun wie schon bei den anderen Anietern über seine eigene Klasse zu BPMN-Gen 
+Claude wird nun wie schon bei den anderen Anbietern über seine eigene Klasse zu BPMN-Gen 
 hinzugefügt. Hierbei wird die Schnittstelle, wie in Codeausschnitt~\ref{code:claude-format},
 über die Anthropic SDK implemenitert.
 \footnote{\url{https://platform.claude.com/docs/en/api/client-sdks}}
@@ -969,7 +970,7 @@ Mit der Einführung gemischter Antworten, die sowohl Klartext als auch Diagramme
 ändert sich dies jedoch.
 
 Sobald ein Teil der Antwort aus natürlicher Sprache besteht, entsteht ein klarer Vorteil beim 
-Streaming. 
+Streaming:
 Textinhalte können bereits angezeigt werden, während der restliche Output noch generiert wird. 
 Dadurch erhält der Nutzer deutlich schneller Rückmeldung, was insbesondere bei komplexeren oder 
 längeren Antworten zu einem spürbar verbesserten Nutzungserlebnis führt.
@@ -986,12 +987,12 @@ Der BPMNGen-Server verarbeitet die gesamte Antwort, extrahiert den Klartext in E
 leitet ihn unmittelbar weiter, während das Diagramm erst nach seiner vollständigen Fertigstellung 
 bereitgestellt wird. 
 
-Die gestreamte Ausgabe eines LLM-Anbieters zu starten ist in den meisten Fällen unkompliziert. 
+Die gestreamte Ausgabe eines LLM-Anbieters zu starten, ist in den meisten Fällen unkompliziert. 
 Viele Modelle bieten dafür einen expliziten Parameter an, der direkt in der Anfrage gesetzt 
 werden kann. 
 Sowohl ChatGPT als auch Claude unterstützen dieses Vorgehen nativ, sodass sich das gewünschte 
 Verhalten bereits beim Abschicken des Requests konfigurieren lässt. 
-Ein entsprechendes Beispiel sieht wie folgt aus:
+Ein entsprechendes Beispiel sieht wie in Codeausschnitt~\ref{code:chatgpt-format-stream} aus.
 
 \begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
@@ -1013,7 +1014,7 @@ Andere Anbieter wie Gemini oder Grok verfolgen dagegen einen leicht unterschiedl
 stellen das Streaming über eine separate API-Funktion bereit. 
 Je nach verwendetem Endpunkt wird entweder ein normaler Text generiert oder ein Stream 
 zurückgegeben. 
-Der Wechsel zwischen beiden Varianten lässt sich dadurch einfach implementieren:
+Der Wechsel zwischen beiden Varianten lässt sich dadurch einfach implementieren, siehe~\ref{code:grok-format-stream}.
 
 \begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
@@ -1045,6 +1046,7 @@ Wird ein Stream erkannt, kann dieser anschließend mithilfe eines asynchronen It
 ausgelesen werden. 
 Die empfangenen Delta-Fragmente lassen sich so in Echtzeit weiterverarbeiten, um 
 Klartext sofort an den Client zu streamen, bevor das vollständige Diagramm erzeugt wird.
+Wie diese Deltas verarbeitet werden, ist in Codeausschnitt~\ref{code:process-stream} dargestellt.
 
 \begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
@@ -1131,7 +1133,7 @@ Form an den Client übermittelt:
   }
 }
 
-Im folgenden wird nun gezeigt welche Events für die Übertragung einer Antwort an den Client
+Im Folgenden wird nun gezeigt, welche Events für die Übertragung einer Antwort an den Client
 implementiert wurden.
 
 Der Stream beginnt mit einem \texttt{start} Event. In diesem wird dem Client die Thread-ID mitgeteilt
@@ -1140,16 +1142,16 @@ und indirekt erkenntlich gemacht, dass nun ein Stream gestartet wird.
 Da manche KI Anbieter Modelle entwickelt haben, welche zunächst Websuchen durchführen oder interne 
 Prozesse durchführen,
 kann es sein, dass zwischen dem Start des Streams und dem ersten Delta einiges an Zeit vergeht.
-Um zu verhindern, dass der Browser des Clients deshalb durch einen Timeout die Verbindung schliesst,
+Um zu verhindern, dass der Browser des Clients deshalb durch einen Timeout die Verbindung schließt,
 wird das \texttt{alive} Event implementiert.
-Dieses wird jede Sekunde gesendet und beinhaltet als data jedeglich die aktuelle Uhrzeit.
+Dieses wird jede Sekunde gesendet und beinhaltet als data lediglich die aktuelle Uhrzeit.
 
-Das erste eigentliche Daten Event ist nun das \texttt{delta} Event bis dem die tatsächlichen
-Deltas des Klartextteils versendet werden. 
-Die Deltas haben keine fixe größe und können je nach LLM Anbieter und Antwort variieren.
+Das erste eigentliche Daten Event ist nun das \texttt{delta} Event bei dem die tatsächlichen
+Deltas des Klartextteils versendet werden.
+Die Deltas haben keine fixe Größe und können je nach LLM Anbieter und Antwort variieren.
 
-Jegliche Fehler werden dem Client als \texttt{error} Event mitgleteil, wobei die Error Nachricht
-als Data mitgesendet wird. Nach einem \texttt{error} Event wird die Verbindung automatisch vom 
+Jegliche Fehler werden dem Client als \texttt{error} Event mitgeteilt, wobei die Error Nachricht
+als Data mitgesendet wird. Nach einem \texttt{error} Event wird die Verbindung automatisch vom
 Server beendet.
 
 Wenn der Server erkennt, dass gerade ein vollständiges Diagramm generiert wird, sendet er ein
@@ -1159,8 +1161,8 @@ welches dem Client mitteilt, dass das Diagramm fertig erzeugt wurde,
 sowie ein \texttt{diagram} Event, welches das fertige und formatierte Diagramm enthält.
 
 Sobald der Stream des LLMs fertig ist, wird noch ein \texttt{end} Event versendet, welches die
-gesamte Antwort als JSON versendet, genau so, wie die Antwort gewesen wäre, falls nicht an
-den Client gestreamt worden wäre. Dies ist da um mögliche Fehler bei der Übersendung des Streams
+gesamte Antwort als JSON versendet. Dieses Event sieht genau so aus, wie die Antwort gewesen wäre, wenn nicht an
+den Client gestreamt worden wäre. Dadurch ist es möglich, Fehler bei der Übersendung des Streams
 ausbessern zu können.
 
 Final wird noch ein \texttt{save} Event versendet, welches dem Client mitteilt, dass die generierte
@@ -1168,6 +1170,7 @@ Antwort nun auch erfolgreich in der Datenbank abgespeichert wurde und nun für w
 bereit steht.
 Danach wird der Stream geschlossen und die Übertragung ist abgeschlossen.
 
+TODO: Absatz hierzu:
 \noindent\fbox{
   \parbox{.96\textwidth}{
     event: start\\
@@ -1226,22 +1229,22 @@ BPMN-Diagrammen.
 Dadurch ist sichergestellt, dass alle erzeugten Diagramme syntaktisch korrekt sind.
 Allerdings kann das Schema-Constraining nicht auf den \texttt{detail} Modus 
 angewendet werden, da dieser nach dem Design auch frei mit Klartext, Beschreibungen,
-Beispielen, Fragen und allem was gewünscht wird antworten können soll.
-Daher wird das Schema Constraining bei dem \texttt{quick} Modus verwendet.
+Beispielen, Fragen und allem, was gewünscht wird, antworten können soll.
+Daher wird das Schema Constraining nur bei dem \texttt{quick} Modus verwendet.
 
-Die Nutzung des Schema Constraining wird von allen Anbietern bereitgestellt, allerdings  
-hat auch jeder Anbieter seine eigene Umsetztung dieser Constraints.
+Die Nutzung des Schema Constraining wird von allen Anbietern bereitgestellt, allerdings
+hat auch jeder Anbieter seine eigene Umsetzung dieser Constraints.
 Alle Anbieter erlauben aber die Nutzung des Schema-Validators \texttt{zod}.
 \footnote{\url{https://zod.dev/}}
-Hierbei wird das Schema über Objects, Arrays und Enums abbilden, wobei diese jeweils
-primitive Attribute besitzen wie z.B.\@ numbers, strings, booleans, uuids, chars\dots
+Hierbei wird das Schema über Objects, Arrays und Enums abgebildet, wobei diese jeweils
+primitive Attribute besitzen wie z. B. numbers, strings, booleans, uuids, chars\dots
 
 Mit zod lässt sich sehr gut das definierte JSON Schema darstellen.
 Wie diese Schema Constraints für JSON aussehen, wird in Codeausschnitt~\ref{code:schema}
 gezeigt.
 Eine Unterstützung für XML Schemas ist leider mit Zod nur begrenzt möglich.
 
-\begin{code}
+\begin{code}[htb]
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\footnotesize, style=vs]{typescript}
 const CoordinateSchema = z.array(
   z.number().int().nonnegative()
@@ -1293,36 +1296,36 @@ const LaneSchema = z.object({
 
 \section{Diagramm-Sampling}
 
-Während die Bezeichnung \texttt{Spampling} in Bezug auf LLMs bereits eine Bedeutung
-hat, wird hier im Bezug auf BPMN Generierung nicht von Token-Sampling sondern von
+Während die Bezeichnung \texttt{Sampling} in Bezug auf LLMs bereits eine Bedeutung
+hat, wird hier im Bezug auf BPMN Generierung nicht von Token-Sampling, sondern von
 Diagramm-Sampling gesprochen.
 
 Der Begriff „Sampling“ bedeutet im Kontext von KI-Modellen allgemein: 
-``Aus einer Menge möglicher Modellantworten mehrere Alternativen erzeugen''
+Aus einer Menge möglicher Modellantworten mehrere Alternativen erzeugen.
 
 Dies bedeutet konkret, dass beim Token-Sampling mehrere Token erstellt werden und
 daraus das beste gewählt wird.
 Beim Sampling für Diagramme werden nun auch mehrere Diagramme erstellt.
 Allerdings ist es schwierig zu beurteilen, welches Diagramm nun das `beste' ist.
-Darum werden bei der erstellung der Diagramme klar festgelegt, welche Anbieter 
+Darum wird bei der Erstellung der Diagramme klar festgelegt, welche Anbieter 
 ein Diagramm erzeugen und alle werden dem Nutzer präsentiert, da dieser selber 
 am besten die Qualität beurteilen kann.
 
-Die Erstellung mehrerer Diagramme erfolgt, indem die selbe textuelle 
+Die Erstellung mehrerer Diagramme erfolgt, indem dieselbe textuelle 
 Prozessbeschreibung parallel an verschiedene Sprachmodelle bzw. KI-Anbieter 
 gesendet wird. 
 Jedes Modell generiert daraufhin ein vollständiges BPMN-Diagramm, 
-basierend auf seiner internen Architektur und Trainingsdaten. 
-Durch den gleichen Prompt wird 
-sichergestellt, dass alle Modelle unter vergleichbaren Bedingungen arbeiten und 
-somit miteinander vergleichbare Ergebnisse liefern. 
+basierend auf seiner internen Architektur und seinen Trainingsdaten. 
+Durch den gleichen Prompt wird sichergestellt, dass alle Modelle unter 
+vergleichbaren Bedingungen arbeiten und 
+so miteinander vergleichbare Ergebnisse liefern. 
 Dieser parallele Erstellungsprozess ermöglicht es, innerhalb eines einzigen 
 Ausführungsvorgangs mehrere unabhängige Modellierungen desselben Prozesses zu 
 erhalten, ohne zusätzliche Laufzeit oder iterative Interaktion mit einem einzelnen 
 Modell zu benötigen. 
 
 Da keine zusätzlichen textuellen Ausgaben benötigt werden, erfolgt die Generierung 
-der zusätzlichen Diagramme ausschließlich im \texttt{quick}-Modus. 
+der zusätzlichen Diagramme ausschließlich im \texttt{quick} Modus. 
 Die Auswahl der Modelle, die für die parallele Diagrammerzeugung genutzt werden, 
 ist flexibel und kann vom Nutzer oder vom Client als Parameter 
 der Anfrage frei bestimmt werden. 
@@ -1339,7 +1342,7 @@ Modelle erhält.
 Eine Anfrage mit Diagramm Sampling kann in etwa so aussehen wie in Anfrage 
 ~\ref{code:post-samples}.
 
-\begin{code}
+\begin{code}[htb]
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{json}
 // POST /threads
 { 
@@ -1359,7 +1362,7 @@ Eine Anfrage mit Diagramm Sampling kann in etwa so aussehen wie in Anfrage
 
 Der Code in Codeausschnitt~\ref{code:run-samples} führt die parallele Generierung 
 aller BPMN-Diagramme aus. 
-Zunächst wird anhand des ausgewählten Modells die primäre Genereierung vorbereitet.
+Zunächst wird anhand des ausgewählten Modells die primäre Generierung vorbereitet.
 Die Sampling-Modelle, hier die sekundären genannt, werden zunächst gefiltert, um 
 ungültige Einträge sowie Duplikate zu 
 entfernen, und anschließend auf maximal fünf zusätzliche Modelle begrenzt. 
@@ -1371,7 +1374,7 @@ Alle Diagramm-Generierungen, das primäre sowie die sekundären, werden schließ
 Dadurch entstehen mehrere unabhängige Modellantworten in einem einzigen 
 Ausführungsschritt, die anschließend gemeinsam an den Client geschickt werden.
 
-\begin{code}
+\begin{code}[htb]
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 const gpt = getGPT(model, format)!;
 const sampling = !!samples;
@@ -1398,7 +1401,7 @@ Zuerst erstellt das Modell einen Entwurf oder eine Einschätzung, anschließend 
 Entwurf selbstständig, reflektiert mögliche Fehler oder Unklarheiten und verbessert die Antwort 
 basierend auf dieser Selbstkritik.
 
-Dieses Vorgehen hat mehrere Vorteile. 
+Dieses Vorgehen hat mehrere Vorteile:
 Das Modell erkennt häufiger eigene Ungenauigkeiten, identifiziert logische Fehler oder fehlende 
 Details und kann dadurch qualitativ hochwertigere Ergebnisse liefern. 
 Reflective Prompting eignet sich besonders für Aufgaben, die komplexes Denken, Fehlererkennung 
@@ -1416,9 +1419,9 @@ Schritt der Generierung implementiert, bei dem das Diagramm bereits überarbeite
 es der Nutzer zu sehen bekommt.
 Da eine Generierung des Diagramms viel Zeit beansprucht, würde dies die Generierungszeit verdoppeln.
 Stattdessen wird die erste Diagrammerstellung dem Nutzer normal angezeigt.
-Wenn der Nutzer nun Änderungswünsche hat werden diese Parallel mit den Diagrammfehlern zum
-überarbeiten an die KI gesendet.
-Damit können nun Gleichzeitig Anderungswünsche des Nutzers umgesetzt werden, sowie Probleme des
+Wenn der Nutzer nun Änderungswünsche hat, werden diese parallel mit den Diagrammfehlern zum
+Überarbeiten an die KI gesendet.
+Damit können nun gleichzeitig Änderungswünsche des Nutzers umgesetzt werden sowie Probleme des
 Diagramms intern behoben werden.
 Die Implementierung wird in Codeauschnitt~\ref{code:update-instructions-reflection} auf 
 Seite~\pageref{code:update-instructions-reflection} gezeigt.
@@ -1428,16 +1431,16 @@ in einem zweiten Schritt an die KI gesendet werden, wird auch von den meisten al
 LLM-basierten BPMN-Anwendungen genutzt.\cite{kourani2024promoai,noureldin2024hybridnala2bpmn,koeppke2025BPMNChatbotPP}
 Dies ist ein optimaler Mittelweg zwischen schneller Generierung und guter Qualität.
 Die Implementierung des Reflective Prompting in BPMN-Gen ermöglicht es nun, dass Fehler automatisch ohne ein aktives Fordern
-des Nutzers korrigiert werden, parallel zu jeglichen anderen Wünschen welche der Nutzer an den Chatbot stellt.
+des Nutzers korrigiert werden, parallel zu jeglichen anderen Wünschen, welche der Nutzer an den Chatbot stellt.
 Es wird zunächst nur auf syntaktische Fehler untersucht, der Code ermöglicht aber ein einfaches Hinzufügen weiterer 
 Validierungsalgorithmen.
-Es ist ausserdem ein reines Beheben der Fehler möglich, indem eine Update Anfrage ohne Nutzertext an den BPMN-Gen
+Es ist außerdem ein reines Beheben der Fehler möglich, indem eine Update Anfrage ohne Nutzertext an den BPMN-Gen
 Chatbot gesendet wird, falls der Nutzer nur Fehler beheben möchte.
-Bei BPMN-Gen wird dieses Verfahren besonders effizient angewendet, da der Nutzer nicht expliziet Fehler korrigieren lassen
-muss und alle erkannten Fehler auch nicht dauerhaft im Chat gespeichert werden, sondern nur für das aktuellste Diagramm 
+Bei BPMN-Gen wird dieses Verfahren besonders effizient angewendet, da der Nutzer nicht explizit Fehler korrigieren lassen
+muss und alle erkannten Fehler auch nicht dauerhaft im Chat gespeichert werden, sondern nur für das aktuellste Diagramm
 an die KI gesendet werden.
 
-\begin{code}
+\begin{code}[htb]
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
 protectes updateInstructions(threadID: string, format: format){
   const diagram = await this.getLatestDiagramFromDB(threadID);
