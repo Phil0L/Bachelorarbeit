@@ -6,21 +6,21 @@ Business Process Model and Notation (BPMN) ist ein leistungsfähiges Werkzeug zu
 anschaulichen Darstellung von Geschäftsprozessen. 
 Es bietet eine standardisierte Methode zur Visualisierung von Abläufen, erleichtert deren 
 Analyse und Optimierung. 
-Ein zentrales Problem ist jedoch die Kluft zwischen Prozesswissen und der Umsetzung in 
+Ein zentrales Problem ist jedoch die Umsetzung von einem Prozess in 
 ein Diagramm.
 Deshalb werden Prozesse häufig nur in Textform beschrieben, was schnell einen Überblick 
-bietet, aber nur schwer interpretierbar und nicht visuell darstellbar ist.
+bietet, aber nur schwer zu verstehen und nicht visuell darstellbar ist.
 
 Mit modernen Large Language Models (LLMs) eröffnet sich hier eine neue 
 Möglichkeit. 
-Diese Modelle können Texte verstehen und in BPMN-geeignete Formate für Diagramme umwandeln, 
-wodurch sowohl Experten als auch Fachfremde bei Prozessdokumentationen unterstützt werden.
+Diese Modelle können Texte verstehen und in geeignete Formate für Diagramme umwandeln, 
+wodurch sowohl Experten als auch Fachfremde bei der Prozessmodellierung unterstützt werden.
 
 Wie dies umgesetzt werden kann zeigte bereits Weidl~\cite{weidl2024bpmngen} in seiner 
 Arbeit zur Erstellung von BPMN Diagrammen mit Hilfe von ChatGPT Assistants.
 Hierbei wurde ein eigenes JSON Schema entworfen, in dem ChatGPT das Diagramm beschreiben
-soll, welches dann zu dem offiziellen BPMN XML geparst wird um es dann mit einem
-BPMN.io Viewer
+soll, welches dann zu offiziellem BPMN XML geparst wird um es dann mit einem
+BPMN Viewer
 \footnote{\url{https://github.com/bpmn-io/bpmn-js}}
 anzuzeigen.
 Dieses Projekt wurde dann von Shi~\cite{shi2025bpmngen} weiter verbessert.
@@ -33,7 +33,7 @@ Außerdem ist das Prompting sehr statisch aufgebaut, sodass die KI nicht nachfra
 vorherige Nachrichten eingehen kann. 
 Das eigene JSON-Format ist zwar funktional, aber fehleranfällig und für die KI schwer zu lernen. 
 Auch die Unterstützung weiterer KI-Modelle war nicht vorgesehen, und Funktionen wie Datei-Uploads, 
-Streaming oder das gleichzeitige Erzeugen mehrerer Diagramme können nochg hinzugefügt werden. 
+Streaming oder das gleichzeitige Erzeugen mehrerer Diagramme können noch hinzugefügt werden. 
 Diese Arbeit setzt genau hier an und soll das System in diesen Punkten verbessern.
 
 \section{Problemstellung und Zielsetzung}
@@ -53,19 +53,19 @@ Unklarheiten erkennen und gegebenenfalls nachfragen können.
 Techniken wie Chain of Thought oder Reflective Prompting helfen dabei, indem sie der KI 
 dabei helfen, das gewünschte Ergebins zu erzielen. 
 Auch das Erzeugen mehrerer Diagramm-Varianten (Sampling) kann sinnvoll sein, weil so 
-vom Nutzer das beste Ergebnis ausgewählt werden kann.
+vom Nutzenden das beste Ergebnis ausgewählt werden kann.
 
 Hinzu kommt, dass es inzwischen viele verschiedene KI-Modelle gibt, die alle unterschiedliche 
 Stärken haben. 
-Ein System wie das BPMN-Gen sollte deshalb mehrere Anbieter unterstützen, damit je nach 
-Nutzervorstellung das passende Modell ausgewählt werden kann. 
+Ein System wie das BPMNGen sollte deshalb mehrere Anbieter unterstützen, damit je nach 
+Nutzervorstellung und nach aktuellen Stand der LLMs das passende Modell ausgewählt werden kann. 
 
 Außerdem spielt die Benutzerfreundlichkeit eine wichtige Rolle. 
 Funktionen wie das Hochladen von Dateien, das schrittweise Streamen von Antworten oder ein 
 dialogartiges Verhalten der KI verbessern die Nutzerefahrung.
 
-Diese Arbeit untersucht daher, wie solche Prompting-Methoden, wie man sie von modernen
-Chatbots kennt, in BPMN-Gen integriert werden können, um die KI-unterstützte Erstellung und 
+Diese Arbeit untersucht daher, wie solche Prompting Methoden, wie man sie von modernen
+Chatbots kennt, in BPMNGen integriert werden können, um die KI unterstützte Erstellung und 
 Bearbeitung von BPMN-Diagrammen besser zu machen.
 
 Hierfür werden die genannten Verbesserungsideen als Ziel dieser Arbeit gesetzt.
@@ -73,11 +73,11 @@ Hierfür werden die genannten Verbesserungsideen als Ziel dieser Arbeit gesetzt.
 \section{Struktur der Arbeit}
 
 Die Arbeit gliedert sich in mehrere Kapitel, die systematisch aufeinander aufbauen.
-Kapitel~2 behandelt die theoretischen Grundlagen, insbesondere BPMN 2.0, Large Language Models 
+Kapitel~2 behandelt die theoretischen Grundlagen, insbesondere BPMN Grundlagen
 sowie die verwendeten Prompting- und Interaktionstechniken. 
 
 Kapitel~3 bildet den praktischen Teil der Arbeit. 
-Dort wird die bestehende BPMNGen-Architektur analysiert und anschließend alle genannten Verbesserungsideen
+Dort wird die bestehende BPMNGen Architektur analysiert und anschließend alle genannten Verbesserungsideen
 implementiert. 
 Dazu gehört die Umstrukturierung zu einem objektorientierten System, 
 das mehrere KI-Anbieter unterstützt und generell besser wartbar und erweiterbar ist. 
@@ -89,6 +89,6 @@ Techniken wie Reflective Prompting und Diagramm-Sampling.
 Kapitel~4 untersucht die Performanz des erweiterten Systems. 
 Dazu werden die erzeugten Diagramme auf ihre Qualität bewertet, 
 etwa im Hinblick auf Vollständigkeit, Konsistenz und Struktur. 
-Zusätzlich wird die Geschwindigkeit der Generierung für unterschiedliche Modelle und Modi analysiert,
-sowie die Kosten, die durch verschiedene Prompting-Strategien, 
+Zusätzlich wird die Geschwindigkeit,
+sowie die Kosten der Generierung analysiert, die durch verschiedene Prompting-Strategien, 
 Modelle und Formate entstehen. 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.6)  19 DEC 2025 14:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.6)  23 DEC 2025 11:30
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1302,33 +1302,33 @@ runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > bac
 
 runsystem(del bachelorarbeit.aex)...executed.
 
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 145.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 147.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 11.39996pt on input line 145.
+(Font)              scaled to size 11.39996pt on input line 147.
  (./bachelorarbeit.aux)
 \openout1 = `bachelorarbeit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
  (d:/TexLive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count522
@@ -1384,8 +1384,8 @@ Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                - Invalid format of field 'month'.
 
 )
-Package biblatex Info: Reference section=0 on input line 145.
-Package biblatex Info: Reference segment=0 on input line 145.
+Package biblatex Info: Reference section=0 on input line 147.
+Package biblatex Info: Reference segment=0 on input line 147.
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
@@ -1394,7 +1394,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package newfloat Info: `float' package detected.
-Package hyperref Info: Link coloring OFF on input line 145.
+Package hyperref Info: Link coloring OFF on input line 147.
 (./bachelorarbeit.out) (./bachelorarbeit.out)
 \@outlinefile=\write7
 \openout7 = `bachelorarbeit.out'.
@@ -1406,7 +1406,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 145.
+(scrbook)           before \begin{document} on input line 147.
  (d:/TexLive/2023/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
  (d:/TexLive/2023/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
@@ -1416,67 +1416,67 @@ File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
 <images/logo_uulm_sw.png, id=7, 285.9483pt x 81.1833pt>
 File: images/logo_uulm_sw.png Graphic file (type png)
 <use images/logo_uulm_sw.png>
-Package pdftex.def Info: images/logo_uulm_sw.png  used on input line 153.
+Package pdftex.def Info: images/logo_uulm_sw.png  used on input line 155.
 (pdftex.def)             Requested size: 180.39706pt x 51.21504pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--154
+Underfull \hbox (badness 10000) in paragraph at lines 154--156
 
  []
 
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 155.
+(Font)              scaled to size 9.49997pt on input line 157.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 9.49997pt on input line 160.
+(Font)              scaled to size 9.49997pt on input line 162.
 
-Overfull \hbox (16.56062pt too wide) in paragraph at lines 160--160
+Overfull \hbox (16.56062pt too wide) in paragraph at lines 162--162
 \T1/phv/b/n/10 Ingenieurwissenschaften,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--160
+Underfull \hbox (badness 10000) in paragraph at lines 162--162
 \T1/phv/m/n/10 Datenbanken und
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--161
+Underfull \hbox (badness 10000) in paragraph at lines 159--163
 
  []
 
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 19.70294pt on input line 162.
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 162.
+(Font)              scaled to size 19.70294pt on input line 164.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 164.
 (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 162.
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 164.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 162.
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 164.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 162.
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 164.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 162.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 164.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 162.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 164.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 162.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 164.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 162.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 164.
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--164
+Underfull \hbox (badness 10000) in paragraph at lines 164--166
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--173
+Underfull \hbox (badness 10000) in paragraph at lines 167--175
 
  []
 
@@ -1485,19 +1485,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 165--173
 
 {d:/TexLive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{d:/TexLive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc} <./images/logo_uulm_sw.png>]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 179.
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 182.
+(Font)              scaled to size 10.40245pt on input line 181.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 184.
  (d:/TexLive/2023/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 182.
+(Font)              scaled to size 10.40245pt on input line 184.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 185.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 187.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 185.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 187.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 185.
+(Font)              scaled to size 7.59998pt on input line 187.
  (./chapters/acknowledgement.tex) (./chapters/abstract.tex [2
 
 ]
@@ -1505,17 +1505,7 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 11.39996pt on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 23.63593pt on input line 1.
-
-Overfull \hbox (7.55292pt too wide) in paragraph at lines 3--14
-\T1/phv/m/n/12 Diese Ar-beit er-wei-tert das be-ste-hen-de Sys-tem BPM-NGen von Wei-del[[]20[]] und Shi[[]16[]]
- []
-
-)
-Overfull \hbox (2.10883pt too wide) in paragraph at lines 15--194
-\T1/phv/m/n/12 und Dia-gram-man-tei-len im-ple-men-tiert. Neue Tech-ni-ken wie Diagramm-Sampling und
- []
-
-[3
+) [3
 
 ] (./bachelorarbeit.toc
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
@@ -1527,8 +1517,8 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
  [4
 
 ]
-Overfull \hbox (1.34494pt too wide) detected at line 68
- []\T1/phv/b/n/12 120
+Overfull \hbox (1.34494pt too wide) detected at line 67
+ []\T1/phv/b/n/12 121
  []
 
 )
@@ -1536,7 +1526,7 @@ Overfull \hbox (1.34494pt too wide) detected at line 68
 \openout8 = `bachelorarbeit.toc'.
 
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 11.39996pt on input line 197.
+(Font)              scaled to size 11.39996pt on input line 199.
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
@@ -1572,29 +1562,24 @@ File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [2]
-Overfull \hbox (0.86565pt too wide) in paragraph at lines 79--88
-[]\T1/phv/m/n/12 Kapitel 3 bil-det den prak-ti-schen Teil der Ar-beit. Dort wird die be-ste-hen-de BPMNGen-
- []
-
-) (./chapters/basics.tex
+ [2]) (./chapters/basics.tex
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [3]
 chapter 2.
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 11.39996pt on input line 21.
+(Font)              scaled to size 11.39996pt on input line 20.
 [4
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 59.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 11.39996pt on input line 59.
-<images/diagrams/diagram_0.pdf, id=176, 1443.14156pt x 903.375pt>
+(Font)              scaled to size 11.39996pt on input line 58.
+<images/diagrams/diagram_0.pdf, id=174, 1443.14156pt x 903.375pt>
 File: images/diagrams/diagram_0.pdf Graphic file (type pdf)
 <use images/diagrams/diagram_0.pdf>
-Package pdftex.def Info: images/diagrams/diagram_0.pdf  used on input line 65.
+Package pdftex.def Info: images/diagrams/diagram_0.pdf  used on input line 64.
 (pdftex.def)             Requested size: 416.12161pt x 260.48332pt.
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
@@ -1612,15 +1597,15 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [9]
-Overfull \vbox (1.17493pt too high) has occurred while \output is active []
-
- [10]
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 13.67995pt on input line 239.
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [11]) (./chapters/codeoptimization.tex
+ [10])
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [11] (./chapters/codeoptimization.tex
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [12]
@@ -1641,7 +1626,7 @@ chapter 3.
  (./_minted-bachelorarbeit/326C14F56E25FFD5D4F30CEEF2D8D47F00C641777EA6042B8269C4E669F224F5.pygtex)
 \openout6 = `bachelorarbeit.pyg'.
 
- (./_minted-bachelorarbeit/7596E8BD78EE4FE83B3B37B1D88A3D1000C641777EA6042B8269C4E669F224F5.pygtex)
+ (./_minted-bachelorarbeit/B356CB97F3788ABB92DFF55541ED5CC800C641777EA6042B8269C4E669F224F5.pygtex)
 \openout5 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/vs.pygstyle) (./_minted-bachelorarbeit/18270F4089062F56201519B5ACAFB3F900C641777EA6042B8269C4E669F224F5.pygtex
@@ -1653,6 +1638,11 @@ Package hyperref Info: bookmark level for unknown code defaults to 0 on input li
 \openout6 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/326C14F56E25FFD5D4F30CEEF2D8D47F00C641777EA6042B8269C4E669F224F5.pygtex)
+Overfull \hbox (0.47395pt too wide) in paragraph at lines 77--85
+\T1/phv/m/n/12 wer-den müs-sen. Wie nun zum Bei-spiel die neue Me-tho-de []
+ []
+
+
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [14]
@@ -1670,13 +1660,15 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
  (./_minted-bachelorarbeit/EF4DF4FC6505107756DE5675DA41AB6901D3707017B41C60CC59CD5A809FF8D0.pygtex)
 \openout6 = `bachelorarbeit.pyg'.
 
- (./_minted-bachelorarbeit/5CD8203FF80F08E213B04FF4B9D9B60200C641777EA6042B8269C4E669F224F5.pygtex
+ (./_minted-bachelorarbeit/5CD8203FF80F08E213B04FF4B9D9B60200C641777EA6042B8269C4E669F224F5.pygtex)
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [17])
+ [17]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [18]
+Package hyperref Info: bookmark level for unknown prompt defaults to 0 on input line 247.
+
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [19]
@@ -1701,16 +1693,18 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [22]
-Overfull \hbox (24.36238pt too wide) in paragraph at lines 408--423
-[]\T1/phv/m/n/12 Da die An-fa-gen an die KI im-mer kom-ple-xer wer-den, wird nun ei-ne Klas-se \T1/pcr/m/n/12 PromptInput
+Overfull \hbox (28.38647pt too wide) in paragraph at lines 412--427
+[]\T1/phv/m/n/12 Da die An-fra-gen an die KI im-mer kom-ple-xer wer-den, wird nun ei-ne Klas-se \T1/pcr/m/n/12 PromptInput
+ []
+
+
+Overfull \hbox (3.69373pt too wide) in paragraph at lines 412--427
+\T1/phv/m/n/12 tie-rung der KI-Schnittstelle kann an-schlie-ÿend ein Ob-jekt der Klas-se \T1/pcr/m/n/12 PromptInput
  []
 
 \openout5 = `bachelorarbeit.pyg'.
 
 (./_minted-bachelorarbeit/702745FA7BDCCC04415A84EBB24EA5B200C641777EA6042B8269C4E669F224F5.pygtex)
-\openout5 = `bachelorarbeit.pyg'.
-
- (./_minted-bachelorarbeit/09E42A39347E02952A790AC3ECF8A5B300C641777EA6042B8269C4E669F224F5.pygtex)
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [23]
@@ -1747,19 +1741,19 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [26]
-<images/diagrams/diagram_1.pdf, id=388, 760.34062pt x 557.08125pt>
+<images/diagrams/diagram_1.pdf, id=393, 760.34062pt x 557.08125pt>
 File: images/diagrams/diagram_1.pdf Graphic file (type pdf)
 <use images/diagrams/diagram_1.pdf>
-Package pdftex.def Info: images/diagrams/diagram_1.pdf  used on input line 595.
+Package pdftex.def Info: images/diagrams/diagram_1.pdf  used on input line 599.
 (pdftex.def)             Requested size: 416.12161pt x 304.89107pt.
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [27]
-<images/diagrams/diagram_2.pdf, id=406, 760.34062pt x 557.08125pt>
+<images/diagrams/diagram_2.pdf, id=412, 760.34062pt x 557.08125pt>
 File: images/diagrams/diagram_2.pdf Graphic file (type pdf)
 <use images/diagrams/diagram_2.pdf>
-Package pdftex.def Info: images/diagrams/diagram_2.pdf  used on input line 609.
+Package pdftex.def Info: images/diagrams/diagram_2.pdf  used on input line 613.
 (pdftex.def)             Requested size: 416.12161pt x 304.89107pt.
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
@@ -1770,36 +1764,36 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
  [29 <./images/diagrams/diagram_2.pdf>]
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 670.
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 670.
+(textcomp)             Default family used instead on input line 674.
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 674.
  (d:/TexLive/2023/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 670.
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 674.
  (d:/TexLive/2023/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 670.
+(textcomp)             Default family used instead on input line 674.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 670.
+(textcomp)             Default family used instead on input line 674.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 670.
+(textcomp)             Default family used instead on input line 674.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 670.
+(textcomp)             Default family used instead on input line 674.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 670.
+(textcomp)             Default family used instead on input line 674.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 670.
+(textcomp)             Default family used instead on input line 674.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 670.
+(textcomp)             Default family used instead on input line 674.
 \openout5 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/B50E103FBD05386DDCB524908499939500C641777EA6042B8269C4E669F224F5.pygtex
@@ -1858,41 +1852,41 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 )
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 687.
+(textcomp)             Default family used instead on input line 691.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 687.
+(textcomp)             Default family used instead on input line 691.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 687.
+(textcomp)             Default family used instead on input line 691.
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [30]
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 714.
+(textcomp)             Default family used instead on input line 718.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 714.
+(textcomp)             Default family used instead on input line 718.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 714.
+(textcomp)             Default family used instead on input line 718.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 714.
+(textcomp)             Default family used instead on input line 718.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 714.
+(textcomp)             Default family used instead on input line 718.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 714.
+(textcomp)             Default family used instead on input line 718.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 714.
+(textcomp)             Default family used instead on input line 718.
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family phv in TS1 encoding.
-(textcomp)             Default family used instead on input line 714.
+(textcomp)             Default family used instead on input line 718.
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
@@ -1952,7 +1946,7 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [40]
-Underfull \hbox (badness 10000) in paragraph at lines 1132--1132
+Underfull \hbox (badness 10000) in paragraph at lines 1137--1137
 
  []
 
@@ -1963,47 +1957,47 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1205--1205
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1212
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1205--1205
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1212
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1205--1205
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1212
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1205--1205
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1212
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1205--1205
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1212
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1205--1205
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1212
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1205--1205
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1212
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1205--1205
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1212
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1205--1205
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1212
 
  []
 
@@ -2020,15 +2014,21 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [45]
+Overfull \hbox (2.21124pt too wide) in paragraph at lines 1318--1330
+\T1/phv/m/n/12 schrei-bung par-al-lel an ver-schie-de-ne Sprach-mo-del-le bzw. KI-Anbieter ge-sen-det wird.
+ []
+
+
+Overfull \hbox (3.6668pt too wide) in paragraph at lines 1318--1330
+\T1/phv/m/n/12 ab-hän-gi-ge Mo-del-lie-run-gen des-sel-ben Pro-zes-ses zu er-hal-ten, oh-ne zu-sätz-li-che Lauf-
+ []
+
+\openout5 = `bachelorarbeit.pyg'.
+
+(./_minted-bachelorarbeit/D6BF055F110C4F8747DDC21A2D18097401D3707017B41C60CC59CD5A809FF8D0.pygtex)
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [46]
-\openout5 = `bachelorarbeit.pyg'.
-
- (./_minted-bachelorarbeit/D6BF055F110C4F8747DDC21A2D18097401D3707017B41C60CC59CD5A809FF8D0.pygtex)
-Overfull \vbox (1.17493pt too high) has occurred while \output is active []
-
- [47]
 \openout6 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/B6013478E0736180FFCAEA9C312B528600C641777EA6042B8269C4E669F224F5.pygtex)
@@ -2037,10 +2037,7 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
  (./_minted-bachelorarbeit/983BE8CEF5141B6C4BEDB3DE182CA0F600C641777EA6042B8269C4E669F224F5.pygtex)
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [48]
-Overfull \vbox (1.17493pt too high) has occurred while \output is active []
-
- [49]
+ [47]
 \openout5 = `bachelorarbeit.pyg'.
 
  (./_minted-bachelorarbeit/D3453C94BBB762DA3888583FAEBC784B00C641777EA6042B8269C4E669F224F5.pygtex
@@ -2053,16 +2050,20 @@ Package textcomp Info: Symbol \textasciigrave not provided by
 )) (./chapters/analysis.tex
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [50]
-chapter 4.
-[51
-
-]
-Package hyperref Info: bookmark level for unknown prompt defaults to 0 on input line 82.
-
+ [48]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [52]
+ [49]
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [50]
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [51]
+chapter 4.
+[52
+
+]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [53]
@@ -2075,14 +2076,14 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [56]
-Overfull \hbox (3.76926pt too wide) in paragraph at lines 277--278
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [57]
+Overfull \hbox (3.76926pt too wide) in paragraph at lines 279--280
 []\T1/phv/m/n/12 Welche Mo-del-le kom-men selbst mit ei-ner mit-tel-schwe-ren Pro-zess-be-schrei-bung nicht
  []
 
 
-Overfull \vbox (1.17493pt too high) has occurred while \output is active []
-
- [57]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [58]
@@ -2098,7 +2099,7 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [62]
-Package pgfplots info on input line 635: Using 'lua backend=false' for axis: stacked plots unsupported (yet).
+Package pgfplots info on input line 640: Using 'lua backend=false' for axis: stacked plots unsupported (yet).
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
@@ -2106,59 +2107,74 @@ Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [64]
-Package pgfplots info on input line 795: Using 'lua backend=false' for axis: stacked plots unsupported (yet).
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [65]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+Package pgfplots info on input line 801: Using 'lua backend=false' for axis: stacked plots unsupported (yet).
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [66]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [67]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [68]
+Overfull \hbox (1.02493pt too wide) in paragraph at lines 1043--1044
+ [][] 
+ []
+
+
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [69]) (./chapters/relatedwork.tex
+ [69]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [70]
+Overfull \hbox (1.02327pt too wide) in paragraph at lines 1108--1109
+ [][] 
+ []
+
+
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [71]
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [72]) (./chapters/relatedwork.tex
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [73]
 chapter 5.
-[71
+[74
 
 ]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [72])
-Overfull \hbox (0.2165pt too wide) in paragraph at lines 88--207
-\T1/phv/m/n/12 wei-ter-ent-wi-ckelt wur-de. Im Rah-men die-ses Pro-jekts ent-stand au-ÿer-dem ei-ne React-
+ [75])
+Overfull \hbox (4.79922pt too wide) in paragraph at lines 87--209
+\T1/phv/m/n/12 BPMN-Chatbot++ ge-nutzt wer-den kann. Zwi-schen BPM-NGen und BPMN-Chatbot++
  []
 
 (./chapters/conclusion.tex
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [73]
+ [76]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [74]
+ [77]
 chapter 6.
-[75
+[78
 
 ]) (./chapters/sources.tex
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [76]
+ [79]
 chapter A.
 \openout5 = `bachelorarbeit.pyg'.
 
@@ -2175,7 +2191,7 @@ Package textcomp Info: Symbol \textasciigrave not provided by
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family pcr in TS1 encoding.
 (textcomp)             Default family used instead on input line 45.
- [77
+ [80
 
 ]
 Package textcomp Info: Symbol \textasciigrave not provided by
@@ -2199,45 +2215,45 @@ Package textcomp Info: Symbol \textasciigrave not provided by
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [78]
-Package textcomp Info: Symbol \textasciigrave not provided by
-(textcomp)             font family pcr in TS1 encoding.
-(textcomp)             Default family used instead on input line 139.
-Package textcomp Info: Symbol \textasciigrave not provided by
-(textcomp)             font family pcr in TS1 encoding.
-(textcomp)             Default family used instead on input line 139.
-
-Overfull \vbox (1.17493pt too high) has occurred while \output is active []
-
- [79]
-Package textcomp Info: Symbol \textasciigrave not provided by
-(textcomp)             font family pcr in TS1 encoding.
-(textcomp)             Default family used instead on input line 210.
-Package textcomp Info: Symbol \textasciigrave not provided by
-(textcomp)             font family pcr in TS1 encoding.
-(textcomp)             Default family used instead on input line 210.
-Package textcomp Info: Symbol \textasciigrave not provided by
-(textcomp)             font family pcr in TS1 encoding.
-(textcomp)             Default family used instead on input line 219.
-Package textcomp Info: Symbol \textasciigrave not provided by
-(textcomp)             font family pcr in TS1 encoding.
-(textcomp)             Default family used instead on input line 219.
-
-Overfull \vbox (1.17493pt too high) has occurred while \output is active []
-
- [80]
-Overfull \vbox (1.17493pt too high) has occurred while \output is active []
-
  [81]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 139.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 139.
+
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [82]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 210.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 210.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 219.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family pcr in TS1 encoding.
+(textcomp)             Default family used instead on input line 219.
+
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [83]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
  [84]
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [85]
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [86]
+Overfull \vbox (1.17493pt too high) has occurred while \output is active []
+
+ [87]
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family pcr in TS1 encoding.
 (textcomp)             Default family used instead on input line 584.
@@ -2274,7 +2290,7 @@ Package textcomp Info: Symbol \textasciigrave not provided by
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [85]
+ [88]
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family pcr in TS1 encoding.
 (textcomp)             Default family used instead on input line 639.
@@ -2332,7 +2348,7 @@ Package textcomp Info: Symbol \textasciigrave not provided by
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [86]
+ [89]
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family pcr in TS1 encoding.
 (textcomp)             Default family used instead on input line 716.
@@ -2444,7 +2460,7 @@ Package textcomp Info: Symbol \textasciigrave not provided by
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [87]
+ [90]
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family pcr in TS1 encoding.
 (textcomp)             Default family used instead on input line 774.
@@ -2508,7 +2524,7 @@ Package textcomp Info: Symbol \textasciigrave not provided by
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [88]
+ [91]
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family pcr in TS1 encoding.
 (textcomp)             Default family used instead on input line 852.
@@ -2620,7 +2636,7 @@ Package textcomp Info: Symbol \textasciigrave not provided by
 
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [89]
+ [92]
 Package textcomp Info: Symbol \textasciigrave not provided by
 (textcomp)             font family pcr in TS1 encoding.
 (textcomp)             Default family used instead on input line 926.
@@ -2633,207 +2649,194 @@ Package textcomp Info: Symbol \textasciigrave not provided by
 )
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [90]
+ [93]
 chapter B.
-<images/diagrams/1_3_assistant.pdf, id=958, 1136.74687pt x 459.21562pt>
+<images/diagrams/1_3_assistant.pdf, id=976, 1136.74687pt x 459.21562pt>
 File: images/diagrams/1_3_assistant.pdf Graphic file (type pdf)
 <use images/diagrams/1_3_assistant.pdf>
 Package pdftex.def Info: images/diagrams/1_3_assistant.pdf  used on input line 968.
 (pdftex.def)             Requested size: 416.12161pt x 168.09929pt.
-<images/diagrams/1_3_json.pdf, id=959, 1287.30937pt x 685.05937pt>
+<images/diagrams/1_3_json.pdf, id=977, 1287.30937pt x 685.05937pt>
 File: images/diagrams/1_3_json.pdf Graphic file (type pdf)
 <use images/diagrams/1_3_json.pdf>
 Package pdftex.def Info: images/diagrams/1_3_json.pdf  used on input line 975.
 (pdftex.def)             Requested size: 416.12161pt x 221.43954pt.
-<images/diagrams/1_3_xml.pdf, id=960, 986.18437pt x 496.85625pt>
+<images/diagrams/1_3_xml.pdf, id=978, 986.18437pt x 496.85625pt>
 File: images/diagrams/1_3_xml.pdf Graphic file (type pdf)
 <use images/diagrams/1_3_xml.pdf>
 Package pdftex.def Info: images/diagrams/1_3_xml.pdf  used on input line 982.
 (pdftex.def)             Requested size: 416.12161pt x 209.64862pt.
-<images/diagrams/gemini-2.5-pro-(json)-43sovbi9.pdf, id=961, 2090.10867pt x 1780.40157pt>
+<images/diagrams/gemini-2.5-pro-(json)-43sovbi9.pdf, id=979, 2090.10867pt x 1780.40157pt>
 File: images/diagrams/gemini-2.5-pro-(json)-43sovbi9.pdf Graphic file (type pdf)
 <use images/diagrams/gemini-2.5-pro-(json)-43sovbi9.pdf>
 Package pdftex.def Info: images/diagrams/gemini-2.5-pro-(json)-43sovbi9.pdf  used on input line 989.
 (pdftex.def)             Requested size: 416.12161pt x 354.444pt.
-<images/diagrams/gemini-2.5-pro-(xml)-m34yodi6.pdf, id=962, 1362.59062pt x 1242.14063pt>
+<images/diagrams/gemini-2.5-pro-(xml)-m34yodi6.pdf, id=980, 1362.59062pt x 1242.14063pt>
 File: images/diagrams/gemini-2.5-pro-(xml)-m34yodi6.pdf Graphic file (type pdf)
 <use images/diagrams/gemini-2.5-pro-(xml)-m34yodi6.pdf>
 Package pdftex.def Info: images/diagrams/gemini-2.5-pro-(xml)-m34yodi6.pdf  used on input line 996.
 (pdftex.def)             Requested size: 416.12161pt x 379.33566pt.
-<images/diagrams/gemini-2.5-flash-(json)-vsaxxdmn.pdf, id=963, 2117.9125pt x 3021.2875pt>
+<images/diagrams/gemini-2.5-flash-(json)-vsaxxdmn.pdf, id=981, 2117.9125pt x 3021.2875pt>
 File: images/diagrams/gemini-2.5-flash-(json)-vsaxxdmn.pdf Graphic file (type pdf)
 <use images/diagrams/gemini-2.5-flash-(json)-vsaxxdmn.pdf>
 Package pdftex.def Info: images/diagrams/gemini-2.5-flash-(json)-vsaxxdmn.pdf  used on input line 1003.
 (pdftex.def)             Requested size: 382.62975pt x 545.8463pt.
-<images/diagrams/gemini-2.5-flash-(xml)-epyljiqb.pdf, id=964, 1816.7875pt x 2067.725pt>
+<images/diagrams/gemini-2.5-flash-(xml)-epyljiqb.pdf, id=982, 1816.7875pt x 2067.725pt>
 File: images/diagrams/gemini-2.5-flash-(xml)-epyljiqb.pdf Graphic file (type pdf)
 <use images/diagrams/gemini-2.5-flash-(xml)-epyljiqb.pdf>
 Package pdftex.def Info: images/diagrams/gemini-2.5-flash-(xml)-epyljiqb.pdf  used on input line 1010.
 (pdftex.def)             Requested size: 416.12161pt x 473.57904pt.
-<images/diagrams/gpt-5.2-(json)-0kqyads7.pdf, id=965, 2519.4125pt x 4627.2875pt>
+<images/diagrams/gpt-5.2-(json)-0kqyads7.pdf, id=983, 2519.4125pt x 4627.2875pt>
 File: images/diagrams/gpt-5.2-(json)-0kqyads7.pdf Graphic file (type pdf)
 <use images/diagrams/gpt-5.2-(json)-0kqyads7.pdf>
 Package pdftex.def Info: images/diagrams/gpt-5.2-(json)-0kqyads7.pdf  used on input line 1017.
 (pdftex.def)             Requested size: 297.16508pt x 545.8463pt.
-<images/diagrams/gpt-5.2-(xml)-6poholbg.pdf, id=966, 1372.12625pt x 1841.88126pt>
+<images/diagrams/gpt-5.2-(xml)-6poholbg.pdf, id=984, 1372.12625pt x 1841.88126pt>
 File: images/diagrams/gpt-5.2-(xml)-6poholbg.pdf Graphic file (type pdf)
 <use images/diagrams/gpt-5.2-(xml)-6poholbg.pdf>
 Package pdftex.def Info: images/diagrams/gpt-5.2-(xml)-6poholbg.pdf  used on input line 1024.
 (pdftex.def)             Requested size: 416.12161pt x 558.58308pt.
-<images/diagrams/gpt-5.1-(json)-e2u2x4zb.pdf, id=967, 2117.9125pt x 2920.9125pt>
+<images/diagrams/gpt-5.1-(json)-e2u2x4zb.pdf, id=985, 2117.9125pt x 2920.9125pt>
 File: images/diagrams/gpt-5.1-(json)-e2u2x4zb.pdf Graphic file (type pdf)
 <use images/diagrams/gpt-5.1-(json)-e2u2x4zb.pdf>
 Package pdftex.def Info: images/diagrams/gpt-5.1-(json)-e2u2x4zb.pdf  used on input line 1031.
 (pdftex.def)             Requested size: 395.78264pt x 545.8463pt.
-<images/diagrams/gpt-5.1-(xml)-47085wam.pdf, id=968, 2017.5375pt x 1365.1pt>
+<images/diagrams/gpt-5.1-(xml)-47085wam.pdf, id=986, 2017.5375pt x 1365.1pt>
 File: images/diagrams/gpt-5.1-(xml)-47085wam.pdf Graphic file (type pdf)
 <use images/diagrams/gpt-5.1-(xml)-47085wam.pdf>
 Package pdftex.def Info: images/diagrams/gpt-5.1-(xml)-47085wam.pdf  used on input line 1038.
 (pdftex.def)             Requested size: 416.12161pt x 281.53452pt.
-<images/diagrams/gpt-4.1-(json)-6xk6wtee.pdf, id=969, 1716.4125pt x 2770.35pt>
+<images/diagrams/gpt-4.1-(json)-6xk6wtee.pdf, id=987, 1716.4125pt x 2770.35pt>
 File: images/diagrams/gpt-4.1-(json)-6xk6wtee.pdf Graphic file (type pdf)
 <use images/diagrams/gpt-4.1-(json)-6xk6wtee.pdf>
 Package pdftex.def Info: images/diagrams/gpt-4.1-(json)-6xk6wtee.pdf  used on input line 1045.
 (pdftex.def)             Requested size: 338.16931pt x 545.8463pt.
-<images/diagrams/gpt-4.1-(xml)-esv47un0.pdf, id=970, 1716.4125pt x 1398.22375pt>
+<images/diagrams/gpt-4.1-(xml)-esv47un0.pdf, id=988, 1716.4125pt x 1398.22375pt>
 File: images/diagrams/gpt-4.1-(xml)-esv47un0.pdf Graphic file (type pdf)
 <use images/diagrams/gpt-4.1-(xml)-esv47un0.pdf>
 Package pdftex.def Info: images/diagrams/gpt-4.1-(xml)-esv47un0.pdf  used on input line 1052.
 (pdftex.def)             Requested size: 416.12161pt x 338.97284pt.
-<images/diagrams/grok-4-(json)-esye6wjy.pdf, id=971, 2318.6625pt x 2669.975pt>
+<images/diagrams/grok-4-(json)-esye6wjy.pdf, id=989, 2318.6625pt x 2669.975pt>
 File: images/diagrams/grok-4-(json)-esye6wjy.pdf Graphic file (type pdf)
 <use images/diagrams/grok-4-(json)-esye6wjy.pdf>
 Package pdftex.def Info: images/diagrams/grok-4-(json)-esye6wjy.pdf  used on input line 1059.
 (pdftex.def)             Requested size: 416.12161pt x 479.14885pt.
-<images/diagrams/grok-4-(xml)-o3fefday.pdf, id=972, 1151.30125pt x 2298.5875pt>
+<images/diagrams/grok-4-(xml)-o3fefday.pdf, id=990, 1151.30125pt x 2298.5875pt>
 File: images/diagrams/grok-4-(xml)-o3fefday.pdf Graphic file (type pdf)
 <use images/diagrams/grok-4-(xml)-o3fefday.pdf>
 Package pdftex.def Info: images/diagrams/grok-4-(xml)-o3fefday.pdf  used on input line 1066.
 (pdftex.def)             Requested size: 273.40175pt x 545.8463pt.
-<images/diagrams/grok-4-1-fast-reasoning-(json)-udjbgpm1.pdf, id=973, 3101.5875pt x 4025.0375pt>
+<images/diagrams/grok-4-1-fast-reasoning-(json)-udjbgpm1.pdf, id=991, 3101.5875pt x 4025.0375pt>
 File: images/diagrams/grok-4-1-fast-reasoning-(json)-udjbgpm1.pdf Graphic file (type pdf)
 <use images/diagrams/grok-4-1-fast-reasoning-(json)-udjbgpm1.pdf>
 Package pdftex.def Info: images/diagrams/grok-4-1-fast-reasoning-(json)-udjbgpm1.pdf  used on input line 1073.
 (pdftex.def)             Requested size: 416.12161pt x 539.97868pt.
-<images/diagrams/grok-4-1-fast-reasoning-(xml)-c0ivs3u9.pdf, id=974, 1305.37688pt x 1903.11pt>
+<images/diagrams/grok-4-1-fast-reasoning-(xml)-c0ivs3u9.pdf, id=992, 1305.37688pt x 1903.11pt>
 File: images/diagrams/grok-4-1-fast-reasoning-(xml)-c0ivs3u9.pdf Graphic file (type pdf)
 <use images/diagrams/grok-4-1-fast-reasoning-(xml)-c0ivs3u9.pdf>
 Package pdftex.def Info: images/diagrams/grok-4-1-fast-reasoning-(xml)-c0ivs3u9.pdf  used on input line 1080.
 (pdftex.def)             Requested size: 374.40657pt x 545.8463pt.
-<images/diagrams/claude-opus-4-5-(json)-wkq3inzs.pdf, id=975, 2017.5375pt x 2870.725pt>
+<images/diagrams/claude-opus-4-5-(json)-wkq3inzs.pdf, id=993, 2017.5375pt x 2870.725pt>
 File: images/diagrams/claude-opus-4-5-(json)-wkq3inzs.pdf Graphic file (type pdf)
 <use images/diagrams/claude-opus-4-5-(json)-wkq3inzs.pdf>
 Package pdftex.def Info: images/diagrams/claude-opus-4-5-(json)-wkq3inzs.pdf  used on input line 1087.
 (pdftex.def)             Requested size: 383.61317pt x 545.8463pt.
-<images/diagrams/claude-sonnet-4-5-(json)-hy0axos0.pdf, id=976, 3874.475pt x 3021.2875pt>
+<images/diagrams/claude-sonnet-4-5-(json)-hy0axos0.pdf, id=994, 3874.475pt x 3021.2875pt>
 File: images/diagrams/claude-sonnet-4-5-(json)-hy0axos0.pdf Graphic file (type pdf)
 <use images/diagrams/claude-sonnet-4-5-(json)-hy0axos0.pdf>
 Package pdftex.def Info: images/diagrams/claude-sonnet-4-5-(json)-hy0axos0.pdf  used on input line 1094.
 (pdftex.def)             Requested size: 416.12161pt x 324.45937pt.
-<images/diagrams/gemini-2.5-pro-(json)-q39fumx1.pdf, id=977, 2318.6625pt x 813.0375pt>
+<images/diagrams/gemini-2.5-pro-(json)-q39fumx1.pdf, id=995, 2318.6625pt x 813.0375pt>
 File: images/diagrams/gemini-2.5-pro-(json)-q39fumx1.pdf Graphic file (type pdf)
 <use images/diagrams/gemini-2.5-pro-(json)-q39fumx1.pdf>
 Package pdftex.def Info: images/diagrams/gemini-2.5-pro-(json)-q39fumx1.pdf  used on input line 1101.
 (pdftex.def)             Requested size: 416.12161pt x 145.90622pt.
-<images/diagrams/gemini-2.5-pro-(xml)-k2oeauto.pdf, id=978, 1666.225pt x 692.5875pt>
+<images/diagrams/gemini-2.5-pro-(xml)-k2oeauto.pdf, id=996, 1666.225pt x 692.5875pt>
 File: images/diagrams/gemini-2.5-pro-(xml)-k2oeauto.pdf Graphic file (type pdf)
 <use images/diagrams/gemini-2.5-pro-(xml)-k2oeauto.pdf>
 Package pdftex.def Info: images/diagrams/gemini-2.5-pro-(xml)-k2oeauto.pdf  used on input line 1108.
 (pdftex.def)             Requested size: 416.12161pt x 172.95622pt.
-<images/diagrams/gemini-2.5-flash-(json)-7w0r7fdv.pdf, id=979, 1513.15312pt x 549.55313pt>
+<images/diagrams/gemini-2.5-flash-(json)-7w0r7fdv.pdf, id=997, 1513.15312pt x 549.55313pt>
 File: images/diagrams/gemini-2.5-flash-(json)-7w0r7fdv.pdf Graphic file (type pdf)
 <use images/diagrams/gemini-2.5-flash-(json)-7w0r7fdv.pdf>
 Package pdftex.def Info: images/diagrams/gemini-2.5-flash-(json)-7w0r7fdv.pdf  used on input line 1115.
 (pdftex.def)             Requested size: 416.12161pt x 151.12338pt.
-<images/diagrams/gemini-2.5-flash-(xml)-t0pflpsy.pdf, id=980, 1816.7875pt x 923.45pt>
+<images/diagrams/gemini-2.5-flash-(xml)-t0pflpsy.pdf, id=998, 1816.7875pt x 923.45pt>
 File: images/diagrams/gemini-2.5-flash-(xml)-t0pflpsy.pdf Graphic file (type pdf)
 <use images/diagrams/gemini-2.5-flash-(xml)-t0pflpsy.pdf>
 Package pdftex.def Info: images/diagrams/gemini-2.5-flash-(xml)-t0pflpsy.pdf  used on input line 1122.
 (pdftex.def)             Requested size: 416.12161pt x 211.50131pt.
-<images/diagrams/gpt-5.2-(json)-qwz0g28q.pdf, id=981, 1917.1625pt x 868.24374pt>
+<images/diagrams/gpt-5.2-(json)-qwz0g28q.pdf, id=999, 1917.1625pt x 868.24374pt>
 File: images/diagrams/gpt-5.2-(json)-qwz0g28q.pdf Graphic file (type pdf)
 <use images/diagrams/gpt-5.2-(json)-qwz0g28q.pdf>
 Package pdftex.def Info: images/diagrams/gpt-5.2-(json)-qwz0g28q.pdf  used on input line 1129.
 (pdftex.def)             Requested size: 416.12161pt x 188.44403pt.
-<images/diagrams/gpt-5.2-(xml)-vg5j1d7k.pdf, id=982, 1239.63126pt x 632.3625pt>
+<images/diagrams/gpt-5.2-(xml)-vg5j1d7k.pdf, id=1000, 1239.63126pt x 632.3625pt>
 File: images/diagrams/gpt-5.2-(xml)-vg5j1d7k.pdf Graphic file (type pdf)
 <use images/diagrams/gpt-5.2-(xml)-vg5j1d7k.pdf>
 Package pdftex.def Info: images/diagrams/gpt-5.2-(xml)-vg5j1d7k.pdf  used on input line 1136.
 (pdftex.def)             Requested size: 416.12161pt x 212.26971pt.
-<images/diagrams/gpt-5.1-(json)-duk2bj46.pdf, id=983, 2117.9125pt x 813.0375pt>
+<images/diagrams/gpt-5.1-(json)-duk2bj46.pdf, id=1001, 2117.9125pt x 813.0375pt>
 File: images/diagrams/gpt-5.1-(json)-duk2bj46.pdf Graphic file (type pdf)
 <use images/diagrams/gpt-5.1-(json)-duk2bj46.pdf>
 Package pdftex.def Info: images/diagrams/gpt-5.1-(json)-duk2bj46.pdf  used on input line 1143.
 (pdftex.def)             Requested size: 416.12161pt x 159.73885pt.
-<images/diagrams/gpt-5.1-(xml)-d6bbj9uj.pdf, id=984, 1616.0375pt x 612.2875pt>
+<images/diagrams/gpt-5.1-(xml)-d6bbj9uj.pdf, id=1002, 1616.0375pt x 612.2875pt>
 File: images/diagrams/gpt-5.1-(xml)-d6bbj9uj.pdf Graphic file (type pdf)
 <use images/diagrams/gpt-5.1-(xml)-d6bbj9uj.pdf>
 Package pdftex.def Info: images/diagrams/gpt-5.1-(xml)-d6bbj9uj.pdf  used on input line 1150.
 (pdftex.def)             Requested size: 416.12161pt x 157.65878pt.
-<images/diagrams/gpt-4.1-(json)-ptei22kv.pdf, id=985, 2368.85pt x 762.85pt>
+<images/diagrams/gpt-4.1-(json)-ptei22kv.pdf, id=1003, 2368.85pt x 762.85pt>
 File: images/diagrams/gpt-4.1-(json)-ptei22kv.pdf Graphic file (type pdf)
 <use images/diagrams/gpt-4.1-(json)-ptei22kv.pdf>
 Package pdftex.def Info: images/diagrams/gpt-4.1-(json)-ptei22kv.pdf  used on input line 1157.
 (pdftex.def)             Requested size: 416.12161pt x 134.00127pt.
-<images/diagrams/gpt-4.1-(xml)-w5mzr01v.pdf, id=986, 1616.0375pt x 682.55pt>
+<images/diagrams/gpt-4.1-(xml)-w5mzr01v.pdf, id=1004, 1616.0375pt x 682.55pt>
 File: images/diagrams/gpt-4.1-(xml)-w5mzr01v.pdf Graphic file (type pdf)
 <use images/diagrams/gpt-4.1-(xml)-w5mzr01v.pdf>
 Package pdftex.def Info: images/diagrams/gpt-4.1-(xml)-w5mzr01v.pdf  used on input line 1164.
 (pdftex.def)             Requested size: 416.12161pt x 175.75078pt.
-<images/diagrams/grok-4-(json)-q6b4ld1k.pdf, id=987, 2419.0375pt x 963.6pt>
+<images/diagrams/grok-4-(json)-q6b4ld1k.pdf, id=1005, 2419.0375pt x 963.6pt>
 File: images/diagrams/grok-4-(json)-q6b4ld1k.pdf Graphic file (type pdf)
 <use images/diagrams/grok-4-(json)-q6b4ld1k.pdf>
 Package pdftex.def Info: images/diagrams/grok-4-(json)-q6b4ld1k.pdf  used on input line 1171.
 (pdftex.def)             Requested size: 416.12161pt x 165.75067pt.
-<images/diagrams/grok-4-(xml)-0r9ba3rm.pdf, id=988, 837.1275pt x 893.3375pt>
+<images/diagrams/grok-4-(xml)-0r9ba3rm.pdf, id=1006, 837.1275pt x 893.3375pt>
 File: images/diagrams/grok-4-(xml)-0r9ba3rm.pdf Graphic file (type pdf)
 <use images/diagrams/grok-4-(xml)-0r9ba3rm.pdf>
 Package pdftex.def Info: images/diagrams/grok-4-(xml)-0r9ba3rm.pdf  used on input line 1178.
 (pdftex.def)             Requested size: 416.12161pt x 444.05046pt.
-<images/diagrams/grok-4-1-fast-reasoning-(json)-193n5f2e.pdf, id=989, 1716.4125pt x 411.5375pt>
+<images/diagrams/grok-4-1-fast-reasoning-(json)-193n5f2e.pdf, id=1007, 1716.4125pt x 411.5375pt>
 File: images/diagrams/grok-4-1-fast-reasoning-(json)-193n5f2e.pdf Graphic file (type pdf)
 <use images/diagrams/grok-4-1-fast-reasoning-(json)-193n5f2e.pdf>
 Package pdftex.def Info: images/diagrams/grok-4-1-fast-reasoning-(json)-193n5f2e.pdf  used on input line 1185.
 (pdftex.def)             Requested size: 416.12161pt x 99.76945pt.
-<images/diagrams/grok-4-1-fast-reasoning-(xml)-4wyh07d1.pdf, id=990, 1917.1625pt x 712.6625pt>
+<images/diagrams/grok-4-1-fast-reasoning-(xml)-4wyh07d1.pdf, id=1008, 1917.1625pt x 712.6625pt>
 File: images/diagrams/grok-4-1-fast-reasoning-(xml)-4wyh07d1.pdf Graphic file (type pdf)
 <use images/diagrams/grok-4-1-fast-reasoning-(xml)-4wyh07d1.pdf>
 Package pdftex.def Info: images/diagrams/grok-4-1-fast-reasoning-(xml)-4wyh07d1.pdf  used on input line 1192.
 (pdftex.def)             Requested size: 416.12161pt x 154.6766pt.
-<images/diagrams/claude-opus-4-5-(json)-bmhunnf9.pdf, id=991, 2268.475pt x 1114.1625pt>
+<images/diagrams/claude-opus-4-5-(json)-bmhunnf9.pdf, id=1009, 2268.475pt x 1114.1625pt>
 File: images/diagrams/claude-opus-4-5-(json)-bmhunnf9.pdf Graphic file (type pdf)
 <use images/diagrams/claude-opus-4-5-(json)-bmhunnf9.pdf>
 Package pdftex.def Info: images/diagrams/claude-opus-4-5-(json)-bmhunnf9.pdf  used on input line 1199.
 (pdftex.def)             Requested size: 416.12161pt x 204.36575pt.
-<images/diagrams/claude-opus-4-5-(xml)-gfpum04k.pdf, id=992, 1254.6875pt x 632.3625pt>
+<images/diagrams/claude-opus-4-5-(xml)-gfpum04k.pdf, id=1010, 1254.6875pt x 632.3625pt>
 File: images/diagrams/claude-opus-4-5-(xml)-gfpum04k.pdf Graphic file (type pdf)
 <use images/diagrams/claude-opus-4-5-(xml)-gfpum04k.pdf>
 Package pdftex.def Info: images/diagrams/claude-opus-4-5-(xml)-gfpum04k.pdf  used on input line 1206.
 (pdftex.def)             Requested size: 416.12161pt x 209.72237pt.
-<images/diagrams/claude-sonnet-4-5-(json)-jj1dkubl.pdf, id=993, 2770.35pt x 1314.9125pt>
+<images/diagrams/claude-sonnet-4-5-(json)-jj1dkubl.pdf, id=1011, 2770.35pt x 1314.9125pt>
 File: images/diagrams/claude-sonnet-4-5-(json)-jj1dkubl.pdf Graphic file (type pdf)
 <use images/diagrams/claude-sonnet-4-5-(json)-jj1dkubl.pdf>
 Package pdftex.def Info: images/diagrams/claude-sonnet-4-5-(json)-jj1dkubl.pdf  used on input line 1213.
 (pdftex.def)             Requested size: 416.12161pt x 197.4892pt.
-<images/diagrams/claude-sonnet-4-5-(xml)-g4bkm43a.pdf, id=994, 1085.05376pt x 381.425pt>
+<images/diagrams/claude-sonnet-4-5-(xml)-g4bkm43a.pdf, id=1012, 1085.05376pt x 381.425pt>
 File: images/diagrams/claude-sonnet-4-5-(xml)-g4bkm43a.pdf Graphic file (type pdf)
 <use images/diagrams/claude-sonnet-4-5-(xml)-g4bkm43a.pdf>
 Package pdftex.def Info: images/diagrams/claude-sonnet-4-5-(xml)-g4bkm43a.pdf  used on input line 1220.
 (pdftex.def)             Requested size: 416.12161pt x 146.27579pt.
-<images/diagrams/assistant-9dkzbc40.pdf, id=995, 2117.9125pt x 3246.1275pt>
-File: images/diagrams/assistant-9dkzbc40.pdf Graphic file (type pdf)
-<use images/diagrams/assistant-9dkzbc40.pdf>
-Package pdftex.def Info: images/diagrams/assistant-9dkzbc40.pdf  used on input line 1227.
-(pdftex.def)             Requested size: 416.12161pt x 637.77216pt.
-
-LaTeX Warning: Float too large for page by 70.27214pt on input line 1230.
-
-<images/diagrams/assistant-f6g0ajwg.pdf, id=996, 2117.9125pt x 712.6625pt>
-File: images/diagrams/assistant-f6g0ajwg.pdf Graphic file (type pdf)
-<use images/diagrams/assistant-f6g0ajwg.pdf>
-Package pdftex.def Info: images/diagrams/assistant-f6g0ajwg.pdf  used on input line 1234.
-(pdftex.def)             Requested size: 416.12161pt x 140.018pt.
-) [91
+) [94
 
  <./images/diagrams/1_3_assistant.pdf> <./images/diagrams/1_3_json.pdf
 
@@ -2841,112 +2844,106 @@ pdfTeX warning: pdflatex.exe (file ./images/diagrams/1_3_json.pdf): PDF inclusio
 >]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [92 <./images/diagrams/1_3_xml.pdf>]
+ [95 <./images/diagrams/1_3_xml.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [93 <./images/diagrams/gemini-2.5-pro-(json)-43sovbi9.pdf>]
+ [96 <./images/diagrams/gemini-2.5-pro-(json)-43sovbi9.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [94 <./images/diagrams/gemini-2.5-pro-(xml)-m34yodi6.pdf>]
+ [97 <./images/diagrams/gemini-2.5-pro-(xml)-m34yodi6.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [95 <./images/diagrams/gemini-2.5-flash-(json)-vsaxxdmn.pdf>]
+ [98 <./images/diagrams/gemini-2.5-flash-(json)-vsaxxdmn.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [96 <./images/diagrams/gemini-2.5-flash-(xml)-epyljiqb.pdf>]
+ [99 <./images/diagrams/gemini-2.5-flash-(xml)-epyljiqb.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [97 <./images/diagrams/gpt-5.2-(json)-0kqyads7.pdf>]
+ [100 <./images/diagrams/gpt-5.2-(json)-0kqyads7.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [98 <./images/diagrams/gpt-5.2-(xml)-6poholbg.pdf>]
+ [101 <./images/diagrams/gpt-5.2-(xml)-6poholbg.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [99 <./images/diagrams/gpt-5.1-(json)-e2u2x4zb.pdf>]
+ [102 <./images/diagrams/gpt-5.1-(json)-e2u2x4zb.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [100 <./images/diagrams/gpt-5.1-(xml)-47085wam.pdf>]
+ [103 <./images/diagrams/gpt-5.1-(xml)-47085wam.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [101 <./images/diagrams/gpt-4.1-(json)-6xk6wtee.pdf>]
+ [104 <./images/diagrams/gpt-4.1-(json)-6xk6wtee.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [102 <./images/diagrams/gpt-4.1-(xml)-esv47un0.pdf>]
+ [105 <./images/diagrams/gpt-4.1-(xml)-esv47un0.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [103 <./images/diagrams/grok-4-(json)-esye6wjy.pdf>]
+ [106 <./images/diagrams/grok-4-(json)-esye6wjy.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [104 <./images/diagrams/grok-4-(xml)-o3fefday.pdf>]
+ [107 <./images/diagrams/grok-4-(xml)-o3fefday.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [105 <./images/diagrams/grok-4-1-fast-reasoning-(json)-udjbgpm1.pdf>]
+ [108 <./images/diagrams/grok-4-1-fast-reasoning-(json)-udjbgpm1.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [106 <./images/diagrams/grok-4-1-fast-reasoning-(xml)-c0ivs3u9.pdf>]
+ [109 <./images/diagrams/grok-4-1-fast-reasoning-(xml)-c0ivs3u9.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [107 <./images/diagrams/claude-opus-4-5-(json)-wkq3inzs.pdf>]
+ [110 <./images/diagrams/claude-opus-4-5-(json)-wkq3inzs.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [108 <./images/diagrams/claude-sonnet-4-5-(json)-hy0axos0.pdf> <./images/diagrams/gemini-2.5-pro-(json)-q39fumx1.pdf>]
+ [111 <./images/diagrams/claude-sonnet-4-5-(json)-hy0axos0.pdf> <./images/diagrams/gemini-2.5-pro-(json)-q39fumx1.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [109 <./images/diagrams/gemini-2.5-pro-(xml)-k2oeauto.pdf> <./images/diagrams/gemini-2.5-flash-(json)-7w0r7fdv.pdf>]
+ [112 <./images/diagrams/gemini-2.5-pro-(xml)-k2oeauto.pdf> <./images/diagrams/gemini-2.5-flash-(json)-7w0r7fdv.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [110 <./images/diagrams/gemini-2.5-flash-(xml)-t0pflpsy.pdf> <./images/diagrams/gpt-5.2-(json)-qwz0g28q.pdf>]
+ [113 <./images/diagrams/gemini-2.5-flash-(xml)-t0pflpsy.pdf> <./images/diagrams/gpt-5.2-(json)-qwz0g28q.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [111 <./images/diagrams/gpt-5.2-(xml)-vg5j1d7k.pdf> <./images/diagrams/gpt-5.1-(json)-duk2bj46.pdf>]
+ [114 <./images/diagrams/gpt-5.2-(xml)-vg5j1d7k.pdf> <./images/diagrams/gpt-5.1-(json)-duk2bj46.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [112 <./images/diagrams/gpt-5.1-(xml)-d6bbj9uj.pdf> <./images/diagrams/gpt-4.1-(json)-ptei22kv.pdf> <./images/diagrams/gpt-4.1-(xml)-w5mzr01v.pdf>]
+ [115 <./images/diagrams/gpt-5.1-(xml)-d6bbj9uj.pdf> <./images/diagrams/gpt-4.1-(json)-ptei22kv.pdf> <./images/diagrams/gpt-4.1-(xml)-w5mzr01v.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [113 <./images/diagrams/grok-4-(json)-q6b4ld1k.pdf>]
+ [116 <./images/diagrams/grok-4-(json)-q6b4ld1k.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [114 <./images/diagrams/grok-4-(xml)-0r9ba3rm.pdf>]
+ [117 <./images/diagrams/grok-4-(xml)-0r9ba3rm.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [115 <./images/diagrams/grok-4-1-fast-reasoning-(json)-193n5f2e.pdf> <./images/diagrams/grok-4-1-fast-reasoning-(xml)-4wyh07d1.pdf> <./images/diagrams/claude-opus-4-5-(json)-bmhunnf9.pdf>]
+ [118 <./images/diagrams/grok-4-1-fast-reasoning-(json)-193n5f2e.pdf> <./images/diagrams/grok-4-1-fast-reasoning-(xml)-4wyh07d1.pdf> <./images/diagrams/claude-opus-4-5-(json)-bmhunnf9.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [116 <./images/diagrams/claude-opus-4-5-(xml)-gfpum04k.pdf> <./images/diagrams/claude-sonnet-4-5-(json)-jj1dkubl.pdf>]
+ [119 <./images/diagrams/claude-opus-4-5-(xml)-gfpum04k.pdf> <./images/diagrams/claude-sonnet-4-5-(json)-jj1dkubl.pdf>]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [117 <./images/diagrams/claude-sonnet-4-5-(xml)-g4bkm43a.pdf>]
-Overfull \vbox (1.17493pt too high) has occurred while \output is active []
-
- [118 <./images/diagrams/assistant-9dkzbc40.pdf>]
-Overfull \vbox (1.17493pt too high) has occurred while \output is active []
-
- [119 <./images/diagrams/assistant-f6g0ajwg.pdf>]
+ [120 <./images/diagrams/claude-sonnet-4-5-(xml)-g4bkm43a.pdf>]
 chapter without number
 LaTeX Font Info:    Font shape `T1/phv/m/sc' will be
-(Font)              scaled to size 11.39996pt on input line 220.
+(Font)              scaled to size 11.39996pt on input line 222.
 
-Overfull \hbox (1.25449pt too wide) in paragraph at lines 221--221
+Overfull \hbox (1.25449pt too wide) in paragraph at lines 223--223
 \T1/phv/m/n/12 Na-tu-ral Lan-gua-ge Text Tasks^^P. In: \T1/phv/m/sl/12 Busi-ness Pro-cess Ma-na-ge-ment Work-shops
  []
 
 
-Overfull \hbox (0.54369pt too wide) in paragraph at lines 221--221
+Overfull \hbox (0.54369pt too wide) in paragraph at lines 223--223
 []\T1/phv/m/n/12 Nataliia Klievt-so-va u.a. ^^R  Au-toBPMN.AI: Con-ver-sa-tio-nal Pro-cess Mo-de-ling and
  []
 
-[120
+[121
 
 
 
 ]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [121]
+ [122]
 Overfull \vbox (1.17493pt too high) has occurred while \output is active []
 
- [122] [123
+ [123] [124
 
 ] (./bachelorarbeit.aux)
 Package rerunfilecheck Info: File `bachelorarbeit.out' has not changed.
@@ -2958,18 +2955,18 @@ Package logreq Info: Writing requests to 'bachelorarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53304 strings out of 476038
- 1224505 string characters out of 5794174
- 2017966 words of memory out of 5000000
- 72328 multiletter control sequences out of 15000+600000
- 611004 words of font info for 184 fonts, out of 8000000 for 9000
- 1145 hyphenation exceptions out of 8191
+ 53433 strings out of 476038
+ 1227093 string characters out of 5794174
+ 2025429 words of memory out of 5000000
+ 72458 multiletter control sequences out of 15000+600000
+ 612509 words of font info for 186 fonts, out of 8000000 for 9000
+ 1147 hyphenation exceptions out of 8191
  108i,19n,106p,11015b,2631s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/TexLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><d:/TexLive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on bachelorarbeit.pdf (128 pages, 3829727 bytes).
+Output written on bachelorarbeit.pdf (129 pages, 3693151 bytes).
 PDF statistics:
- 1816 PDF objects out of 2073 (max. 8388607)
- 1578 compressed objects within 16 object streams
+ 1802 PDF objects out of 2073 (max. 8388607)
+ 1565 compressed objects within 16 object streams
  367 named destinations out of 1000 (max. 500000)
- 652 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 634 words of extra memory for PDF output out of 10000 (max. 10000000)
 

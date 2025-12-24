@@ -104,6 +104,8 @@ Dazu zählen unter anderem:
 \end{itemize}
 
 Bei dem Test wurden alle Fehler gesammelt und zusammengefasst.
+Die Fehler wurden mit Hilfe von bpmn-moddle
+\footnote{\url{https://github.com/bpmn-io/bpmn-moddle}} gesammelt.
 Hierbei ist ein Fehler, durch den das gesamte Diagramm nicht angezeigt werden kann,
 ein \texttt{kritischer Fehler}. Tritt ein kritischer Fehler auf, wird die Generierung wiederholt, 
 bis keine kritischen Fehler erstellt werden.
@@ -443,69 +445,72 @@ gewünschte Prozess gut abgebildet werden kann.
 Alleinig Gemini 2.5 Pro erziehlt im Vergleich zu den anderen Modellen sehr gute Diagramme, die
 kaum Nachbearbeitung benötigen und zusätzlich noch optisch sehr ansprechend sind.
 
-\subsection{Vergleicht mit Assistant}
+% \subsection{Vergleicht mit Assistant}
 
-Eine weitere Interessante Frage ist:
+% Eine weitere Interessante Frage ist:
 
-Sind Diagramme des überarbeiteten Chatbots besser als Diagramme des Assistants?
+% Sind Diagramme des überarbeiteten Chatbots besser als Diagramme des Assistants?
 
-Dafür werden die erstellten Diagramme
-~\ref{fig:gpt-4-1-json},~\ref{fig:gpt-4-1-json-2},
-~\ref{fig:gpt-4-1-xml} und~\ref{fig:gpt-4-1-xml-2}
-verglichen mit dem Assistant.
-Es werden nur Diagramme von ChatGPT 4.1 verglichen, das dieses Modell das fortgeschrittenste 
-Modell ist, das für den assistant verfügbar ist.
-Um die Diagramme zu vergleichen, bekommt der Assistant die gleichen 
-Prozessbeschreibungen~\ref{prompt:quality-1} und~\ref{prompt:quality-2}.
-Der Assistant erstellt daraus die Diagramme~\ref{fig:assistant-gpt-4-1} und~\ref{fig:assistant-gpt-4-1-2}
+% Dafür werden die erstellten Diagramme
+% ~\ref{fig:gpt-4-1-json},~\ref{fig:gpt-4-1-json-2},
+% ~\ref{fig:gpt-4-1-xml} und~\ref{fig:gpt-4-1-xml-2}
+% verglichen mit dem Assistant.
+% Es werden nur Diagramme von ChatGPT 4.1 verglichen, das dieses Modell das fortgeschrittenste 
+% Modell ist, das für den assistant verfügbar ist.
+% Um die Diagramme zu vergleichen, bekommt der Assistant die gleichen 
+% Prozessbeschreibungen~\ref{prompt:quality-1} und~\ref{prompt:quality-2}.
+% Der Assistant erstellt daraus die Diagramme~\ref{fig:assistant-gpt-4-1} und~\ref{fig:assistant-gpt-4-1-2}
 
-\begin{table}[hbt]
-  \centering
-  \renewcommand{\arraystretch}{1.2}
-  \begin{tabular}{|l|l|l|c|c|}
-    \hline
-    \multicolumn{2}{|l|}{\textbf{Modell}} & \textbf{Prozess} & \textbf{kritische Fehler} & \textbf{elementare Fehler} \\ \hline
-    \multirow{2}{*}{\textbf{ChatGPT 4.1}}       & JSON & 1 & 0 & 13  \\ 
-                                                & XML  & 1 & 0 & 5   \\ \hline
-    \multirow{2}{*}{\textbf{ChatGPT 4.1}}       & JSON & 2 & 0 & 0   \\ 
-                                                & XML  & 2 & 0 & 6   \\ \hline
-    \textbf{Assistant}                          & JSON & 1 & 0 & 10  \\ \hline
-    \textbf{Assistant}                          & JSON & 2 & 0 & 0   \\ \hline
-  \end{tabular}
-  \caption{Formale Richtigkeit}
-  \label{tab:qualitat-formal-3}
-\end{table}
+% \begin{table}[hbt]
+%   \centering
+%   \renewcommand{\arraystretch}{1.2}
+%   \begin{tabular}{|l|l|l|c|c|}
+%     \hline
+%     \multicolumn{2}{|l|}{\textbf{Modell}} & \textbf{Prozess} & \textbf{kritische Fehler} & \textbf{elementare Fehler} \\ \hline
+%     \multirow{2}{*}{\textbf{ChatGPT 4.1}}       & JSON & 1 & 0 & 13  \\ 
+%                                                 & XML  & 1 & 0 & 5   \\ \hline
+%     \multirow{2}{*}{\textbf{ChatGPT 4.1}}       & JSON & 2 & 0 & 0   \\ 
+%                                                 & XML  & 2 & 0 & 6   \\ \hline
+%     \textbf{Assistant}                          & JSON & 1 & 0 & 10  \\ \hline
+%     \textbf{Assistant}                          & JSON & 2 & 0 & 0   \\ \hline
+%   \end{tabular}
+%   \caption{Formale Richtigkeit}
+%   \label{tab:qualitat-formal-3}
+% \end{table}
 
-\begin{table}[hbt]
-  \centering
-  \renewcommand{\arraystretch}{1.2}
-  \begin{tabular}{|l|l|l|c|c|}
-    \hline
-    \multicolumn{2}{|l|}{\textbf{Modell}} & \textbf{Prozess} & \textbf{fehlend} & \textbf{unnötig} \\ \hline
-    \multirow{2}{*}{\textbf{ChatGPT 4.1}}       & JSON & 1 & 15& 2  \\ 
-                                                & XML  & 1 & 40& 1   \\ \hline
-    \multirow{2}{*}{\textbf{ChatGPT 4.1}}       & JSON & 2 & 3 & 1   \\ 
-                                                & XML  & 2 & 0 & 3   \\ \hline
-    \textbf{Assistant}                          & JSON & 1 & 0 & 0   \\ \hline
-    \textbf{Assistant}                          & JSON & 2 & 0 & 0   \\ \hline
-  \end{tabular}
-  \caption{Semantische Richtigkeit}
-  \label{tab:qualitat-semantisch-3}
-\end{table}
+% \begin{table}[hbt]
+%   \centering
+%   \renewcommand{\arraystretch}{1.2}
+%   \begin{tabular}{|l|l|l|c|c|}
+%     \hline
+%     \multicolumn{2}{|l|}{\textbf{Modell}} & \textbf{Prozess} & \textbf{fehlend} & \textbf{unnötig} \\ \hline
+%     \multirow{2}{*}{\textbf{ChatGPT 4.1}}       & JSON & 1 & 15& 2   \\ 
+%                                                 & XML  & 1 & 40& 1   \\ \hline
+%     \multirow{2}{*}{\textbf{ChatGPT 4.1}}       & JSON & 2 & 3 & 1   \\ 
+%                                                 & XML  & 2 & 0 & 3   \\ \hline
+%     \textbf{Assistant}                          & JSON & 1 & 0 & 0   \\ \hline
+%     \textbf{Assistant}                          & JSON & 2 & 3 & 1   \\ \hline
+%   \end{tabular}
+%   \caption{Semantische Richtigkeit}
+%   \label{tab:qualitat-semantisch-3}
+% \end{table}
 
-\subsection{Schema Constraining}
+% Zunächst fällt auf, dass bei GPT 4.1 die Diagramme, welche mit JSON erstellt wurden, wesentlich besser sind,
+% als die Diagramme mit XML.
+% Bei der mittelschweren Prozessbeschreibung, erstellt der Assistant Diagramm~\ref{fig:assistant-gpt-4-1-2},
+% welches fast exakt gleich aussieht wie Diagramm~\ref{fig:gpt-4-1-json-2} von dem überarbeiteten Chatbot.
 
-\subsection{Reflective Prompting}
+% \subsection{Reflective Prompting}
 
 \section{Geschwindigkeit} \label{sec:speed}
 
 Um die Geschwindigkeit verscheidener Prozessabschnitte und modellen zu testen, bietet es sich
 an, die Antwort der KI als Stream zu betrachten, da dieser in Echtzeit ausgewertet werden kann.
-So kann zum Beispiel auch untersucht werden bei welche modellen die Textgenerierung und bei
-welchen die Diagrammgenereirung schneller ist.
-Um sich aber nur auf gestreamte Daten zu begrenzen, muss zunächst festgestellt werden, ob
-sich die Generierungszeiten eines LLM Anbieters unterscheiden, wenn man stream bzw.\ nicht 
-streamt.
+So kann zum Beispiel auch untersucht werden bei welchen Modellen die Textgenerierung und bei
+welchen die Diagrammgenerierung schneller ist.
+Um sich aber nur auf gestreamte Daten zu begrenzen, muss zunächst festgestellt werden:
+Unterscheiden sich die Generierungszeiten eines LLM Anbieters, wenn man streamt bzw.\ nicht 
+streamt?
 
 Dafür werden nun in Abbildung~\ref{fig:timing-streaming} einige Modelle getestet, ob sich die Zeiten 
 jeweils stark unterscheiden.
@@ -588,7 +593,7 @@ Claude-Sonnet-4.5	52.913	    53.079
 \label{fig:timing-streaming}
 \end{figure}
 
-Aus diesen Daten geht hervor, dass bei jedem Modell die Variante des Streamings die Variante 
+Aus den Daten ind Abbildung~\ref{fig:timing-streaming} geht hervor, dass bei jedem Modell die Variante des Streamings die Variante 
 ohne Streamings in Bezug auf Geschwindigkeit überbietet.
 Der Unterschied beträgt jeweils unter 10\%.
 Damit ist nun klar, dass die Variante des Stremings nicht der Variante Ohne Streamings unterliegt
@@ -597,13 +602,13 @@ Streaming Variante vernachlässigt wird.
 
 \subsection{Formatunterschiede}
 
-Als nächstes soll nun untersucht werden welcher der zwei implementierten Formate \texttt{JSON}
+Als nächstes soll nun untersucht werden welches der zwei implementierten Formate \texttt{JSON}
 und \texttt{XML} sich Zeitlich besser verhält.
 In Abbildung~\ref{fig:timing-xmljson} wird für das Promptbeispiel auf Seite~\pageref{prompt:speed} dieses Verhalten 
 getestet.
 Da die Laufzeit für die Schritte Textgenerierung, Formatierung und Datenbankaufruf, sowie bei Gemini auch 
 Streamstart im Vergleich zu der Diagrammgenereiung sowie der API Antwort sehr wenig Zeit beanspruchen,
-Sind die exakten Zeiten auch noch in Tabelle~\ref{tab:timing-xmljson} zu sehen.
+Sind die exakten Daten auch noch in Tabelle~\ref{tab:timing-xmljson} zu sehen.
 
 \begin{figure}[H]
 \centering
@@ -679,7 +684,7 @@ einiges effizienter als die um 11242 ms längere Diagrammgenerierung bei XML.
 Interessant ist nun noch zu sehen wie diese Aufwandsdifferenz von der Größe des Diagramms abhängt.
 Hierfür wird nun in Abbildung~\ref{fig:timing-xmljson-elements} Gemini 2.5 Pro im Quick modus benutzt um 
 verschieden große Diagramme zu erzeugen.
-Hierfür wird folgender Prompt verwendet:
+Hierfür wird Prompt~\ref{prompt:speed-elements} verwendet.
 
 \begin{prompt}[H]
 \noindent\fbox{
@@ -690,8 +695,8 @@ Hierfür wird folgender Prompt verwendet:
     Message-Flows, Pools, Lanes, etc.
   }
 }
-\label{prompt:speed-elements}
 \caption{Prompt für einen Diagramm-Geschwindigkeitstest nach Größe}
+\label{prompt:speed-elements}
 \end{prompt}
 
 
@@ -742,7 +747,8 @@ In den meisten Testfällen liegt die Generierungsdauer des JSON-Modells bei unge
 der Zeit, die für die entsprechende XML-Ausgabe erforderlich ist. 
 Dieser Geschwindigkeitsvorteil lässt sich vor allem auf die kompaktere Syntax und die geringere 
 Redundanz zurückführen. 
-Insgesamt wird dadurch klar, dass JSON für performanzkritische Anwendungsfälle, 
+
+Insgesamt wird dadurch klar, dass JSON für zeitperformanzkritische Anwendungsfälle, 
 insbesondere bei großen oder komplexen Diagrammen, erhebliche Vorteile bietet.
 
 \subsection{Modellunterschiede}
@@ -757,12 +763,12 @@ Die exakten Zeiten stehen in Tabelle~\ref{tab:timing-modelle}.
 \pgfplotstableread{ 
 Model	            Antwort	StreamInitialisierung	Text	Diagramm	Formatierung	Datenbank
 gemini-2.5-pro	    34.396	000.001	                0.433	15.274	    0.005	        0.554
-gemini-2.5-flash	36.529	000.002	                0.162	07.292	    0.005	        0.512
+gemini-2.5-flash	  36.529	000.002	                0.162	07.292	    0.005	        0.512
 grok-3	            00.003	006.203	                0.418	16.850	    0.005	        0.510
 grok-3-fast	        00.004	005.056	                0.386	14.853	    0.007	        0.508
 gpt-4.1	            00.904	001.138	                0.232	18.051	    0.003	        0.580
 gpt-5-mini	        01.874	115.226	                0.414	22.258	    0.007	        0.580
-claude-sonnet-4.5	04.370	000.001	                0.906	16.903	    0.006	        0.582
+claude-sonnet-4.5	  04.370	000.001	                0.906	16.903	    0.006	        0.582
 }\datamodels
 \pgfplotstableset{
     create on use/Total/.style={
@@ -901,7 +907,7 @@ ChatGPT-5-Mini und die Gemini-Reihe durch längere Initialisierungen ausgebremst
 \end{table}
 
 Die Tabelle~\ref{tab:tokenpreise} zeigt einen Überblick über die Tokenpreise der 
-KI-Modellanbieter, welche implementiert wurden, im Stand von November 2025.
+implementierten KI-Modellanbieter, im Stand von November 2025.
 Jeder Modellanbieter hat eine breite Abdeckung an Modellen mit unterschiedlichen Preisen.
 Hierbei gibt es oftmals ein  billiges Modell, welches möglicherweise qualitativ
 schlechtere Ergebnisse erziehlt und ein teureres Modell, welches qualitativ besser ist.
@@ -913,6 +919,8 @@ Gemini 2.5, völlig kostenlos nutzen kann.
 Allerdings gibt es hier auch Nachteile: 
 Laut offizieller Rate-Limits sind beispielsweise bei Gemini 2.5 Flash nur 10 Anfragen pro 
 Minute und 250 Anfragen pro Tag erlaubt. 
+
+\subsection{Input Caching}
 
 Betrachtet man nun eine Diagrammerstellung mit dem Prompt von Seite~\pageref{prompt:speed},
 kann man sehen wie sich die Menge der Tokens Für Input und Output auf den Preis auswirken.
@@ -973,35 +981,152 @@ an einen Anbieter gebunden.
 Dadurch muss bei einem Modellwechsel trotzdem der gesamte Threadkontext an das neue Modell
 gesendet werden.
 
-Zusammenfassend lässt sich festhalten, dass es verschiedene Strategien gibt, 
-die Kosten für die Nutzung von KI-Modellen zu reduzieren. 
-Ein naheliegender Ansatz ist die Auswahl eines Modells mit niedrigen Tokenpreisen. 
-Dabei besteht jedoch immer das Risiko, dass günstigere Modelle auch qualitativ schwächere 
-Ergebnisse liefern. 
-Für bestimmte Anwendungsfälle mag dies ausreichend sein, bei komplexeren Diagrammen kann es 
-jedoch zu deutlichen Qualitätseinbußen kommen.
+\subsection{Formatunterschiede}
 
-Eine weitere Möglichkeit bietet das kostenfreie Gemini-Angebot. 
-Allerdings bringt die kostenlose Stufe klare Einschränkungen mit sich, insbesondere die 
-strengen Limits an täglichen und minütlichen Anfragen. 
-Dadurch wird die skalierung der Software auf eine große Nutzeranzahl verhindert.
+\begin{figure}[H]
+    \centering
+    \pgfplotstableread{ % data 
+    Model	                Preis	Prozess
+    Gemini-2.5-Pro-JSON	    0.000	1
+    Gemini-2.5-Pro-XML	    0.000	1
+    Gemini-2.5-Flash-JSON	0.000	1
+    Gemini-2.5-Flash-XML	0.000	1
+    ChatGPT-5.2-JSON	    0.181	1
+    ChatGPT-5.2-XML	        0.282	1
+    ChatGPT-5.1-JSON	    0.086	1
+    ChatGPT-5.1-XML	        0.234	1
+    ChatGPT-4.1-JSON	    0.077	1
+    ChatGPT-4.1-XML	        0.130	1
+    Grok-4-JSON	            0.161	1
+    Grok-4-XML	            0.250	1
+    Grok-4.1-Fast-JSON      0.015	1
+    Grok-4.1-Fast-XML	    0.016	1
+    Claude-Opus-4.5-JSON	0.421	1
+    Claude-Sonnet-4.5-JSON	0.213	1
 
-Auch das Input-Caching kann eine wirksame Methode zur Kostenreduzierung sein. 
-Insbesondere bei langen Chats, kann das Caching den Preis pro Anfrage deutlich senken. 
-Gleichzeitig verbessert sich die Antwortgeschwindigkeit, da bereits bekannte Inhalte nicht 
-erneut ausgewertet werden müssen. 
-Allerdings entfaltet Caching seine Vorteile nur dann, wenn innerhalb eines Threads durchgehend 
-derselbe Modellanbieter verwendet wird. 
-Da der BPMN-Bot dem Nutzer jedoch volle Flexibilität bei der Modellwahl lässt, 
-einschließlich eines Modellwechsels mitten im Gespräch, muss beim Wechsel weiterhin der 
-komplette Kontext erneut übertragen werden. 
-Dadurch verliert das Caching in solchen Situationen an Effektivität.
+    }\dataprizeone
+    \pgfplotstablesort[sort key=Preis, sort cmp=float >]{\sorteddataprizeone}{\dataprizeone}
+    \begin{tikzpicture}
+    \begin{axis}[
+        xbar,   % horizontal bars
+        width=.8\textwidth,
+        xmin=0,  
+        y=8mm,       
+        bar width=4mm,
+        xlabel={Preis [\$]},
+        ytick=data,
+        yticklabels from table={\sorteddataprizeone}{Model}, 
+        tick label style={font=\footnotesize},
+        scaled ticks=false,
+        tick label style={
+            /pgf/number format/fixed,
+            /pgf/number format/precision=2,
+            /pgf/number format/fixed zerofill
+        },
+    ]
+    \addplot [fill=blue!60,
+        point meta=x,
+        nodes near coords,
+        nodes near coords align={anchor=west},
+        every node near coord/.append style={
+            /pgf/number format/fixed,
+            /pgf/number format/precision=3,
+            /pgf/number format/fixed zerofill,
+            black,
+            fill=white,
+            fill opacity=0.75,
+            text opacity=1,
+        }
+    ] table [x=Preis, meta=Model,y expr=\coordindex] {\sorteddataprizeone};   
+    % \legend{Gestreamt,Nicht Gestreamt}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Kosten verschieder Modelle bei Prozessbeschreibung~\ref{prompt:quality-1}}
+    \label{fig:prize-1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \pgfplotstableread{ % data 
+    Model	                Preis	Prozess
+    Gemini-2.5-Pro-JSON	    0.000	2
+    Gemini-2.5-Pro-XML	    0.000	2
+    Gemini-2.5-Flash-JSON	0.000	2
+    Gemini-2.5-Flash-XML	0.000	2
+    ChatGPT-5.2-JSON	    0.072	2
+    ChatGPT-5.2-XML	        0.118	2
+    ChatGPT-5.1-JSON	    0.034	2
+    ChatGPT-5.1-XML	        0.080	2
+    ChatGPT-4.1-JSON	    0.040	2
+    ChatGPT-4.1-XML	        0.085	2
+    Grok-4-JSON	            0.143	2
+    Grok-4-XML	            0.140	2
+    Grok-4.1-Fast-JSON	    0.007	2
+    Grok-4.1-Fast-XML	    0.010	2
+    Claude-Opus-4.5-JSON	0.190	2
+    Claude-Opus-4.5-XML	    0.318	2
+    Claude-Sonnet-4.5-JSON	0.114	2
+    Claude-Sonnet-4.5-XML	0.113	2
+
+
+    }\dataprizeone
+    \pgfplotstablesort[sort key=Preis, sort cmp=float >]{\sorteddataprizeone}{\dataprizeone}
+    \begin{tikzpicture}
+    \begin{axis}[
+        xbar,   % horizontal bars
+        width=.8\textwidth,
+        xmin=0,  
+        y=8mm,       
+        bar width=4mm,
+        xlabel={Preis [\$]},
+        ytick=data,
+        yticklabels from table={\sorteddataprizeone}{Model}, 
+        tick label style={font=\footnotesize},
+        scaled ticks=false,
+        tick label style={
+            /pgf/number format/fixed,
+            /pgf/number format/precision=2,
+            /pgf/number format/fixed zerofill
+        },
+    ]
+    \addplot [fill=blue!60,
+        point meta=x,
+        nodes near coords,
+        nodes near coords align={anchor=west},
+        every node near coord/.append style={
+            /pgf/number format/fixed,
+            /pgf/number format/precision=3,
+            /pgf/number format/fixed zerofill,
+            black,
+            fill=white,
+            fill opacity=0.75,
+            text opacity=1,
+        }
+    ] table [x=Preis, meta=Model,y expr=\coordindex] {\sorteddataprizeone};   
+    % \legend{Gestreamt,Nicht Gestreamt}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Kosten verschieder Modelle bei Prozessbeschreibung~\ref{prompt:quality-2}}
+    \label{fig:prize-2}
+\end{figure}
 
 Wie auch schon im Kapitel~\ref{sec:speed} besprochen, hat auch die Wahl des Diagrammformats eine
 entscheidenden Rolle.
 Die Nutzung von JSON gegenüber XML kann eine Einsparung von bis zu etwa 50\% der Output
 Token bewirken, wodurch weiter einiges an Kosten gespart werden kann.
 
-Insgesamt wird deutlich, dass es nicht die eine perfekte Lösung zur Kostensenkung gibt. 
-Eine bewusste Kombination dieser Ansätze ermöglicht es, sowohl Qualität als auch Kosten 
-sinnvoll auszubalancieren.
+Zusammenfassend lässt sich festhalten, dass es verschiedene Strategien gibt, 
+die Kosten für die Nutzung von KI-Modellen zu reduzieren. 
+Ein naheliegender Ansatz ist die Auswahl eines Modells mit niedrigen Tokenpreisen. 
+Dabei besteht jedoch immer das Risiko, dass günstigere Modelle auch qualitativ schwächere 
+Ergebnisse liefern. 
+Für bestimmte Anwendungsfälle kann das ausreichend sein, bei komplexeren Diagrammen kann es 
+jedoch zu deutlichen Qualitätseinbußen kommen.
+Eine weitere Möglichkeit bietet das kostenfreie Gemini-Angebot. 
+Allerdings bringt die kostenlose Stufe klare Einschränkungen mit sich, insbesondere die 
+strengen Limits an täglichen und minütlichen Anfragen. 
+Dadurch wird die skalierung der Software auf eine große Nutzeranzahl verhindert.
+Auch das Input-Caching kann eine wirksame Methode zur Kostenreduzierung sein. 
+Insbesondere bei langen Chats, kann das Caching den Preis pro Anfrage deutlich senken. 
+Gleichzeitig verbessert sich die Antwortgeschwindigkeit, da bereits bekannte Inhalte nicht 
+erneut ausgewertet werden müssen. 

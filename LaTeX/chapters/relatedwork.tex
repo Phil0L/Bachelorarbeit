@@ -37,7 +37,7 @@ Es werden allerdings nicht BPMN 2.0 Prozessmodelle implementiert, sondern Graphe
 Software CPEE~\footnote{\url{https://cpee.org/index.php?t=cpee}}.
 Für die KI wird allerdings so, wie auch bei BPMNGen, ein anderes Format für die KI benutzt.
 AutoBPMN.AI setzt hier auf Mermaid\footnote{\url{https://mermaid.js.org/}}.
-Dieses Format könnte auch für BPMN-Gen interessant sein.
+Dieses Format könnte auch für BPMNGen interessant sein.
 In den veröffentlichten Arbeiten werden die genauen Prompting-Strategien jedoch nur sehr 
 begrenzt beschrieben, sodass sich hier nur schwer konkrete Strategien ableiten lassen.
 
@@ -85,7 +85,7 @@ interpretiert und in elementare Diagramme umgesetzt werden kann.
 
 \paragraph{BPMN-Chatbot++}
 Ein weiteres relevantes Projekt ist der BPMN-Chatbot++ von Köpke und Safan~\cite{koeppke2025BPMNChatbotPP},
-ein dem hier vorgestellten BPMN-Gen sehr ähnliches Projekt, das erstmals auf der
+ein dem hier vorgestellten BPMNGen sehr ähnliches Projekt, das erstmals auf der
 BPM-Konferenz 2024~\cite{koeppke2024NLP4BPM} präsentiert und anschließend weiterentwickelt wurde.
 Im Rahmen dieses Projekts entstand außerdem eine React-basierte Anwendung~\cite{koeppke2024BPMNChatbot}
 \footnote{\url{https://bpmnchatbot.aau.at/pubserv/BPMN-Chatbot-Beta/}},
@@ -98,7 +98,7 @@ dem die KI antworten soll und das anschließend mittels Model2Model-Transformati
 überführt wird. Es wurde zunächst Zero-Shot-Prompting ausprobiert aber dann auf
 Few-Shot-Prompting umgestellt. 
 Auch das Schema-Constraining zur Validierung des generierten
-JSON-Modells wird wie bei BPMN-Gen verwendet.
+JSON-Modells wird wie bei BPMNGen verwendet.
 Ein wesentlicher Aspekt des BPMN-Chatbot++ sind die integrierten Model checking components~\cite{koeppke2025BPMNChatbotPP, koeppke2025ERForum}. 
 Diese sind direkt auf dem
 Zwischenmodell implementiert und ermöglichen es konkrete Fehler

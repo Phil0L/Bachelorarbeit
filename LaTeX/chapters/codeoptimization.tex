@@ -74,13 +74,12 @@ export class ChatGPT extends Ai {
 
 \subsection{Von Assistants zu Responses}
 
-Die Änderungen, welche im vorherigen Kapitel beschrieben wurden, zeigen gleich ihren Effekt, 
-da OpenAI ankündigt, ihre Assistants API einzustellen. TODO: Umschreiben
-OpenAI empfiehlt einen Umzug zu einer ihrer neueren APIs\@.
-Für dieses Projekt wird die Responses API gewählt
+Da OpenAI angekündigt hat, die Assistants API einzustellen, erweisen sich die im vorherigen Kapitel 
+beschriebenen strukturellen Änderungen als besonders sinnvoll.
+OpenAI empfiehlt einen Umzug zu ihrer neueren Responses API
 \footnote{\url{https://platform.openai.com/docs/api-reference/responses}}
 \footnote{\url{https://platform.openai.com/docs/assistants/migration}}.
-Dies ist nun recht einfach umzusetzten, da wir nur die elementaren Methoden der API ändern müssen. 
+Dies ist nun recht einfach umzusetzten, da nur die elementaren Methoden der API angepasst werden müssen. 
 Wie nun zum Beispiel die neue Methode \mintinline{typescript}{generateContent();} für die
 Responses API aussieht, kann man in Abbildung~\ref{code:generate-content} sehen.
 
@@ -95,7 +94,7 @@ protected async generateContent(input) {
 \end{code}
 
 Einer der zentralen Unterschiede zwischen der Assistants- und der Responses-API besteht darin, 
-dass die System-Instructions bei der Verwendung der Responses-API manuell übergeben werden müssen. 
+dass die System Instructions bei der Verwendung der Responses API manuell übergeben werden müssen. 
 Dadurch ist es notwendig, die entsprechenden Anweisungen bei jeder Anfrage erneut mitzusenden. 
 Dies bringt jedoch nicht nur zusätzlichen Aufwand mit sich, sondern eröffnet auch neue Möglichkeiten: 
 Die Instructions können flexibel und situationsabhängig angepasst werden, wodurch sich das Verhalten des Modells 
@@ -227,10 +226,12 @@ Dies haben auch andere ähnliche Projekte so entschieden.~\cite{klievtsova2015au
 \paragraph{Qualitätskontrolle} \label{sec:quality-control}
 Im Folgenden soll gezeigt werden, dass die Qualität durch die gemachten Veränderungen nicht nachgelassen hat.
 Dafür wird ein Diagramm sowohl für den alten Assistant als auch für die gemachten Änderungen erstellt.
-Für alle wird die einheitliche Prozessebschreibung, Dokument~1.3 aus dem PET Dataset~\cite{bellan2022pet}, sowie GPT-4.1 verwendet:
+Für alle wird die einheitliche Prozessebschreibung, Dokument~1.3 aus dem PET Dataset~\cite{bellan2022pet}, 
+sowie GPT-4.1 verwendet (\ref{prompt:1-3-pet})
 
-\noindent\fbox{
-  \parbox{.96\textwidth}{
+\begin{prompt}
+  \noindent\fbox{
+  \parbox{.95\textwidth}{
     The Evanstonian is an upscale independent hotel. When a guest calls room service at The Evanstonian, 
     the room-service manager takes down the order. She then submits an order ticket to the kitchen to 
     begin preparing the food. She also gives an order to the sommelier (i.e., the wine waiter) to fetch 
@@ -243,7 +244,9 @@ Für alle wird die einheitliche Prozessebschreibung, Dokument~1.3 aus dem PET Da
     to do the billing if he has another order to prepare or deliver.
   }
 }
-TODO: Float
+\caption{Dokument 1.3 des PET Datasets~\cite{bellan2022pet}}
+\label{prompt:1-3-pet}
+\end{prompt}
 
 Die generierten Diagramme sind in den Abbildungen~\ref{fig:dia-assistant},~\ref{fig:dia-responses-json} und
 ~\ref{fig:dia-responses-xml} zu sehen.
@@ -747,7 +750,7 @@ Grok kann einfach über die xAI SDK
 \footnote{\url{https://ai-sdk.dev/providers/ai-sdk-providers/xai}}
 und die Typescript AI SDK
 \footnote{\url{https://www.npmjs.com/package/ai}}
-zu BPMN-Gen hinzugefügt werden.
+zu BPMNGen hinzugefügt werden.
 
 Hierfür wird eine Klasse Grok erstellt, welche die Ai Klasse vererbt bekommt und damit nur 
 noch die Schnittstelle der Grok API implementieren muss.
@@ -755,7 +758,7 @@ Der entscheidende Schritt ist hierbei, die zu versendende Nachricht an die Grok 
 API Format zu bringen.
 Diese Konvertierung kann man in Codeauschnitt~\ref{code:grok-format} sehen.
 
-Folgende Modelle sind damit zum aktuellen Stand für BPMN-Gen verfügbar:
+Folgende Modelle sind damit zum aktuellen Stand für BPMNGen verfügbar:
 
 \begin{table}[h!]
   \centering
@@ -889,7 +892,7 @@ ob dieser Teil bereits von einer KI gedacht wurde.
 
 \subsection{Claude}
 
-Claude ergänzt BPMN-Gen besonders gut, weil er stark auf programmierbezogene Aufgaben 
+Claude ergänzt BPMNGen besonders gut, weil er stark auf programmierbezogene Aufgaben 
 spezialisiert ist. 
 Sein Modell ist darauf ausgelegt, Code sehr zuverlässig zu verstehen, zu strukturieren und 
 zu korrigieren. 
@@ -897,9 +900,9 @@ Dadurch liefert Claude bei der Umsetzung von BPMN-Diagrammen in JSON und XML
 und bei der Fehleranalyse oft besonders saubere Ergebnisse, da diese Formate besonders
 gut verstanden und umgesetzt werden.
 Die Einbindung von Claude erhöht somit die Präzision und Qualität von
-BPMN-Gen.
+BPMNGen.
 
-Claude wird nun wie schon bei den anderen Anbietern über seine eigene Klasse zu BPMN-Gen 
+Claude wird nun wie schon bei den anderen Anbietern über seine eigene Klasse zu BPMNGen 
 hinzugefügt. Hierbei wird die Schnittstelle, wie in Codeausschnitt~\ref{code:claude-format},
 über die Anthropic SDK implemenitert.
 \footnote{\url{https://platform.claude.com/docs/en/api/client-sdks}}
@@ -1170,7 +1173,8 @@ Antwort nun auch erfolgreich in der Datenbank abgespeichert wurde und nun für w
 bereit steht.
 Danach wird der Stream geschlossen und die Übertragung ist abgeschlossen.
 
-TODO: Absatz hierzu:
+Ein vollständiger Stream mit SSE sieht dann beispielsweise so aus: 
+
 \noindent\fbox{
   \parbox{.96\textwidth}{
     event: start\\
@@ -1430,13 +1434,13 @@ Ein solches Verfahren, bei dem die Fehler eines Diagrammes deterministisch besti
 in einem zweiten Schritt an die KI gesendet werden, wird auch von den meisten alternativen
 LLM-basierten BPMN-Anwendungen genutzt.\cite{kourani2024promoai,noureldin2024hybridnala2bpmn,koeppke2025BPMNChatbotPP}
 Dies ist ein optimaler Mittelweg zwischen schneller Generierung und guter Qualität.
-Die Implementierung des Reflective Prompting in BPMN-Gen ermöglicht es nun, dass Fehler automatisch ohne ein aktives Fordern
+Die Implementierung des Reflective Prompting in BPMNGen ermöglicht es nun, dass Fehler automatisch ohne ein aktives Fordern
 des Nutzers korrigiert werden, parallel zu jeglichen anderen Wünschen, welche der Nutzer an den Chatbot stellt.
 Es wird zunächst nur auf syntaktische Fehler untersucht, der Code ermöglicht aber ein einfaches Hinzufügen weiterer 
 Validierungsalgorithmen.
-Es ist außerdem ein reines Beheben der Fehler möglich, indem eine Update Anfrage ohne Nutzertext an den BPMN-Gen
+Es ist außerdem ein reines Beheben der Fehler möglich, indem eine Update Anfrage ohne Nutzertext an den BPMNGen
 Chatbot gesendet wird, falls der Nutzer nur Fehler beheben möchte.
-Bei BPMN-Gen wird dieses Verfahren besonders effizient angewendet, da der Nutzer nicht explizit Fehler korrigieren lassen
+Bei BPMNGen wird dieses Verfahren besonders effizient angewendet, da der Nutzer nicht explizit Fehler korrigieren lassen
 muss und alle erkannten Fehler auch nicht dauerhaft im Chat gespeichert werden, sondern nur für das aktuellste Diagramm
 an die KI gesendet werden.
 

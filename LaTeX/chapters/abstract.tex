@@ -1,27 +1,23 @@
 \chapter*{Zusammenfassung} % Abstract
 
-Diese Arbeit erweitert das bestehende System BPMNGen von 
-Weidel\cite{weidl2024bpmngen} und Shi\cite{shi2025bpmngen} 
-um neue Prompting-Strategien und eine 
-flexible, modularisierte Architektur zur automatisierten Generierung von 
-BPMN-2.0-Prozessmodellen mittels Large Language Models (LLMs). 
+Diese Arbeit erweitert das System BPMNGen von 
+Weidel~\cite{weidl2024bpmngen} und Shi~\cite{shi2025bpmngen} 
+mit neuen Prompting-Strategien zur automatisierten Generierung von 
+BPMN 2.0 Prozessmodellen mittels Large Language Models. 
 Zunächst wird der ursprüngliche, auf der OpenAI-Assistants-API basierende Ansatz vollständig 
 neu strukturiert und in ein objektorientiertes Framework überführt, das unterschiedliche 
 Anbieter wie ChatGPT, Gemini, Grok und Claude einheitlich integrieren kann. 
-Durch optimierte Instructions, eine reduzierte Tokenlast sowie die Unterstützung sowohl des 
-offiziellen XML-Standards als auch eines kompakten JSON-Formats wird die Qualität und 
+Durch optimierte Instructions, reduzierte Tokennutzunge sowie die Unterstützung mehrerer 
+Formate wird die Qualität und 
 Konsistenz der erzeugten Diagramme verbessert.
-
-Darüber hinaus führt die Arbeit einen detail mode auf Basis von 
+Darüber hinaus führt die Arbeit einen Konversationsmodus auf Basis von 
 Chain-of-Thought ein, der interaktive Gespräche, Rückfragen und iterative Diagrammbearbeitung 
 ermöglicht. 
 Ergänzend werden Funktionen für Datei-Uploads via Base64-Data-URLs, Streaming über 
-Server-Sent Events sowie eine robuste Segmentierung von Text- und Diagrammanteilen 
-implementiert. 
-Neue Techniken wie Diagramm-Sampling und Reflective Prompting erweitern das System um 
-Mehrfachgenerierungen und selbstkritische Modellreflexion. 
-Eine umfassende Performanzanalyse zeigt, dass die vorgeschlagenen Anpassungen die Qualität 
-der Diagramme, die Geschwindigkeit der Generierung und die Kostenstruktur signifikant 
+Server-Sent Events sowie neue Techniken wie Diagramm-Sampling und Reflective Prompting
+implementiert.
+Eine Performanzanalyse zeigt, dass die vorgeschlagenen Anpassungen die Qualität 
+der Diagramme, die Geschwindigkeit der Generierung und die Kosten 
 optimieren. 
-Insgesamt entsteht ein flexibles, erweiterbares und kontextsensitives Modellierungssystem, 
+Insgesamt entsteht ein flexibles BPMN Modellierungssystem, 
 das den Einsatz von LLMs zur Prozessmodellierung deutlich verbessert.
