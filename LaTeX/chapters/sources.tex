@@ -7,13 +7,12 @@
 
 \chapter{Quelltexte}
 
-
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\tiny, style=vs]{typescript}
 export type format = "xml" | "json";
 export type mode = "quick" | "detail";
 export type sampling = "false" | "primary" | "secondary";
 export type diagramResponse = {model?: string, text?: string; xml?: string; json?: DiagramJson | string; 
-                               threadId?: string, samples?: {}};
+                                threadId?: string, samples?: {}};
 export type modelPriority = Record<format, number>;
 
 export abstract class Ai {
@@ -334,7 +333,7 @@ export abstract class Ai {
   }
 
   protected static async saveNewThreadToDB(threadID: string, userID: number, title: string, prompt: string, 
-                                           diagramOutput: diagramResponse) {
+                                            diagramOutput: diagramResponse) {
     const messages: { text: string; author: Author; diagrams?: { create: 
       { xmlContent: string; jsonContent: InputJsonValue; previewImageSVG?: string | null;}; 
     }; }[]  = []
@@ -602,7 +601,7 @@ export abstract class Ai {
   /////////////// DEBUGGING //////////////
 
   private static async generateDebugFile(xml: string, threadID: string, additionalDebugData?: any, 
-                                         model?: string): Promise<void> {
+                                          model?: string): Promise<void> {
     try {
       const templatePath = path.join(process.cwd()!, "data/assistant/debug/template.html");
       const template = await fs.promises.readFile(templatePath, "utf8");
@@ -960,6 +959,857 @@ export abstract class Ai {
   }
 }
 \end{minted}
+
+\captionof{code}{ai.ts\label{code:ai-ts}}
+\newpage
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\tiny, style=vs]{typescript}
+export class ChatGPT extends Ai {
+  constructor(model?: string, format?: format) {
+    super(model, format);
+  }
+
+  // new instance of OpenAI
+  openai = new OpenAI({
+    apiKey: OPENAI_API_KEY,
+  });
+
+  public getModelNamesWithPriority(): Map<string, modelPriority> {
+    return new Map<string, modelPriority>([
+      ["gpt-4.1-mini", {xml: -1, json: -1}],
+      ["gpt-4o", {xml: 1, json: 1}],
+      ["gpt-4.1", {xml: 2, json: 2}],
+      ["gpt-5-mini", {xml: -1, json: -1}],
+      ["gpt-5-nano", {xml: -1, json: -1}],
+      ["gpt-5", {xml: 1, json: 1}],
+      ["gpt-5.1", {xml: 1, json: 1}],
+      ["gpt-5.2", {xml: 1, json: 1}],
+      ["gpt-5.2-pro", {xml: 1, json: 1}],
+    ]);
+  }
+
+  async createTitle(prompt: string): Promise<string> {
+    const params: OpenAI.Responses.ResponseCreateParamsNonStreaming = {
+      model: "gpt-5-nano",
+      input: prompt,
+    };
+    const response = await this.openai.responses.create(params);
+    if (!response || !response.output_text) return "Untitled";
+    return response.output_text.toString();
+  }
+
+  async generateContent(input: any, mode: mode, stream: boolean): Promise<any> {
+    return this.openai.responses.create(input);
+  }
+
+  protected processResponse(response: any): string {
+    if (!response || !response.output_text) return "";
+    return response.output_text.toString();
+  }
+
+  protected isStream(obj: any): boolean {
+    return obj && typeof obj[Symbol.asyncIterator] === "function";
+  }
+
+  protected async processStream(stream: any, token: (content: string) => void, error: (content: string) => void, 
+                                debugData: (content: any) => void): Promise<void> {
+    for await (const chunk of stream) {
+      switch (chunk.type) {
+        case "response.output_text.delta":
+          // Text oder andere Änderungen
+          token(chunk.delta ?? "");
+          break;
+
+        case "response.completed":
+          // Fertig gelesen
+          debugData(chunk.response);
+          return;
+
+        case "response.error":
+        case "response.failed":
+        case "response.incomplete":
+        case "error":
+          // Fehler
+          error(chunk.response.error.message ?? "Unknown error");
+          return;
+
+        default:
+          break;
+      }
+    }
+  }
+
+  protected mapPromptInput(input: PromptInput, mode: mode, stream: boolean): any {
+    const systemInstructions = input.instructions.map((instruction) => {
+      return {role: "system", content: instruction} as ResponseInputItem;
+    });
+    const historyInstructions = input.history.map((historyItem) => {
+      return {role: historyItem.role, content: historyItem.content} as ResponseInputItem;
+    });
+    const imageInstructions = input.file
+      ? ({
+        role: "user",
+        content: [
+          {
+            type: "input_image",
+            image_url: input.getFileDataUrl() as string,
+          } as ResponseInputImage,
+        ],
+      } as ResponseInputItem)
+      : [];
+    const userInstructions = {role: "user", content: input.prompt} as ResponseInputItem;
+
+    const format = this.format === "json" && mode == "quick" ? zodTextFormat(PoolsSchema, "pools") : undefined;
+    return {
+      input: Array.prototype.concat(systemInstructions, historyInstructions, userInstructions, imageInstructions),
+      model: this.model,
+      stream: stream,
+      text: {
+        format: format,
+      },
+    } as ResponseCreateParams;
+  }
+
+
+  protected async retrieveTokens(response: any, threadId: string): Promise<{ [p: string]: any }> {
+    return {tokens: {
+      cached_input: response.usage.input_tokens_details.cached_tokens,
+      input: response.usage.input_tokens,
+      output: response.usage.output_tokens
+    }};
+  }
+
+  protected async calculatePrize(tokens: { [p: string]: number }): Promise<{ [p: string]: any }> {
+    // Preisstand 20.11.2025
+    const prizes : { [key: string]: any } = {
+      "gpt-5.1": {
+        "input": 1.25,
+        "cached_input": 0.125,
+        "output": 10.0
+      },
+      "gpt-5.2": {
+        "input": 1.75,
+        "cached_input": 0.175,
+        "output": 14.0
+      },
+      "gpt-5.2-pro": {
+        "input": 21,
+        "cached_input": 0,
+        "output": 168.0
+      },
+      "gpt-5": {
+        "input": 1.25,
+        "cached_input": 0.125,
+        "output": 10.0
+      },
+      "gpt-5-mini": {
+        "input": 0.25,
+        "cached_input": 0.025,
+        "output": 2.0
+      },
+      "gpt-5-nano": {
+        "input": 0.05,
+        "cached_input": 0.005,
+        "output": 0.4
+      },
+      "gpt-5.1-chat-latest": {
+        "input": 1.25,
+        "cached_input": 0.125,
+        "output": 10.0
+      },
+      "gpt-5-chat-latest": {
+        "input": 1.25,
+        "cached_input": 0.125,
+        "output": 10.0
+      },
+      "gpt-5-pro": {
+        "input": 15.0,
+        "output": 120.0
+      },
+      "gpt-4.1": {
+        "input": 2.0,
+        "cached_input": 0.5,
+        "output": 8.0
+      },
+      "gpt-4.1-mini": {
+        "input": 0.4,
+        "cached_input": 0.1,
+        "output": 1.6
+      },
+      "gpt-4.1-nano": {
+        "input": 0.1,
+        "cached_input": 0.025,
+        "output": 0.4
+      },
+      "gpt-4o": {
+        "input": 2.5,
+        "cached_input": 1.25,
+        "output": 10.0
+      }
+    };
+    const prize = prizes[this.model];
+    const inputPrize = (prize?.input ?? 0) * tokens.input * 0.000001;
+    const cachedInputPrize = (prize?.cached_input ?? 0) * tokens.cached_input * 0.000001;
+    const outputPrize = (prize?.output ?? 0) * tokens.output * 0.000001;
+    return {prize:{
+      input: inputPrize,
+      cached_input: cachedInputPrize,
+      output: outputPrize,
+      total: inputPrize + cachedInputPrize + outputPrize
+    }};
+  }
+}
+
+/**
+ * @deprecated
+ */
+export class ChatGPTAssistant extends ChatGPT {
+  assistant_id: string;
+
+  public static assistants = {
+    "Default-XML": "asst_6dtvdhWdG3xIMLOVxCjxELKO", // Newer BPMNGen using only xml
+    "Default-JSON": "asst_tfQfgJlllSwY2XhNfDykv6VO", // Default old BPMNGen using json
+  };
+
+  protected constructor(assistant?: string) {
+    super(assistant);
+    if (assistant) this.assistant_id = assistant;
+    else this.assistant_id = new Map(Object.entries(ChatGPTAssistant.assistants)).values().next().value as string;
+  }
+
+  async retrieveAssistant() {
+    return this.openai.beta.assistants.retrieve(this.assistant_id);
+  }
+
+  async createOpenaiThread(): Promise<string> {
+    const thread = await this.openai.beta.threads.create();
+    return thread.id;
+  }
+
+  protected mapPromptInput(input: PromptInput): any {
+    return input;
+  }
+
+  async promptAiForDiagram(instructions: PromptInput) {
+    await this.openai.beta.threads.messages.create(await this.createOpenaiThread(), {
+      role: "user",
+      content: instructions.prompt,
+    });
+    let assistant = await this.retrieveAssistant();
+    const run = await this.openai.beta.threads.runs.createAndPoll(await this.createThread(), {
+      assistant_id: assistant.id,
+    });
+    if (run.status !== "completed") {
+      console.log(run.status);
+      return null;
+    }
+
+    const messages = await this.openai.beta.threads.messages.list(run.thread_id);
+
+    // get message
+    const message = messages.data[0].content[0].type === "text" ? messages.data[0].content[0].text.value : "Error";
+    console.log(message);
+
+    // check if generation failed (specified in the input prompt for the Ai)
+    if (message === "Error") {
+      console.log("Generation failed with message:", message);
+      return null;
+    }
+    return message;
+  }
+}
+
+export class ChatGPTAssistantDefaultJson extends ChatGPTAssistant {
+  constructor() {
+    super(ChatGPTAssistant.assistants["Default-JSON"]);
+  }
+
+  public getModelNamesWithPriority(): Map<string, modelPriority> {
+    return new Map<string, modelPriority>([
+      ["gpt-assistant2", {xml: -1, json: 0}]
+    ]);
+  }
+
+  public getFormatsWithPriority(): Map<format, number> {
+    return new Map([["json", 0]]);
+  }
+
+  async generateContent(instructions: PromptInput): Promise<string | null> {
+    const diagramJson = await this.promptAiForDiagram(instructions);
+    if (!diagramJson) return null;
+    const json = Ai.convertStringToJson(diagramJson);
+    if (!json) return null;
+    return jsonToXml(json);
+  }
+}
+
+export class ChatGPTAssistantDefaultXml extends ChatGPTAssistant {
+  constructor() {
+    super(ChatGPTAssistant.assistants["Default-XML"]);
+  }
+
+  public getFormatsWithPriority(): Map<format, number> {
+    return new Map([["xml", 0]]);
+  }
+
+  public getModelNamesWithPriority(): Map<string, modelPriority> {
+    return new Map<string, modelPriority>([
+      ["gpt-assistant1", {xml: 0, json: -1}]
+    ]);
+  }
+
+  async generateContent(instructions: PromptInput): Promise<string | null> {
+    const xml = await this.promptAiForDiagram(instructions);
+    if (!xml) return null;
+    return xml;
+  }
+}
+\end{minted}
+\captionof{code}{openai.ts\label{code:openai-ts}}
+\newpage
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\tiny, style=vs]{typescript}
+export class GrokAI extends Ai {
+
+  constructor(model?: string, format?: format) {
+    super(model, format);
+  }
+
+  xai = createXai({
+    apiKey: GROKAI_API_KEY,
+  });
+
+  public getModelNamesWithPriority(): Map<string, modelPriority> {
+    return new Map<string, modelPriority>([
+      ["grok-3-mini", {xml: 2, json: 2}],
+      ["grok-3", {xml: 7, json: 5}],
+      ["grok-4", {xml: 9, json: 9}],
+      ["grok-4-fast-non-reasoning", {xml: 1, json: 1}],
+      ["grok-4-fast-reasoning", {xml: 1, json: 1}],
+      ["grok-4-1-fast-reasoning", {xml: 1, json: 1}],
+    ]);
+  }
+
+  async createTitle(prompt: string): Promise<string> {
+    const {text} = await generateText({
+      model: this.xai("grok-3-mini-fast-latest"),
+      prompt: prompt,
+    });
+    return text;
+  }
+
+  async generateContent(input: any, mode: mode, stream: boolean): Promise<any> {
+    if (stream) return streamText(input)
+    return generateText(input);
+  }
+
+  protected processResponse(response: any): string {
+    if (!response || !response.text) return "";
+    return response.text;
+  }
+
+  protected isStream(obj: any): boolean {
+    return obj && "fullStream" in obj && typeof obj.fullStream[Symbol.asyncIterator] === "function";
+  }
+
+  protected async processStream(stream: any, token: (content: string) => void, error: (content: string) => void, 
+                                debugData: (content: any) => void): Promise<void> {
+    for await (const chunk of stream.fullStream) {
+      switch (chunk.type) {
+        case "text":
+        case "text-delta":
+          // Text oder andere Änderungen
+          token(chunk.text ?? "");
+          break;
+
+        case "finish":
+          // Fertig gelesen
+          debugData(chunk);
+          return
+
+        case "error":
+        case "abort":
+          // Fehler
+          error(chunk.error ?? "Unknown error");
+          return;
+
+        default:
+          break;
+      }
+    }
+  }
+
+  protected mapPromptInput(input: PromptInput, mode: mode, stream: boolean): any {
+    const historyInstructions = input.history.map((historyItem) => {
+      return {role: historyItem.role, content: historyItem.content} as ModelMessage;
+    })
+    const imageInstructions = input.file ? {
+      role: "user",
+      content: [{
+          type: "image",
+          image: input.getFileDataUrl() as string,
+        } as ImagePart,
+      ],
+    } as UserModelMessage : [];
+    const userInstructions = {role: "user", content: input.prompt} as ModelMessage
+    return {
+      model: this.xai(this.model),
+      system: input.instructions.join("\n"),
+      messages: Array.prototype.concat(historyInstructions, userInstructions, imageInstructions),
+    };
+  }
+
+  protected async retrieveTokens(response: any, threadId: string): Promise<{ [p: string]: any }> {
+    return {tokens:{
+      input: response.totalUsage.inputTokens,
+      output: response.totalUsage.outputTokens,
+      total: response.totalUsage.totalTokens,
+      reasoning: response.totalUsage.reasoningTokens,
+    }}
+  }
+
+  protected async calculatePrize(tokens: { [p: string]: number }): Promise<{ [p: string]: any }> {
+    const prizes: { [key: string]: any } = {
+      "grok-4-1-fast-reasoning": {
+        "input": 0.2,
+        "cached_input": 0.05,
+        "output": 0.5
+      },
+      "grok-4-1-fast-non-reasoning": {
+        "input": 0.2,
+        "cached_input": 0.05,
+        "output": 0.5
+      },
+      "grok-code-fast-1": {
+        "input": 0.2,
+        "cached_input": 0.02,
+        "output": 1.5
+      },
+      "grok-4-fast-reasoning": {
+        "input": 0.2,
+        "cached_input": 0.05,
+        "output": 0.5
+      },
+      "grok-4-fast-non-reasoning": {
+        "input": 0.2,
+        "cached_input": 0.05,
+        "output": 0.5
+      },
+      "grok-4": {
+        "input": 3.0,
+        "cached_input": 0.05,
+        "output": 15.0
+      },
+      "grok-3-mini": {
+        "input": 0.3,
+        "cached_input": 0.075,
+        "output": 0.5
+      },
+      "grok-3": {
+        "input": 3.0,
+        "cached_input": 0.75,
+        "output": 15.0
+      }
+    }
+    const prize = prizes[this.model];
+    const inputPrize = (prize?.input ?? 0) * tokens.input * 0.000001;
+    const reasoningPrize = (prize?.output ?? 0) * tokens.reasoning * 0.000001;
+    const outputPrize = (prize?.output ?? 0) * tokens.output * 0.000001;
+    return {prize:{
+      input: inputPrize,
+      reasoning: reasoningPrize,
+      output: outputPrize,
+      total: inputPrize + reasoningPrize + outputPrize
+    }};
+  }
+}
+\end{minted}
+\captionof{code}{grok.ts\label{code:grok-ts}}
+\newpage
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\tiny, style=vs]{typescript}
+export class Gemini extends Ai {
+  constructor(model?: string, format?: format) {
+    super(model, format);
+  }
+
+  ai = new GoogleGenAI({
+    apiKey: GEMINI_API_KEY,
+  });
+
+  public getModelNamesWithPriority(): Map<string, modelPriority> {
+    return new Map<string, modelPriority>([
+      ["gemini-3-pro-preview", {xml: 2, json: 2}],
+      ["gemini-2.5-flash-lite", {xml: -1, json: -1}],
+      ["gemini-2.5-flash", {xml: 9, json: 6}],
+      ["gemini-2.5-pro", {xml: 10, json: 7}]]);
+  }
+
+  async createTitle(prompt: string): Promise<string> {
+    const response = await this.ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: prompt,
+    });
+    if (!response || !response.text) return "Undefined";
+    return response.text;
+  }
+
+  async generateContent(input: any, mode: mode, stream: boolean): Promise<any> {
+    if (stream) return this.ai.models.generateContentStream(input);
+    return this.ai.models.generateContent(input);
+  }
+
+  protected processResponse(response: any): string {
+    if (!response || !response.text) return "";
+    return response.text;
+  }
+
+  protected isStream(obj: any): boolean {
+    return obj && typeof obj[Symbol.asyncIterator] === "function";
+  }
+
+  protected async processStream(stream: any, token: (content: string) => void, error: (content: string) => void, 
+                                debugData: (content: any) => void): Promise<void> {
+    for await (const chunk of stream) {
+      if (chunk.text) {
+        token(chunk.text);
+        debugData(chunk);
+      }
+    }
+  }
+
+  protected mapPromptInput(input: PromptInput, mode: mode, stream: boolean): GenerateContentParameters {
+    const systemInstructions = input.instructions.map((instruction) => {
+      return {role: "model", parts: [{text: instruction, thought: false}]};
+    });
+    const historyInstructions = input.history.map((historyItem) => {
+      return {
+        role: historyItem.role == "user" ? "user" : "model",
+        parts: [{text: historyItem.content, thought: historyItem.role == "assistant"}],
+      };
+    });
+    const imageInstructions = input.file
+      ? {
+          role: "user",
+          parts: [
+            {
+              type: "input_image",
+              inlineData: {
+                data: input.getFileBase64Data() as string,
+                mimeType: input.getFileMimeType() as string,
+              },
+            } as Part,
+          ],
+        }
+      : [];
+    const userInstructions = {role: "user", parts: [{text: input.prompt}]};
+    return {
+      model: this.model,
+      contents: Array.prototype.concat(
+        systemInstructions,
+        historyInstructions,
+        userInstructions,
+        imageInstructions
+      ),,
+    };
+  }
+
+  protected async retrieveTokens(response: any, threadId: string): Promise<{ [p: string]: any }> {
+    return {tokens:{
+      promptTokenCount: response.usageMetadata.promptTokenCount,
+      candidatesTokenCount: response.usageMetadata.candidatesTokenCount,
+      totalTokenCount: response.usageMetadata.totalTokenCount,
+    }}
+  }
+
+  protected async calculatePrize(tokens: { [p: string]: any }): Promise<{ [p: string]: any }> {
+    return {prize:{
+      total: 0
+    }};
+  }
+}
+\end{minted}
+\captionof{code}{gemini.ts\label{code:gemini-ts}}
+\newpage
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\tiny, style=vs]{typescript}
+export class Claude extends Ai {
+
+  constructor(model?: string, format?: format) {
+    super(model, format);
+  }
+
+  ai = new Anthropic({
+    apiKey: CLAUDE_API_KEY,
+  });
+
+  public getModelNamesWithPriority(): Map<string, modelPriority> {
+    return new Map<string, modelPriority>([
+      ["claude-opus-4-1", {xml: 1, json: 5}],
+      ["claude-opus-4-5", {xml: 1, json: 5}],
+      ["claude-sonnet-4-5", {xml: -1, json: 10}]
+    ]);
+  }
+
+  async createTitle(prompt: string): Promise<string> {
+    const response = await this.ai.messages.create({
+      model: "claude-haiku-4-5",
+      max_tokens: 50,
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
+    });
+    if (response.content[0].type === "text") return response.content[0].text;
+    else return "Undefined";
+  }
+
+  async generateContent(input: any, mode: mode, stream: boolean): Promise<any> {
+    return this.ai.messages.create(input);
+  }
+
+  protected async processStream(stream: any, token: (content: string) => void, error: (content: string) => void, 
+                                debugData: (content: any) => void): Promise<void> {
+    for await (const chunk of stream) {
+      switch (chunk.type) {
+        case "content_block_delta":
+          // Text oder andere Änderungen
+          token(chunk.delta.text ?? "");
+          break;
+
+        case "message_delta":
+          debugData(chunk);
+          break;
+
+        case "message_stop":
+          // Fertig gelesen
+          return
+
+        case "error":
+          // Fehler
+          error(chunk.error.message ?? "Unknown error");
+          return;
+
+        default:
+          break;
+      }
+    }
+  }
+
+  protected processResponse(response: any): string {
+    if (!response) throw "No response received from AI";
+    if (response.stop_reason === "max_tokens") throw "Reached max tokens";
+    if (response.content[0].type === "text") return response.content[0].text;
+    throw "Unknown response format";
+  }
+
+  protected isStream(obj: any): boolean {
+    return obj && typeof obj[Symbol.asyncIterator] === "function";
+  }
+
+  protected mapPromptInput(input: PromptInput, mode: mode, stream: boolean): MessageCreateParams {
+    const systemInstructions = input.instructions.map((instruction) => {
+      return {type: "text", text: instruction} as Anthropic.Messages.TextBlockParam;
+    });
+    const historyInstructions = input.history.map((historyItem) => {
+      return {role: historyItem.role, content: historyItem.content};
+    });
+    const imageInstructions = input.file ? {
+      role: "user",
+      content: [{
+          type: "image",
+          source: {
+            type: 'base64',
+            data: input.getFileBase64Data() as string,
+            media_type: input.getFileMimeType() as string,
+          },
+        } as ImageBlockParam,
+      ],
+    } as MessageParam : [];
+    const userInstructions = {role: "user", content: input.prompt};
+    return {
+      model: this.model,
+      max_tokens: 15000,
+      stream: stream,
+      system: systemInstructions,
+      messages: Array.prototype.concat(historyInstructions, userInstructions, imageInstructions),
+    };
+  }
+
+
+  protected async retrieveTokens(response: any, threadId: string): Promise<{ [p: string]: any }> {
+    return {tokens:{
+      input: response.usage.input_tokens,
+      output: response.usage.output_tokens,
+      cache_write: response.usage.cache_creation_input_tokens,
+      cache_read: response.usage.cache_read_input_tokens,
+    }}
+  }
+
+
+  protected async calculatePrize(tokens: { [p: string]: number }): Promise<{ [p: string]: any }> {
+    const prizes: { [key: string]: any } = {
+      "claude-opus-4-1": {
+        "input": 15,
+        "cache_write": 18.75,
+        "cache_read": 1.50,
+        "output": 75
+      },
+      "claude-sonnet-4-5": {
+        "input": 3,
+        "cache_write": 3.75,
+        "cache_read": 0.30,
+        "output": 15
+      },
+      "claude-haiku-4-5": {
+        "input": 1,
+        "cache_write": 1.25,
+        "cache_read": 0.10,
+        "output": 5
+      },
+      "claude-sonnet-4": {
+        "input": 3,
+        "cache_write": 3.75,
+        "cache_read": 0.30,
+        "output": 15
+      },
+      "claude-opus-4": {
+        "input": 15,
+        "cache_write": 18.75,
+        "cache_read": 1.50,
+        "output": 75
+      },
+      "claude-sonnet-3-7": {
+        "input": 3,
+        "cache_write": 3.75,
+        "cache_read": 0.30,
+        "output": 15
+      },
+      "claude-haiku-3-5": {
+        "input": 0.8,
+        "cache_write": 1,
+        "cache_read": 0.08,
+        "output": 4
+      },
+      "claude-opus-3": {
+        "input": 15,
+        "cache_write": 18.75,
+        "cache_read": 1.50,
+        "output": 75
+      },
+      "claude-haiku-3": {
+        "input": 0.25,
+        "cache_write": 0.30,
+        "cache_read": 0.03,
+        "output": 1.25
+      }
+    }
+
+    const prize = prizes[this.model];
+    const inputPrize = (prize?.input ?? 0) * tokens.input * 0.000001;
+    const cacheRead = (prize?.cache_read ?? 0) * tokens.cache_read * 0.000001;
+    const cacheWrite = (prize?.cache_write ?? 0) * tokens.cache_write * 0.000001;
+    const outputPrize = (prize?.output ?? 0) * tokens.output * 0.000001;
+    return {prize:{
+      input: inputPrize,
+      cacheRead: cacheRead,
+      cacheWrite: cacheWrite,
+      cache: cacheRead + cacheWrite,
+      output: outputPrize,
+      total: inputPrize + cacheRead + cacheWrite + outputPrize
+    }};
+  }
+}
+\end{minted}
+\captionof{code}{claude.ts\label{code:claude-ts}}
+\newpage
+
+\begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\tiny, style=vs]{typescript}
+export const AI_INSTANCES: Ai[] = [
+  new ChatGPT(),
+  new GrokAI(),
+  new Claude(),
+  new Gemini(),
+  new ChatGPTAssistantDefaultJson(),
+  new ChatGPTAssistantDefaultXml()
+]
+
+export function getGPT(model?: string, format?: string): Ai | undefined {
+  if (!model) return availableGPTs.values().next().value;
+  const modelData = getModelData(model, format);
+  return availableGPTs.get(modelData.modelWithFormat);
+}
+
+function getModelData(model: string, format?: string){
+  if (format){
+    const modelName = model.split(" ")[0];
+    return {model:modelName, format:format, modelWithFormat:`${modelName} (${format})`}
+  }
+  const modelName = model.split(" (")[0];
+  let formatName = model.split(" (")[1]?.split(")")[0];
+  if (formatName && formatName === "json" || formatName === "xml" )
+    return {model:modelName, format:formatName, modelWithFormat:model}
+  formatName = availableGPTs.get(modelName)?.format ?? "xml";
+  return {model:modelName, format:formatName, modelWithFormat:`${modelName} (${formatName})`}
+}
+
+export function getAvailableModelsArray(): Record<format, string[]> {
+  return [...recommendedGPTs.entries()]
+    .sort((a, b) =>
+      b[1].formatPriority - a[1].formatPriority ||
+      b[1].modelPriority - a[1].modelPriority
+    )
+    .filter(x => x[1].modelPriority > 0)
+    .map((model) => [model[1].format, model[0]] as const)
+    .reduce((acc, [format, name]) => {
+      if (!acc[format]) acc[format] = [];
+      acc[format].push(name);
+      return acc;
+    }, {} as Record<format, string[]>)
+}
+
+export const availableGPTs: Map<string, Ai> = new Map(
+  AI_INSTANCES
+    .map(ai =>
+      [...ai.getModelNamesWithPriority().entries()].map((modelPriorityEntry) =>
+        ([...ai.getFormatsWithPriority().keys()]).map(format =>
+          // @ts-ignore
+          [`${modelPriorityEntry[0]} (${format})`, new ai.constructor(modelPriorityEntry[0], format)]
+        )
+      )
+    )
+    .concat([AI_INSTANCES.map(ai => [...ai.getModelNamesWithPriority().entries()].map((modelPriorityEntry) => {
+      const format = ai.getFormatsWithPriority().keys().next().value;
+      if (!format) return undefined;
+      // @ts-ignore
+      return [`${modelPriorityEntry[0]}`, new ai.constructor(modelPriorityEntry[0], format)]
+    }  ))] )
+    .flat(2)
+    .filter((entry): entry is [string, Ai] => entry !== undefined)
+);
+
+export const recommendedGPTs: Map<string, Ai> = new Map(
+  AI_INSTANCES
+    .map(ai =>
+      [...ai.getModelNamesWithPriority().entries()].map((modelPriorityEntry) =>
+        ([...ai.getFormatsWithPriority().entries()]).map(formatPriorityEntry => {
+          return modelPriorityEntry[1][formatPriorityEntry[0]] >= 0 && formatPriorityEntry[1] >= 0
+            // @ts-ignore
+            ? [`${modelPriorityEntry[0]} (${formatPriorityEntry[0]})`, 
+               new ai.constructor(modelPriorityEntry[0], formatPriorityEntry[0])]
+            : undefined;
+        })
+      )
+    )
+    .flat(2)
+    .filter((entry): entry is [string, Ai] => entry !== undefined)
+);
+\end{minted}
+\captionof{code}{useGPT.ts\label{code:use-gpt-ts}}
+\newpage
+
 
 \chapter{Anhänge}
 

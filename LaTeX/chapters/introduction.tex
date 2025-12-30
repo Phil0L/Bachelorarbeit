@@ -2,8 +2,8 @@
 
 \section{Motivation}
 
-Business Process Model and Notation (BPMN) ist ein leistungsfähiges Werkzeug zur 
-anschaulichen Darstellung von Geschäftsprozessen. 
+Business Process Model and Notation (BPMN) ist ein beliebtes Werkzeug zur 
+Darstellung von Geschäftsprozessen. 
 Es bietet eine standardisierte Methode zur Visualisierung von Abläufen, erleichtert deren 
 Analyse und Optimierung. 
 Ein zentrales Problem ist jedoch die Umsetzung von einem Prozess in 
@@ -28,8 +28,8 @@ Dabei wurde eine vollständige Client-Server Architektur implementiert, sowie di
 Instructions des Assistants grundlegend verbessert.
 
 Im bisherigen Projekt zeigen sich jedoch auch einige Möglichkeiten zur Verbesserung. 
-Die Diagramme werden nur einmalig erzeugt und können nicht wirklich interaktiv angepasst werden. 
-Außerdem ist das Prompting sehr statisch aufgebaut, sodass die KI nicht nachfragen oder auf 
+Die Diagramme werden nur einmalig erzeugt und können nur begrenzt interaktiv angepasst werden. 
+Außerdem ist das Prompting sehr statisch aufgebaut, sodass die KI nicht auf 
 vorherige Nachrichten eingehen kann. 
 Das eigene JSON-Format ist zwar funktional, aber fehleranfällig und für die KI schwer zu lernen. 
 Auch die Unterstützung weiterer KI-Modelle war nicht vorgesehen, und Funktionen wie Datei-Uploads, 
@@ -40,17 +40,17 @@ Diese Arbeit setzt genau hier an und soll das System in diesen Punkten verbesser
 
 Das Ziel dieser Arbeit ist es, die Art und Weise zu verbessern, 
 wie Nutzende mit einem KI-Modell zusammenarbeiten, um BPMN-Diagramme zu erstellen. 
-Frühere Ansätze haben meist nur ein einziges Diagramm erzeugt, ohne die Möglichkeit, 
+Vergleichbare Text zu BPMN Bots erzeugen meist nur ein einziges Diagramm, ohne die Möglichkeit, 
 Rückfragen zu stellen oder gemeinsam Schritt für Schritt an einem Prozess zu arbeiten. 
 In der Realität entsteht ein gutes Prozessmodell jedoch selten auf den errsten Versuch. 
 Es muss in der Regel angepasst, erweitert und überarbeitet werden. 
 
-Damit die KI bessere Ergebnisse liefern kann, braucht sie jedoch klare Anleitungen und 
-wirksame Prompting-Strategien. 
+Damit die KI bessere Ergebnisse liefern kann, braucht sie jedoch klare Anleitung und 
+eine implementierung von modernen Prompting-Strategien. 
 Einfache Anweisungen zur Diagrammerstellung reichen meistens nicht aus, denn das Modell 
 muss verstehen, wie sich der Nutzer das Diagramm wirklich vorstellt und dabei 
 Unklarheiten erkennen und gegebenenfalls nachfragen können. 
-Techniken wie Chain of Thought oder Reflective Prompting helfen dabei, indem sie der KI 
+Techniken wie Chain of Thought oder Reflective Prompting sind entscheidend, indem sie der KI 
 dabei helfen, das gewünschte Ergebins zu erzielen. 
 Auch das Erzeugen mehrerer Diagramm-Varianten (Sampling) kann sinnvoll sein, weil so 
 vom Nutzenden das beste Ergebnis ausgewählt werden kann.
@@ -80,15 +80,15 @@ Kapitel~3 bildet den praktischen Teil der Arbeit.
 Dort wird die bestehende BPMNGen Architektur analysiert und anschließend alle genannten Verbesserungsideen
 implementiert. 
 Dazu gehört die Umstrukturierung zu einem objektorientierten System, 
-das mehrere KI-Anbieter unterstützt und generell besser wartbar und erweiterbar ist. 
+das mehrere KI Anbieter unterstützt und generell besser wartbar und erweiterbar ist. 
 Außerdem werden Verbesserungen am Prompting gezeigt, darunter optimierte Instructions, 
 neue Modi, das Einbinden von Konversationsverlauf und Diagrammzustand, 
-Datei-Uploads mit Base64 Data URLs, Streaming über SSE, die Kombination von Text- und Diagrammausgaben sowie 
-Techniken wie Reflective Prompting und Diagramm-Sampling. 
+Datei-Uploads, Streaming, die Kombination von Text- und Diagrammausgaben sowie 
+Techniken wie Reflective Prompting und Diagramm Sampling. 
 
 Kapitel~4 untersucht die Performanz des erweiterten Systems. 
-Dazu werden die erzeugten Diagramme auf ihre Qualität bewertet, 
-etwa im Hinblick auf Vollständigkeit, Konsistenz und Struktur. 
-Zusätzlich wird die Geschwindigkeit,
+Dazu werden die erzeugten Diagramme auf ihre Qualität, im Hinblick auf Vollständigkeit, 
+Konsistenz und Struktur, bewertet. 
+Ausserdem wird die Geschwindigkeit,
 sowie die Kosten der Generierung analysiert, die durch verschiedene Prompting-Strategien, 
 Modelle und Formate entstehen. 

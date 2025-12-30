@@ -25,21 +25,22 @@ Um das zu erreichen, wird ein objektorientierter Ansatz gewählt.
 Die objektorientierte Programmierung bietet für den Aufbau des Prompting-Codes viele Vorteile und macht die Entwicklung 
 langfristig übersichtlicher und besser wartbar. 
 Es wird eine abstrakte Klasse \texttt{Ai} erstellt, welche die gesamte Logik des Prompting beinhält, und eine Klasse \texttt{ChatGPT} 
-welche von der AI Klasse erbt.
+welche von der Ai Klasse erbt.
 Die ChatGPT Klasse muss nun nur noch Methoden implementieren, welche konkret auf die aktuelle Version der API angepasst sind.
 Durch die Verwendung von abstrakten Methoden wie \mintinline{typescript}{generateContent()}, 
-\mintinline{typescript}{createTitle()} oder processResponse() wird sichergestellt, 
+\mintinline{typescript}{createTitle()} oder \mintinline{typescript}{processResponse()} wird sichergestellt, 
 dass jede konkrete Implementierung dieselbe Schnittstelle einhält, 
 aber ihre eigenen internen Abläufe definieren kann. 
 Dies erleichtert den Austausch und die Erweiterung von Modellen, ohne den restlichen Code verändern zu müssen. 
 Darüber hinaus werden wiederkehrende Prozesse, etwa das Speichern von Verläufen, das Verarbeiten von Antworten 
 oder die Konvertierung zwischen Formaten, zentral in der Basisklasse gekapselt. 
-Falls sich die API ändert, kann dies nun einfach in der erbenden Klasse angepasst werden, ohne die dahinterliegenden Logik verändern zu müssen.
+Falls sich die API ändert, kann dies nun einfach in der erbenden Klasse angepasst werden, ohne die darunterliegenden Logik verändern zu müssen.
 
 So wie in Codeausschnitt~\ref{code:chatgpt-class} sieht nun in vereinfachter Variante die Klasse für die OpenAI API aus.
-Es gibt eine Methode \mintinline{typescript}{mapPromptInput();} um den Prompt in das richtige Format der API zu bringen,
-\mintinline{typescript}{generateContent();} um den eigentlichen API Aufruf durchzuführen und \mintinline{typescript}{processResponse();}
+Es gibt eine Methode \mintinline{typescript}{mapPromptInput()} um den Prompt in das richtige Format der API zu bringen,
+\mintinline{typescript}{generateContent()} um den eigentlichen API Aufruf durchzuführen und \mintinline{typescript}{processResponse()}
 um die Antwort der API auszulesen.
+Die vollständigen Klassen sind in Codeauschnitt~\ref{code:ai-ts} und~\ref{code:openai-ts}
 
 \begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
@@ -89,14 +90,14 @@ protected async generateContent(input) {
   return this.openai.responses.create(input);
 }
 \end{minted}
-\caption{generateContent()}
+\caption{generateContent() mit Responses API}
 \label{code:generate-content}
 \end{code}
 
 Einer der zentralen Unterschiede zwischen der Assistants- und der Responses-API besteht darin, 
 dass die System Instructions bei der Verwendung der Responses API manuell übergeben werden müssen. 
 Dadurch ist es notwendig, die entsprechenden Anweisungen bei jeder Anfrage erneut mitzusenden. 
-Dies bringt jedoch nicht nur zusätzlichen Aufwand mit sich, sondern eröffnet auch neue Möglichkeiten: 
+Dies bringt jedoch nicht nur zusätzliche Tokens mit sich, sondern eröffnet auch neue Möglichkeiten: 
 Die Instructions können flexibel und situationsabhängig angepasst werden, wodurch sich das Verhalten des Modells 
 dynamisch steuern lässt.
 Im folgenden Abschnitt wird gezeigt, wie dieser Ansatz weiter verbessert und effizienter gestaltet werden kann.
@@ -119,14 +120,14 @@ Dadurch lassen sich eine große Zahl an Tokens sowie Rechenzeit und Kosten einsp
 
 Die beiden verbliebenen Textdokumente werden anschließend zusammengeführt und in ein einheitliches, 
 strukturiertes Format gebracht. 
-Alle Regeln sind in einer geordneten Liste zusammengefasst und durch \texttt{Structured-Prompting} klar und 
+Alle Regeln sind in einer geordneten Liste zusammengefasst und durch Structured-Prompting klar und 
 maschinenlesbar gestaltet. 
 Ergänzend werden den Instructions zwei illustrative Beispiele hinzugefügt:
 Zum einen ein minimales Beispiel, das den grundsätzlichen Aufbau des JSON-Formats verdeutlicht und die 
 obligatorischen Elemente zeigt. 
 Zum anderen ein umfangreicheres, praxisnahes Beispiel, das ein vollständiges BPMN-Diagramm mit allen relevanten und 
 unterstützten Komponenten abbildet. 
-Dieses \texttt{Few-Shot-Prompting}, oder in diesem Fall \texttt{Two-Shot-Prompting}, sorgt dafür, dass der Assistant sowohl 
+Dieses Few-Shot-Prompting, oder in diesem Fall Two-Shot-Prompting, sorgt dafür, dass der Assistant sowohl 
 einfache als auch komplexe Diagramme interpretieren und reproduzieren kann.
 Diese Technik ist auch bereits bei anderen BPMN Chatbots getestet worden und hat sich als sinnvoll erwiesen.
 ~\cite{koeppke2025BPMNChatbotPP,kourani2024promoai,ziche2024llm4pm}
@@ -167,7 +168,7 @@ Diese sind in Tabelle~\ref{tab:vor-nachteile-json-xml} gegenübergestellt.
     kein Standard,\newline hoher Lernaufwand,\newline komplizierter Konvertierungsalgorithmus. &
     hoher Tokenverbrauch,\newline umfangreiche Syntax,\newline unübersichtlicher,\newline höhere Kosten,\newline längere Generierung.\\\hline
   \end{tabular}
-  \caption{Vergleich der Vor- und Nachteile der unterstützten Ausgabeformate}
+  \caption{Vor- und Nachteile der unterstützten Ausgabeformate}
 \label{tab:vor-nachteile-json-xml}
 \end{table}
 
@@ -202,7 +203,6 @@ Bei einer Anfrage kann dann die jeweilige AI über eine Map
 zugeordnet werden, welche die Anfrage bearbeitet.
 
 \paragraph{Diagrammupdates}
-
 Die erstellten Diagramme bearbeiten zu lassen, ist ein wesentlicher Bestandteil der Software.
 Weidel~\cite{weidl2024bpmngen} hat das Update des Diagramms so implementiert, dass ein JSON Block
 an das generierte Diagramm anghängt wird.
@@ -216,8 +216,7 @@ und die KI dann mit diesen Änderungen fortfährt.
 Außerdem ist ein solcher Update Block nicht im offiziellen XML Standard definiert. 
 Daher kann diese Technik nicht auf direkte XML-Diagramm Erstellungen angewendet werden.
 Für den weiteren Verlauf wird daher das Verfahren der Update Blöcke entfernt und stattdessen wird bei
-einer Diagrammänderung das gesamte Diagramm neu generiert.
-\footnote{Mehr dazu im Abschnitt~\ref{sec:konversationskontext}}
+einer Diagrammänderung das gesamte Diagramm neu generiert.\footnote{Mehr dazu im Abschnitt~\ref{sec:konversationskontext}}
 Einer KI die Möglichkeit zu geben, ihre vorherigen Fehler aus dem Diagramm vollständig zu entfernen,
 kann sinnvoll sein, da dadurch jeglicher Fehler korrigiert werden kann und die KI zum Beispiel auch wieder Teile
 entfernen kann, ohne dass die Diagrammdefinition länger wird.
@@ -258,7 +257,7 @@ Um die Qualität des Promptings weiter zu verbessern, soll eine Funktionalität 
 die es ermöglicht, auch Dateien direkt an die KI zu übermitteln. 
 Dabei steht im Vordergrund, dass das Verfahren sowohl im Frontend als auch im Backend möglichst 
 unkompliziert umgesetzt werden kann. 
-Es soll keine aufwendigen oder zeitraubenden Konvertierungen erfordern und eine breite Auswahl an 
+Es soll keine aufwendigen oder zeitraubenden Konvertierungen erfordern und soll eine breite Auswahl an 
 Dateitypen unterstützen, um die Nutzung so flexibel wie möglich zu gestalten.
 Nach einer Analyse der OpenAI-Dokumentation
 \footnote{\url{https://platform.openai.com/docs/guides/images-vision?api-mode=responses&format=base64-encoded}}
@@ -326,7 +325,7 @@ const imageInstructions = {
   ],
 } as ResponseInputItem
 \end{minted}
-\caption{Darstellung des Formats für die ChatGPT API}
+\caption{Format einer Base64 Anfrage an die Responses API}
 \label{code:chatgpt-file-format}
 \end{code}
 
@@ -338,7 +337,7 @@ Dieses Verfahren ermöglicht es dem Modell, komplexere Denkprozesse intern nachz
 schrittweise zu argumentieren, bevor eine Antwort erzeugt wird. 
 Dadurch kann der Dialog natürlich und strukturiert verlaufen, da der Chatbot in der Lage ist, 
 Zusammenhänge besser zu verstehen und über mehrere Gesprächsschritte hinweg Ergebnisse 
-zu liefern.
+liefern kann.
 
 Diese Erweiterung erlaubt es dem Nutzer, auf vielfältige Weise mit dem Chatbot zu interagieren: 
 Es können Fragen gestellt werden, Ideen vorgeschlagen, bestehende Diagramme erläutert oder 
@@ -378,7 +377,7 @@ Dadurch entsteht eine interaktive Konversation, die vor allem bei komplexeren Pr
 unvollständigen Eingaben von Vorteil ist.
 
 Eine Anfrage, die eine solche erweiterte Unterhaltung ermöglicht, könnte
-beispielsweise wie in Codeausschnitt~\ref{code:post-mode} aussehen:
+beispielsweise wie in Codeausschnitt~\ref{code:post-mode} aussehen.
 
 \begin{code}
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{json}
@@ -409,24 +408,23 @@ Die Nachrichten werden dann auf das Wesentliche gefiltert und auf ein kompaktes 
 Die OpenAI Klasse muss dann nur noch die Nachrichten auf das von der API geforderte Format bringen und in der
 Anfrage mitschicken.
 
-Da die Anfragen an die KI immer komplexer werden, wird nun eine Klasse \texttt{PromptInput} angelegt.
+Da die Anfragen an die KI immer komplexer werden, wird nun eine zusätzliche Klasse \texttt{PromptInput} angelegt.
 Diese Klasse beinhaltet alle Informationen, welche der KI mitgesendet werden sollen.
 Bei einer Erstellung dieses Objekts können alle Rohdaten wie Instructions, Dateien oder der Chatverlauf
-übergeben werden, welche die Klasse dann automatisch formatiert.
+übergeben werden, welche die Klasse dann weiterverarbeitet und für die Nutzung einer KI vorbereitet.
 Ein entscheidender Schritt hierbei ist es, die Teile der Nachrichten zu entfernen, in denen die KI mit einem
 Diagramm geantwortet hat.
 Das ist wichtig, da die Diagramme viele Tokens beinhalten und eigentlich nur das aktuellste Diagramm
 wichtig ist. Hierbei kann es aber auch sein, dass das Diagramm noch vom Nutzer bearbeitet wurde.
 Um dies zu berücksichtigen, sind die Diagramme nicht Teil der Nachrichten, welche mitgesendet werden.
-Die Implementierung der KI-Schnittstelle kann anschließend ein Objekt der Klasse \texttt{PromptInput} 
+Die Implementierung der KI-Schnittstelle kann anschließend ein Objekt der Klasse PromptInput
 entgegennehmen. 
-Dieses Objekt dient als zentrale Datenstruktur, über die alle für die Anfrage relevanten Informationen 
-an das Modell übergeben werden. 
 Mithilfe vordefinierter Hilfsmethoden lässt sich der Inhalt komfortabel in das gewünschte 
 Eingabeformat konvertieren, sodass keine manuelle Aufbereitung mehr erforderlich ist.
 
 Die Klasse \texttt{PromptInput} verfügt über die in Abbildung~\ref{code:promptinput-class} zu sehenden 
 Attribute.
+Die Vollständige Implementierung der Klasse ist im Anhang~\ref{code:ai-ts} zu sehen.
 
 \begin{code}[htb]
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
@@ -513,12 +511,13 @@ Damit hat die KI nun alle Informationen, die sie benötigt, um eine Konversation
 
 Für eine vollständige Konversation benötigt die KI nun aber noch Anweisungen.
 Dafür wird der KI noch ein weiterer Block Instructions hinzugefügt.
-Diese werden als `Update Instructions' bezeichnet.
+Diese werden als `Detail Instructions' bezeichnet.
 Diese sehen zunächst so aus:
 
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{text}
 [Output Language depends on prompt language]
 
+[Detail Intructions]
 Instead of creating a bpmn diagram, you can also chat with the 
 user.
 Any descriptions, questions, summaries or any other type of 
@@ -542,7 +541,7 @@ of text, that is not a diagram, send it outside the diagram.
 
 Diese Instructions werden nur mitgesendet, falls der \texttt{detail} modus genutzt wird.
 
-Wenn man den Bot nun fragt: ``Bitte schlag mir ein Diagramm vor'', hat dieser geantwortet mit:
+Als der Bot nun gefragt wurde: ``Bitte schlag mir ein Diagramm vor'', hat dieser geantwortet mit:
 
 \setlist{nolistsep}
 \noindent\fbox{
@@ -624,7 +623,7 @@ Diagramm liefern sollte.
 
 Für die weitere Entwicklung soll der Funktionsumfang jedoch erweitert werden, sodass der ChatBot 
 künftig auch Antworten erzeugen kann, die Klartext und Diagramm gleichzeitig enthalten. 
-Dadurch wird es möglich, dass der Bot zunächst eine Beschreibung, Analyse oder Erklärung liefert 
+Dadurch wird es möglich, dass der Bot z. B. zunächst eine Beschreibung, Analyse oder Erklärung liefert 
 und anschließend unmittelbar ein dazugehöriges BPMN-Diagramm generiert. 
 Ein solcher Anwendungsfall lässt sich beispielsweise mit einer Anfrage wie
 „Zeig mir, was du so kannst, indem du eine Prozessbeschreibung erstellst und diese direkt in ein 
@@ -646,7 +645,7 @@ Dieses Verhalten ermöglicht eine deutlich flexiblere Interaktion und ermöglich
 Möglichkeiten, besonders dann, wenn der Nutzer sowohl inhaltliche Erläuterungen als auch die 
 direkte Umsetzung in ein BPMN-Diagramm erwartet.
 
-Für dieses Kategorisierung wird eine Beispiel-Antwort betrachtet, welche hier zum Verständnis nicht
+Für diese Kategorisierung wird eine Beispiel-Antwort betrachtet, welche hier zum Verständnis nicht
 per Markdown formatiert ist:
 
 \noindent\fbox{
@@ -681,7 +680,7 @@ Das Regex ist in Abbildung~\ref{code:regex} zu sehen.
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs, breaklines, breakanywhere]{typescript}
 /(?:``?`?\s*(?:xml)?\s*)?(<[^<>]*\/[^<>]*>\s*|<[^\/<>]*>[^`]*<\/[^<>]*>)+\s*(?:``?`?|(?=[^<>`\s]))\n?/g
 \end{minted}
-\caption{Regex zur Diagrammerkennung}
+\caption{Regex zur XML Diagrammerkennung}
 \label{code:regex}
 \end{code}
 
@@ -742,8 +741,7 @@ Anbieter hinzuzufügen.
 
 Die Einbindung von Grok ergänzt ChatGPT, weil Grok schneller auf aktuelle Daten zugreift, oft 
 direkter formuliert und technische Zusammenhänge sehr präzise erkennt. 
-Dadurch kann der Bot bei bestimmten Aufgaben, etwa beim Interpretieren knapper Anweisungen 
-oder beim Erzeugen alternativer BPMN-Varianten, Ergebnisse liefern, die ChatGPT allein nicht 
+Dadurch kann der Bot bei bestimmten Aufgaben, Ergebnisse liefern, die ChatGPT allein nicht 
 immer erreicht. 
 
 Grok kann einfach über die xAI SDK 
@@ -752,13 +750,13 @@ und die Typescript AI SDK
 \footnote{\url{https://www.npmjs.com/package/ai}}
 zu BPMNGen hinzugefügt werden.
 
-Hierfür wird eine Klasse Grok erstellt, welche die Ai Klasse vererbt bekommt und damit nur 
+Hierfür wird eine Klasse \texttt{Grok} erstellt, welche die Ai Klasse vererbt bekommt und damit nur 
 noch die Schnittstelle der Grok API implementieren muss.
 Der entscheidende Schritt ist hierbei, die zu versendende Nachricht an die Grok API vom PromptInput Objekt auf das 
 API Format zu bringen.
 Diese Konvertierung kann man in Codeauschnitt~\ref{code:grok-format} sehen.
 
-Folgende Modelle sind damit zum aktuellen Stand für BPMNGen verfügbar:
+Folgende Grok Modelle sind damit zum aktuellen Stand für BPMNGen verfügbar:
 
 \begin{table}[h!]
   \centering
@@ -812,8 +810,7 @@ Die Nachricht wird dann mit Hilfe der AI SDK an Grok gesendet und die Antwort em
 Die Einbindung von Gemini ergänzt ChatGPT, weil Gemini bei komplexen Analyseaufgaben, 
 strukturiertem Denken und dem Umgang mit großen Informationsmengen besonders stark ist. 
 Dadurch kann der Bot bei der Modellierung und Optimierung von BPMN-Prozessen zusätzliche 
-Präzision und alternative Lösungswege bieten. Gemini erhöht so die fachliche Tiefe, Robustheit 
-und Variantenvielfalt der Ergebnisse.
+Präzision bieten. 
 Gemini hat zum aktuellen Zeitpunkt auch einen entscheidenden Vorteil gegenüber den anderen 
 LLM Anbietern.
 Die API hat auch eine kostenlose Stufe, wodurch es möglich ist, bis zu einer gewissen 
@@ -823,7 +820,7 @@ Menge an Anfragen, kostenlose Diagramme zu erstellen.
 implementiert.
 Dies passiert über die Gemini SDK
 \footnote{\url{https://ai.google.dev/gemini-api/docs?hl=de}},
-für welche die Anfrage wieder auf das gewünschte Format gebracht werden muss.
+für welche die Anfrage wieder auf das gewünschte Format gebracht werden muss.(\ref{code:gemini-format})
 
 Durch Gemini sind dann diese Modelle alle benutzbar:
 
@@ -887,7 +884,7 @@ protected mapPromptInput(input: PromptInput) {
 \label{code:gemini-format}
 \end{code}
 
-Die Gemini API erwartet bei jedem Textteil der Anfrage noch das Feld `thought', welches angibt,
+Eine Besonderheit der Gemini API ist, dass bei jedem Textteil der Anfrage noch das Feld `thought' erwartet wird, welches angibt,
 ob dieser Teil bereits von einer KI gedacht wurde.
 
 \subsection{Claude}
@@ -1142,7 +1139,7 @@ implementiert wurden.
 Der Stream beginnt mit einem \texttt{start} Event. In diesem wird dem Client die Thread-ID mitgeteilt
 und indirekt erkenntlich gemacht, dass nun ein Stream gestartet wird.
 
-Da manche KI Anbieter Modelle entwickelt haben, welche zunächst Websuchen durchführen oder interne 
+Da manche KI Anbieter Modelle entwickelt haben, welche zunächst Websuchen oder interne 
 Prozesse durchführen,
 kann es sein, dass zwischen dem Start des Streams und dem ersten Delta einiges an Zeit vergeht.
 Um zu verhindern, dass der Browser des Clients deshalb durch einen Timeout die Verbindung schließt,
@@ -1179,12 +1176,9 @@ Ein vollständiger Stream mit SSE sieht dann beispielsweise so aus:
   \parbox{.96\textwidth}{
     event: start\\
     data: faf8ad85-5546-4da2-98d9-8784844f1ea9\\
-    
+  
     event: delta\\
-    data: Ich bin\\
-
-    event: delta\\
-    data: ChatGPT 4.1 mini\\
+    data: Ich bin ChatGPT 4.1 mini\\
 
     event: diagram-start\\
     data: gpt-4.1-mini\\
@@ -1207,7 +1201,7 @@ Ein vollständiger Stream mit SSE sieht dann beispielsweise so aus:
     data: \}\\
     
     event: save\\
-    data: success\\
+    data: success
   }
 }
 
@@ -1232,7 +1226,7 @@ BPMN-Diagrammen.
 
 Dadurch ist sichergestellt, dass alle erzeugten Diagramme syntaktisch korrekt sind.
 Allerdings kann das Schema-Constraining nicht auf den \texttt{detail} Modus 
-angewendet werden, da dieser nach dem Design auch frei mit Klartext, Beschreibungen,
+angewendet werden, da dieser auch frei mit Klartext, Beschreibungen,
 Beispielen, Fragen und allem, was gewünscht wird, antworten können soll.
 Daher wird das Schema Constraining nur bei dem \texttt{quick} Modus verwendet.
 
@@ -1248,11 +1242,9 @@ Wie diese Schema Constraints für JSON aussehen, wird in Codeausschnitt~\ref{cod
 gezeigt.
 Eine Unterstützung für XML Schemas ist leider mit Zod nur begrenzt möglich.
 
-\begin{code}[htb]
+\begin{code}[H]
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\footnotesize, style=vs]{typescript}
-const CoordinateSchema = z.array(
-  z.number().int().nonnegative()
-).length(2);
+const CoordSchema = z.array(.number().int().nonnegative()).length(2);
 const ComponentTypeEnum = z.enum([
   'startEvent','messageStartEvent','timerStartEvent',
   'intermediateCatchEvent','intermediateThrowEvent',
@@ -1269,8 +1261,8 @@ const FlowSchema = z.object({
   Start: z.string(),
   Target: z.string(),
   Type: FlowTypeEnum,
-  StartXY: CoordinateSchema,
-  TargetXY: CoordinateSchema,
+  StartXY: CoordSchema,
+  TargetXY: CoordSchema,
   Descriptor: z.string(),
 });
 const ComponentSchema: z.ZodType<any> = z.lazy(() => z.object({
@@ -1287,7 +1279,7 @@ const ComponentSchema: z.ZodType<any> = z.lazy(() => z.object({
 const LaneSchema = z.object({
   ID: z.string().min(1),
   Name: z.string().min(1),
-  XY: CoordinateSchema,
+  XY: CoordSchema,
   width: z.number().int().positive(),
   height: z.number().int().positive(),
   Components: z.array(ComponentSchema),
@@ -1313,10 +1305,10 @@ Beim Sampling für Diagramme werden nun auch mehrere Diagramme erstellt.
 Allerdings ist es schwierig zu beurteilen, welches Diagramm nun das `beste' ist.
 Darum wird bei der Erstellung der Diagramme klar festgelegt, welche Anbieter 
 ein Diagramm erzeugen und alle werden dem Nutzer präsentiert, da dieser selber 
-am besten die Qualität beurteilen kann.
+die Qualität am besten  beurteilen kann.
 
-Die Erstellung mehrerer Diagramme erfolgt, indem dieselbe textuelle 
-Prozessbeschreibung parallel an verschiedene Sprachmodelle bzw. KI-Anbieter 
+Die Erstellung mehrerer Diagramme erfolgt, indem die selbe textuelle 
+Prozessbeschreibung parallel an verschiedene Modelle bzw. KI Anbieter 
 gesendet wird. 
 Jedes Modell generiert daraufhin ein vollständiges BPMN-Diagramm, 
 basierend auf seiner internen Architektur und seinen Trainingsdaten. 
@@ -1375,8 +1367,8 @@ ressourcenschonenden \texttt{quick}-Modus.
 
 Alle Diagramm-Generierungen, das primäre sowie die sekundären, werden schließlich 
 über \mintinline{typescript}{Promise.all([])} parallel ausgeführt. 
-Dadurch entstehen mehrere unabhängige Modellantworten in einem einzigen 
-Ausführungsschritt, die anschließend gemeinsam an den Client geschickt werden.
+Dadurch entstehen mehrere unabhängige Modellantworten, 
+die anschließend gemeinsam an den Client geschickt werden.
 
 \begin{code}[htb]
 \begin{minted}[frame=single, framesep=2pt, linenos, fontsize=\small, style=vs]{typescript}
@@ -1401,27 +1393,27 @@ Reflective Prompting ist eine Technik, bei der ein KI-Modell bewusst dazu angele
 seine eigenen Antworten nachzudenken, bevor es ein endgültiges Ergebnis liefert. 
 Anders als beim klassischen Prompting, bei dem das Modell direkt versucht, die bestmögliche 
 Antwort zu erzeugen, besteht Reflective Prompting aus zwei Stufen: 
-Zuerst erstellt das Modell einen Entwurf oder eine Einschätzung, anschließend überprüft es diesen 
+Zuerst erstellt das Modell einen Entwurf, anschließend überprüft es diesen 
 Entwurf selbstständig, reflektiert mögliche Fehler oder Unklarheiten und verbessert die Antwort 
 basierend auf dieser Selbstkritik.
 
 Dieses Vorgehen hat mehrere Vorteile:
-Das Modell erkennt häufiger eigene Ungenauigkeiten, identifiziert logische Fehler oder fehlende 
+Das Modell erkennt häufiger eigene Ungenauigkeiten, identifiziert Fehler oder fehlende 
 Details und kann dadurch qualitativ hochwertigere Ergebnisse liefern. 
-Reflective Prompting eignet sich besonders für Aufgaben, die komplexes Denken, Fehlererkennung 
-oder mehrstufiges Argumentieren erfordern, etwa bei der Analyse und Erstellung von Diagrammen.
+Reflective Prompting eignet sich besonders für komplexe Aufgaben, 
+etwa bei der Analyse und Erstellung von Diagrammen.
 
-Da das Modell aktiv „darüber nachdenkt“, wie gut seine Antwort ist, nähert es sich stärker 
+Da das Modell aktiv darüber nachdenkt, wie gut seine Antwort ist, nähert es sich 
 menschlichem Problemlösungsverhalten an. 
 Gleichzeitig kann diese Technik aber auch zu längeren Antwortzeiten oder höheren Tokenkosten 
 führen, da das Modell intern mehrere Schritte durchläuft. 
 In vielen Fällen lohnt sich Reflective Prompting jedoch, weil die resultierenden Antworten 
 deutlich präziser und verlässlicher sind.
 
-In dem Anwendungsfall des BPMNGen Bots wird das \texttt{Reflective Prompting} nicht als ein
-Schritt der Generierung implementiert, bei dem das Diagramm bereits überarbeitet wird, bevor
+In dem Anwendungsfall des BPMNGen Bots wird das Reflective Prompting nicht als ein
+Schritt in der Generierung implementiert, bei dem das Diagramm bereits überarbeitet wird, bevor
 es der Nutzer zu sehen bekommt.
-Da eine Generierung des Diagramms viel Zeit beansprucht, würde dies die Generierungszeit verdoppeln.
+Da eine Generierung des Diagramms viel Zeit beansprucht, würde dies die Generierungszeit vervielfachen.
 Stattdessen wird die erste Diagrammerstellung dem Nutzer normal angezeigt.
 Wenn der Nutzer nun Änderungswünsche hat, werden diese parallel mit den Diagrammfehlern zum
 Überarbeiten an die KI gesendet.
@@ -1433,7 +1425,7 @@ Seite~\pageref{code:update-instructions-reflection} gezeigt.
 Ein solches Verfahren, bei dem die Fehler eines Diagrammes deterministisch bestimmt werden und dann
 in einem zweiten Schritt an die KI gesendet werden, wird auch von den meisten alternativen
 LLM-basierten BPMN-Anwendungen genutzt.\cite{kourani2024promoai,noureldin2024hybridnala2bpmn,koeppke2025BPMNChatbotPP}
-Dies ist ein optimaler Mittelweg zwischen schneller Generierung und guter Qualität.
+Dies ist ein optimaler Mittelweg zwischen schneller Generierung und hoher Qualität.
 Die Implementierung des Reflective Prompting in BPMNGen ermöglicht es nun, dass Fehler automatisch ohne ein aktives Fordern
 des Nutzers korrigiert werden, parallel zu jeglichen anderen Wünschen, welche der Nutzer an den Chatbot stellt.
 Es wird zunächst nur auf syntaktische Fehler untersucht, der Code ermöglicht aber ein einfaches Hinzufügen weiterer 

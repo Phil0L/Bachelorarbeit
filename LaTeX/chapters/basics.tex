@@ -5,12 +5,11 @@
 \section{Business Process Model and Notation 2.0}
 
 Business Process Model and Notation (BPMN 2.0)~\cite{omg2014bpmn2} ist eine standardisierte grafische Sprache, 
-die verwendet wird, um Geschäftsprozesse so zu dokumentieren, dass sie sowohl für Fachanwender 
-als auch für technische Entwickler leicht verständlich sind. 
+die verwendet wird, um Geschäftsprozesse so zu dokumentieren, dass sie leicht verständlich sind. 
 Ähnlich wie ein Architekt Baupläne nutzt, um Gebäude darzustellen, verwenden Business-Analysten 
-BPMN 2.0, um visuelle Darstellungen organisatorischer Arbeitsabläufe und Abläufe zu erstellen.
+BPMN 2.0, um visuelle Darstellungen organisatorischer Abläufe zu erstellen.
 
-BPMN 2.0 Diagramme\cite{omg2014bpmn2} zeigen die Abfolge von Tätigkeiten von Anfang bis Ende, 
+BPMN 2.0 Diagramme~\cite{omg2014bpmn2} zeigen die Abfolge von Tätigkeiten von Anfang bis Ende, 
 einschließlich was passiert, wann es passiert und wer jede Aufgabe ausführt. 
 Die Hauptkomponenten von BPMN 2.0 sind:
 
@@ -59,12 +58,14 @@ Die Hauptkomponenten von BPMN 2.0 sind:
 
 \end{enumerate}
 
+Ein vollständiges BPMN 2.0 Diagramm sieht beispielsweise so aus wie in Abbildung~\ref{fig:bpmn-elements}.
+
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{images/diagrams/diagram_0}
     \label{fig:bpmn-elements}
     \caption{BPMN 2.0~\cite{omg2014bpmn2} Diagramm mit allen relevanten Elementen}
-  \end{figure}
+\end{figure}
 
 
 Für die Chatbot-Implementierung ist das Verständnis dieses Systems entscheidend, 
@@ -95,15 +96,15 @@ Prozessunterstützungen.
 LLMs können genutzt werden, um Geschäftsprozesse in BPMN-Diagramme zu überführen. 
 Dazu analysiert das Modell natürliche Sprache, wie z. B. Prozessbeschreibungen, 
 Anweisungen oder Anforderungen, und 
-wandelt diese in strukturierte BPMN-Elemente wie Tasks, Events, Gateways, Pools und Lanes um. 
+wandelt diese in BPMN-Elemente wie Tasks, Events, Gateways, Pools und Lanes um. 
 LLMs können dabei sowohl die logische Abfolge der Prozessschritte erkennen als auch Verzweigungen 
 sowie Kommunikationsflüsse zwischen Beteiligten identifizieren.
 
 In der Praxis erfolgt dies oft in Form einer Text-zu-BPMN-Übersetzung, bei der das LLM die 
 Prozessinformationen in eine JSON- oder XML-Repräsentation überführt, die anschließend von Tools 
 wie bpmn.js visualisiert werden kann. 
-Auf diese Weise können LLMs die Erstellung von Prozessmodellen erheblich beschleunigen, 
-Standardisierung fördern und auch komplexe Abläufe automatisch konsistent darstellen.
+Auf diese Weise können LLMs dabei helfen, die Erstellung von Prozessmodellen zu beschleunigen 
+und auch komplexe Abläufe automatisch darstellen.
 
 \section{Chain of Thought}
 
@@ -128,7 +129,7 @@ Zwischenschritte bewusster berücksichtigt und Fehler eher vermeiden kann.
 
 Für die Erstellung von BPMN-Diagrammen ist diese Vorgehensweise besonders wertvoll. 
 BPMN erfordert eine klare Struktur von Ereignissen, Aufgaben, Gateways und Abläufen. 
-CoT ermöglicht es ChatGPT, Prozessbeschreibungen in einzelne Handlungsschritte zu zerlegen, diese 
+CoT ermöglicht es LLMs wie ChatGPT, Prozessbeschreibungen in einzelne Handlungsschritte zu zerlegen, diese 
 sinnvoll anzuordnen und anschließend die passenden BPMN-Elemente daraus abzuleiten. 
 So lässt sich Schritt für Schritt erarbeiten, welche Tasks benötigt werden, wo Entscheidungen 
 auftreten und wie die Kommunikation zwischen Akteuren oder Abteilungen abgebildet werden muss. 
@@ -138,7 +139,7 @@ konsistenter.
 \section{Streaming}
 
 Streaming bezeichnet die kontinuierliche Übertragung von Daten zwischen einem Sender und einem 
-Empfänger, wobei die Daten in aufeinanderfolgenden Teilen statt als komplette Datei oder Nachricht 
+Empfänger, wobei die Daten nicht als Ganzes sondern in Teilen
 übertragen werden. 
 Dieses Verfahren ermöglicht es, dass Informationen bereits während der Generierung oder Übertragung 
 verarbeitet und angezeigt werden können, wodurch die Latenz für den Nutzer deutlich reduziert wird. 
@@ -159,13 +160,13 @@ Im Kontext von KI-Systemen ermöglicht Streaming die Übersendung von Modellantw
 den Nutzer noch während die Generierung der Daten läuft. 
 Dies ist besonders relevant bei Modellen, die unter anderem auch Text erzeugen. 
 Technisch erfolgt dies meist über asynchrone Streams, die Datenpakete kontinuierlich übertragen.
-Die Textfragmente werden hier in der Regel auch \texttt{Delta} genannt.
-Auf diese Weise lässt sich die Benutzererfahrung deutlich verbessern, da Rückmeldungen sofort sichtbar 
+Die Textfragmente werden hier in der Regel auch Delta genannt.
+Auf diese Weise lässt sich die Nutzererfahrung deutlich verbessern, da Rückmeldungen sofort sichtbar 
 sind und Wartezeiten minimiert werden. 
 
 \section{Base64}
 
-Base64 ist ein Kodierungsverfahren, das Binärdaten in eine reine Textdarstellung überführt, 
+Base64 ist ein Kodierungsverfahren, das Binärdaten wie zum Beipsiel Bilder in eine reine Textdarstellung überführt, 
 um sie über textbasierte Protokolle wie HTTP mit unter anderem JSON zuverlässig übertragen 
 zu können. 
 Da viele APIs und Webschnittstellen ausschließlich Text unterstützen oder die Übermittlung 
@@ -173,21 +174,22 @@ binärer Inhalte erschweren, bietet Base64 eine Möglichkeit, Dateien plattformu
 ohne zusätzliche Infrastruktur weiterzugeben. 
 Die Kodierung funktioniert, indem jeweils 24 Bit (drei Byte) in vier 6-Bit-Gruppen umgewandelt 
 und anschließend als ASCII-Zeichen dargestellt werden. 
+Zur Kodierung werden die Zeichen A-Z, a-z, 0-9, + und / verwendet sowie ein = am Ende.
 Dadurch vergrößert sich die Datenmenge zwar um etwa ein Drittel, sie wird jedoch vollständig 
 textkompatibel.~\cite{rfc4648}
 
 Im Kontext von Webanwendungen werden Base64-kodierte Inhalte häufig in Form sogenannter 
-\texttt{Data URL}s~\cite{rfc2397} übertragen. 
+Data URLs~\cite{rfc2397} übertragen. 
 Eine Data URL bettet die kodierten Daten direkt in einen einzigen Zeichenstring ein, der aus 
 vier Komponenten besteht: 
 \begin{enumerate}
     \item einem Präfix zur Typangabe (data:)
     \item dem MIME-Typ der Datei (z. B. image/png;)
     \item der Kodierungsart (base64)
-    \item dem eigentlichen Datenbereich
+    \item dem eigentlichen Datenbereich mit einem = am Ende
 \end{enumerate}
 Eine Data URL mit Base64 Encoding entspricht somit typischerweise der Form
-\verb|data:<mime-type>;base64,<kodierte-daten>|. 
+\verb|data:<mime-type>;base64,<kodierte-daten>=|. 
 Browser und APIs können diese Darstellung unmittelbar wieder in eine gültige Datei 
 zurückkonvertieren, ohne dass separate Dateipfade, temporäre Speicherorte oder Upload-Endpunkte 
 notwendig sind.
@@ -207,8 +209,7 @@ Reflective Prompting ist eine Strategie, bei der ein KI-Modell dazu
 aufgefordert wird, seine eigenen Ergebnisse zu überprüfen.
 Im Gegensatz zum klassischen Prompting, das direkt eine fertige Ausgabe erzeugt, arbeitet 
 Reflective Prompting in zwei voneinander getrennten Phasen: 
-Zunächst erstellt das Modell einen ersten Entwurf, eine interne Einschätzung oder einen 
-vorläufigen Vorschlag. 
+Zunächst erstellt das Modell einen ersten Entwurf.
 Anschließend reflektiert das Modell diesen Entwurf, prüft auf mögliche Fehler, Unklarheiten 
 und logische Inkonsistenzen und verbessert daraufhin die Antwort.~\cite{zhao2024factandreflection}
 
@@ -257,7 +258,7 @@ Die Implemtierung ist darauf ausgelegt, BPMN-Diagramme aus Benutzereingaben zu g
 Diese Eingaben können in Form von Text, Bildern, Dokumenten oder natürlicher Sprache erfolgen.
 Der Server kann Create- und Update-Anfragen für Diagramme entgegennehmen und leitet diese an die KI-API weiter.
 Die Antwort des Servers hängt dabei vom gewählten KI-Modell und dem angeforderten Ausgabeformat ab.
-Alle generierten Diagramme werden in einer durch Prisma erzeugten Postgres Datenbank gespeichert.
+Alle generierten Diagramme werden in einer durch Prisma verwalteten Postgres Datenbank gespeichert.
 Das Backend basiert auf Express.js, welches als Webserver Framework für die Verarbeitung von 
 HTTP-Anfragen, Routing und Middleware eingesetzt wird.
 
