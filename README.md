@@ -1,8 +1,10 @@
 # Enhancing BPMNGen with Prompting Strategies for Automated BPMN 2.0 Process Model Generation
 
-Dieses Repository enthält das erweiterte Backend-Framework für **BPMNGen** – ein intelligentes, LLM-basiertes Assistenzsystem zur automatisierten Generierung und interaktiven Bearbeitung von standardkonformen **BPMN 2.0 Prozessmodellen** aus natürlicher Sprache.
+Dieses Repository enthält die Bachelorarbeit von **Philipp Letschka**.
+Die [Bachelorarbeit](BA_Philipp_Letschka_2025.pdf) kann hier gelesen werden.
 
-Das System basiert auf den Forschungsarbeiten des Instituts für Datenbanken und Informationssysteme (DBIS) der Universität Ulm und transformiert den ursprünglich statischen Ansatz in ein hochflexibles, dialogorientiertes Multi-Provider-Framework.
+## Über diese Arbeit
+Die Modellierung von Geschäftsprozessen mit BPMN 2.0 ist oft ein zeitaufwendiger und fehleranfälliger Vorgang. Obwohl Large Language Models (LLMs) großes Potenzial zur Automatisierung bieten, scheitern sie bei direkter Generierung häufig an den strengen syntaktischen und semantischen Vorgaben des BPMN-Standards. Diese Bachelorarbeit setzt an genau dieser Problematik an: Sie erweitert das bestehende System *BPMNGen* um fortschrittliche Prompting-Strategien und eine moderne, dialogorientierte Architektur. Durch die Integration von Techniken wie *Chain-of-Thought*, *Reflective Prompting* und einem flexiblen Multi-Provider-Framework wird die Generierungsqualität signifikant gesteigert. Das Resultat ist ein interaktiver KI-Assistent, der den Nutzer iterativ im Chat begleitet, Fehler durch selbstständige Validierung minimiert und eine reibungslose Übersetzung von natürlicher Sprache in standardkonforme, visuell aufbereitete Prozessmodelle ermöglicht.
 
 ---
 
