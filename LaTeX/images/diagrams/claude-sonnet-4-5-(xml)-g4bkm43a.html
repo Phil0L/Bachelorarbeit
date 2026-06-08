@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>BPMN Gen Debug File</title>
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js@18.6.3/dist/assets/diagram-js.css">
+    <link rel="stylesheet" href="https://unpkg.com/bpmn-js@18.6.3/dist/assets/bpmn-font/css/bpmn.css">
+
+</head>
+<body class="">
+<!-- BPMN Viewer mit rechtsseitigem Info-Streifen -->
+<div id="canvas-container" style="
+    padding: 15px;
+    background: #fefefe;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+">
+
+    <!-- Überschrift über beiden Bereichen -->
+    <h2 id="title" style="
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-family: Arial, sans-serif;
+        color: #333;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 6px;
+    ">Debug data for debug_e302ba4b-e484-4d35-a635-1b9150a01425_1766056690570 - claude-sonnet-4-5 (xml)</h2>
+
+    <!-- Flex-Container mit Diagramm und Info-Streifen -->
+    <div style="
+        display: flex;
+        gap: 15px;
+    ">
+
+        <!-- Hauptdiagramm -->
+        <div style="flex: 1;position: relative">
+            <div id="canvas" style="
+                width: 100%;
+                height: 600px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                background: #fff;
+            "><div class="bjs-container" style="width: 100%; height: 100%; position: relative;"><div class="djs-container djs-parent djs-palette-shown djs-palette-two-column djs-palette-open" style="position: relative; overflow: hidden; width: 100%; height: 100%;"><div class="djs-tooltip-container" style="position: absolute; width: 0px; height: 0px; transform: matrix(1, 0, 0, 1, -35, 14);"></div><div class="djs-overlay-container" style="position: absolute; width: 0px; height: 0px; transform-origin: left top 0px; transform: matrix(1, 0, 0, 1, -35, 14);"></div><svg width="100%" height="100%" tabindex="0" data-element-id="Process_1" class=""><g class="viewport" transform="matrix(1, 0, 0, 1, -35, 14)"><g class="layer-base"></g><g class="layer-root-1" data-element-id="Process_1"><g class="djs-group"><g class="djs-element djs-shape" data-element-id="StartEvent_1" transform="matrix(1, 0, 0, 1, 180, 160)" style="display: block;"><g class="djs-visual"><circle cx="18" cy="18" r="18" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; fill: white; fill-opacity: 0.95;"></circle></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="36" height="36"></rect><circle cx="18" cy="18" r="23" style="fill: none;" class="djs-outline"></circle></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="StartEvent_1_label" transform="matrix(1, 0, 0, 1, 156, 203)" style="display: block;"><g class="djs-visual"><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: rgb(34, 36, 42);" lineHeight="1.2" class="djs-label"><tspan x="0" y="9.899999999999999">Customer brings </tspan><tspan x="18.34166717529297" y="23.099999999999998">defective </tspan><tspan x="18.950000762939453" y="36.3">computer</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="84" height="40"></rect><rect x="-5" y="-5" rx="4" width="94" height="50" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="Task_1" transform="matrix(1, 0, 0, 1, 270, 138)" style="display: block;"><g class="djs-visual"><rect x="0" y="0" width="100" height="80" rx="10" ry="10" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; fill: white; fill-opacity: 0.95;"></rect><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(34, 36, 42);" lineHeight="1.2" class="djs-label"><tspan x="15" y="43.599999999999994">Check defect</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="100" height="80"></rect><rect x="-5" y="-5" rx="14" width="110" height="90" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="Task_2" transform="matrix(1, 0, 0, 1, 420, 138)" style="display: block;"><g class="djs-visual"><rect x="0" y="0" width="100" height="80" rx="10" ry="10" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; fill: white; fill-opacity: 0.95;"></rect><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(34, 36, 42);" lineHeight="1.2" class="djs-label"><tspan x="8.666667938232422" y="36.4">Hand out repair</tspan><tspan x="9" y="50.8">cost calculation</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="100" height="80"></rect><rect x="-5" y="-5" rx="14" width="110" height="90" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="Gateway_1" transform="matrix(1, 0, 0, 1, 570, 153)" style="display: block;"><g class="djs-visual"><polygon style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; fill: white; fill-opacity: 0.95;" points="25,0 50,25 25,50 0,25"></polygon><path style="fill: rgb(34, 36, 42); stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px;" d="m 16,15 7.42857142857143,9.714285714285715 -7.42857142857143,9.714285714285715 3.428571428571429,0 5.714285714285715,-7.464228571428572 5.714285714285715,7.464228571428572 3.428571428571429,0 -7.42857142857143,-9.714285714285715 7.42857142857143,-9.714285714285715 -3.428571428571429,0 -5.714285714285715,7.464228571428572 -5.714285714285715,-7.464228571428572 -3.428571428571429,0 z"></path></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="50" height="50"></rect><rect style="transform-box: fill-box; transform: rotate(45deg); transform-origin: center center 0px; fill: none;" x="2" y="2" rx="4" width="46" height="46" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="Gateway_1_label" transform="matrix(1, 0, 0, 1, 565, 123)" style="display: block;"><g class="djs-visual"><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: rgb(34, 36, 42);" lineHeight="1.2" class="djs-label"><tspan x="14.074999809265137" y="9.899999999999999">Costs </tspan><tspan x="0" y="23.099999999999998">acceptable?</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="60" height="27"></rect><rect x="-5" y="-5" rx="4" width="70" height="37" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="EndEvent_1" transform="matrix(1, 0, 0, 1, 672, 80)" style="display: block;"><g class="djs-visual"><circle cx="18" cy="18" r="18" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 4px; fill: white; fill-opacity: 0.95;"></circle></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="36" height="36"></rect><circle cx="18" cy="18" r="24" style="fill: none;" class="djs-outline"></circle></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="EndEvent_1_label" transform="matrix(1, 0, 0, 1, 650, 30)" style="display: block;"><g class="djs-visual"><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: rgb(34, 36, 42);" lineHeight="1.2" class="djs-label"><tspan x="0" y="9.899999999999999">Customer takes </tspan><tspan x="0.2999992370605469" y="23.099999999999998">computer home </tspan><tspan x="13.733333587646484" y="36.3">unrepaired</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="81" height="40"></rect><rect x="-5" y="-5" rx="4" width="91" height="50" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="Task_3" transform="matrix(1, 0, 0, 1, 770, 138)" style="display: block;"><g class="djs-visual"><rect x="0" y="0" width="100" height="80" rx="10" ry="10" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; fill: white; fill-opacity: 0.95;"></rect><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(34, 36, 42);" lineHeight="1.2" class="djs-label"><tspan x="19.66666603088379" y="36.4">Check and </tspan><tspan x="8" y="50.8">repair hardware</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="100" height="80"></rect><rect x="-5" y="-5" rx="14" width="110" height="90" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="Task_4" transform="matrix(1, 0, 0, 1, 770, 260)" style="display: block;"><g class="djs-visual"><rect x="0" y="0" width="100" height="80" rx="10" ry="10" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; fill: white; fill-opacity: 0.95;"></rect><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(34, 36, 42);" lineHeight="1.2" class="djs-label"><tspan x="19.66666603088379" y="29.200000000000003">Check and </tspan><tspan x="23.66666603088379" y="43.6">configure </tspan><tspan x="27.33333396911621" y="58">software</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="100" height="80"></rect><rect x="-5" y="-5" rx="14" width="110" height="90" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="Task_5" transform="matrix(1, 0, 0, 1, 920, 138)" style="display: block;"><g class="djs-visual"><rect x="0" y="0" width="100" height="80" rx="10" ry="10" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; fill: white; fill-opacity: 0.95;"></rect><text style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: rgb(34, 36, 42);" lineHeight="1.2" class="djs-label"><tspan x="16.666667938232422" y="36.4">Test system </tspan><tspan x="18.33333396911621" y="50.8">functionality</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="100" height="80"></rect><rect x="-5" y="-5" rx="14" width="110" height="90" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="Gateway_2" transform="matrix(1, 0, 0, 1, 1070, 153)" style="display: block;"><g class="djs-visual"><polygon style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; fill: white; fill-opacity: 0.95;" points="25,0 50,25 25,50 0,25"></polygon><path style="fill: rgb(34, 36, 42); stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px;" d="m 16,15 7.42857142857143,9.714285714285715 -7.42857142857143,9.714285714285715 3.428571428571429,0 5.714285714285715,-7.464228571428572 5.714285714285715,7.464228571428572 3.428571428571429,0 -7.42857142857143,-9.714285714285715 7.42857142857143,-9.714285714285715 -3.428571428571429,0 -5.714285714285715,7.464228571428572 -5.714285714285715,-7.464228571428572 -3.428571428571429,0 z"></path></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="50" height="50"></rect><rect style="transform-box: fill-box; transform: rotate(45deg); transform-origin: center center 0px; fill: none;" x="2" y="2" rx="4" width="46" height="46" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="Gateway_2_label" transform="matrix(1, 0, 0, 1, 1057, 123)" style="display: block;"><g class="djs-visual"><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: rgb(34, 36, 42);" lineHeight="1.2" class="djs-label"><tspan x="0" y="9.899999999999999">Error detected?</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="76" height="14"></rect><rect x="-5" y="-5" rx="4" width="86" height="24" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="Gateway_3" transform="matrix(1, 0, 0, 1, 1070, 275)" style="display: block;"><g class="djs-visual"><polygon style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; fill: white; fill-opacity: 0.95;" points="25,0 50,25 25,50 0,25"></polygon><path style="fill: rgb(34, 36, 42); stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px;" d="m 16,15 7.42857142857143,9.714285714285715 -7.42857142857143,9.714285714285715 3.428571428571429,0 5.714285714285715,-7.464228571428572 5.714285714285715,7.464228571428572 3.428571428571429,0 -7.42857142857143,-9.714285714285715 7.42857142857143,-9.714285714285715 -3.428571428571429,0 -5.714285714285715,7.464228571428572 -5.714285714285715,-7.464228571428572 -3.428571428571429,0 z"></path></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="50" height="50"></rect><rect style="transform-box: fill-box; transform: rotate(45deg); transform-origin: center center 0px; fill: none;" x="2" y="2" rx="4" width="46" height="46" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="Gateway_4" transform="matrix(1, 0, 0, 1, 670, 153)" style="display: block;"><g class="djs-visual"><polygon style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; fill: white; fill-opacity: 0.95;" points="25,0 50,25 25,50 0,25"></polygon><path style="fill: rgb(34, 36, 42); stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px;" d="m 16,15 7.42857142857143,9.714285714285715 -7.42857142857143,9.714285714285715 3.428571428571429,0 5.714285714285715,-7.464228571428572 5.714285714285715,7.464228571428572 3.428571428571429,0 -7.42857142857143,-9.714285714285715 7.42857142857143,-9.714285714285715 -3.428571428571429,0 -5.714285714285715,7.464228571428572 -5.714285714285715,-7.464228571428572 -3.428571428571429,0 z"></path></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="50" height="50"></rect><rect style="transform-box: fill-box; transform: rotate(45deg); transform-origin: center center 0px; fill: none;" x="2" y="2" rx="4" width="46" height="46" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="EndEvent_2" transform="matrix(1, 0, 0, 1, 1172, 160)" style="display: block;"><g class="djs-visual"><circle cx="18" cy="18" r="18" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 4px; fill: white; fill-opacity: 0.95;"></circle></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="36" height="36"></rect><circle cx="18" cy="18" r="24" style="fill: none;" class="djs-outline"></circle></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="EndEvent_2_label" transform="matrix(1, 0, 0, 1, 1153, 203)" style="display: block;"><g class="djs-visual"><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: rgb(34, 36, 42);" lineHeight="1.2" class="djs-label"><tspan x="0" y="9.899999999999999">Repair finished</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="74" height="14"></rect><rect x="-5" y="-5" rx="4" width="84" height="24" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="Flow_1" style="display: block;"><g class="djs-visual"><defs><marker id="marker-aclp7xyvsoagv6semg3yffpk8" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px; fill: rgb(34, 36, 42);"></path></marker></defs><path style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; marker-end: url(&quot;#marker-aclp7xyvsoagv6semg3yffpk8&quot;);" data-corner-radius="5" d="M216,178L270,178"></path></g><path d="M216,178L270,178" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"></path><rect x="211" y="173" rx="4" width="64" height="10" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="Flow_2" style="display: block;"><g class="djs-visual"><defs><marker id="marker-bjpyqvqjv5vykloj497a9t8yo" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px; fill: rgb(34, 36, 42);"></path></marker></defs><path style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; marker-end: url(&quot;#marker-bjpyqvqjv5vykloj497a9t8yo&quot;);" data-corner-radius="5" d="M370,178L420,178"></path></g><path d="M370,178L420,178" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"></path><rect x="365" y="173" rx="4" width="60" height="10" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="Flow_3" style="display: block;"><g class="djs-visual"><defs><marker id="marker-9ujkc57nghylk69h3p0hujz3c" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px; fill: rgb(34, 36, 42);"></path></marker></defs><path style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; marker-end: url(&quot;#marker-9ujkc57nghylk69h3p0hujz3c&quot;);" data-corner-radius="5" d="M520,178L570,178"></path></g><path d="M520,178L570,178" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"></path><rect x="515" y="173" rx="4" width="60" height="10" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="Flow_4" style="display: block;"><g class="djs-visual"><defs><marker id="marker-aieymaul4uk2du69ni7bbaei9" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px; fill: rgb(34, 36, 42);"></path></marker></defs><path style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; marker-end: url(&quot;#marker-aieymaul4uk2du69ni7bbaei9&quot;);" data-corner-radius="5" d="M620,178L670,178"></path></g><path d="M620,178L670,178" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"></path><rect x="615" y="173" rx="4" width="60" height="10" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="Flow_4_label" transform="matrix(1, 0, 0, 1, 636, 160)" style="display: block;"><g class="djs-visual"><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: rgb(34, 36, 42);" lineHeight="1.2" class="djs-label"><tspan x="0" y="9.899999999999999">Yes</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="18" height="14"></rect><rect x="-5" y="-5" rx="4" width="28" height="24" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="Flow_5" style="display: block;"><g class="djs-visual"><defs><marker id="marker-bsjf4o87gmqwsc0e6iroq6biy" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px; fill: rgb(34, 36, 42);"></path></marker></defs><path style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; marker-end: url(&quot;#marker-bsjf4o87gmqwsc0e6iroq6biy&quot;);" data-corner-radius="5" d="M595,153L595,103C595,100.5,597.5,98,600,98L672,98"></path></g><path d="M595,153L595,98L672,98" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"></path><rect x="590" y="93" rx="4" width="87" height="65" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="Flow_5_label" transform="matrix(1, 0, 0, 1, 603, 123)" style="display: block;"><g class="djs-visual"><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: rgb(34, 36, 42);" lineHeight="1.2" class="djs-label"><tspan x="0" y="9.899999999999999">No</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="15" height="14"></rect><rect x="-5" y="-5" rx="4" width="25" height="24" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="Flow_6" style="display: block;"><g class="djs-visual"><defs><marker id="marker-ecc8xb7x63sqi3tvh5rzpnco3" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px; fill: rgb(34, 36, 42);"></path></marker></defs><path style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; marker-end: url(&quot;#marker-ecc8xb7x63sqi3tvh5rzpnco3&quot;);" data-corner-radius="5" d="M870,178L920,178"></path></g><path d="M870,178L920,178" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"></path><rect x="865" y="173" rx="4" width="60" height="10" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="Flow_7" style="display: block;"><g class="djs-visual"><defs><marker id="marker-0k52vorn6dg8k7egq84q20q13" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px; fill: rgb(34, 36, 42);"></path></marker></defs><path style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; marker-end: url(&quot;#marker-0k52vorn6dg8k7egq84q20q13&quot;);" data-corner-radius="5" d="M695,203L695,295C695,297.5,697.5,300,700,300L770,300"></path></g><path d="M695,203L695,300L770,300" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"></path><rect x="690" y="198" rx="4" width="85" height="107" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="Flow_8" style="display: block;"><g class="djs-visual"><defs><marker id="marker-cb5ewznzs30ea6hsbtxzwrhbg" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px; fill: rgb(34, 36, 42);"></path></marker></defs><path style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; marker-end: url(&quot;#marker-cb5ewznzs30ea6hsbtxzwrhbg&quot;);" data-corner-radius="5" d="M870,300L965,300C967.5,300,970,297.5,970,295L970,218"></path></g><path d="M870,300L970,300L970,218" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"></path><rect x="865" y="213" rx="4" width="110" height="92" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="Flow_9" style="display: block;"><g class="djs-visual"><defs><marker id="marker-6kn6mbcbvhtwl6vmuzktvt8eq" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px; fill: rgb(34, 36, 42);"></path></marker></defs><path style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; marker-end: url(&quot;#marker-6kn6mbcbvhtwl6vmuzktvt8eq&quot;);" data-corner-radius="5" d="M1020,178L1070,178"></path></g><path d="M1020,178L1070,178" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"></path><rect x="1015" y="173" rx="4" width="60" height="10" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="Flow_10" style="display: block;"><g class="djs-visual"><defs><marker id="marker-1xu1iv8zc54w7gtpa5ci53pmm" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px; fill: rgb(34, 36, 42);"></path></marker></defs><path style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; marker-end: url(&quot;#marker-1xu1iv8zc54w7gtpa5ci53pmm&quot;);" data-corner-radius="5" d="M1095,203L1095,275"></path></g><path d="M1095,203L1095,275" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"></path><rect x="1090" y="198" rx="4" width="10" height="82" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="Flow_10_label" transform="matrix(1, 0, 0, 1, 1102, 236)" style="display: block;"><g class="djs-visual"><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: rgb(34, 36, 42);" lineHeight="1.2" class="djs-label"><tspan x="0" y="9.899999999999999">Yes</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="18" height="14"></rect><rect x="-5" y="-5" rx="4" width="28" height="24" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="Flow_11" style="display: block;"><g class="djs-visual"><defs><marker id="marker-b62o4yqf5gq5ljr402yavlw4v" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px; fill: rgb(34, 36, 42);"></path></marker></defs><path style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; marker-end: url(&quot;#marker-b62o4yqf5gq5ljr402yavlw4v&quot;);" data-corner-radius="5" d="M1120,178L1172,178"></path></g><path d="M1120,178L1172,178" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"></path><rect x="1115" y="173" rx="4" width="62" height="10" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="Flow_11_label" transform="matrix(1, 0, 0, 1, 1140, 160)" style="display: block;"><g class="djs-visual"><text style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: rgb(34, 36, 42);" lineHeight="1.2" class="djs-label"><tspan x="0" y="9.899999999999999">No</tspan></text></g><rect style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-all" x="0" y="0" width="15" height="14"></rect><rect x="-5" y="-5" rx="4" width="25" height="24" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="Flow_12" style="display: block;"><g class="djs-visual"><defs><marker id="marker-anuceu1inyqmw297ljqkt99ln" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px; fill: rgb(34, 36, 42);"></path></marker></defs><path style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; marker-end: url(&quot;#marker-anuceu1inyqmw297ljqkt99ln&quot;);" data-corner-radius="5" d="M720,178L770,178"></path></g><path d="M720,178L770,178" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"></path><rect x="715" y="173" rx="4" width="60" height="10" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="Flow_13" style="display: block;"><g class="djs-visual"><defs><marker id="marker-745434upc6nfqubbgn2bm4r2q" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px; fill: rgb(34, 36, 42);"></path></marker></defs><path style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; marker-end: url(&quot;#marker-745434upc6nfqubbgn2bm4r2q&quot;);" data-corner-radius="5" d="M1070,300L825,300C822.5,300,820,297.5,820,295L820,218"></path></g><path d="M1070,300L820,300L820,218" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"></path><rect x="815" y="213" rx="4" width="260" height="92" style="fill: none;" class="djs-outline"></rect></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="Flow_14" style="display: block;"><g class="djs-visual"><defs><marker id="marker-ear1unx62523ukcqtgko49nts" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 1px; fill: rgb(34, 36, 42);"></path></marker></defs><path style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke: rgb(34, 36, 42); stroke-width: 2px; marker-end: url(&quot;#marker-ear1unx62523ukcqtgko49nts&quot;);" data-corner-radius="5" d="M1095,325L1095,395C1095,397.5,1092.5,400,1090,400L825,400C822.5,400,820,397.5,820,395L820,340"></path></g><path d="M1095,325L1095,400L820,400L820,340" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;" class="djs-hit djs-hit-stroke"></path><rect x="815" y="320" rx="4" width="285" height="85" style="fill: none;" class="djs-outline"></rect></g></g></g><g class="layer-resizers"></g><g class="layer-selectionOutline"></g><g class="layer-overlays"><g data-element-id="Flow_13" class="djs-bendpoints"><g class="djs-bendpoint" transform="matrix(1, 0, 0, 1, 1070, 300)"><circle cx="0" cy="0" r="4" class="djs-visual"></circle><circle cx="0" cy="0" r="10" class="djs-hit"></circle></g><g class="djs-bendpoint" transform="matrix(1, 0, 0, 1, 820, 300)"><circle cx="0" cy="0" r="4" class="djs-visual"></circle><circle cx="0" cy="0" r="10" class="djs-hit"></circle></g><g class="djs-bendpoint" transform="matrix(1, 0, 0, 1, 820, 218)"><circle cx="0" cy="0" r="4" class="djs-visual"></circle><circle cx="0" cy="0" r="10" class="djs-hit"></circle></g><g class="djs-bendpoint floating" transform="matrix(1, 0, 0, 1, 820, 264.5)"><circle cx="0" cy="0" r="4" class="djs-visual"></circle><circle cx="0" cy="0" r="10" class="djs-hit"></circle></g><g class="djs-segment-dragger horizontal" transform="matrix(1, 0, 0, 1, 945, 300)" data-segment-idx="1"><g transform="matrix(1, 0, 0, 1, 0, 0)"><rect x="-9" y="-3" width="18" height="6" class="djs-visual"></rect><rect x="-83.5" y="-8.5" width="167" height="17" class="djs-hit"></rect></g></g><g class="djs-segment-dragger vertical" transform="matrix(1, 0, 0, 1, 820, 259)" data-segment-idx="2"><g transform="matrix(6.12323e-17, 1, -1, 6.12323e-17, 0, 0)"><rect x="-9" y="-3" width="18" height="6" class="djs-visual" transform="matrix(1, 0, 0, 1, 5.5, 0)"></rect><rect x="-27.5" y="-8.5" width="55" height="17" class="djs-hit"></rect></g></g></g></g></g></svg><ul class="bjs-breadcrumbs"><li><span class="bjs-crumb"><a title="Process_1">Process_1</a></span></li></ul><div class="djs-context-pad-parent"></div><div class="djs-search-container djs-scrollable">
+  <div class="djs-search-input">
+    <svg class="djs-search-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.0325 8.5H9.625L13.3675 12.25L12.25 13.3675L8.5 9.625V9.0325L8.2975 8.8225C7.4425 9.5575 6.3325 10 5.125 10C2.4325 10 0.25 7.8175 0.25 5.125C0.25 2.4325 2.4325 0.25 5.125 0.25C7.8175 0.25 10 2.4325 10 5.125C10 6.3325 9.5575 7.4425 8.8225 8.2975L9.0325 8.5ZM1.75 5.125C1.75 6.9925 3.2575 8.5 5.125 8.5C6.9925 8.5 8.5 6.9925 8.5 5.125C8.5 3.2575 6.9925 1.75 5.125 1.75C3.2575 1.75 1.75 3.2575 1.75 5.125Z" fill="#22242A"></path>
+    </svg>
+    <input type="text" spellcheck="false" aria-label="Search in diagram">
+  </div>
+  <div class="djs-search-results">
+</div></div><div class="djs-palette two-column open"><div class="djs-palette-entries"><div class="group" data-group="tools"><div class="entry bpmn-icon-hand-tool" draggable="true" data-action="hand-tool" title="Activate hand tool"></div><div class="entry bpmn-icon-lasso-tool" draggable="true" data-action="lasso-tool" title="Activate lasso tool"></div><div class="entry bpmn-icon-space-tool" draggable="true" data-action="space-tool" title="Activate create/remove space tool"></div><div class="entry bpmn-icon-connection-multi" draggable="true" data-action="global-connect-tool" title="Activate global connect tool"></div><hr class="separator"></div><div class="group" data-group="event"><div class="entry bpmn-icon-start-event-none" draggable="true" data-action="create.start-event" title="Create start event"></div><div class="entry bpmn-icon-intermediate-event-none" draggable="true" data-action="create.intermediate-event" title="Create intermediate/boundary event"></div><div class="entry bpmn-icon-end-event-none" draggable="true" data-action="create.end-event" title="Create end event"></div></div><div class="group" data-group="gateway"><div class="entry bpmn-icon-gateway-none" draggable="true" data-action="create.exclusive-gateway" title="Create gateway"></div></div><div class="group" data-group="activity"><div class="entry bpmn-icon-task" draggable="true" data-action="create.task" title="Create task"></div><div class="entry bpmn-icon-subprocess-expanded" draggable="true" data-action="create.subprocess-expanded" title="Create expanded sub-process"></div></div><div class="group" data-group="data-object"><div class="entry bpmn-icon-data-object" draggable="true" data-action="create.data-object" title="Create data object reference"></div></div><div class="group" data-group="data-store"><div class="entry bpmn-icon-data-store" draggable="true" data-action="create.data-store" title="Create data store reference"></div></div><div class="group" data-group="collaboration"><div class="entry bpmn-icon-participant" draggable="true" data-action="create.participant-expanded" title="Create pool/participant"></div></div><div class="group" data-group="artifact"><div class="entry bpmn-icon-group" draggable="true" data-action="create.group" title="Create group"></div></div></div><div class="djs-palette-toggle"></div></div></div><a href="http://bpmn.io" target="_blank" class="bjs-powered-by" title="Powered by bpmn.io" style="color: rgb(64, 64, 64); position: absolute; bottom: 15px; right: 15px; z-index: 100;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.02 5.57" width="53" height="21" style="vertical-align: middle;"><path fill="currentColor" d="M1.88.92v.14c0 .41-.13.68-.4.8.33.14.46.44.46.86v.33c0 .61-.33.95-.95.95H0V0h.95c.65 0 .93.3.93.92zM.63.57v1.06h.24c.24 0 .38-.1.38-.43V.98c0-.28-.1-.4-.32-.4zm0 1.63v1.22h.36c.2 0 .32-.1.32-.39v-.35c0-.37-.12-.48-.4-.48H.63zM4.18.99v.52c0 .64-.31.98-.94.98h-.3V4h-.62V0h.92c.63 0 .94.35.94.99zM2.94.57v1.35h.3c.2 0 .3-.09.3-.37v-.6c0-.29-.1-.38-.3-.38h-.3zm2.89 2.27L6.25 0h.88v4h-.6V1.12L6.1 3.99h-.6l-.46-2.82v2.82h-.55V0h.87zM8.14 1.1V4h-.56V0h.79L9 2.4V0h.56v4h-.64zm2.49 2.29v.6h-.6v-.6zM12.12 1c0-.63.33-1 .95-1 .61 0 .95.37.95 1v2.04c0 .64-.34 1-.95 1-.62 0-.95-.37-.95-1zm.62 2.08c0 .28.13.39.33.39s.32-.1.32-.4V.98c0-.29-.12-.4-.32-.4s-.33.11-.33.4z"></path><path fill="currentColor" d="M0 4.53h14.02v1.04H0zM11.08 0h.63v.62h-.63zm.63 4V1h-.63v2.98z"></path></svg></a></div></div>
+        </div>
+
+        <!-- Rechter Info-Streifen -->
+        <div id="info-strip" style="width: 30%; padding: 10px; background: rgb(221, 255, 215); border: 1px solid rgb(221, 221, 221); border-radius: 6px; font-family: Arial, sans-serif; font-size: 14px; color: rgb(51, 51, 51); overflow-y: auto; height: 580px;">No warnings.<br><br><strong>Status:</strong> BPMN diagram imported successfully!</div>
+
+    </div>
+</div>
+
+
+<!-- Container für beide Viewer nebeneinander -->
+<div id="button-container" style="
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+">
+
+    <!-- JSON-Viewer links -->
+    <div id="svg" style="
+        flex: 1;
+        background: #fefefe;
+        position: relative;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 12px;
+        font-family: monospace;
+        overflow: auto;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    ">
+        <button id="download-xml" style="
+                position: relative;
+                padding: 8px 12px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                background-color: #f7f7f8;
+                color: #333;
+                cursor: pointer;
+            ">
+            Download XML
+        </button>
+        <button id="download-svg" style="
+                position: relative;
+                padding: 8px 12px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                background-color: #f7f7f8;
+                color: #333;
+                cursor: pointer;
+            ">
+            Download SVG
+        </button>
+
+        <button id="download-pdf" style="
+                position: relative;
+                padding: 8px 12px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                background-color: #f7f7f8;
+                color: #333;
+                cursor: pointer;
+            ">
+            Download PDF
+        </button>
+
+        <button id="download-html" style="
+                position: relative;
+                padding: 8px 12px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                background-color: #f7f7f8;
+                color: #333;
+                cursor: pointer;
+            ">
+            Download HTML
+        </button>
+    </div>
+
+</div>
+
+<!-- Container für beide Viewer nebeneinander -->
+<div id="viewer-container" style="
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+">
+
+    <!-- JSON-Viewer links -->
+    <div id="json-display" style="
+        flex: 1;
+        background: #fefefe;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 12px;
+        font-family: monospace;
+        overflow: auto;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    ">
+        <h3 style="
+          margin-top: 0;
+          margin-bottom: 10px;
+          font-family: Arial, sans-serif;
+          color: #444;
+          border-bottom: 1px solid #eee;
+          padding-bottom: 4px;
+      ">Additional AI Response Data</h3>
+    <ul style="list-style: none; padding-left: 1em; white-space: pre; overflow: inherit;"><li><span style="cursor: pointer;">  </span><span>model: </span><span>claude-sonnet-4-5-20250929</span></li><li><span style="cursor: pointer;">  </span><span>id: </span><span>msg_01VzwUtkQUAJVGLQnY7eBmQk</span></li><li><span style="cursor: pointer;">  </span><span>type: </span><span>message</span></li><li><span style="cursor: pointer;">  </span><span>role: </span><span>assistant</span></li><li><span style="cursor: pointer;">- </span><span>content: </span><span><ul style="list-style: none; padding-left: 1em; white-space: pre; overflow: inherit; display: block;"><li><span style="cursor: pointer;">- </span><span>0: </span><span><ul style="list-style: none; padding-left: 1em; white-space: pre; overflow: inherit; display: block;"><li><span style="cursor: pointer;">  </span><span>type: </span><span>text</span></li><li><span style="cursor: pointer;">  </span><span>text: </span><span>xml&lt;?xml version=1.0 encoding=UTF-8?&gt;&lt;bpmn:definitions xmlns:bpmn=http://www.omg.org/spec/BPMN/20100524/MODEL                  xmlns:bpmndi=http://www.omg.org/spec/BPMN/20100524/DI                  xmlns:omgdc=http://www.omg.org/spec/DD/20100524/DC                  xmlns:omgdi=http://www.omg.org/spec/DD/20100524/DI                  id=Definitions_1                  targetNamespace=http://bpmn.io/schema/bpmn&gt;  &lt;bpmn:process id=Process_1 isExecutable=false&gt;    &lt;bpmn:startEvent id=StartEvent_1 name=Customer brings defective computer&gt;      &lt;bpmn:outgoing&gt;Flow_1&lt;/bpmn:outgoing&gt;    &lt;/bpmn:startEvent&gt;    &lt;bpmn:task id=Task_1 name=Check defect&gt;      &lt;bpmn:incoming&gt;Flow_1&lt;/bpmn:incoming&gt;      &lt;bpmn:outgoing&gt;Flow_2&lt;/bpmn:outgoing&gt;    &lt;/bpmn:task&gt;    &lt;bpmn:task id=Task_2 name=Hand out repair cost calculation&gt;      &lt;bpmn:incoming&gt;Flow_2&lt;/bpmn:incoming&gt;      &lt;bpmn:outgoing&gt;Flow_3&lt;/bpmn:outgoing&gt;    &lt;/bpmn:task&gt;    &lt;bpmn:exclusiveGateway id=Gateway_1 name=Costs acceptable?&gt;      &lt;bpmn:incoming&gt;Flow_3&lt;/bpmn:incoming&gt;      &lt;bpmn:outgoing&gt;Flow_4&lt;/bpmn:outgoing&gt;      &lt;bpmn:outgoing&gt;Flow_5&lt;/bpmn:outgoing&gt;    &lt;/bpmn:exclusiveGateway&gt;    &lt;bpmn:endEvent id=EndEvent_1 name=Customer takes computer home unrepaired&gt;      &lt;bpmn:incoming&gt;Flow_5&lt;/bpmn:incoming&gt;    &lt;/bpmn:endEvent&gt;    &lt;bpmn:task id=Task_3 name=Check and repair hardware&gt;      &lt;bpmn:incoming&gt;Flow_4&lt;/bpmn:incoming&gt;      &lt;bpmn:incoming&gt;Flow_13&lt;/bpmn:incoming&gt;      &lt;bpmn:outgoing&gt;Flow_6&lt;/bpmn:outgoing&gt;    &lt;/bpmn:task&gt;    &lt;bpmn:task id=Task_4 name=Check and configure software&gt;      &lt;bpmn:incoming&gt;Flow_7&lt;/bpmn:incoming&gt;      &lt;bpmn:incoming&gt;Flow_14&lt;/bpmn:incoming&gt;      &lt;bpmn:outgoing&gt;Flow_8&lt;/bpmn:outgoing&gt;    &lt;/bpmn:task&gt;    &lt;bpmn:task id=Task_5 name=Test system functionality&gt;      &lt;bpmn:incoming&gt;Flow_6&lt;/bpmn:incoming&gt;      &lt;bpmn:incoming&gt;Flow_8&lt;/bpmn:incoming&gt;      &lt;bpmn:outgoing&gt;Flow_9&lt;/bpmn:outgoing&gt;    &lt;/bpmn:task&gt;    &lt;bpmn:exclusiveGateway id=Gateway_2 name=Error detected?&gt;      &lt;bpmn:incoming&gt;Flow_9&lt;/bpmn:incoming&gt;      &lt;bpmn:outgoing&gt;Flow_10&lt;/bpmn:outgoing&gt;      &lt;bpmn:outgoing&gt;Flow_11&lt;/bpmn:outgoing&gt;    &lt;/bpmn:exclusiveGateway&gt;    &lt;bpmn:exclusiveGateway id=Gateway_3&gt;      &lt;bpmn:incoming&gt;Flow_10&lt;/bpmn:incoming&gt;      &lt;bpmn:outgoing&gt;Flow_13&lt;/bpmn:outgoing&gt;      &lt;bpmn:outgoing&gt;Flow_14&lt;/bpmn:outgoing&gt;    &lt;/bpmn:exclusiveGateway&gt;    &lt;bpmn:exclusiveGateway id=Gateway_4&gt;      &lt;bpmn:incoming&gt;Flow_4&lt;/bpmn:incoming&gt;      &lt;bpmn:outgoing&gt;Flow_7&lt;/bpmn:outgoing&gt;      &lt;bpmn:outgoing&gt;Flow_12&lt;/bpmn:outgoing&gt;    &lt;/bpmn:exclusiveGateway&gt;    &lt;bpmn:endEvent id=EndEvent_2 name=Repair finished&gt;      &lt;bpmn:incoming&gt;Flow_11&lt;/bpmn:incoming&gt;    &lt;/bpmn:endEvent&gt;    &lt;bpmn:sequenceFlow id=Flow_1 sourceRef=StartEvent_1 targetRef=Task_1 /&gt;    &lt;bpmn:sequenceFlow id=Flow_2 sourceRef=Task_1 targetRef=Task_2 /&gt;    &lt;bpmn:sequenceFlow id=Flow_3 sourceRef=Task_2 targetRef=Gateway_1 /&gt;    &lt;bpmn:sequenceFlow id=Flow_4 name=Yes sourceRef=Gateway_1 targetRef=Gateway_4 /&gt;    &lt;bpmn:sequenceFlow id=Flow_5 name=No sourceRef=Gateway_1 targetRef=EndEvent_1 /&gt;    &lt;bpmn:sequenceFlow id=Flow_6 sourceRef=Task_3 targetRef=Task_5 /&gt;    &lt;bpmn:sequenceFlow id=Flow_7 sourceRef=Gateway_4 targetRef=Task_4 /&gt;    &lt;bpmn:sequenceFlow id=Flow_8 sourceRef=Task_4 targetRef=Task_5 /&gt;    &lt;bpmn:sequenceFlow id=Flow_9 sourceRef=Task_5 targetRef=Gateway_2 /&gt;    &lt;bpmn:sequenceFlow id=Flow_10 name=Yes sourceRef=Gateway_2 targetRef=Gateway_3 /&gt;    &lt;bpmn:sequenceFlow id=Flow_11 name=No sourceRef=Gateway_2 targetRef=EndEvent_2 /&gt;    &lt;bpmn:sequenceFlow id=Flow_12 sourceRef=Gateway_4 targetRef=Task_3 /&gt;    &lt;bpmn:sequenceFlow id=Flow_13 sourceRef=Gateway_3 targetRef=Task_3 /&gt;    &lt;bpmn:sequenceFlow id=Flow_14 sourceRef=Gateway_3 targetRef=Task_4 /&gt;  &lt;/bpmn:process&gt;  &lt;bpmndi:BPMNDiagram id=BPMNDiagram_1&gt;    &lt;bpmndi:BPMNPlane id=BPMNPlane_1 bpmnElement=Process_1&gt;      &lt;bpmndi:BPMNShape id=StartEvent_1_di bpmnElement=StartEvent_1&gt;        &lt;omgdc:Bounds x=180 y=160 width=36 height=36 /&gt;        &lt;bpmndi:BPMNLabel&gt;          &lt;omgdc:Bounds x=160 y=203 width=76 height=40 /&gt;        &lt;/bpmndi:BPMNLabel&gt;      &lt;/bpmndi:BPMNShape&gt;      &lt;bpmndi:BPMNShape id=Task_1_di bpmnElement=Task_1&gt;        &lt;omgdc:Bounds x=270 y=138 width=100 height=80 /&gt;      &lt;/bpmndi:BPMNShape&gt;      &lt;bpmndi:BPMNShape id=Task_2_di bpmnElement=Task_2&gt;        &lt;omgdc:Bounds x=420 y=138 width=100 height=80 /&gt;      &lt;/bpmndi:BPMNShape&gt;      &lt;bpmndi:BPMNShape id=Gateway_1_di bpmnElement=Gateway_1 isMarkerVisible=true&gt;        &lt;omgdc:Bounds x=570 y=153 width=50 height=50 /&gt;        &lt;bpmndi:BPMNLabel&gt;          &lt;omgdc:Bounds x=552 y=123 width=86 height=14 /&gt;        &lt;/bpmndi:BPMNLabel&gt;      &lt;/bpmndi:BPMNShape&gt;      &lt;bpmndi:BPMNShape id=EndEvent_1_di bpmnElement=EndEvent_1&gt;        &lt;omgdc:Bounds x=672 y=80 width=36 height=36 /&gt;        &lt;bpmndi:BPMNLabel&gt;          &lt;omgdc:Bounds x=655 y=30 width=70 height=40 /&gt;        &lt;/bpmndi:BPMNLabel&gt;      &lt;/bpmndi:BPMNShape&gt;      &lt;bpmndi:BPMNShape id=Gateway_4_di bpmnElement=Gateway_4 isMarkerVisible=true&gt;        &lt;omgdc:Bounds x=670 y=153 width=50 height=50 /&gt;      &lt;/bpmndi:BPMNShape&gt;      &lt;bpmndi:BPMNShape id=Task_3_di bpmnElement=Task_3&gt;        &lt;omgdc:Bounds x=770 y=138 width=100 height=80 /&gt;      &lt;/bpmndi:BPMNShape&gt;      &lt;bpmndi:BPMNShape id=Task_4_di bpmnElement=Task_4&gt;        &lt;omgdc:Bounds x=770 y=260 width=100 height=80 /&gt;      &lt;/bpmndi:BPMNShape&gt;      &lt;bpmndi:BPMNShape id=Task_5_di bpmnElement=Task_5&gt;        &lt;omgdc:Bounds x=920 y=138 width=100 height=80 /&gt;      &lt;/bpmndi:BPMNShape&gt;      &lt;bpmndi:BPMNShape id=Gateway_2_di bpmnElement=Gateway_2 isMarkerVisible=true&gt;        &lt;omgdc:Bounds x=1070 y=153 width=50 height=50 /&gt;        &lt;bpmndi:BPMNLabel&gt;          &lt;omgdc:Bounds x=1052 y=123 width=86 height=14 /&gt;        &lt;/bpmndi:BPMNLabel&gt;      &lt;/bpmndi:BPMNShape&gt;      &lt;bpmndi:BPMNShape id=Gateway_3_di bpmnElement=Gateway_3 isMarkerVisible=true&gt;        &lt;omgdc:Bounds x=1070 y=275 width=50 height=50 /&gt;      &lt;/bpmndi:BPMNShape&gt;      &lt;bpmndi:BPMNShape id=EndEvent_2_di bpmnElement=EndEvent_2&gt;        &lt;omgdc:Bounds x=1172 y=160 width=36 height=36 /&gt;        &lt;bpmndi:BPMNLabel&gt;          &lt;omgdc:Bounds x=1152 y=203 width=76 height=14 /&gt;        &lt;/bpmndi:BPMNLabel&gt;      &lt;/bpmndi:BPMNShape&gt;      &lt;bpmndi:BPMNEdge id=Flow_1_di bpmnElement=Flow_1&gt;        &lt;omgdi:waypoint x=216 y=178 /&gt;        &lt;omgdi:waypoint x=270 y=178 /&gt;      &lt;/bpmndi:BPMNEdge&gt;      &lt;bpmndi:BPMNEdge id=Flow_2_di bpmnElement=Flow_2&gt;        &lt;omgdi:waypoint x=370 y=178 /&gt;        &lt;omgdi:waypoint x=420 y=178 /&gt;      &lt;/bpmndi:BPMNEdge&gt;      &lt;bpmndi:BPMNEdge id=Flow_3_di bpmnElement=Flow_3&gt;        &lt;omgdi:waypoint x=520 y=178 /&gt;        &lt;omgdi:waypoint x=570 y=178 /&gt;      &lt;/bpmndi:BPMNEdge&gt;      &lt;bpmndi:BPMNEdge id=Flow_4_di bpmnElement=Flow_4&gt;        &lt;omgdi:waypoint x=620 y=178 /&gt;        &lt;omgdi:waypoint x=670 y=178 /&gt;        &lt;bpmndi:BPMNLabel&gt;          &lt;omgdc:Bounds x=635 y=160 width=20 height=14 /&gt;        &lt;/bpmndi:BPMNLabel&gt;      &lt;/bpmndi:BPMNEdge&gt;      &lt;bpmndi:BPMNEdge id=Flow_5_di bpmnElement=Flow_5&gt;        &lt;omgdi:waypoint x=595 y=153 /&gt;        &lt;omgdi:waypoint x=595 y=98 /&gt;        &lt;omgdi:waypoint x=672 y=98 /&gt;        &lt;bpmndi:BPMNLabel&gt;          &lt;omgdc:Bounds x=603 y=123 width=15 height=14 /&gt;        &lt;/bpmndi:BPMNLabel&gt;      &lt;/bpmndi:BPMNEdge&gt;      &lt;bpmndi:BPMNEdge id=Flow_12_di bpmnElement=Flow_12&gt;        &lt;omgdi:waypoint x=720 y=178 /&gt;        &lt;omgdi:waypoint x=770 y=178 /&gt;      &lt;/bpmndi:BPMNEdge&gt;      &lt;bpmndi:BPMNEdge id=Flow_7_di bpmnElement=Flow_7&gt;        &lt;omgdi:waypoint x=695 y=203 /&gt;        &lt;omgdi:waypoint x=695 y=300 /&gt;        &lt;omgdi:waypoint x=770 y=300 /&gt;      &lt;/bpmndi:BPMNEdge&gt;      &lt;bpmndi:BPMNEdge id=Flow_6_di bpmnElement=Flow_6&gt;        &lt;omgdi:waypoint x=870 y=178 /&gt;        &lt;omgdi:waypoint x=920 y=178 /&gt;      &lt;/bpmndi:BPMNEdge&gt;      &lt;bpmndi:BPMNEdge id=Flow_8_di bpmnElement=Flow_8&gt;        &lt;omgdi:waypoint x=870 y=300 /&gt;        &lt;omgdi:waypoint x=970 y=300 /&gt;        &lt;omgdi:waypoint x=970 y=218 /&gt;      &lt;/bpmndi:BPMNEdge&gt;      &lt;bpmndi:BPMNEdge id=Flow_9_di bpmnElement=Flow_9&gt;        &lt;omgdi:waypoint x=1020 y=178 /&gt;        &lt;omgdi:waypoint x=1070 y=178 /&gt;      &lt;/bpmndi:BPMNEdge&gt;      &lt;bpmndi:BPMNEdge id=Flow_10_di bpmnElement=Flow_10&gt;        &lt;omgdi:waypoint x=1095 y=203 /&gt;        &lt;omgdi:waypoint x=1095 y=275 /&gt;        &lt;bpmndi:BPMNLabel&gt;          &lt;omgdc:Bounds x=1101 y=236 width=20 height=14 /&gt;        &lt;/bpmndi:BPMNLabel&gt;      &lt;/bpmndi:BPMNEdge&gt;      &lt;bpmndi:BPMNEdge id=Flow_11_di bpmnElement=Flow_11&gt;        &lt;omgdi:waypoint x=1120 y=178 /&gt;        &lt;omgdi:waypoint x=1172 y=178 /&gt;        &lt;bpmndi:BPMNLabel&gt;          &lt;omgdc:Bounds x=1140 y=160 width=15 height=14 /&gt;        &lt;/bpmndi:BPMNLabel&gt;      &lt;/bpmndi:BPMNEdge&gt;      &lt;bpmndi:BPMNEdge id=Flow_13_di bpmnElement=Flow_13&gt;        &lt;omgdi:waypoint x=1070 y=300 /&gt;        &lt;omgdi:waypoint x=820 y=300 /&gt;        &lt;omgdi:waypoint x=820 y=218 /&gt;      &lt;/bpmndi:BPMNEdge&gt;      &lt;bpmndi:BPMNEdge id=Flow_14_di bpmnElement=Flow_14&gt;        &lt;omgdi:waypoint x=1095 y=325 /&gt;        &lt;omgdi:waypoint x=1095 y=400 /&gt;        &lt;omgdi:waypoint x=820 y=400 /&gt;        &lt;omgdi:waypoint x=820 y=340 /&gt;      &lt;/bpmndi:BPMNEdge&gt;    &lt;/bpmndi:BPMNPlane&gt;  &lt;/bpmndi:BPMNDiagram&gt;&lt;/bpmn:definitions&gt;</span></li></ul></span></li></ul></span></li><li><span style="cursor: pointer;">  </span><span>stop_reason: </span><span>end_turn</span></li><li><span style="cursor: pointer;">  </span><span>stop_sequence: </span><span>null</span></li><li><span style="cursor: pointer;">- </span><span>usage: </span><span><ul style="list-style: none; padding-left: 1em; white-space: pre; overflow: inherit; display: block;"><li><span style="cursor: pointer;">  </span><span>input_tokens: </span><span>16010</span></li><li><span style="cursor: pointer;">  </span><span>cache_creation_input_tokens: </span><span>0</span></li><li><span style="cursor: pointer;">  </span><span>cache_read_input_tokens: </span><span>0</span></li><li><span style="cursor: pointer;">- </span><span>cache_creation: </span><span><ul style="list-style: none; padding-left: 1em; white-space: pre; overflow: inherit; display: block;"><li><span style="cursor: pointer;">  </span><span>ephemeral_5m_input_tokens: </span><span>0</span></li><li><span style="cursor: pointer;">  </span><span>ephemeral_1h_input_tokens: </span><span>0</span></li></ul></span></li><li><span style="cursor: pointer;">  </span><span>output_tokens: </span><span>4341</span></li><li><span style="cursor: pointer;">  </span><span>service_tier: </span><span>standard</span></li></ul></span></li><li><span style="cursor: pointer;">- </span><span>tokens: </span><span><ul style="list-style: none; padding-left: 1em; white-space: pre; overflow: inherit; display: block;"><li><span style="cursor: pointer;">  </span><span>input: </span><span>16010</span></li><li><span style="cursor: pointer;">  </span><span>output: </span><span>4341</span></li><li><span style="cursor: pointer;">  </span><span>cache_write: </span><span>0</span></li><li><span style="cursor: pointer;">  </span><span>cache_read: </span><span>0</span></li></ul></span></li><li><span style="cursor: pointer;">- </span><span>prize: </span><span><ul style="list-style: none; padding-left: 1em; white-space: pre; overflow: inherit; display: block;"><li><span style="cursor: pointer;">  </span><span>input: </span><span>0.048029999999999996</span></li><li><span style="cursor: pointer;">  </span><span>cacheRead: </span><span>0</span></li><li><span style="cursor: pointer;">  </span><span>cacheWrite: </span><span>0</span></li><li><span style="cursor: pointer;">  </span><span>cache: </span><span>0</span></li><li><span style="cursor: pointer;">  </span><span>output: </span><span>0.06511499999999999</span></li><li><span style="cursor: pointer;">  </span><span>total: </span><span>0.113145</span></li></ul></span></li><li><span style="cursor: pointer;">- </span><span>timings: </span><span><ul style="list-style: none; padding-left: 1em; white-space: pre; overflow: inherit; display: block;"><li><span style="cursor: pointer;">  </span><span>api-response: </span><span>39209.83449999988</span></li></ul></span></li></ul></div>
+
+    <!-- XML-Viewer rechts -->
+    <div id="xml-display" style="
+        flex: 1;
+        background: #fefefe;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 12px;
+        font-family: monospace;
+        overflow: auto;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    ">
+        <h3 style="
+          margin-top: 0;
+          margin-bottom: 10px;
+          font-family: Arial, sans-serif;
+          color: #444;
+          border-bottom: 1px solid #eee;
+          padding-bottom: 4px;
+      ">Raw BPMN XML</h3>
+    <div style="font-family: monospace; white-space: pre; overflow: auto; padding-bottom: 20px;"><div style="display: flex; padding-left: 0px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 20px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+                  id="Definitions_1"
+                  targetNamespace="http://bpmn.io/schema/bpmn"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 40px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmn:process id="Process_1" isExecutable="false"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 60px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmn:startEvent id="StartEvent_1" name="Customer brings defective computer"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:outgoing&gt;Flow_1&lt;/bpmn:outgoing&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;/bpmn:startEvent&gt;</span></div></div><div style="display: flex; padding-left: 60px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmn:task id="Task_1" name="Check defect"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:incoming&gt;Flow_1&lt;/bpmn:incoming&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:outgoing&gt;Flow_2&lt;/bpmn:outgoing&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;/bpmn:task&gt;</span></div></div><div style="display: flex; padding-left: 60px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmn:task id="Task_2" name="Hand out repair cost calculation"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:incoming&gt;Flow_2&lt;/bpmn:incoming&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:outgoing&gt;Flow_3&lt;/bpmn:outgoing&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;/bpmn:task&gt;</span></div></div><div style="display: flex; padding-left: 60px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmn:exclusiveGateway id="Gateway_1" name="Costs acceptable?"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:incoming&gt;Flow_3&lt;/bpmn:incoming&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:outgoing&gt;Flow_4&lt;/bpmn:outgoing&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:outgoing&gt;Flow_5&lt;/bpmn:outgoing&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;/bpmn:exclusiveGateway&gt;</span></div></div><div style="display: flex; padding-left: 60px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmn:endEvent id="EndEvent_1" name="Customer takes computer home unrepaired"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:incoming&gt;Flow_5&lt;/bpmn:incoming&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;/bpmn:endEvent&gt;</span></div></div><div style="display: flex; padding-left: 60px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmn:task id="Task_3" name="Check and repair hardware"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:incoming&gt;Flow_4&lt;/bpmn:incoming&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:incoming&gt;Flow_13&lt;/bpmn:incoming&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:outgoing&gt;Flow_6&lt;/bpmn:outgoing&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;/bpmn:task&gt;</span></div></div><div style="display: flex; padding-left: 60px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmn:task id="Task_4" name="Check and configure software"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:incoming&gt;Flow_7&lt;/bpmn:incoming&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:incoming&gt;Flow_14&lt;/bpmn:incoming&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:outgoing&gt;Flow_8&lt;/bpmn:outgoing&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;/bpmn:task&gt;</span></div></div><div style="display: flex; padding-left: 60px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmn:task id="Task_5" name="Test system functionality"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:incoming&gt;Flow_6&lt;/bpmn:incoming&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:incoming&gt;Flow_8&lt;/bpmn:incoming&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:outgoing&gt;Flow_9&lt;/bpmn:outgoing&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;/bpmn:task&gt;</span></div></div><div style="display: flex; padding-left: 60px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmn:exclusiveGateway id="Gateway_2" name="Error detected?"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:incoming&gt;Flow_9&lt;/bpmn:incoming&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:outgoing&gt;Flow_10&lt;/bpmn:outgoing&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:outgoing&gt;Flow_11&lt;/bpmn:outgoing&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;/bpmn:exclusiveGateway&gt;</span></div></div><div style="display: flex; padding-left: 60px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmn:exclusiveGateway id="Gateway_3"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:incoming&gt;Flow_10&lt;/bpmn:incoming&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:outgoing&gt;Flow_13&lt;/bpmn:outgoing&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:outgoing&gt;Flow_14&lt;/bpmn:outgoing&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;/bpmn:exclusiveGateway&gt;</span></div></div><div style="display: flex; padding-left: 60px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmn:exclusiveGateway id="Gateway_4"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:incoming&gt;Flow_4&lt;/bpmn:incoming&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:outgoing&gt;Flow_7&lt;/bpmn:outgoing&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:outgoing&gt;Flow_12&lt;/bpmn:outgoing&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;/bpmn:exclusiveGateway&gt;</span></div></div><div style="display: flex; padding-left: 60px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmn:endEvent id="EndEvent_2" name="Repair finished"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;bpmn:incoming&gt;Flow_11&lt;/bpmn:incoming&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;/bpmn:endEvent&gt;</span></div></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_1" /&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;bpmn:sequenceFlow id="Flow_2" sourceRef="Task_1" targetRef="Task_2" /&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;bpmn:sequenceFlow id="Flow_3" sourceRef="Task_2" targetRef="Gateway_1" /&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;bpmn:sequenceFlow id="Flow_4" name="Yes" sourceRef="Gateway_1" targetRef="Gateway_4" /&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;bpmn:sequenceFlow id="Flow_5" name="No" sourceRef="Gateway_1" targetRef="EndEvent_1" /&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;bpmn:sequenceFlow id="Flow_6" sourceRef="Task_3" targetRef="Task_5" /&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;bpmn:sequenceFlow id="Flow_7" sourceRef="Gateway_4" targetRef="Task_4" /&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;bpmn:sequenceFlow id="Flow_8" sourceRef="Task_4" targetRef="Task_5" /&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;bpmn:sequenceFlow id="Flow_9" sourceRef="Task_5" targetRef="Gateway_2" /&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;bpmn:sequenceFlow id="Flow_10" name="Yes" sourceRef="Gateway_2" targetRef="Gateway_3" /&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;bpmn:sequenceFlow id="Flow_11" name="No" sourceRef="Gateway_2" targetRef="EndEvent_2" /&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;bpmn:sequenceFlow id="Flow_12" sourceRef="Gateway_4" targetRef="Task_3" /&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;bpmn:sequenceFlow id="Flow_13" sourceRef="Gateway_3" targetRef="Task_3" /&gt;</span></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;bpmn:sequenceFlow id="Flow_14" sourceRef="Gateway_3" targetRef="Task_4" /&gt;</span></div><div style="display: flex; padding-left: 40px;"><span>  </span><span>&lt;/bpmn:process&gt;</span></div></div><div style="display: flex; padding-left: 40px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNDiagram id="BPMNDiagram_1"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 60px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdc:Bounds x="180" y="160" width="36" height="36" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNLabel&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 120px;"><span>  </span><span>&lt;omgdc:Bounds x="160" y="203" width="76" height="40" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;/bpmndi:BPMNLabel&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNShape&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdc:Bounds x="270" y="138" width="100" height="80" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNShape&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdc:Bounds x="420" y="138" width="100" height="80" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNShape&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNShape id="Gateway_1_di" bpmnElement="Gateway_1" isMarkerVisible="true"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdc:Bounds x="570" y="153" width="50" height="50" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNLabel&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 120px;"><span>  </span><span>&lt;omgdc:Bounds x="552" y="123" width="86" height="14" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;/bpmndi:BPMNLabel&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNShape&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdc:Bounds x="672" y="80" width="36" height="36" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNLabel&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 120px;"><span>  </span><span>&lt;omgdc:Bounds x="655" y="30" width="70" height="40" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;/bpmndi:BPMNLabel&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNShape&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNShape id="Gateway_4_di" bpmnElement="Gateway_4" isMarkerVisible="true"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdc:Bounds x="670" y="153" width="50" height="50" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNShape&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdc:Bounds x="770" y="138" width="100" height="80" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNShape&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdc:Bounds x="770" y="260" width="100" height="80" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNShape&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNShape id="Task_5_di" bpmnElement="Task_5"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdc:Bounds x="920" y="138" width="100" height="80" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNShape&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNShape id="Gateway_2_di" bpmnElement="Gateway_2" isMarkerVisible="true"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdc:Bounds x="1070" y="153" width="50" height="50" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNLabel&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 120px;"><span>  </span><span>&lt;omgdc:Bounds x="1052" y="123" width="86" height="14" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;/bpmndi:BPMNLabel&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNShape&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNShape id="Gateway_3_di" bpmnElement="Gateway_3" isMarkerVisible="true"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdc:Bounds x="1070" y="275" width="50" height="50" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNShape&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNShape id="EndEvent_2_di" bpmnElement="EndEvent_2"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdc:Bounds x="1172" y="160" width="36" height="36" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNLabel&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 120px;"><span>  </span><span>&lt;omgdc:Bounds x="1152" y="203" width="76" height="14" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;/bpmndi:BPMNLabel&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNShape&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="216" y="178" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="270" y="178" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNEdge&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="370" y="178" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="420" y="178" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNEdge&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="520" y="178" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="570" y="178" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNEdge&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="620" y="178" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="670" y="178" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNLabel&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 120px;"><span>  </span><span>&lt;omgdc:Bounds x="635" y="160" width="20" height="14" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;/bpmndi:BPMNLabel&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNEdge&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="595" y="153" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="595" y="98" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="672" y="98" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNLabel&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 120px;"><span>  </span><span>&lt;omgdc:Bounds x="603" y="123" width="15" height="14" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;/bpmndi:BPMNLabel&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNEdge&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNEdge id="Flow_12_di" bpmnElement="Flow_12"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="720" y="178" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="770" y="178" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNEdge&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="695" y="203" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="695" y="300" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="770" y="300" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNEdge&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="870" y="178" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="920" y="178" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNEdge&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="870" y="300" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="970" y="300" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="970" y="218" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNEdge&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="1020" y="178" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="1070" y="178" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNEdge&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="1095" y="203" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="1095" y="275" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNLabel&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 120px;"><span>  </span><span>&lt;omgdc:Bounds x="1101" y="236" width="20" height="14" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;/bpmndi:BPMNLabel&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNEdge&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="1120" y="178" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="1172" y="178" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNLabel&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 120px;"><span>  </span><span>&lt;omgdc:Bounds x="1140" y="160" width="15" height="14" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;/bpmndi:BPMNLabel&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNEdge&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNEdge id="Flow_13_di" bpmnElement="Flow_13"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="1070" y="300" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="820" y="300" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="820" y="218" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNEdge&gt;</span></div></div><div style="display: flex; padding-left: 80px;"><span style="cursor: pointer; user-select: none;">- </span><span>&lt;bpmndi:BPMNEdge id="Flow_14_di" bpmnElement="Flow_14"&gt;</span></div><div style="display: block;"><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="1095" y="325" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="1095" y="400" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="820" y="400" /&gt;</span></div><div style="display: flex; padding-left: 100px;"><span>  </span><span>&lt;omgdi:waypoint x="820" y="340" /&gt;</span></div><div style="display: flex; padding-left: 80px;"><span>  </span><span>&lt;/bpmndi:BPMNEdge&gt;</span></div></div><div style="display: flex; padding-left: 60px;"><span>  </span><span>&lt;/bpmndi:BPMNPlane&gt;</span></div></div><div style="display: flex; padding-left: 40px;"><span>  </span><span>&lt;/bpmndi:BPMNDiagram&gt;</span></div></div><div style="display: flex; padding-left: 20px;"><span>  </span><span>&lt;/bpmn:definitions&gt;</span></div></div></div></div></div>
+
+</div>
+
+<script>
+    // Extract the current HTML filename
+    const pathParts = window.location.pathname.split('/');
+    const htmlFilename = pathParts[pathParts.length - 1].split(".")[0] || 'not found';
+
+    // Append the HTML filename to the viewer titles
+    document.getElementById("title").textContent = `Debug data for ${htmlFilename} - claude-sonnet-4-5 (xml)`;
+</script>
+
+
+<script src="https://unpkg.com/bpmn-js@18.6.3/dist/bpmn-modeler.development.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfkit@0.10.0/js/pdfkit.standalone.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/svg-to-pdfkit@0.1.8/source.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/blob-stream-browserify@0.1.3/index.min.js"></script>
+<script>
+
+    // Example BPMN XML string
+    const bpmnXML = `<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+                  id="Definitions_1"
+                  targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn:process id="Process_1" isExecutable="false">
+    <bpmn:startEvent id="StartEvent_1" name="Customer brings defective computer">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_1" name="Check defect">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_2" name="Hand out repair cost calculation">
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_1" name="Costs acceptable?">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_4</bpmn:outgoing>
+      <bpmn:outgoing>Flow_5</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="EndEvent_1" name="Customer takes computer home unrepaired">
+      <bpmn:incoming>Flow_5</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="Task_3" name="Check and repair hardware">
+      <bpmn:incoming>Flow_4</bpmn:incoming>
+      <bpmn:incoming>Flow_13</bpmn:incoming>
+      <bpmn:outgoing>Flow_6</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_4" name="Check and configure software">
+      <bpmn:incoming>Flow_7</bpmn:incoming>
+      <bpmn:incoming>Flow_14</bpmn:incoming>
+      <bpmn:outgoing>Flow_8</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_5" name="Test system functionality">
+      <bpmn:incoming>Flow_6</bpmn:incoming>
+      <bpmn:incoming>Flow_8</bpmn:incoming>
+      <bpmn:outgoing>Flow_9</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_2" name="Error detected?">
+      <bpmn:incoming>Flow_9</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="Gateway_3">
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_13</bpmn:outgoing>
+      <bpmn:outgoing>Flow_14</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="Gateway_4">
+      <bpmn:incoming>Flow_4</bpmn:incoming>
+      <bpmn:outgoing>Flow_7</bpmn:outgoing>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="EndEvent_2" name="Repair finished">
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Task_1" />
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_1" targetRef="Task_2" />
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_2" targetRef="Gateway_1" />
+    <bpmn:sequenceFlow id="Flow_4" name="Yes" sourceRef="Gateway_1" targetRef="Gateway_4" />
+    <bpmn:sequenceFlow id="Flow_5" name="No" sourceRef="Gateway_1" targetRef="EndEvent_1" />
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="Task_3" targetRef="Task_5" />
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="Gateway_4" targetRef="Task_4" />
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="Task_4" targetRef="Task_5" />
+    <bpmn:sequenceFlow id="Flow_9" sourceRef="Task_5" targetRef="Gateway_2" />
+    <bpmn:sequenceFlow id="Flow_10" name="Yes" sourceRef="Gateway_2" targetRef="Gateway_3" />
+    <bpmn:sequenceFlow id="Flow_11" name="No" sourceRef="Gateway_2" targetRef="EndEvent_2" />
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="Gateway_4" targetRef="Task_3" />
+    <bpmn:sequenceFlow id="Flow_13" sourceRef="Gateway_3" targetRef="Task_3" />
+    <bpmn:sequenceFlow id="Flow_14" sourceRef="Gateway_3" targetRef="Task_4" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <omgdc:Bounds x="180" y="160" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="160" y="203" width="76" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1_di" bpmnElement="Task_1">
+        <omgdc:Bounds x="270" y="138" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_2_di" bpmnElement="Task_2">
+        <omgdc:Bounds x="420" y="138" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1_di" bpmnElement="Gateway_1" isMarkerVisible="true">
+        <omgdc:Bounds x="570" y="153" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="552" y="123" width="86" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1_di" bpmnElement="EndEvent_1">
+        <omgdc:Bounds x="672" y="80" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="655" y="30" width="70" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_4_di" bpmnElement="Gateway_4" isMarkerVisible="true">
+        <omgdc:Bounds x="670" y="153" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_3_di" bpmnElement="Task_3">
+        <omgdc:Bounds x="770" y="138" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_4_di" bpmnElement="Task_4">
+        <omgdc:Bounds x="770" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_5_di" bpmnElement="Task_5">
+        <omgdc:Bounds x="920" y="138" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_2_di" bpmnElement="Gateway_2" isMarkerVisible="true">
+        <omgdc:Bounds x="1070" y="153" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1052" y="123" width="86" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_3_di" bpmnElement="Gateway_3" isMarkerVisible="true">
+        <omgdc:Bounds x="1070" y="275" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_2_di" bpmnElement="EndEvent_2">
+        <omgdc:Bounds x="1172" y="160" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1152" y="203" width="76" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <omgdi:waypoint x="216" y="178" />
+        <omgdi:waypoint x="270" y="178" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <omgdi:waypoint x="370" y="178" />
+        <omgdi:waypoint x="420" y="178" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <omgdi:waypoint x="520" y="178" />
+        <omgdi:waypoint x="570" y="178" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <omgdi:waypoint x="620" y="178" />
+        <omgdi:waypoint x="670" y="178" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="635" y="160" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <omgdi:waypoint x="595" y="153" />
+        <omgdi:waypoint x="595" y="98" />
+        <omgdi:waypoint x="672" y="98" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="603" y="123" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12_di" bpmnElement="Flow_12">
+        <omgdi:waypoint x="720" y="178" />
+        <omgdi:waypoint x="770" y="178" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7">
+        <omgdi:waypoint x="695" y="203" />
+        <omgdi:waypoint x="695" y="300" />
+        <omgdi:waypoint x="770" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <omgdi:waypoint x="870" y="178" />
+        <omgdi:waypoint x="920" y="178" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8">
+        <omgdi:waypoint x="870" y="300" />
+        <omgdi:waypoint x="970" y="300" />
+        <omgdi:waypoint x="970" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9">
+        <omgdi:waypoint x="1020" y="178" />
+        <omgdi:waypoint x="1070" y="178" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <omgdi:waypoint x="1095" y="203" />
+        <omgdi:waypoint x="1095" y="275" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1101" y="236" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <omgdi:waypoint x="1120" y="178" />
+        <omgdi:waypoint x="1172" y="178" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1140" y="160" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13_di" bpmnElement="Flow_13">
+        <omgdi:waypoint x="1070" y="300" />
+        <omgdi:waypoint x="820" y="300" />
+        <omgdi:waypoint x="820" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14_di" bpmnElement="Flow_14">
+        <omgdi:waypoint x="1095" y="325" />
+        <omgdi:waypoint x="1095" y="400" />
+        <omgdi:waypoint x="820" y="400" />
+        <omgdi:waypoint x="820" y="340" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
+`;
+
+    // Create modeler
+    document.getElementById("canvas").innerHTML = "";
+    const modeler = new BpmnJS({
+        container: '#canvas'
+    });
+
+    // Funktion, um die Warnmeldungen als lesbaren Text zu bekommen
+    function formatWarnings(warnings) {
+        return warnings.map((w, i) => {
+            let text = `${i + 1}. ${w.message || ''}`;
+
+            // Falls es ein verschachteltes error-Objekt gibt, füge die message hinzu
+            if (w.error && w.error.message) {
+                text += `[br]   Error: ${w.error.message}`;
+            }
+
+            // Falls es ein verschachteltes error-Objekt gibt, füge die message hinzu
+            if (w.property) {
+                text += `[br]   Property: ${w.property}`;
+            }
+
+            return text;
+        }).join('[br][br]').replaceAll("<", "&lt;").replaceAll(">", "&gt").replaceAll("[br]", "<br>");
+    }
+
+    // Import XML string
+    modeler.importXML(bpmnXML).then(({ warnings }) => {
+        let infoText = "";
+
+        if (warnings.length) {
+            infoText += "<strong>Moddle Warnings:</strong><br><br>";
+            infoText += formatWarnings(warnings);
+            console.warn(warnings);
+            document.getElementById("info-strip").style.backgroundColor = "#ffe1d5";
+        } else {
+            infoText += "No warnings.<br>";
+            document.getElementById("info-strip").style.backgroundColor = "#ddffd7";
+        }
+
+        infoText += "<br><strong>Status:</strong> BPMN diagram imported successfully!";
+
+        // Set text in the right-hand info strip
+        document.getElementById("info-strip").innerHTML = infoText;
+
+        // Fit viewport
+        modeler.get('canvas').zoom('fit-viewport');
+    }).catch(err => {
+        const errorText = `<strong>Error importing BPMN:</strong><br>${err.message || err}`;
+        const infoStrip = document.getElementById("info-strip");
+        infoStrip.innerHTML = errorText;
+        infoStrip.style.backgroundColor = "#ffccd4";
+
+        console.error(err);
+    });
+
+    const randID = Math.random().toString(36).substring(2,10)
+
+    document.getElementById("download-svg").addEventListener("click", async () => {
+        console.log("Download SVG clicked");
+        const {svg} = await modeler.saveSVG();
+        console.log(svg)
+
+        var svgBlob = new Blob([svg], {
+            type: 'image/svg+xml'
+        });
+
+        var fileName = 'claude-sonnet-4-5 (xml)-'.replace(" ", "-") + randID + '.svg';
+
+        var downloadLink = document.createElement('a');
+        downloadLink.download = fileName;
+        downloadLink.innerHTML = 'Get BPMN SVG';
+        downloadLink.href = window.URL.createObjectURL(svgBlob);
+        downloadLink.onclick = function (event) {
+            document.body.removeChild(event.target);
+        };
+        downloadLink.style.visibility = 'hidden';
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+
+    })
+
+    document.getElementById("download-xml").addEventListener("click", async () => {
+        console.log("Download XML clicked");
+        const {xml} = await modeler.saveXML();
+        console.log(xml)
+
+        var xmlBlob = new Blob([xml], {
+            type: 'text/xml'
+        });
+
+        var fileName = 'claude-sonnet-4-5 (xml)-'.replace(" ", "-") + randID + '.bpmn';
+
+        var downloadLink = document.createElement('a');
+        downloadLink.download = fileName;
+        downloadLink.innerHTML = 'Get BPMN SVG';
+        downloadLink.href = window.URL.createObjectURL(xmlBlob);
+        downloadLink.onclick = function (event) {
+            document.body.removeChild(event.target);
+        };
+        downloadLink.style.visibility = 'hidden';
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+
+    })
+
+    document.getElementById("download-pdf").addEventListener("click", async () => {
+        console.log("Download PDF clicked");
+        const {svg} = await modeler.saveSVG();
+        console.log(svg)
+        const svgWidth = parseFloat(svg.match(/width="([\d.]+)"/)[1]);
+        const svgHeight = parseFloat(svg.match(/height="([\d.]+)"/)[1]);
+
+        let doc = new PDFDocument({compress: false, size: [svgWidth || 612, svgHeight || 792]});
+        SVGtoPDF(doc, svg, 0, 0, {assumePt: true});
+        let stream = doc.pipe(blobStream());
+        stream.on('finish', function() {
+            let blob = stream.toBlob('application/pdf');
+            var fileName = 'claude-sonnet-4-5 (xml)-'.replace(" ", "-") + randID + '.pdf';
+
+            var downloadLink = document.createElement('a');
+            downloadLink.download = fileName;
+            downloadLink.innerHTML = 'Get BPMN SVG';
+            downloadLink.href = window.URL.createObjectURL(blob);
+            downloadLink.onclick = function (event) {
+                document.body.removeChild(event.target);
+            };
+            downloadLink.style.visibility = 'hidden';
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+        });
+        doc.end();
+    })
+
+    document.getElementById("download-html").addEventListener("click", async () => {
+        console.log("Download HTML clicked");
+        const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+
+        const htmlBlob = new Blob([html], { type: 'text/html;charset=utf-8;' });
+
+        var fileName = 'claude-sonnet-4-5 (xml)-'.replace(" ", "-") + randID + '.html';
+
+        var downloadLink = document.createElement('a');
+        downloadLink.download = fileName;
+        downloadLink.innerHTML = 'Get BPMN HTML';
+        downloadLink.href = window.URL.createObjectURL(htmlBlob);
+        downloadLink.onclick = function (event) {
+            document.body.removeChild(event.target);
+        };
+        downloadLink.style.visibility = 'hidden';
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+    });
+
+
+</script><svg id="helper-svg" style="visibility: hidden; position: fixed; width: 0px; height: 0px;"></svg>
+<script>
+    function createJsonTree(data) {
+        if (typeof data !== "object" || data === null) {
+            const span = document.createElement("span");
+            span.textContent = String(data);
+            return span;
+        }
+
+        const container = document.createElement("ul");
+        container.style.listStyle = "none";
+        container.style.paddingLeft = "1em";
+        container.style.whiteSpace = "pre";
+        container.style.overflow = "inherit";
+
+        for (const key in data) {
+            const li = document.createElement("li");
+
+            const toggle = document.createElement("span");
+            toggle.textContent = "- ";
+            toggle.style.cursor = "pointer";
+
+            const keySpan = document.createElement("span");
+            keySpan.textContent = key + ": ";
+
+            const valueContainer = document.createElement("span");
+
+            if (typeof data[key] === "object" && data[key] !== null) {
+                const childTree = createJsonTree(data[key]);
+                childTree.style.display = "block";
+                valueContainer.appendChild(childTree);
+
+                toggle.onclick = () => {
+                    if (childTree.style.display === "none") {
+                        childTree.style.display = "block";
+                        toggle.textContent = "- ";
+                    } else {
+                        childTree.style.display = "none";
+                        toggle.textContent = "+ ";
+                    }
+                };
+            } else {
+                valueContainer.textContent = String(data[key]);
+                toggle.textContent = "  "; // kein toggle bei primitiven Werten
+            }
+
+            li.appendChild(toggle);
+            li.appendChild(keySpan);
+            li.appendChild(valueContainer);
+            container.appendChild(li);
+        }
+
+        return container;
+    }
+
+    const jsonData = JSON.parse(`{"model":"claude-sonnet-4-5-20250929","id":"msg_01VzwUtkQUAJVGLQnY7eBmQk","type":"message","role":"assistant","content":[{"type":"text","text":"xml<?xml version=1.0 encoding=UTF-8?><bpmn:definitions xmlns:bpmn=http://www.omg.org/spec/BPMN/20100524/MODEL                  xmlns:bpmndi=http://www.omg.org/spec/BPMN/20100524/DI                  xmlns:omgdc=http://www.omg.org/spec/DD/20100524/DC                  xmlns:omgdi=http://www.omg.org/spec/DD/20100524/DI                  id=Definitions_1                  targetNamespace=http://bpmn.io/schema/bpmn>  <bpmn:process id=Process_1 isExecutable=false>    <bpmn:startEvent id=StartEvent_1 name=Customer brings defective computer>      <bpmn:outgoing>Flow_1</bpmn:outgoing>    </bpmn:startEvent>    <bpmn:task id=Task_1 name=Check defect>      <bpmn:incoming>Flow_1</bpmn:incoming>      <bpmn:outgoing>Flow_2</bpmn:outgoing>    </bpmn:task>    <bpmn:task id=Task_2 name=Hand out repair cost calculation>      <bpmn:incoming>Flow_2</bpmn:incoming>      <bpmn:outgoing>Flow_3</bpmn:outgoing>    </bpmn:task>    <bpmn:exclusiveGateway id=Gateway_1 name=Costs acceptable?>      <bpmn:incoming>Flow_3</bpmn:incoming>      <bpmn:outgoing>Flow_4</bpmn:outgoing>      <bpmn:outgoing>Flow_5</bpmn:outgoing>    </bpmn:exclusiveGateway>    <bpmn:endEvent id=EndEvent_1 name=Customer takes computer home unrepaired>      <bpmn:incoming>Flow_5</bpmn:incoming>    </bpmn:endEvent>    <bpmn:task id=Task_3 name=Check and repair hardware>      <bpmn:incoming>Flow_4</bpmn:incoming>      <bpmn:incoming>Flow_13</bpmn:incoming>      <bpmn:outgoing>Flow_6</bpmn:outgoing>    </bpmn:task>    <bpmn:task id=Task_4 name=Check and configure software>      <bpmn:incoming>Flow_7</bpmn:incoming>      <bpmn:incoming>Flow_14</bpmn:incoming>      <bpmn:outgoing>Flow_8</bpmn:outgoing>    </bpmn:task>    <bpmn:task id=Task_5 name=Test system functionality>      <bpmn:incoming>Flow_6</bpmn:incoming>      <bpmn:incoming>Flow_8</bpmn:incoming>      <bpmn:outgoing>Flow_9</bpmn:outgoing>    </bpmn:task>    <bpmn:exclusiveGateway id=Gateway_2 name=Error detected?>      <bpmn:incoming>Flow_9</bpmn:incoming>      <bpmn:outgoing>Flow_10</bpmn:outgoing>      <bpmn:outgoing>Flow_11</bpmn:outgoing>    </bpmn:exclusiveGateway>    <bpmn:exclusiveGateway id=Gateway_3>      <bpmn:incoming>Flow_10</bpmn:incoming>      <bpmn:outgoing>Flow_13</bpmn:outgoing>      <bpmn:outgoing>Flow_14</bpmn:outgoing>    </bpmn:exclusiveGateway>    <bpmn:exclusiveGateway id=Gateway_4>      <bpmn:incoming>Flow_4</bpmn:incoming>      <bpmn:outgoing>Flow_7</bpmn:outgoing>      <bpmn:outgoing>Flow_12</bpmn:outgoing>    </bpmn:exclusiveGateway>    <bpmn:endEvent id=EndEvent_2 name=Repair finished>      <bpmn:incoming>Flow_11</bpmn:incoming>    </bpmn:endEvent>    <bpmn:sequenceFlow id=Flow_1 sourceRef=StartEvent_1 targetRef=Task_1 />    <bpmn:sequenceFlow id=Flow_2 sourceRef=Task_1 targetRef=Task_2 />    <bpmn:sequenceFlow id=Flow_3 sourceRef=Task_2 targetRef=Gateway_1 />    <bpmn:sequenceFlow id=Flow_4 name=Yes sourceRef=Gateway_1 targetRef=Gateway_4 />    <bpmn:sequenceFlow id=Flow_5 name=No sourceRef=Gateway_1 targetRef=EndEvent_1 />    <bpmn:sequenceFlow id=Flow_6 sourceRef=Task_3 targetRef=Task_5 />    <bpmn:sequenceFlow id=Flow_7 sourceRef=Gateway_4 targetRef=Task_4 />    <bpmn:sequenceFlow id=Flow_8 sourceRef=Task_4 targetRef=Task_5 />    <bpmn:sequenceFlow id=Flow_9 sourceRef=Task_5 targetRef=Gateway_2 />    <bpmn:sequenceFlow id=Flow_10 name=Yes sourceRef=Gateway_2 targetRef=Gateway_3 />    <bpmn:sequenceFlow id=Flow_11 name=No sourceRef=Gateway_2 targetRef=EndEvent_2 />    <bpmn:sequenceFlow id=Flow_12 sourceRef=Gateway_4 targetRef=Task_3 />    <bpmn:sequenceFlow id=Flow_13 sourceRef=Gateway_3 targetRef=Task_3 />    <bpmn:sequenceFlow id=Flow_14 sourceRef=Gateway_3 targetRef=Task_4 />  </bpmn:process>  <bpmndi:BPMNDiagram id=BPMNDiagram_1>    <bpmndi:BPMNPlane id=BPMNPlane_1 bpmnElement=Process_1>      <bpmndi:BPMNShape id=StartEvent_1_di bpmnElement=StartEvent_1>        <omgdc:Bounds x=180 y=160 width=36 height=36 />        <bpmndi:BPMNLabel>          <omgdc:Bounds x=160 y=203 width=76 height=40 />        </bpmndi:BPMNLabel>      </bpmndi:BPMNShape>      <bpmndi:BPMNShape id=Task_1_di bpmnElement=Task_1>        <omgdc:Bounds x=270 y=138 width=100 height=80 />      </bpmndi:BPMNShape>      <bpmndi:BPMNShape id=Task_2_di bpmnElement=Task_2>        <omgdc:Bounds x=420 y=138 width=100 height=80 />      </bpmndi:BPMNShape>      <bpmndi:BPMNShape id=Gateway_1_di bpmnElement=Gateway_1 isMarkerVisible=true>        <omgdc:Bounds x=570 y=153 width=50 height=50 />        <bpmndi:BPMNLabel>          <omgdc:Bounds x=552 y=123 width=86 height=14 />        </bpmndi:BPMNLabel>      </bpmndi:BPMNShape>      <bpmndi:BPMNShape id=EndEvent_1_di bpmnElement=EndEvent_1>        <omgdc:Bounds x=672 y=80 width=36 height=36 />        <bpmndi:BPMNLabel>          <omgdc:Bounds x=655 y=30 width=70 height=40 />        </bpmndi:BPMNLabel>      </bpmndi:BPMNShape>      <bpmndi:BPMNShape id=Gateway_4_di bpmnElement=Gateway_4 isMarkerVisible=true>        <omgdc:Bounds x=670 y=153 width=50 height=50 />      </bpmndi:BPMNShape>      <bpmndi:BPMNShape id=Task_3_di bpmnElement=Task_3>        <omgdc:Bounds x=770 y=138 width=100 height=80 />      </bpmndi:BPMNShape>      <bpmndi:BPMNShape id=Task_4_di bpmnElement=Task_4>        <omgdc:Bounds x=770 y=260 width=100 height=80 />      </bpmndi:BPMNShape>      <bpmndi:BPMNShape id=Task_5_di bpmnElement=Task_5>        <omgdc:Bounds x=920 y=138 width=100 height=80 />      </bpmndi:BPMNShape>      <bpmndi:BPMNShape id=Gateway_2_di bpmnElement=Gateway_2 isMarkerVisible=true>        <omgdc:Bounds x=1070 y=153 width=50 height=50 />        <bpmndi:BPMNLabel>          <omgdc:Bounds x=1052 y=123 width=86 height=14 />        </bpmndi:BPMNLabel>      </bpmndi:BPMNShape>      <bpmndi:BPMNShape id=Gateway_3_di bpmnElement=Gateway_3 isMarkerVisible=true>        <omgdc:Bounds x=1070 y=275 width=50 height=50 />      </bpmndi:BPMNShape>      <bpmndi:BPMNShape id=EndEvent_2_di bpmnElement=EndEvent_2>        <omgdc:Bounds x=1172 y=160 width=36 height=36 />        <bpmndi:BPMNLabel>          <omgdc:Bounds x=1152 y=203 width=76 height=14 />        </bpmndi:BPMNLabel>      </bpmndi:BPMNShape>      <bpmndi:BPMNEdge id=Flow_1_di bpmnElement=Flow_1>        <omgdi:waypoint x=216 y=178 />        <omgdi:waypoint x=270 y=178 />      </bpmndi:BPMNEdge>      <bpmndi:BPMNEdge id=Flow_2_di bpmnElement=Flow_2>        <omgdi:waypoint x=370 y=178 />        <omgdi:waypoint x=420 y=178 />      </bpmndi:BPMNEdge>      <bpmndi:BPMNEdge id=Flow_3_di bpmnElement=Flow_3>        <omgdi:waypoint x=520 y=178 />        <omgdi:waypoint x=570 y=178 />      </bpmndi:BPMNEdge>      <bpmndi:BPMNEdge id=Flow_4_di bpmnElement=Flow_4>        <omgdi:waypoint x=620 y=178 />        <omgdi:waypoint x=670 y=178 />        <bpmndi:BPMNLabel>          <omgdc:Bounds x=635 y=160 width=20 height=14 />        </bpmndi:BPMNLabel>      </bpmndi:BPMNEdge>      <bpmndi:BPMNEdge id=Flow_5_di bpmnElement=Flow_5>        <omgdi:waypoint x=595 y=153 />        <omgdi:waypoint x=595 y=98 />        <omgdi:waypoint x=672 y=98 />        <bpmndi:BPMNLabel>          <omgdc:Bounds x=603 y=123 width=15 height=14 />        </bpmndi:BPMNLabel>      </bpmndi:BPMNEdge>      <bpmndi:BPMNEdge id=Flow_12_di bpmnElement=Flow_12>        <omgdi:waypoint x=720 y=178 />        <omgdi:waypoint x=770 y=178 />      </bpmndi:BPMNEdge>      <bpmndi:BPMNEdge id=Flow_7_di bpmnElement=Flow_7>        <omgdi:waypoint x=695 y=203 />        <omgdi:waypoint x=695 y=300 />        <omgdi:waypoint x=770 y=300 />      </bpmndi:BPMNEdge>      <bpmndi:BPMNEdge id=Flow_6_di bpmnElement=Flow_6>        <omgdi:waypoint x=870 y=178 />        <omgdi:waypoint x=920 y=178 />      </bpmndi:BPMNEdge>      <bpmndi:BPMNEdge id=Flow_8_di bpmnElement=Flow_8>        <omgdi:waypoint x=870 y=300 />        <omgdi:waypoint x=970 y=300 />        <omgdi:waypoint x=970 y=218 />      </bpmndi:BPMNEdge>      <bpmndi:BPMNEdge id=Flow_9_di bpmnElement=Flow_9>        <omgdi:waypoint x=1020 y=178 />        <omgdi:waypoint x=1070 y=178 />      </bpmndi:BPMNEdge>      <bpmndi:BPMNEdge id=Flow_10_di bpmnElement=Flow_10>        <omgdi:waypoint x=1095 y=203 />        <omgdi:waypoint x=1095 y=275 />        <bpmndi:BPMNLabel>          <omgdc:Bounds x=1101 y=236 width=20 height=14 />        </bpmndi:BPMNLabel>      </bpmndi:BPMNEdge>      <bpmndi:BPMNEdge id=Flow_11_di bpmnElement=Flow_11>        <omgdi:waypoint x=1120 y=178 />        <omgdi:waypoint x=1172 y=178 />        <bpmndi:BPMNLabel>          <omgdc:Bounds x=1140 y=160 width=15 height=14 />        </bpmndi:BPMNLabel>      </bpmndi:BPMNEdge>      <bpmndi:BPMNEdge id=Flow_13_di bpmnElement=Flow_13>        <omgdi:waypoint x=1070 y=300 />        <omgdi:waypoint x=820 y=300 />        <omgdi:waypoint x=820 y=218 />      </bpmndi:BPMNEdge>      <bpmndi:BPMNEdge id=Flow_14_di bpmnElement=Flow_14>        <omgdi:waypoint x=1095 y=325 />        <omgdi:waypoint x=1095 y=400 />        <omgdi:waypoint x=820 y=400 />        <omgdi:waypoint x=820 y=340 />      </bpmndi:BPMNEdge>    </bpmndi:BPMNPlane>  </bpmndi:BPMNDiagram></bpmn:definitions>"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":16010,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"cache_creation":{"ephemeral_5m_input_tokens":0,"ephemeral_1h_input_tokens":0},"output_tokens":4341,"service_tier":"standard"},"tokens":{"input":16010,"output":4341,"cache_write":0,"cache_read":0},"prize":{"input":0.048029999999999996,"cacheRead":0,"cacheWrite":0,"cache":0,"output":0.06511499999999999,"total":0.113145},"timings":{"api-response":39209.83449999988}}`);
+
+    // JSON Rendern
+    const display = document.getElementById("json-display");
+    display.appendChild(createJsonTree(jsonData));
+
+    function createCollapsibleXmlViewer(xmlString) {
+        // Container für den kompletten Viewer
+        const container = document.createElement("div");
+        container.style.fontFamily = "monospace";
+        container.style.whiteSpace = "pre";
+        container.style.overflow = "auto";
+        container.style.paddingBottom = "20px";
+
+        // XML Zeilen trennen
+        const lines = xmlString.trim().split(/>\r?\n\W*</);
+        const stack = []; // Stack für verschachtelte Blöcke
+        let current = container;
+        let indentLevel = 0;
+
+        lines.forEach((line, index) => {
+            let trimmed = line.trim();
+            // Add back the angle brackets except for first and last items
+            if (index > 0) trimmed = '<' + trimmed;
+            if (index < lines.length - 1) trimmed = trimmed + '>';
+
+
+            const lineDiv = document.createElement("div");
+            lineDiv.style.display = "flex";
+            lineDiv.style.alignItems = "top";
+            lineDiv.style.paddingLeft = `${indentLevel * 20}px`;
+
+            // Öffnendes Tag (kein sofortiges schließendes Tag)
+            const openTagMatch = trimmed.match(/^<([^!>\/]+)([a-zA-Z0-9:_.="\/\-\n\r\t\s]+)([^!>\/]+)>(?!.*<\/\1>)$/);
+            // Schließendes Tag
+            const closeTagMatch = trimmed.match(/^<\/([a-zA-Z0-9:_\-\W]+)>$/);
+
+            if (openTagMatch) {
+                // Toggle span
+                const toggle = document.createElement("span");
+                toggle.textContent = "- ";
+                toggle.style.cursor = "pointer";
+                toggle.style.userSelect = "none";
+
+                const contentSpan = document.createElement("span");
+                contentSpan.textContent = trimmed;
+
+                // Innerer Block
+                const innerBlock = document.createElement("div");
+                innerBlock.style.display = "block";
+
+                toggle.onclick = () => {
+                    if (innerBlock.style.display === "none") {
+                        innerBlock.style.display = "block";
+                        toggle.textContent = "- ";
+                    } else {
+                        innerBlock.style.display = "none";
+                        toggle.textContent = "+ ";
+                    }
+                };
+
+                lineDiv.appendChild(toggle);
+                lineDiv.appendChild(contentSpan);
+                current.appendChild(lineDiv);
+                current.appendChild(innerBlock);
+
+                // Stack aktualisieren
+                stack.push({ container: current, indent: indentLevel });
+                current = innerBlock;
+                indentLevel += 1;
+
+            } else if (closeTagMatch) {
+                const spacer = document.createElement("span");
+                spacer.textContent = "  ";
+                const contentSpan = document.createElement("span");
+                contentSpan.textContent = trimmed;
+                lineDiv.appendChild(spacer);
+                lineDiv.appendChild(contentSpan);
+                lineDiv.style.paddingLeft = `${(indentLevel - 1) * 20}px`;
+                current.appendChild(lineDiv);
+
+                // Stack zurückpoppen
+                if (stack.length > 0) {
+                    const popped = stack.pop();
+                    current = popped.container;
+                    indentLevel = popped.indent;
+                }
+            } else {
+                // Text-Knoten oder Inline-Elemente
+                const spacer = document.createElement("span");
+                spacer.textContent = "  ";
+                const contentSpan = document.createElement("span");
+                contentSpan.textContent = trimmed;
+                lineDiv.appendChild(spacer);
+                lineDiv.appendChild(contentSpan);
+                lineDiv.style.paddingLeft = `${indentLevel * 20}px`;
+                current.appendChild(lineDiv);
+            }
+        });
+
+        return container;
+    }
+
+    // Beispiel: XML rendern
+    const displayXml = document.getElementById("xml-display");
+    displayXml.appendChild(createCollapsibleXmlViewer(bpmnXML));
+
+</script>
+
+
+</body></html>

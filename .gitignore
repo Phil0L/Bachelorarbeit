@@ -1,0 +1,15 @@
+/Code
+/.vscode
+**/**-blx.bib
+**/**.run.xml
+**/.vscode
+**/_minted-bachelorarbeit
+**/**.sty
+**/**.toc
+**/**.gitignore
+**/Code/**
+**/**.aux
+**/**.synctex.gz
+**/**.log
+**/**.fdb_latexmk
+.gitignore
